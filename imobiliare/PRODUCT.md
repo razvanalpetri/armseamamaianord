@@ -2,37 +2,39 @@
 
 ## Ce este
 
-Agenție imobiliară premium, full-service. Nu un dezvoltator, nu un portal de anunțuri.
-Intermediază: apartamente, vile, case, terenuri, chirii, și apartamente noi în ansambluri
-aflate în construcție.
+Agenție imobiliară premium, full-service, pe litoral. Nu un dezvoltator, nu un portal de
+anunțuri. Vânzări, închirieri, terenuri, evaluare, consultanță.
 
-Diferența față de un portal: portalul îți arată ce există acum. Alpetri lucrează și cu ce
-încă se toarnă. Asta e poziționarea, și de aici vine tot restul site-ului.
+**Site de prezentare, nu catalog.** Nu se listează proprietăți la vânzare. Site-ul vinde
+agenția, nu un imobil anume. Cine caută listinguri sună.
+
+Diferența față de un portal: portalul îți arată tot și te lasă să te descurci. Alpetri
+filtrează întâi și verifică actele înainte de vizionare, nu după. Asta e poziționarea, și
+de aici vine tot restul site-ului.
 
 ## Cine ajunge aici
 
 Trei oameni, în ordinea valorii:
 
-1. **Cumpărătorul de apartament nou.** Se uită la un ansamblu care nu e gata. Are o singură
-   întrebare reală: în ce stadiu e, de fapt, și când mă mut. Vrea dovadă, nu randare.
-2. **Investitorul.** Cumpără la stadiu de structură ca să vândă sau să închirieze la
-   recepție. Vrea cifre: preț pe metru, termen, randament estimat.
-3. **Vânzătorul / proprietarul.** Are ceva de vândut sau de închiriat și evaluează dacă
-   agenția e serioasă. Se uită la cum arată site-ul ca proxy pentru cum îi va fi tratată
-   proprietatea.
+1. **Vânzătorul / proprietarul.** Are o casă sau un teren de vândut și cântărește cui îl
+   dă. Se uită la cum arată site-ul ca proxy pentru cum îi va fi tratată proprietatea.
+   Este publicul principal al unui site de prezentare.
+2. **Cumpărătorul serios.** Nu caută să răsfoiască anunțuri, caută pe cineva care să
+   caute în locul lui. Vrea să vadă cum se lucrează, nu ce este în stoc azi.
+3. **Investitorul.** Vrea cifre: preț pe metru, randament, calendar de plăți.
 
 Toți trei se uită de pe telefon, majoritatea seara. Site-ul e proiectat întâi pentru asta.
 
 ## Momentul erou
 
-O singură propoziție: **camera stă fixă pe un lot, iar blocul crește din fundație până la
-fațadă finisată, apoi se lasă seara și se aprind luminile în apartamente.**
+O singură propoziție: **camera merge înainte de-a lungul piscinei, intră prin ușile
+glisante deschise și se oprește în living, cu marea dincolo de geam.**
 
-Nu e decor. E chiar argumentul de vânzare al agenției, spus fără cuvinte: noi lucrăm cu
-lucruri care se construiesc, și ți le arătăm în stadiul real, nu doar în randare.
+Un tur, nu o transformare. Nu explică nimic și nu vinde o proprietate anume: arată
+nivelul la care lucrează agenția și lasă privirea să se plimbe.
 
-Payoff-ul ales de client: la final camera intră în apartament, prin balcon. Se construiește
-ca un clip izolat, ca să poată fi tăiat fără să cadă restul secvenței.
+Videoul se vede **curat**, fără filtru de întunecare, cu foarte puțin text peste el.
+Aproape tot conținutul scris vine după ce turul s-a terminat de derulat.
 
 ## Tonul
 
@@ -41,7 +43,7 @@ copywriter de imobiliare.
 
 | nu așa | așa |
 |---|---|
-| „Casa visurilor tale te așteaptă" | „Structura e la etajul 6. Recepția, trimestrul 2." |
+| „Casa visurilor tale te așteaptă" | „Actele sunt curate. Intabularea, făcută în martie." |
 | „Locație premium, finisaje de lux" | „180 m de plajă. Travertin pe hol, tâmplărie aluminiu." |
 | „Soluții imobiliare integrate" | „Vindem, închiriem, evaluăm. Și mergem cu tine la notar." |
 
@@ -70,8 +72,8 @@ Ce NU este acest site:
 
 ## Principii strategice
 
-1. **Stadiul real bate randarea.** Oriunde există o alegere între o imagine perfectă și una
-   care arată unde e proiectul acum, câștigă a doua.
+1. **Site de prezentare.** Nicio proprietate listată, niciun preț, niciun filtru de
+   căutare. Dacă apare tentația unei grile de anunțuri, răspunsul e nu.
 2. **Un singur gest de conversie, prezent tot timpul.** Telefonul. Nu formular cu opt
    câmpuri.
 3. **Secțiunile grele de date arată ca o fișă de teren**, nu ca un dashboard. Cifre
@@ -79,7 +81,7 @@ Ce NU este acest site:
 4. **Nimic nu se centrează din reflex.** Stiva centrată iconiță-titlu-subtitlu este
    interzisă.
 5. Site-ul nu e avantajul competitiv. Poziționarea este. Dacă cineva îl citește 8 secunde
-   și nu a înțeles că lucrăm cu imobile în construcție, site-ul a eșuat.
+   și nu a înțeles că e o agenție care filtrează și verifică înainte, site-ul a eșuat.
 
 ## Relația cu repo-ul
 

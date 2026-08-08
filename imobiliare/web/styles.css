@@ -43,7 +43,7 @@
 
   --disp: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
 
-  --hero-vh: 640vh;          /* raport scroll:durata clip, se acordeaza la durata reala */
+  --hero-vh: 480vh;          /* 480vh pentru 15s, raportul din scroll-tech.md */
   --gut: clamp(20px, 5vw, 64px);
   --maxw: 1440px;
 }
@@ -113,19 +113,35 @@ h2.sec {
   display: flex; align-items: center; justify-content: space-between;
   gap: 16px;
   padding-inline: var(--gut); padding-block: 18px;
-  mix-blend-mode: difference;         /* marca ramane lizibila peste video si peste piatra */
+  /* mix-blend-mode: difference a fost scos. Functiona cat timp eroul era
+     intunecat; peste cerul palid al vilei da un maro spalacit si marca dispare.
+     Acum: alb cu umbra peste video, si fundal plin dupa ce se trece de erou. */
+  color: #fff;
+  transition: background-color .3s ease;
 }
+.hdr::before {                         /* banda de contrast doar sub header */
+  content: ""; position: absolute; inset-block-start: 0; inset-inline: 0; height: 96px;
+  background: linear-gradient(180deg, oklch(14% .02 258 / .58), oklch(14% .02 258 / 0));
+  pointer-events: none; z-index: -1;
+  transition: opacity .3s ease;
+}
+.hdr.solid { background: oklch(14% .02 258 / .94); }
+.hdr.solid::before { opacity: 0; }
 .mark {
   font-variation-settings: 'wdth' 125, 'wght' 800;
   text-transform: uppercase; letter-spacing: .06em;
   font-size: .82rem; color: #fff;
+  text-shadow: 0 1px 12px oklch(10% .02 258 / .7);
 }
 .mark span { font-variation-settings: 'wdth' 125, 'wght' 400; }
 .hdr-tel {
   font-variation-settings: 'wdth' 100, 'wght' 500;
   font-variant-numeric: tabular-nums;
   font-size: .82rem; letter-spacing: .04em; color: #fff;
+  text-shadow: 0 1px 12px oklch(10% .02 258 / .7);
 }
+.hdr.solid .mark, .hdr.solid .hdr-tel { text-shadow: none; }
+.hdr-tel:hover { color: var(--amber); }
 
 /* ---------- hero ---------- */
 .hero { height: var(--hero-vh); position: relative; }
@@ -137,31 +153,34 @@ h2.sec {
 .hero-sticky video {
   position: absolute; inset: 0;
   width: 100%; height: 100%; object-fit: cover;
-  filter: saturate(.92) brightness(.70);   /* imblanzeste imaginea, pasul 1 din 3 */
+  /* Fara filtru. Clientul a cerut explicit videoul curat, nu in ceata.
+     Contrastul pentru text se obtine local, doar in banda de jos unde sta
+     textul, nu prin intunecarea intregului cadru. */
 }
 .hero-scrim {
   position: absolute; inset: 0; z-index: 1;
   background: linear-gradient(180deg,
-    oklch(14% .02 258 / .70) 0%,  oklch(14% .02 258 / .40) 34%,
-    oklch(14% .02 258 / .82) 66%, oklch(14% .02 258 / .96) 100%);
+    oklch(14% .02 258 / .22) 0%,   oklch(14% .02 258 / .04) 14%,
+    oklch(14% .02 258 / 0)   34%,  oklch(14% .02 258 / 0)   52%,
+    oklch(14% .02 258 / .58) 78%,  oklch(14% .02 258 / .90) 100%);
 }
 .hero-content {
   position: absolute; z-index: 2;
-  inset-inline: 0; inset-block-start: clamp(88px, 13vh, 168px);
+  inset-inline: 0; inset-block-end: clamp(74px, 12vh, 128px);
   padding-inline: var(--gut);
   max-width: var(--maxw); margin-inline: auto;
   will-change: transform, opacity;
 }
 .hero h1 {
-  font-size: clamp(2.6rem, 1rem + 8.4vw, 9.5rem);
+  font-size: clamp(1.75rem, 1.05rem + 2.1vw, 3.1rem);
   color: #fff;
-  text-shadow: 0 2px 40px oklch(10% .02 258 / .85), 0 1px 4px oklch(10% .02 258 / .5);
-  max-width: 15ch;
+  text-shadow: 0 2px 28px oklch(10% .02 258 / .8), 0 1px 3px oklch(10% .02 258 / .55);
+  max-width: 18ch;
 }
 .hero h1 em { font-style: normal; color: var(--amber); }
 .hero-sub {
-  margin-block-start: clamp(18px, 3vh, 34px);
-  max-width: 46ch;
+  margin-block-start: clamp(10px, 1.6vh, 18px);
+  max-width: 48ch;
   color: oklch(92% .01 78 / .92);
   text-shadow: 0 1px 24px oklch(10% .02 258 / .8);
   font-size: clamp(.98rem, .93rem + .3vw, 1.2rem);
@@ -176,10 +195,10 @@ h2.sec {
   display: flex; align-items: flex-end; justify-content: space-between; gap: 20px;
 }
 .stage-now {
-  font-variation-settings: 'wdth' 112, 'wght' 700;
-  text-transform: uppercase; letter-spacing: .05em;
-  font-size: clamp(.72rem, .68rem + .2vw, .9rem);
-  color: var(--amber);
+  font-variation-settings: 'wdth' 100, 'wght' 500;
+  text-transform: uppercase; letter-spacing: .1em;
+  font-size: .7rem;
+  color: oklch(100% 0 0 / .62);
 }
 .stage-bar {
   flex: 1; max-width: 380px; height: 2px;
@@ -260,74 +279,29 @@ h2.sec {
 }
 .statement p em { font-style: normal; color: var(--amber); }
 
-/* ---------- portofoliu, lista cu imagine care urmareste cursorul ---------- */
-.folio { display: grid; grid-template-columns: 1fr; gap: clamp(24px, 4vw, 56px); }
-@media (min-width: 1000px) { .folio { grid-template-columns: 1.35fr .65fr; } }
-.folio-list { border-block-start: 1px solid var(--line); }
-.folio-item {
-  display: grid; grid-template-columns: auto 1fr auto; gap: 10px 18px; align-items: baseline;
-  padding-block: clamp(16px, 2.4vw, 30px);
+/* ---------- proces: o secventa reala, deci numerele inseamna ceva ---------- */
+.steps {
+  list-style: none; margin: 0; padding: 0;
+  border-block-start: 1px solid var(--line);
+}
+.step {
+  display: grid; grid-template-columns: auto 1fr; gap: 4px 22px;
+  padding-block: clamp(18px, 2.6vw, 34px);
   border-block-end: 1px solid var(--line);
-  transition: color .25s ease;
 }
-.folio-item:hover { color: var(--amber); }
-.folio-idx {
-  font-variant-numeric: tabular-nums; font-size: .74rem; letter-spacing: .06em;
-  color: var(--concrete-d); font-variation-settings: 'wdth' 100, 'wght' 500;
+@media (min-width: 800px) { .step { grid-template-columns: 4.5rem 1fr; gap: 4px 40px; } }
+.step-n {
+  font-variation-settings: 'wdth' 125, 'wght' 600;
+  font-size: clamp(.86rem, .8rem + .3vw, 1.05rem);
+  color: var(--amber); letter-spacing: .04em; line-height: 1.5;
 }
-.folio-name {
+.step h3 {
+  margin: 0 0 .35em;
   font-variation-settings: 'wdth' 112, 'wght' 660;
-  text-transform: uppercase; letter-spacing: .04em; line-height: 1.25;
-  font-size: clamp(1rem, .86rem + .7vw, 1.7rem);
+  text-transform: uppercase; letter-spacing: .045em; line-height: 1.25;
+  font-size: clamp(.95rem, .88rem + .35vw, 1.2rem);
 }
-.folio-name i { display: block; font-style: normal; letter-spacing: .01em;
-  font-variation-settings: 'wdth' 100, 'wght' 400; text-transform: none;
-  font-size: .74em; color: var(--concrete); margin-block-start: .25em; }
-.folio-meta {
-  text-align: end; font-variant-numeric: tabular-nums;
-  font-variation-settings: 'wdth' 100, 'wght' 500;
-  font-size: clamp(.86rem, .8rem + .3vw, 1.05rem); white-space: nowrap;
-}
-.folio-meta b { display: block; font-variation-settings: 'wdth' 100, 'wght' 600; }
-.folio-meta small { font-size: .68rem; letter-spacing: .07em; text-transform: uppercase; color: var(--concrete-d); }
-
-.hover-fig {
-  position: fixed; inset-block-start: 0; inset-inline-start: 0;
-  width: 280px; height: 340px; object-fit: cover; z-index: 40;
-  opacity: 0; visibility: hidden; pointer-events: none;
-  transition: opacity .3s ease; will-change: transform;
-}
-.hover-fig.active { opacity: 1; visibility: visible; }
-@media (max-width: 1000px) { .hover-fig { display: none; } }   /* nu exista cursor pe touch */
-
-.folio-aside p { color: var(--concrete); margin-block-start: 0; }
-
-/* ---------- before / after ---------- */
-.ba {
-  position: relative; aspect-ratio: 16 / 9; overflow: hidden;
-  cursor: ew-resize; touch-action: pan-y; user-select: none;
-}
-.ba img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.ba .aft { clip-path: inset(0 0 0 50%); }
-.ba-handle {
-  position: absolute; inset-block: 0; inset-inline-start: 50%; width: 2px;
-  background: var(--amber); z-index: 3; pointer-events: none;
-  transform: translateX(-1px);
-}
-.ba-handle::after {
-  content: ""; position: absolute; inset-block-start: 50%; inset-inline-start: 50%;
-  width: 46px; height: 46px; transform: translate(-50%, -50%);
-  border: 2px solid var(--amber); border-radius: 50%;
-  background: oklch(14% .02 258 / .35);
-}
-.ba-tag {
-  position: absolute; z-index: 4; inset-block-end: 14px;
-  font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
-  color: #fff; background: oklch(14% .02 258 / .6);
-  padding-inline: 10px; padding-block: 6px;
-}
-.ba-tag.l { inset-inline-start: 14px; }
-.ba-tag.r { inset-inline-end: 14px; }
+.step p { margin: 0; color: var(--concrete); max-width: 60ch; }
 
 /* ---------- servicii, lista simpla, fara grila de carduri ---------- */
 .svc { border-block-start: 1px solid var(--line); }

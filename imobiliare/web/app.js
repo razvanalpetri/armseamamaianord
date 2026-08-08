@@ -28,10 +28,8 @@ const stageNow = document.getElementById('stageNow');
 const stageBar = document.getElementById('stageBar');
 
 const STAGES = [
-  [0.00, 'Teren'],
-  [0.22, 'Structură'],
-  [0.48, 'Fațadă'],
-  [0.74, 'Recepție'],
+  [0.00, 'Tur'],
+  [0.55, 'Interior'],
 ];
 
 let ready = false, target = 0, cur = 0;
@@ -73,6 +71,16 @@ function heroTick() {
 addEventListener('scroll', heroTick, { passive: true });
 addEventListener('resize', heroTick);
 heroTick();
+
+/* ---------------- header: fundal plin dupa erou ---------------- */
+const hdr = document.querySelector('.hdr');
+function hdrTick() {
+  if (!hdr || !hero) return;
+  hdr.classList.toggle('solid', scrollY > hero.offsetHeight - innerHeight * 0.6);
+}
+addEventListener('scroll', hdrTick, { passive: true });
+addEventListener('resize', hdrTick);
+hdrTick();
 
 /* ---------------- reveal la scroll ----------------
    IntersectionObserver rateaza elemente la saltul programatic al ancorelor,
@@ -123,30 +131,6 @@ addEventListener('scroll', () => {
   requestAnimationFrame(mqLoop);
 })();
 
-/* ---------------- imaginea care urmareste cursorul peste lista ---------------- */
-const items = [...document.querySelectorAll('.folio-item')];
-const figs = [...document.querySelectorAll('.hover-fig')];
-const list = document.getElementById('folioList');
-let mx = 0, my = 0, fx = 0, fy = 0, on = false;
-
-items.forEach(it => it.addEventListener('mouseenter', () => {
-  figs.forEach(f => f.classList.remove('active'));
-  const f = figs[+it.dataset.img];
-  if (f) { f.classList.add('active'); on = true; }
-}));
-list?.addEventListener('mouseleave', () => { figs.forEach(f => f.classList.remove('active')); on = false; });
-addEventListener('mousemove', e => {
-  mx = e.clientX; my = e.clientY;
-  if (!on) { fx = mx; fy = my; }   // altfel imaginea zboara din ultima pozitie cand reapare
-}, { passive: true });
-
-(function figLoop() {
-  fx += (mx - fx) * 0.12; fy += (my - fy) * 0.12;
-  const t = `translate3d(${(fx - 140).toFixed(1)}px,${(fy - 170).toFixed(1)}px,0)`;
-  for (const f of figs) if (f.classList.contains('active')) f.style.transform = t;
-  requestAnimationFrame(figLoop);
-})();
-
 /* ---------------- parallax pe statement ---------------- */
 const stBg = document.getElementById('stBg');
 if (stBg) {
@@ -157,36 +141,6 @@ if (stBg) {
     const p = (innerHeight - r.top) / (innerHeight + r.height);
     stBg.style.transform = `translateY(${((p - 0.5) * 16).toFixed(2)}%)`;
   }, { passive: true });
-}
-
-/* ---------------- before / after ---------------- */
-const box = document.getElementById('ba');
-if (box) {
-  const aft = box.querySelector('.aft');
-  const handle = document.getElementById('baHandle');
-  let drag = false;
-
-  const set = x => {
-    const r = box.getBoundingClientRect();
-    const p = Math.max(0, Math.min(1, (x - r.left) / r.width));
-    aft.style.clipPath = `inset(0 0 0 ${p * 100}%)`;
-    handle.style.insetInlineStart = `${p * 100}%`;
-  };
-
-  box.addEventListener('mousedown', e => { drag = true; set(e.clientX); });
-  box.addEventListener('touchstart', e => { drag = true; set(e.touches[0].clientX); }, { passive: true });
-  addEventListener('mousemove', e => { if (drag) set(e.clientX); });
-  addEventListener('touchmove', e => {
-    if (drag) { e.preventDefault(); set(e.touches[0].clientX); }
-  }, { passive: false });
-  addEventListener('mouseup', () => { drag = false; });
-  addEventListener('touchend', () => { drag = false; });
-
-  // urmarirea fara drag doar unde exista hover real, altfel touch-ul primeste
-  // evenimente de mouse sintetice si bara sare aiurea
-  box.addEventListener('mousemove', e => {
-    if (!drag && matchMedia('(hover:hover)').matches) set(e.clientX);
-  });
 }
 
 /* ---------------- ancore ---------------- */

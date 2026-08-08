@@ -97,20 +97,29 @@ Inter, DM Sans/Serif, Fraunces, Syne, Space Grotesk, Outfit, Plus Jakarta Sans.
 
 ## Text peste imagine sau video
 
-Alb peste fotografie eșuează mai des decât reușește. Se aplică toate trei, nu unul:
+**Eroul se vede curat.** Clientul a cerut explicit videoul fără ceață, cu foarte puțin
+text peste el. Asta răstoarnă rețeta obișnuită, care întunecă tot cadrul ca să susțină
+un titlu mare. Aici titlul se micșorează și coboară, iar contrastul se obține **local**,
+doar în banda de jos unde stă textul.
 
 ```css
-.bg    { filter: saturate(.92) brightness(.70); }
-.band::before {
-  content: ""; position: absolute; inset: 0; z-index: 1;
+.hero-sticky video { /* niciun filtru: fără brightness, fără desaturare */ }
+.hero-scrim {
   background: linear-gradient(180deg,
-    oklch(14% .02 258 / .70) 0%,  oklch(14% .02 258 / .55) 32%,
-    oklch(14% .02 258 / .86) 64%, oklch(14% .02 258 / .96) 100%);
+    oklch(14% .02 258 / .42) 0%,   oklch(14% .02 258 / .10) 14%,
+    oklch(14% .02 258 / 0)   34%,  oklch(14% .02 258 / 0)   52%,
+    oklch(14% .02 258 / .58) 78%,  oklch(14% .02 258 / .90) 100%);
 }
-.title { text-shadow: 0 2px 40px oklch(10% .02 258 / .85), 0 1px 4px oklch(10% .02 258 / .5); }
+.hero h1 { font-size: clamp(1.75rem, 1.05rem + 2.1vw, 3.1rem); }
 ```
 
-Cadrele erou se generează cu **spațiu negativ sus**, ca titlul să aibă unde sta.
+Mijlocul cadrului, între 34% și 52%, rămâne complet transparent. Banda de sus e doar
+cât să țină marca lizibilă.
+
+Pentru imaginile **statice** de fundal, unde textul e mare, regula veche rămâne
+valabilă: se aplică toate trei, filtru pe imagine, scrim real și umbră pe titlu.
+
+Cadrele erou se generează cu **spațiu negativ** acolo unde va sta textul.
 
 ## Layout
 
@@ -136,11 +145,20 @@ Cadrele erou se generează cu **spațiu negativ sus**, ca titlul să aibă unde 
 
 ## Erou, constrângeri tehnice
 
-- Camera **fixă** pe toată secvența de transformare. Se schimbă clădirea, nimic altceva.
-  Cameră care se mișcă plus subiect care se schimbă consumă tot bugetul de schimbare.
-- Buget de schimbare 15 la 25% pe clip de 5s. Peste 40% apare smearing.
-- Clipul final, intrarea în apartament, e **izolat**. Dacă morphează, se taie și secvența
-  rămâne validă fără el.
+Rețeta este **turul filmat** (walk-in tour), nu transformarea pe stadii. Subiectul este o
+vilă mediteraneană de lux cu piscină, nu un bloc în construcție.
+
+- Fiecare clip este **o singură mișcare continuă de cameră**. Scena stă pe loc; se mișcă
+  doar aparatul. Asta e inversul secvenței de transformare, unde camera stătea și se
+  schimba subiectul. Nu se amestecă cele două în același clip.
+- **Cadrul de start al fiecărui clip se extrage din randarea clipului precedent**
+  (`ffmpeg -sseof -0.25`, cu `format=yuvj420p`), niciodată din același still. Dacă
+  ambele clipuri primesc aceeași imagine de referință, al doilea pornește ușor deplasat
+  și cusătura se vede.
+- Nu se folosește `end_image` pentru mișcări de cameră. Un cadru final impus dă modelului
+  o țintă de reconciliat și strică mișcarea; linia CAMERA face treaba mai bine singură.
+- Limbaj de cameră: distanță plus durată, „horizon locked, constant speed". Cuvintele
+  cinematic, smooth, gently, sweeping produc plutire onirică și sunt interzise.
 - Encodare pentru scrub: fiecare cadru keyframe, 30fps, `+faststart`. Fișierele
   all-keyframe sunt mari, dimensiunea se spune cu voce tare înainte de livrare.
 - Serverul TREBUIE să suporte HTTP Range. Fără Range, `currentTime` nu face nimic și nu
