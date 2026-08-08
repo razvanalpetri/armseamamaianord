@@ -1,0 +1,9 @@
+{
+  "format": "16:9 horizontal, single still image, 2048 resolution, first frame of a locked-camera construction transformation sequence",
+  "subject": "a residential construction site at an early stage: poured reinforced concrete foundation slab and footings of a single mid-rise apartment building, exposed rebar starters rising about one metre from the slab, formwork panels stacked at the left edge, one yellow tower crane standing directly over the slab, a second yellow tower crane further back on the right over a separate half-built block of the same development",
+  "environment": "flat cleared urban lot, compacted earth and gravel, site fence with green mesh along the bottom edge, a low horizon of distant low-rise buildings and a few trees, wide open sky filling the upper half of the frame",
+  "lighting": "blue hour just after sunset, soft even ambient light, no direct sun, a few cool white site floodlights on tripods, deep blue sky grading slightly warmer near the horizon",
+  "camera": "24mm wide, fixed tripod, eye level, three-quarter angle onto the slab from the front left, building footprint occupying the lower centre, the entire upper 45 percent of the frame is clean empty sky reserved for a headline",
+  "color_grading": "cool blue ambient, warm grey concrete, desaturated overall, no teal-orange grade",
+  "negative_prompt": "finished building, walls, windows, facade, people, workers, vehicles, text, watermark, logo, sunset colours, golden hour, harsh sun, lens flare, tilt, rotation, vertical orientation, square crop, cluttered sky"
+}

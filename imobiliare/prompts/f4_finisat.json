@@ -1,0 +1,19 @@
+{
+  "task": "complete the building in this photograph: finish the facade on the remaining upper floors, remove the scaffolding and netting, and switch on the lights in about half of the apartments, keeping the scene, camera and lighting identical",
+  "source": "provided photograph: a residential building under construction at blue hour, lower four floors already finished with warm off-white render and dark anthracite window frames, upper floors raw concrete wrapped in grey scaffolding netting, one tower crane over the building, a second tower crane on the right, green mesh site fence, stacked formwork on the left",
+  "instruction": "keep the camera angle, perspective, crop, aspect ratio, horizon line, sky, both tower cranes in their exact positions, the site fence, the stacked formwork, the site floodlights, the ground and the background buildings EXACTLY as they are. Only the building itself changes: every floor now has the same finished facade as the lower floors, warm off-white render with dark anthracite aluminium window frames and glazed balconies with glass balustrades, the scaffolding and all netting are gone, and warm amber interior light glows from roughly half of the windows, scattered irregularly across floors, the other windows dark",
+  "must_preserve_exactly": [
+    "camera angle, perspective, crop and aspect ratio",
+    "position and shape of both tower cranes",
+    "the green mesh site fence along the bottom and right",
+    "the horizon line and all background buildings and trees",
+    "the blue hour sky and its gradients, and the clean empty sky area for a headline",
+    "the site floodlights and their positions",
+    "the stacked formwork panels on the left",
+    "the bare earth and gravel ground exactly as it is",
+    "the exact footprint, height, width and position of the building"
+  ],
+  "new_lighting": "unchanged blue hour ambient, plus warm amber light spilling from the lit apartment windows and soft warm reflections of that light on the nearby balcony glass",
+  "quality_bar": "photographic, like the same tripod shot on the evening the building was handed over. The lit windows must look like real interior light, warm and slightly uneven, not a uniform glowing overlay. 2048 resolution",
+  "negative_prompt": "changed camera angle, changed crop, zoom, moved building, taller building, different sky, daylight, golden hour, moved cranes, missing cranes, people, cars, text, watermark, logo, uniform glow, neon, blue interior light, every window lit, landscaping, grass, trees in the foreground, paved plaza, square crop, vertical orientation"
+}

@@ -1,0 +1,17 @@
+{
+  "task": "advance the construction stage in this photograph: raise a reinforced concrete frame of four completed floors on the existing foundation slab, keeping the scene, camera and lighting identical",
+  "source": "provided photograph: a residential construction site at blue hour, poured concrete foundation slab with rebar starters, one tower crane over the slab, a second tower crane on the right over a half-built block, green mesh site fence, stacked formwork on the left",
+  "instruction": "keep the camera angle, perspective, crop, aspect ratio, horizon line, sky, both tower cranes in their exact positions, the site fence, the stacked formwork and the background buildings EXACTLY as they are. Only the building on the foundation slab changes: it now has four finished reinforced concrete floors, flat slabs and square columns, open floor edges with no walls or windows yet, red and blue safety netting on two edges of the top slab, rebar starters continuing up from the top floor",
+  "must_preserve_exactly": [
+    "camera angle, perspective, crop and aspect ratio",
+    "position and shape of both tower cranes",
+    "the green mesh site fence along the bottom and right",
+    "the horizon line and all background buildings and trees",
+    "the blue hour sky and all its gradients, and the clean empty sky in the upper 45 percent of the frame",
+    "the site floodlights and their positions",
+    "the stacked formwork panels on the left"
+  ],
+  "new_content": "four storeys of raw reinforced concrete frame standing on the original slab footprint, grey concrete columns and flat floor slabs, completely open sides, no facade, no glazing, no render",
+  "quality_bar": "photographic, like the same tripod shot taken eight months later at the same hour. 2048 resolution, sharp concrete texture",
+  "negative_prompt": "finished facade, windows, glazing, render, paint, balconies, people, workers, text, watermark, logo, changed camera angle, changed crop, zoom, different sky, golden hour, sunrise, daylight, moved cranes, missing cranes, square crop, vertical orientation"
+}

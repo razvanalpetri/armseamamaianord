@@ -1,0 +1,17 @@
+{
+  "task": "advance the construction stage in this photograph: raise the concrete frame to its full height of nine storeys and install facade and glazing on the lower four floors only, keeping the scene, camera and lighting identical",
+  "source": "provided photograph: a residential construction site at blue hour, a three storey open reinforced concrete frame on a foundation slab, one tower crane over the building, a second tower crane on the right, green mesh site fence, stacked formwork on the left",
+  "instruction": "keep the camera angle, perspective, crop, aspect ratio, horizon line, sky, both tower cranes in their exact positions, the site fence, the stacked formwork, the site floodlights and the background buildings EXACTLY as they are. Only the building changes: the concrete frame now rises nine storeys on the same footprint, the lower four floors already have their finished facade with warm off-white render, dark anthracite aluminium window frames and glazed balconies, while floors five to nine are still raw open concrete frame wrapped in translucent grey scaffolding netting, with a band of scaffolding standing against the left face of the building from the ground up",
+  "must_preserve_exactly": [
+    "camera angle, perspective, crop and aspect ratio",
+    "position and shape of both tower cranes",
+    "the green mesh site fence along the bottom and right",
+    "the horizon line and all background buildings and trees",
+    "the blue hour sky and its gradients, and the clean empty sky area for a headline",
+    "the site floodlights and their positions",
+    "the stacked formwork panels on the left",
+    "the footprint and position of the building on the slab"
+  ],
+  "quality_bar": "photographic, like the same tripod shot taken a year later at the same hour, the building must sit on exactly the same footprint and grow only upward. 2048 resolution",
+  "negative_prompt": "fully finished building, all floors glazed, lit windows, people, workers, text, watermark, logo, changed camera angle, changed crop, zoom, different sky, golden hour, daylight, moved cranes, missing cranes, building moved sideways, square crop, vertical orientation"
+}

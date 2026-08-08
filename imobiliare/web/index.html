@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alpetri Real Estate | Apartamente, vile, case, terenuri și chirii</title>
+<meta name="description" content="Agenție imobiliară premium. Apartamente, vile, case, terenuri și chirii, inclusiv în ansambluri aflate încă în construcție. Vă spunem în ce stadiu e, cu cifre.">
+<meta name="theme-color" content="#0b1020">
+<link rel="preload" href="fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/archivo-latinext.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="hdr">
+  <a class="mark" href="#top">Alpetri <span>Real Estate</span></a>
+  <a class="hdr-tel" href="tel:+40722000000">0722 000 000</a>
+</header>
+
+<!-- ============ HERO, scrub la scroll ============ -->
+<section class="hero" id="top">
+  <div class="hero-sticky">
+    <!-- H.264/MP4, all-keyframe. VP9 a fost incercat si masurat: pe continutul
+         asta (beton, plasa de schela, pietris) iese de aproape 3x mai mare la
+         calitate egala, deci nu isi merita locul ca sursa secundara. -->
+    <video id="heroVideo" muted playsinline preload="auto" poster="media/poster.jpg">
+      <source id="srcMp4" src="media/hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero-scrim"></div>
+
+    <div class="hero-content" id="heroContent">
+      <h1 class="display">De la placă la <em>cheie</em></h1>
+      <p class="hero-sub">Apartamente, vile, case, terenuri și chirii. Inclusiv în ansambluri
+        care încă se construiesc, unde contează să știți exact în ce stadiu sunt.</p>
+    </div>
+
+    <div class="stage">
+      <div class="stage-now" id="stageNow">Teren</div>
+      <div class="stage-bar"><i id="stageBar"></i></div>
+      <div class="stage-hint">Derulați</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ marquee ============ -->
+<div class="marquee-band">
+  <div class="marquee" id="mq1">
+    <span>Apartamente · Vile · Case · Terenuri · Chirii · <b>Ansambluri noi</b> · </span>
+    <span>Apartamente · Vile · Case · Terenuri · Chirii · <b>Ansambluri noi</b> · </span>
+  </div>
+</div>
+
+<!-- ============ story ============ -->
+<section class="band wrap" id="agentie">
+  <div class="story">
+    <div class="fade">
+      <h2 class="sec">Vindem și ce<br>nu s-a turnat încă</h2>
+    </div>
+    <div class="story-body fade">
+      <p>Un portal de anunțuri vă arată ce există astăzi. Noi lucrăm și cu ce este încă
+        pe planșă, în cofraj sau la stadiul de structură, pentru că acolo se face
+        diferența de preț.</p>
+      <p>Asta înseamnă o obligație în plus: <strong>să vă spunem stadiul real, nu randarea
+        dezvoltatorului.</strong> Mergem pe șantier, fotografiem, verificăm autorizația și
+        termenul, și vă punem cifrele în față înainte să semnați ceva.</p>
+      <p>Restul e meseria clasică de agenție, făcută ca lumea: vânzări, închirieri,
+        terenuri, evaluare, acte și drumul la notar.</p>
+
+      <dl class="field" style="margin-block-start:clamp(28px,4vw,48px)">
+        <div class="field-row"><dt>Proiecte în portofoliu</dt><dd class="num">24</dd></div>
+        <div class="field-row"><dt>Tranzacții încheiate anul trecut</dt><dd class="num">137</dd></div>
+        <div class="field-row"><dt>Vechime pe piață</dt><dd class="num">11 <small>ani</small></dd></div>
+        <div class="field-row"><dt>De la prima discuție la ofertă scrisă</dt><dd class="num">6 <small>zile în medie</small></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============ statement, parallax ============ -->
+<section class="statement">
+  <div class="statement-bg" id="stBg"><img src="media/statement.jpg" alt="Bloc rezidențial finisat, seara, cu lumini aprinse în apartamente"></div>
+  <div class="statement-in">
+    <p class="fade">Se cumpără <em>înainte</em> să existe.<br>Noi vă spunem în ce stadiu e.</p>
+  </div>
+</section>
+
+<!-- ============ portofoliu ============ -->
+<section class="band wrap" id="portofoliu">
+  <div class="fade"><h2 class="sec">Portofoliu</h2></div>
+  <div class="folio">
+    <div class="folio-list" id="folioList">
+      <a class="folio-item fade" href="#contact" data-img="0">
+        <span class="folio-idx num">01</span>
+        <span class="folio-name">Solaris Residence<i>Ansamblu nou, 7 etaje, 64 de apartamente</i></span>
+        <span class="folio-meta num"><b>de la 78.400 €</b><small>stadiu: fațadă</small></span>
+      </a>
+      <a class="folio-item fade" href="#contact" data-img="1">
+        <span class="folio-idx num">02</span>
+        <span class="folio-name">Vila Meridian<i>Vilă individuală, 210 m², teren 480 m²</i></span>
+        <span class="folio-meta num"><b>289.000 €</b><small>stadiu: finalizat</small></span>
+      </a>
+      <a class="folio-item fade" href="#contact" data-img="2">
+        <span class="folio-idx num">03</span>
+        <span class="folio-name">Lot cadastral 44/B<i>Teren intravilan, 620 m², utilități la stradă</i></span>
+        <span class="folio-meta num"><b>66.000 €</b><small>stadiu: liber</small></span>
+      </a>
+      <a class="folio-item fade" href="#contact" data-img="3">
+        <span class="folio-idx num">04</span>
+        <span class="folio-name">Coral Park<i>Ansamblu nou, 5 etaje, recepție trimestrul 2</i></span>
+        <span class="folio-meta num"><b>de la 112.000 €</b><small>stadiu: structură</small></span>
+      </a>
+      <a class="folio-item fade" href="#contact" data-img="4">
+        <span class="folio-idx num">05</span>
+        <span class="folio-name">Apartament Orion<i>Închiriere, 2 camere, mobilat complet</i></span>
+        <span class="folio-meta num"><b>520 €/lună</b><small>stadiu: disponibil</small></span>
+      </a>
+    </div>
+    <aside class="folio-aside fade">
+      <p>Lista se schimbă săptămânal. Dacă nu găsiți aici ce vă trebuie, spuneți-ne
+        criteriile și căutăm noi, inclusiv în stocuri care nu sunt publicate nicăieri.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- imaginile care urmăresc cursorul peste listă -->
+<img class="hover-fig" src="media/folio-1.jpg" alt="">
+<img class="hover-fig" src="media/folio-2.jpg" alt="">
+<img class="hover-fig" src="media/folio-3.jpg" alt="">
+<img class="hover-fig" src="media/folio-4.jpg" alt="">
+<img class="hover-fig" src="media/folio-5.jpg" alt="">
+
+<!-- ============ before / after ============ -->
+<section class="band wrap" id="stadiu">
+  <div class="fade">
+    <h2 class="sec">Același bloc,<br>la nouă luni distanță</h2>
+    <p class="lede" style="margin-block-end:clamp(28px,4vw,48px)">Trageți de bară. Stânga este stadiul
+      în care se vindea, dreapta este ziua recepției. Aceeași poziție de aparat, aceeași oră.</p>
+  </div>
+  <div class="ba fade" id="ba">
+    <img class="bef" src="media/ba-before.jpg" alt="Blocul la stadiul de structură de beton">
+    <img class="aft" src="media/ba-after.jpg" alt="Același bloc finisat, cu luminile aprinse">
+    <span class="ba-handle" id="baHandle"></span>
+    <span class="ba-tag l">Structură</span>
+    <span class="ba-tag r">Recepție</span>
+  </div>
+</section>
+
+<!-- ============ servicii ============ -->
+<section class="band wrap" id="servicii">
+  <div class="fade"><h2 class="sec">Ce facem</h2></div>
+  <div class="svc">
+    <div class="svc-row fade"><h3>Vânzări</h3>
+      <p>Apartamente, case și vile, din stoc nou sau de la proprietari. Verificăm actele
+        înainte să vă ducem la vizionare, nu după.</p></div>
+    <div class="svc-row fade"><h3>Ansambluri noi</h3>
+      <p>Lucrăm direct cu dezvoltatorii. Vă arătăm stadiul pe teren, autorizația, termenul
+        contractual și ce se întâmplă dacă termenul nu e respectat.</p></div>
+    <div class="svc-row fade"><h3>Închirieri</h3>
+      <p>Pe termen lung și sezonier. Contract, inventar, predare pe proces verbal.</p></div>
+    <div class="svc-row fade"><h3>Terenuri</h3>
+      <p>Intravilan și extravilan, cu verificare de PUG, utilități și acces. Vă spunem ce
+        se poate construi acolo înainte să cumpărați.</p></div>
+    <div class="svc-row fade"><h3>Evaluare și acte</h3>
+      <p>Evaluare de piață, dosar de credit, intabulare, programare la notar. Mergem cu
+        dumneavoastră.</p></div>
+    <div class="svc-row fade"><h3>Consultanță pentru investiții</h3>
+      <p>Randament estimat pe chirie, cost total de achiziție, calendar de plăți pe stadii.
+        Cifre, nu entuziasm.</p></div>
+  </div>
+</section>
+
+<!-- ============ marquee 2 ============ -->
+<div class="marquee-band">
+  <div class="marquee reverse" id="mq2">
+    <span>Sunați · <b>0722 000 000</b> · Vă răspundem în aceeași zi · </span>
+    <span>Sunați · <b>0722 000 000</b> · Vă răspundem în aceeași zi · </span>
+  </div>
+</div>
+
+<!-- ============ conversie ============ -->
+<section class="convert band" id="contact">
+  <div class="wrap">
+    <div class="fade">
+      <h2 class="sec">Spuneți-ne ce căutați</h2>
+      <p class="lede">Un telefon de trei minute ne ajută mai mult decât un formular cu
+        opt câmpuri. Ziceți bugetul, zona și termenul, restul aflăm noi.</p>
+      <a class="tel-big" href="tel:+40722000000">0722 000 000</a>
+    </div>
+
+    <div class="convert-grid fade">
+      <dl>
+        <div><dt>Luni până vineri</dt><dd class="num">09:00 – 19:00</dd></div>
+        <div><dt>Sâmbătă</dt><dd class="num">10:00 – 14:00</dd></div>
+        <div><dt>Duminică</dt><dd>Doar programări</dd></div>
+      </dl>
+      <dl>
+        <div><dt>Email</dt><dd>contact@alpetri.ro</dd></div>
+        <div><dt>Vizionări</dt><dd>Și după program</dd></div>
+      </dl>
+      <dl>
+        <div><dt>Birou</dt><dd>Strada Exemplu 12</dd></div>
+        <div><dt>Oraș</dt><dd>Constanța</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============ footer ============ -->
+<footer class="ftr band-tight">
+  <div class="wrap">
+    <div class="ftr-grid">
+      <div>
+        <a class="mark" href="#top" style="mix-blend-mode:normal;color:var(--limestone)">Alpetri <span>Real Estate</span></a>
+        <p style="color:var(--concrete);max-width:34ch;margin-block-start:14px">
+          Agenție imobiliară. Vânzări, închirieri, terenuri și ansambluri noi.</p>
+      </div>
+      <div>
+        <h4>Pagini</h4>
+        <ul>
+          <li><a href="#agentie">Agenția</a></li>
+          <li><a href="#portofoliu">Portofoliu</a></li>
+          <li><a href="#stadiu">Stadiu șantier</a></li>
+          <li><a href="#servicii">Ce facem</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+40722000000">0722 000 000</a></li>
+          <li><a href="mailto:contact@alpetri.ro">contact@alpetri.ro</a></li>
+          <li>Strada Exemplu 12, Constanța</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-legal">
+      <span>© <span class="num">2026</span> Alpetri Real Estate</span>
+      <span>Imaginile ansamblurilor sunt generate și au caracter ilustrativ</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
