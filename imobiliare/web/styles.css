@@ -1,0 +1,395 @@
+/* Alpetri Real Estate
+   Paleta si tipografia sunt fixate in DESIGN.md. Daca fisierul asta contrazice
+   DESIGN.md, fisierul asta greseste. */
+
+/* ---------- fonturi, self-hosted, nu Google Fonts la runtime ---------- */
+/* Doua fisiere, cu unicode-range, exact cum le serveste Google. Fisierul
+   latin-ext e cel care duce a, i, s, t cu diacritice romanesti, inclusiv
+   U+0219 si U+021B (virgula dedesubt, nu sedila). */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  src: url('fonts/archivo-latinext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  src: url('fonts/archivo-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ---------- tokens ---------- */
+:root {
+  --ink:        oklch(14% 0.020 258);
+  --ink-2:      oklch(19% 0.022 258);
+  --concrete:   oklch(62% 0.012 72);
+  --concrete-d: oklch(44% 0.014 72);
+  --limestone:  oklch(94% 0.012 78);
+  --amber:      oklch(78% 0.155 68);
+  --amber-hi:   oklch(86% 0.130 72);
+  --line:       oklch(32% 0.014 258);
+  --line-lt:    oklch(86% 0.012 78);
+
+  --disp: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+
+  --hero-vh: 640vh;          /* raport scroll:durata clip, se acordeaza la durata reala */
+  --gut: clamp(20px, 5vw, 64px);
+  --maxw: 1440px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--limestone);
+  font-family: var(--disp);
+  font-variation-settings: 'wdth' 100, 'wght' 400;
+  font-size: clamp(1rem, 0.94rem + 0.3vw, 1.125rem);
+  line-height: 1.55;
+  overflow-x: hidden;          /* plasa de siguranta, nu inlocuieste verificarea la 390px */
+}
+
+img, video { display: block; max-width: 100%; }
+
+a { color: inherit; text-decoration: none; }
+
+::selection { background: var(--amber); color: var(--ink); }
+
+/* Proprietati logice peste tot. Shorthand-ul `padding` intr-o regula ulterioara
+   omoara padding-ul orizontal al containerului si tot continutul ajunge lipit
+   de marginea ferestrei. */
+.wrap {
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: var(--gut);
+}
+.band { padding-block: clamp(72px, 11vw, 168px); }
+.band-tight { padding-block: clamp(48px, 7vw, 104px); }
+
+/* ---------- tipografie ---------- */
+.display {
+  font-variation-settings: 'wdth' 125, 'wght' 780;
+  text-transform: uppercase;
+  letter-spacing: .005em;
+  /* 1.0, nu .92: in romana S si T au virgula dedesubt, care coboara sub linia
+     de baza. Sub 1.0 virgula ramane orfana intre randuri si se citeste ca un
+     apostrof pus gresit. Valoarea asta e specifica limbii, nu familiei. */
+  line-height: 1.0;
+  margin: 0;
+}
+h2.sec {
+  font-variation-settings: 'wdth' 112, 'wght' 640;
+  font-size: clamp(1.9rem, 1.1rem + 3.2vw, 4.2rem);
+  letter-spacing: .01em;
+  line-height: 1.02;
+  margin: 0 0 .6em;
+  text-wrap: balance;
+}
+.lede {
+  font-variation-settings: 'wdth' 100, 'wght' 400;
+  font-size: clamp(1.05rem, 0.98rem + 0.5vw, 1.35rem);
+  color: var(--concrete);
+  max-width: 62ch;
+}
+.num { font-variation-settings: 'wdth' 100, 'wght' 500; font-variant-numeric: tabular-nums; }
+
+/* ---------- header ---------- */
+.hdr {
+  position: fixed; inset-block-start: 0; inset-inline: 0; z-index: 60;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px;
+  padding-inline: var(--gut); padding-block: 18px;
+  mix-blend-mode: difference;         /* marca ramane lizibila peste video si peste piatra */
+}
+.mark {
+  font-variation-settings: 'wdth' 125, 'wght' 800;
+  text-transform: uppercase; letter-spacing: .06em;
+  font-size: .82rem; color: #fff;
+}
+.mark span { font-variation-settings: 'wdth' 125, 'wght' 400; }
+.hdr-tel {
+  font-variation-settings: 'wdth' 100, 'wght' 500;
+  font-variant-numeric: tabular-nums;
+  font-size: .82rem; letter-spacing: .04em; color: #fff;
+}
+
+/* ---------- hero ---------- */
+.hero { height: var(--hero-vh); position: relative; }
+.hero-sticky {
+  position: sticky; inset-block-start: 0;
+  height: 100svh;                      /* svh, altfel bara browserului de pe telefon face salt */
+  overflow: hidden;
+}
+.hero-sticky video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  filter: saturate(.92) brightness(.70);   /* imblanzeste imaginea, pasul 1 din 3 */
+}
+.hero-scrim {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(180deg,
+    oklch(14% .02 258 / .70) 0%,  oklch(14% .02 258 / .40) 34%,
+    oklch(14% .02 258 / .82) 66%, oklch(14% .02 258 / .96) 100%);
+}
+.hero-content {
+  position: absolute; z-index: 2;
+  inset-inline: 0; inset-block-start: clamp(88px, 13vh, 168px);
+  padding-inline: var(--gut);
+  max-width: var(--maxw); margin-inline: auto;
+  will-change: transform, opacity;
+}
+.hero h1 {
+  font-size: clamp(2.6rem, 1rem + 8.4vw, 9.5rem);
+  color: #fff;
+  text-shadow: 0 2px 40px oklch(10% .02 258 / .85), 0 1px 4px oklch(10% .02 258 / .5);
+  max-width: 15ch;
+}
+.hero h1 em { font-style: normal; color: var(--amber); }
+.hero-sub {
+  margin-block-start: clamp(18px, 3vh, 34px);
+  max-width: 46ch;
+  color: oklch(92% .01 78 / .92);
+  text-shadow: 0 1px 24px oklch(10% .02 258 / .8);
+  font-size: clamp(.98rem, .93rem + .3vw, 1.2rem);
+}
+
+/* indicatorul de stadiu, citeste progresul scrub-ului */
+.stage {
+  position: absolute; z-index: 2;
+  inset-block-end: clamp(22px, 4vh, 48px); inset-inline: 0;
+  padding-inline: var(--gut);
+  max-width: var(--maxw); margin-inline: auto;
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 20px;
+}
+.stage-now {
+  font-variation-settings: 'wdth' 112, 'wght' 700;
+  text-transform: uppercase; letter-spacing: .05em;
+  font-size: clamp(.72rem, .68rem + .2vw, .9rem);
+  color: var(--amber);
+}
+.stage-bar {
+  flex: 1; max-width: 380px; height: 2px;
+  background: oklch(100% 0 0 / .22); position: relative;
+}
+.stage-bar i { position: absolute; inset-block: 0; inset-inline-start: 0; width: 0; background: var(--amber); }
+.stage-hint {
+  font-size: .72rem; letter-spacing: .08em; text-transform: uppercase;
+  color: oklch(100% 0 0 / .5);
+}
+@media (max-width: 700px) { .stage-hint { display: none; } }
+
+/* ---------- marquee ---------- */
+.marquee-band { padding-block: clamp(26px, 4vw, 54px); overflow: hidden; border-block: 1px solid var(--line); }
+.marquee { display: flex; width: max-content; will-change: transform; }
+.marquee span {
+  font-variation-settings: 'wdth' 125, 'wght' 800;
+  text-transform: uppercase;
+  font-size: clamp(2.2rem, 6.4vw, 5.6rem);
+  letter-spacing: .01em;
+  padding-inline-end: .5em;
+  color: transparent;
+  -webkit-text-stroke: 1px oklch(78% .155 68 / .55);
+  white-space: nowrap;
+}
+.marquee span b { -webkit-text-stroke: 0; color: var(--amber); font-variation-settings: 'wdth' 125, 'wght' 800; }
+@media (max-width: 900px) { .marquee span { -webkit-text-stroke-width: .7px; } }
+
+/* ---------- story ---------- */
+.story { display: grid; grid-template-columns: 1fr; gap: clamp(28px, 5vw, 72px); }
+@media (min-width: 900px) { .story { grid-template-columns: 1.05fr .95fr; align-items: start; } }
+.story-body p { margin-block: 0 1.1em; color: var(--concrete); }
+.story-body p:last-child { margin-block-end: 0; }
+.story-body strong { color: var(--limestone); font-variation-settings: 'wdth' 100, 'wght' 600; }
+
+/* fisa de teren: cifre tabulare, rigle, fara carduri */
+.field { border-block-start: 1px solid var(--line); }
+.field-row {
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 12px 20px; align-items: baseline;
+  padding-block: clamp(14px, 2vw, 22px);
+  border-block-end: 1px solid var(--line);
+}
+.field-row dt {
+  font-size: clamp(.82rem, .78rem + .2vw, .96rem);
+  color: var(--concrete);
+  letter-spacing: .01em;
+}
+.field-row dd {
+  margin: 0; text-align: end;
+  font-variation-settings: 'wdth' 100, 'wght' 600;
+  font-variant-numeric: tabular-nums;
+  font-size: clamp(1.05rem, .95rem + .5vw, 1.5rem);
+  color: var(--limestone);
+}
+.field-row dd small {
+  display: block; font-size: .68rem; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--concrete-d); font-variation-settings: 'wdth' 100, 'wght' 500;
+}
+
+/* ---------- statement, parallax ---------- */
+.statement { position: relative; overflow: hidden; min-height: min(86svh, 720px); display: grid; place-items: center; }
+.statement-bg { position: absolute; inset: -14% 0; z-index: 0; will-change: transform; }
+.statement-bg img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.9) brightness(.62); }
+.statement::before {
+  content: ""; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(180deg,
+    oklch(14% .02 258 / .72) 0%,  oklch(14% .02 258 / .58) 30%,
+    oklch(14% .02 258 / .86) 64%, oklch(14% .02 258 / .96) 100%);
+}
+.statement-in { position: relative; z-index: 2; text-align: start; padding-inline: var(--gut); max-width: var(--maxw); margin-inline: auto; width: 100%; }
+.statement p {
+  font-variation-settings: 'wdth' 118, 'wght' 700;
+  text-transform: uppercase; letter-spacing: .012em; line-height: 1;
+  font-size: clamp(1.9rem, .6rem + 6.2vw, 6.4rem);
+  margin: 0; max-width: 17ch;
+  text-shadow: 0 2px 40px oklch(10% .02 258 / .85);
+}
+.statement p em { font-style: normal; color: var(--amber); }
+
+/* ---------- portofoliu, lista cu imagine care urmareste cursorul ---------- */
+.folio { display: grid; grid-template-columns: 1fr; gap: clamp(24px, 4vw, 56px); }
+@media (min-width: 1000px) { .folio { grid-template-columns: 1.35fr .65fr; } }
+.folio-list { border-block-start: 1px solid var(--line); }
+.folio-item {
+  display: grid; grid-template-columns: auto 1fr auto; gap: 10px 18px; align-items: baseline;
+  padding-block: clamp(16px, 2.4vw, 30px);
+  border-block-end: 1px solid var(--line);
+  transition: color .25s ease;
+}
+.folio-item:hover { color: var(--amber); }
+.folio-idx {
+  font-variant-numeric: tabular-nums; font-size: .74rem; letter-spacing: .06em;
+  color: var(--concrete-d); font-variation-settings: 'wdth' 100, 'wght' 500;
+}
+.folio-name {
+  font-variation-settings: 'wdth' 112, 'wght' 660;
+  text-transform: uppercase; letter-spacing: .04em; line-height: 1.25;
+  font-size: clamp(1rem, .86rem + .7vw, 1.7rem);
+}
+.folio-name i { display: block; font-style: normal; letter-spacing: .01em;
+  font-variation-settings: 'wdth' 100, 'wght' 400; text-transform: none;
+  font-size: .74em; color: var(--concrete); margin-block-start: .25em; }
+.folio-meta {
+  text-align: end; font-variant-numeric: tabular-nums;
+  font-variation-settings: 'wdth' 100, 'wght' 500;
+  font-size: clamp(.86rem, .8rem + .3vw, 1.05rem); white-space: nowrap;
+}
+.folio-meta b { display: block; font-variation-settings: 'wdth' 100, 'wght' 600; }
+.folio-meta small { font-size: .68rem; letter-spacing: .07em; text-transform: uppercase; color: var(--concrete-d); }
+
+.hover-fig {
+  position: fixed; inset-block-start: 0; inset-inline-start: 0;
+  width: 280px; height: 340px; object-fit: cover; z-index: 40;
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity .3s ease; will-change: transform;
+}
+.hover-fig.active { opacity: 1; visibility: visible; }
+@media (max-width: 1000px) { .hover-fig { display: none; } }   /* nu exista cursor pe touch */
+
+.folio-aside p { color: var(--concrete); margin-block-start: 0; }
+
+/* ---------- before / after ---------- */
+.ba {
+  position: relative; aspect-ratio: 16 / 9; overflow: hidden;
+  cursor: ew-resize; touch-action: pan-y; user-select: none;
+}
+.ba img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ba .aft { clip-path: inset(0 0 0 50%); }
+.ba-handle {
+  position: absolute; inset-block: 0; inset-inline-start: 50%; width: 2px;
+  background: var(--amber); z-index: 3; pointer-events: none;
+  transform: translateX(-1px);
+}
+.ba-handle::after {
+  content: ""; position: absolute; inset-block-start: 50%; inset-inline-start: 50%;
+  width: 46px; height: 46px; transform: translate(-50%, -50%);
+  border: 2px solid var(--amber); border-radius: 50%;
+  background: oklch(14% .02 258 / .35);
+}
+.ba-tag {
+  position: absolute; z-index: 4; inset-block-end: 14px;
+  font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
+  color: #fff; background: oklch(14% .02 258 / .6);
+  padding-inline: 10px; padding-block: 6px;
+}
+.ba-tag.l { inset-inline-start: 14px; }
+.ba-tag.r { inset-inline-end: 14px; }
+
+/* ---------- servicii, lista simpla, fara grila de carduri ---------- */
+.svc { border-block-start: 1px solid var(--line); }
+.svc-row {
+  display: grid; grid-template-columns: 1fr; gap: 6px 32px;
+  padding-block: clamp(18px, 2.6vw, 34px); border-block-end: 1px solid var(--line);
+}
+@media (min-width: 800px) { .svc-row { grid-template-columns: minmax(0, 22ch) 1fr; align-items: start; } }
+.svc-row h3 {
+  margin: 0; font-variation-settings: 'wdth' 112, 'wght' 660;
+  text-transform: uppercase; letter-spacing: .045em; line-height: 1.25;
+  font-size: clamp(.95rem, .88rem + .35vw, 1.2rem);
+}
+.svc-row p { margin: 0; color: var(--concrete); max-width: 64ch; }
+
+/* ---------- conversie, drenata in chihlimbar ---------- */
+.convert { background: var(--amber); color: var(--ink); }
+.convert h2.sec { color: var(--ink); }
+.convert .lede { color: oklch(30% .05 68); }
+.convert-grid { display: grid; grid-template-columns: 1fr; gap: clamp(22px, 3vw, 44px); margin-block-start: clamp(28px, 4vw, 56px); }
+@media (min-width: 780px) { .convert-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .convert-grid { grid-template-columns: 1.2fr .8fr .8fr; } }
+.convert dl { margin: 0; border-block-start: 1px solid oklch(30% .05 68 / .28); }
+.convert dl > div {
+  display: flex; justify-content: space-between; gap: 16px;
+  padding-block: 12px; border-block-end: 1px solid oklch(30% .05 68 / .28);
+}
+.convert dt { color: oklch(32% .05 68); font-size: .9rem; }
+.convert dd { margin: 0; font-variation-settings: 'wdth' 100, 'wght' 600; font-variant-numeric: tabular-nums; }
+.tel-big {
+  display: inline-block; margin-block-start: 8px;
+  font-variation-settings: 'wdth' 118, 'wght' 780;
+  font-variant-numeric: tabular-nums;
+  font-size: clamp(1.7rem, 1rem + 3.2vw, 3.4rem);
+  letter-spacing: .005em; line-height: 1; color: var(--ink);
+  border-block-end: 3px solid var(--ink); padding-block-end: 6px;
+  transition: opacity .2s ease;
+}
+.tel-big:hover { opacity: .62; }
+
+/* ---------- footer ---------- */
+.ftr { border-block-start: 1px solid var(--line); }
+.ftr-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
+@media (min-width: 760px) { .ftr-grid { grid-template-columns: 1.4fr .8fr .8fr; } }
+.ftr h4 {
+  margin: 0 0 14px; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--concrete-d); font-variation-settings: 'wdth' 100, 'wght' 600;
+}
+.ftr ul { list-style: none; margin: 0; padding: 0; }
+.ftr li { margin-block-end: 8px; color: var(--concrete); }
+.ftr a:hover { color: var(--amber); }
+.ftr-legal {
+  margin-block-start: clamp(36px, 5vw, 72px); padding-block-start: 20px;
+  border-block-start: 1px solid var(--line);
+  display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between;
+  font-size: .78rem; color: var(--concrete-d);
+}
+
+/* ---------- reveal ---------- */
+.fade { opacity: 0; transform: translateY(18px); transition: opacity .8s ease, transform .8s ease; }
+.fade.visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .fade { opacity: 1; transform: none; transition: none; }
+  .hero { height: 100svh; }
+}
