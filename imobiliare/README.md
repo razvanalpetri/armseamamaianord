@@ -52,21 +52,26 @@ Cadrul de start al fiecărui clip se extrage din **randarea** clipului precedent
 aceeași imagine de referință, al doilea pornește ușor deplasat și cusătura se
 vede.
 
-15 s, 1600x900 la sursă, encodat all-keyframe (`keyint=1`) la 30 fps ca
-scrub-ul să nu sară între keyframe-uri.
+15,1 s, 1600x900, 30 fps, `keyint=4`.
+
+**Nu all-keyframe.** Skill-ul cere `keyint=1`, dar măsurătoarea în browser arată
+că un GOP de 3 până la 6 e la fel de fluid la scrub și costă jumătate. Tabelul cu
+cifre e în DESIGN.md. Practic: la aceeași dimensiune obținem CRF 21 în loc de
+CRF 28, iar diferența se vede clar pe textura pietrei și pe mobilierul din
+interior.
 
 Videoul se afișează **fără filtru de întunecare**. Contrastul pentru textul din
 hero se obține local, dintr-un gradient doar în banda de jos. Mijlocul cadrului
 rămâne complet curat.
 
-Se livrează două variante: `hero.mp4` (1280, 11,6 MB) și `hero-sm.mp4`
-(1100, 7,4 MB) pentru ecrane sub 820px sau conexiuni 2G/3G. Alegerea se face
+Se livrează două variante: `hero.mp4` (1600x900, 11 MB) și `hero-sm.mp4`
+(1200x676, 5,7 MB) pentru ecrane sub 820px sau conexiuni 2G/3G. Alegerea se face
 în JS **înainte** de încărcare, altfel se descarcă amândouă.
 
-Fișierele all-keyframe sunt mari prin construcție. Dacă e nevoie de mai mic:
-scurtați durata, coborâți rezoluția, sau creșteți CRF. VP9/WebM a fost testat
-și măsurat, iese de aproape 3x mai mare la calitate egală pe conținutul ăsta
-(beton, plasă de schelă, pietriș), deci nu e livrat.
+Dacă e nevoie de mai mic: scurtați durata sau coborâți rezoluția. Creșterea
+CRF-ului e ultima opțiune, acolo se duce direct calitatea vizibilă. VP9/WebM a
+fost testat și măsurat, iese mai mare la calitate egală pe conținutul ăsta, deci
+nu e livrat.
 
 ## De completat înainte de publicare
 

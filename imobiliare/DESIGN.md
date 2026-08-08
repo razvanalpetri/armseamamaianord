@@ -159,7 +159,36 @@ vilă mediteraneană de lux cu piscină, nu un bloc în construcție.
   o țintă de reconciliat și strică mișcarea; linia CAMERA face treaba mai bine singură.
 - Limbaj de cameră: distanță plus durată, „horizon locked, constant speed". Cuvintele
   cinematic, smooth, gently, sweeping produc plutire onirică și sunt interzise.
-- Encodare pentru scrub: fiecare cadru keyframe, 30fps, `+faststart`. Fișierele
-  all-keyframe sunt mari, dimensiunea se spune cu voce tare înainte de livrare.
+### Encodare pentru scrub: `keyint=4`, nu `keyint=1`
+
+Skill-ul cere `keyint=1`, adică fiecare cadru keyframe. Am măsurat, și regula
+costă de două ori dimensiunea fără să aducă nimic.
+
+Test în browser, scrub continuu (se setează `currentTime` la fiecare rAF, fără
+să se aștepte `seeked`, exact ca bucla de lerp sub scroll), 2,5 s pe tot clipul:
+
+| GOP | cadre distincte afișate | fps efectiv | H.264 1280x720 @ CRF 20 |
+|---|---|---|---|
+| 1 | 131 | 52,4 | 16 MB |
+| **3** | **147** | **58,8** | 11 MB |
+| **6** | **141** | **56,4** | 8,4 MB |
+| 12 | 84 | 33,6 | 7,4 MB |
+
+Un GOP între 3 și 6 este **la fel de fluid** ca all-keyframe. Prăbușirea e între
+6 și 12, unde o căutare aterizează prea des pe keyframe și se pierd jumătate din
+cadre. Livrăm `keyint=4`, marjă de siguranță sub prag.
+
+Ce cumpără asta: la aceeași dimensiune, CRF 21 în loc de CRF 28. La `keyint=1`
+nu există predicție între cadre, deci fiecare cadru e un JPEG de sine stătător,
+iar la 0,14 biți/pixel arată exact ca un JPEG prost. Cu GOP 4, trei din patru
+cadre sunt P-frame-uri ieftine și I-frame-urile primesc biții rămași.
+
+Măsurătoarea e făcută pe VP9 în Chromium. Direcția e clară, dar dacă apare
+vreodată scrub sacadat pe Safari sau iOS, prima verificare e coborârea la
+`keyint=2`, nu creșterea CRF-ului.
+
+- 30fps, nu 24. La 24 se vede stepping la scroll lent.
+- `+faststart`, ca redarea să înceapă înainte de sosirea întregului fișier.
+- Dimensiunea se spune cu voce tare înainte de livrare.
 - Serverul TREBUIE să suporte HTTP Range. Fără Range, `currentTime` nu face nimic și nu
   apare nicio eroare nicăieri.
