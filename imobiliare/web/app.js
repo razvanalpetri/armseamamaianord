@@ -27,9 +27,13 @@ const heroContent = document.getElementById('heroContent');
 const stageNow = document.getElementById('stageNow');
 const stageBar = document.getElementById('stageBar');
 
+// Cate o eticheta per clip: fiecare segment de scroll e o tranzitie de camera
+// dintr-o incapere in urmatoarea, si eticheta face tranzitia vizibila.
 const STAGES = [
-  [0.00, 'Tur'],
-  [0.55, 'Interior'],
+  [0.00, 'Piscină'],
+  [0.25, 'Living'],
+  [0.50, 'Bucătărie'],
+  [0.75, 'Dormitor'],
 ];
 
 let ready = false, target = 0, cur = 0;

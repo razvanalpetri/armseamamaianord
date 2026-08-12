@@ -43,7 +43,7 @@
 
   --disp: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
 
-  --hero-vh: 480vh;          /* 480vh pentru 15s, raportul din scroll-tech.md */
+  --hero-vh: 640vh;          /* 4 clipuri x 5s = 20s, la raportul de 32vh/s */
   --gut: clamp(20px, 5vw, 64px);
   --maxw: 1440px;
 }
@@ -195,10 +195,11 @@ h2.sec {
   display: flex; align-items: flex-end; justify-content: space-between; gap: 20px;
 }
 .stage-now {
-  font-variation-settings: 'wdth' 100, 'wght' 500;
-  text-transform: uppercase; letter-spacing: .1em;
-  font-size: .7rem;
-  color: oklch(100% 0 0 / .62);
+  font-variation-settings: 'wdth' 112, 'wght' 700;
+  text-transform: uppercase; letter-spacing: .09em;
+  font-size: clamp(.72rem, .68rem + .2vw, .84rem);
+  color: var(--amber);
+  min-width: 9ch;                      /* nu sare layoutul cand se schimba cuvantul */
 }
 .stage-bar {
   flex: 1; max-width: 380px; height: 2px;

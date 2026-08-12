@@ -27,11 +27,18 @@ Toți trei se uită de pe telefon, majoritatea seara. Site-ul e proiectat întâ
 
 ## Momentul erou
 
-O singură propoziție: **camera merge înainte de-a lungul piscinei, intră prin ușile
-glisante deschise și se oprește în living, cu marea dincolo de geam.**
+O singură propoziție: **camera trece peste piscină, intră prin ușile glisante și
+străbate vila fără nicio tăietură, din living în bucătărie și mai departe în dormitor.**
 
 Un tur, nu o transformare. Nu explică nimic și nu vinde o proprietate anume: arată
 nivelul la care lucrează agenția și lasă privirea să se plimbe.
+
+**Fiecare segment de scroll este o tranziție de cameră** dintr-o încăpere în
+următoarea, iar încăperea curentă e scrisă în colțul de jos: Piscină, Living,
+Bucătărie, Dormitor. Eticheta nu e decor, e singurul lucru care spune unde te afli
+într-un tur fără tăieturi.
+
+Materialele sunt fixe: alb și marmură. Nu lemn, nu bej, nu piatră rustică.
 
 Videoul se vede **curat**, fără filtru de întunecare, cu foarte puțin text peste el.
 Aproape tot conținutul scris vine după ce turul s-a terminat de derulat.

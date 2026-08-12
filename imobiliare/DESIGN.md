@@ -146,7 +146,16 @@ Cadrele erou se generează cu **spațiu negativ** acolo unde va sta textul.
 ## Erou, constrângeri tehnice
 
 Rețeta este **turul filmat** (walk-in tour), nu transformarea pe stadii. Subiectul este o
-vilă mediteraneană de lux cu piscină, nu un bloc în construcție.
+vilă de lux cu piscină, în alb și marmură, parcursă încăpere cu încăpere: piscină,
+living, bucătărie open space cu insulă, dormitor.
+
+Patru clipuri de 5s, deci 20s și 640vh. Un clip per încăpere, ca fiecare segment de
+scroll să fie o tranziție de cameră, marcată și de eticheta din colț.
+
+Paleta filmării, alb și marmură, e alta decât paleta paginii, albastru-negru cu
+chihlimbar. Asta e intenționat: eroul e o fereastră luminoasă într-o pagină întunecată.
+Legătura o face imaginea de statement, aceeași vilă la ora albastră, unde albul rămâne
+alb sub lumina caldă și accentul chihlimbar redevine literal.
 
 - Fiecare clip este **o singură mișcare continuă de cameră**. Scena stă pe loc; se mișcă
   doar aparatul. Asta e inversul secvenței de transformare, unde camera stătea și se
