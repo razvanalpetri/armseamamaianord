@@ -1,0 +1,102 @@
+ALPETRI REAL ESTATE — pachet editabil
+=====================================
+
+CUM ÎL DESCHIZI
+---------------
+Site-ul are un video legat de scroll, iar pentru asta serverul trebuie să
+suporte HTTP Range. Dacă deschizi index.html direct cu dublu-clic, pagina se
+vede, dar videoul NU se va derula la scroll. Nu e o defecțiune, e limitarea
+protocolului file://
+
+Varianta corectă, ai nevoie de Node instalat:
+
+    node serve.mjs
+
+apoi deschizi http://localhost:8844
+
+Dacă nu ai Node, orice server static serios merge (Live Server din VS Code,
+`php -S`, `npx serve`). NU merge `python3 -m http.server`, acela nu suportă
+Range.
+
+
+UNDE EDITEZI TEXTUL
+-------------------
+Tot textul vizibil este în   web/index.html
+E un fișier HTML simplu, îl poți deschide în orice editor (VS Code, Notepad++,
+chiar Notepad). Textul stă între etichete, de exemplu:
+
+    <h1 class="display">Imobiliare pe <em>litoral</em></h1>
+
+Modifici doar ce e între > și <. Cuvântul din <em> apare în chihlimbar.
+
+Secțiunile, în ordinea din fișier:
+  - hero            titlul mare peste video
+  - marquee         banda cu text care se mișcă
+  - #agentie        „O agenție, nu un portal" + cele 4 cifre
+  - statement       propoziția mare peste fotografie
+  - #servicii       cele 6 servicii
+  - #proces         cei 5 pași
+  - #contact        telefon, program, adresă
+  - footer
+
+DE COMPLETAT (sunt valori inventate, puse ca substituent):
+  - Strada Exemplu 12          apare de 2 ori
+  - Constanța                  apare de 2 ori, verifică dacă e orașul corect
+  - contact@alpetri.ro         apare de 2 ori
+  - cele 4 cifre din #agentie  vechime, tranzacții, zile, dosare oprite
+
+Telefonul 0725.367.954 este deja cel real, apare în 5 locuri. Dacă îl
+schimbi, schimbă și link-urile tel:+40725367954
+
+
+ATENȚIE LA DIACRITICE
+---------------------
+Fontul are toate diacriticele românești corecte (ș și ț cu virgulă dedesubt,
+nu cu sedilă). Când scrii text nou, folosește ș ț ă â î, nu ş ţ.
+
+O regulă specifică: în titlul mare din hero NU folosi cuvinte cu ș sau ț.
+La dimensiunea aceea virgula de sub literă se desprinde vizual și arată ca un
+apostrof pus greșit. Explicația completă e în DESIGN.md.
+
+
+CULORILE ȘI FONTUL
+------------------
+web/styles.css, la început, în blocul :root. Sunt scrise în OKLCH.
+--amber este culoarea de accent (chihlimbar).
+--ink este fundalul închis.
+
+Nu schimba nimic din @font-face, acolo sunt fonturile încorporate.
+
+
+VIDEOUL
+-------
+web/media/hero.mp4       1600x900, pentru desktop
+web/media/hero-sm.mp4    1200x676, se încarcă automat pe telefon
+web/media/poster.jpg     imaginea afișată până se încarcă videoul
+
+Dacă înlocuiești videoul, encodează-l cu:
+
+    ffmpeg -i sursa.mp4 -an -vf "scale=1600:900,format=yuv420p" \
+      -c:v libx264 -preset slow -crf 21 \
+      -x264-params "keyint=4:min-keyint=4:scenecut=0" \
+      -movflags +faststart hero.mp4
+
+keyint=4 este important pentru scroll. Detalii în DESIGN.md.
+După ce schimbi durata videoului, ajustează --hero-vh din styles.css:
+aproximativ 32vh pentru fiecare secundă de video.
+
+
+PUBLICARE ONLINE
+----------------
+Folderul web/ se urcă ca atare pe Vercel, Netlify sau Cloudflare Pages.
+Toate trei suportă Range implicit, deci nu trebuie configurat nimic.
+serve.mjs este doar pentru rulare locală, nu se urcă.
+
+
+CELELALTE FIȘIERE
+-----------------
+PRODUCT.md   poziționarea, tonul, ce nu vrem să fie site-ul
+DESIGN.md    paleta, tipografia, regulile tehnice ale videoului
+
+Nu sunt obligatorii, dar dacă mai lucrează cineva la site, acolo scrie de ce
+arată așa cum arată.
