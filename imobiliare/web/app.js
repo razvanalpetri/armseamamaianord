@@ -36,6 +36,8 @@ const STAGES = [
   [0.75, 'Dormitor'],
 ];
 
+const heroLines = [...document.querySelectorAll('.hero-line')];
+let curSeg = 0;
 let ready = false, target = 0, cur = 0;
 const mark = () => { ready = true; vid.pause(); };
 vid.addEventListener('loadedmetadata', mark);
@@ -60,10 +62,15 @@ function heroTick() {
 
   if (ready && vid.duration) target = p * (vid.duration - 0.05);
 
-  // titlul se ridica odata ce incepe partea interesanta din clip
-  const out = clamp((p - 0.42) / 0.2);
-  heroContent.style.opacity = (1 - out).toFixed(3);
-  heroContent.style.transform = `translateY(${-out * 56}px)`;
+  // Fiecare segment de scroll are mesajul lui. Indexul se calculeaza din
+  // aceleasi praguri ca etichetele de incapere, ca textul si eticheta sa se
+  // schimbe in acelasi moment.
+  let seg = 0;
+  for (let k = 0; k < STAGES.length; k++) if (p >= STAGES[k][0]) seg = k;
+  if (seg !== curSeg) {
+    curSeg = seg;
+    for (const el of heroLines) el.classList.toggle('on', +el.dataset.seg === seg);
+  }
 
   if (stageBar) stageBar.style.width = (p * 100).toFixed(2) + '%';
   if (stageNow) {
@@ -134,18 +141,6 @@ addEventListener('scroll', () => {
   }
   requestAnimationFrame(mqLoop);
 })();
-
-/* ---------------- parallax pe statement ---------------- */
-const stBg = document.getElementById('stBg');
-if (stBg) {
-  const sec = stBg.parentElement;
-  addEventListener('scroll', () => {
-    const r = sec.getBoundingClientRect();
-    if (r.bottom < 0 || r.top > innerHeight) return;   // cull ieftin
-    const p = (innerHeight - r.top) / (innerHeight + r.height);
-    stBg.style.transform = `translateY(${((p - 0.5) * 16).toFixed(2)}%)`;
-  }, { passive: true });
-}
 
 /* ---------------- ancore ---------------- */
 document.querySelectorAll('a[href^="#"]').forEach(a => {

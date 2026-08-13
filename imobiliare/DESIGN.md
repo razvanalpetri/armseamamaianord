@@ -57,7 +57,7 @@ Reguli:
 Tracking, calibrat pentru un grotesc lat (NU pentru didone, valorile diferă):
 
 ```
-hero caps          letter-spacing: .005em ; line-height: 1.0
+hero caps          letter-spacing: .005em ; line-height: 1.15
 titluri secțiune   letter-spacing: .01em  ; line-height: 1.02
 rânduri caps listă letter-spacing: .04em  ; line-height: 1.25
 corp               letter-spacing: 0      ; line-height: 1.55
@@ -75,22 +75,29 @@ De ce Archivo și nu altceva:
   prezente, iar `ș`/`ț` sunt **U+0219 / U+021B, cu virgulă dedesubt**, nu sedilă.
   Se reverifică vizual la fiecare livrare, glifa poate exista și totuși să fie desenată greșit.
 
-### Diacriticele cu virgula dedesubt nu au voie in linia de display
+### Diacriticele cu virgula dedesubt cer interliniaj, nu cuvinte evitate
 
-`ș` si `ț` (U+0219 / U+021B) au virgula desenata **detasat sub linia de baza**.
-La corp de text si la titluri de sectiune arata corect. La 130px si peste,
-distanta dintre litera si virgula creste proportional, virgula ajunge in banda
-randului urmator si se citeste ca un apostrof pus gresit. Marirea interliniajului
-nu rezolva, pentru ca problema nu e spatiul, ci faptul ca semnul pare desprins
-de litera lui.
+`ș` si `ț` (U+0219 / U+021B) au virgula desenata **detasat sub linia de baza**. In
+Archivo ea coboara **0.29em**, masurat pe acest build. Inaltimea capitalei este
+~0.72em, deci un titlu cu majuscule are nevoie de `line-height` mai mare de 1.01 ca
+virgula sa nu intre in banda randului urmator.
 
-Masurat pe acest build: titlul "De la fundatie la cheie" la 137px punea virgula
-lui T la 0.29em sub linia de baza, peste randul "CHEIE". Titlul a fost schimbat
-in "De la placa la cheie".
+Prima versiune a regulii spunea sa evitam cuvintele cu `ș` si `ț` in linia de display.
+Era o solutie prin ocolire si a picat imediat ce clientul a dat titluri proprii care
+le contin. Regula corecta este despre interliniaj:
 
-**Regula:** in `h1.display` se folosesc doar cuvinte fara `ș` si `ț`. Restul
-paginii pastreaza diacriticele complete, verificate. `ă`, `â`, `î` nu au
-problema asta, semnul lor sta deasupra.
+```
+h1.display   line-height: 1.15    /* 0.43em liberi, peste cei 0.29em necesari */
+```
+
+Verificat pe titlul de patru randuri „Soluții personalizate atât pentru cumpărător,
+cât și pentru vânzător": la 1.0 virgula lui `Ț` din SOLUȚII cadea peste ATÂT; la 1.15
+sta corect sub litera ei.
+
+`ă`, `â`, `î` nu au problema asta, semnul lor sta deasupra si nu afecteaza interliniajul.
+
+**Se verifica vizual la fiecare titlu nou de mai multe randuri.** Masuratoarea pe
+latime de glifa da fals pozitiv, nu inlocuieste privitul.
 
 Fonturi respinse explicit ca reflex: Playfair Display, Cormorant, Instrument Serif/Sans,
 Inter, DM Sans/Serif, Fraunces, Syne, Space Grotesk, Outfit, Plus Jakarta Sans.

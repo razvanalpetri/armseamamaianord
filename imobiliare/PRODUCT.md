@@ -25,6 +25,20 @@ Trei oameni, în ordinea valorii:
 
 Toți trei se uită de pe telefon, majoritatea seara. Site-ul e proiectat întâi pentru asta.
 
+## Secțiunea fondator
+
+Razvan Alpetri, broker fondator. Este singurul loc din site unde vorbește o persoană,
+nu agenția, și de aceea stă imediat după secțiunea de concept.
+
+Argumentul, în ordinea asta: un mod de lucru care lipsea pe piață, expertiza de broker
+combinată cu social media și instrumente AI, apoi ce înseamnă concret pentru fiecare
+parte, vânzător și cumpărător. Se încheie cu o promisiune verificabilă, „lucrez direct
+cu fiecare client".
+
+Fotografia este obligatorie aici. Fișierul este `web/media/razvan-alpetri.jpg`, raport
+4:5 vertical. Până la poza reală, în locul ei stă un substituent care spune exact ce
+trebuie înlocuit.
+
 ## Momentul erou
 
 O singură propoziție: **camera trece peste piscină, intră prin ușile glisante și
@@ -37,6 +51,19 @@ nivelul la care lucrează agenția și lasă privirea să se plimbe.
 următoarea, iar încăperea curentă e scrisă în colțul de jos: Piscină, Living,
 Bucătărie, Dormitor. Eticheta nu e decor, e singurul lucru care spune unde te afli
 într-un tur fără tăieturi.
+
+**Fiecare încăpere are mesajul ei.** Titlul din hero se schimbă odată cu eticheta,
+din aceleași praguri, ca cele două să nu se bată cap în cap:
+
+| segment | mesaj |
+|---|---|
+| Piscină | Agenția imobiliară potrivită pentru tine. |
+| Living | Profesionalism și expertiză în domeniul imobiliarelor |
+| Bucătărie | Proprietăți atent selecționate |
+| Dormitor | Soluții personalizate atât pentru cumpărător, cât și pentru vânzător |
+
+Cele patru mesaje stau suprapuse și cresc în sus de la aceeași linie de bază, ca
+schimbarea să nu miște nimic altceva pe ecran.
 
 Materialele sunt fixe: alb și marmură. Nu lemn, nu bej, nu piatră rustică.
 
@@ -65,8 +92,11 @@ Reguli de scriere:
   în aceeași frază, ca dovadă. Nu invers.
 - **Fără liniuțe de dialog folosite ca punctuație** (nici `-`, nici `--`). Virgulă, două
   puncte, punct și virgulă, paranteze.
-- Adresare la persoana a II-a plural, „dumneavoastră". Decizie confirmată de client.
-  Nu se trece la „tu" fără cerere explicită.
+- Adresare la persoana a II-a plural, „dumneavoastră", în tot corpul paginii.
+  **Excepție, deocamdată nerezolvată:** titlul și subtitlul din hero sunt scrise de
+  client cu „tine" („potrivită pentru tine", „alese pentru tine"). Textul a fost
+  păstrat exact cum a fost dat. Amestecul se vede, iar decizia de unificare, în
+  oricare direcție, îi aparține clientului.
 - Cifrele sunt argumente. Unde există un număr real, numărul intră în copy.
 - Niciun titlu nu se repetă în paragraful de sub el.
 - Enumerările birocratice de trei sau mai mulți termeni (cadastru, intabulare, sarcini,
@@ -93,8 +123,9 @@ Ce NU este acest site:
    căutare. Dacă apare tentația unei grile de anunțuri, răspunsul e nu.
 2. **Un singur gest de conversie, prezent tot timpul.** Telefonul. Nu formular cu opt
    câmpuri.
-3. **Secțiunile grele de date arată ca o fișă de teren**, nu ca un dashboard. Cifre
-   tabulare, aliniate, fără carduri.
+3. **Fără cifre despre agenție.** Vechimea, numărul de tranzacții și restul
+   indicatorilor au fost scoase la cererea clientului. Dacă se întorc vreodată, se
+   întorc ca fișă de teren, cifre tabulare aliniate, nu ca dashboard cu carduri.
 4. **Nimic nu se centrează din reflex.** Stiva centrată iconiță-titlu-subtitlu este
    interzisă.
 5. Site-ul nu e avantajul competitiv. Poziționarea este. Dacă cineva îl citește 8 secunde

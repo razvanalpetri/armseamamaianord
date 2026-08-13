@@ -27,9 +27,23 @@
     </video>
     <div class="hero-scrim"></div>
 
+    <!-- Patru titluri suprapuse, ancorate de aceeasi linie de jos. Se schimba
+         odata cu incaperea din tur: fiecare segment de scroll aduce alt mesaj. -->
     <div class="hero-content" id="heroContent">
-      <h1 class="display">Pe malul <em>mării</em></h1>
-      <p class="hero-sub">Case, vile, terenuri și chirii, alese una câte una.</p>
+      <div class="hero-line on" data-seg="0">
+        <h1 class="display">Agenția imobiliară <em>potrivită</em> pentru tine.</h1>
+        <p class="hero-sub">Case, vile, terenuri, ansambluri rezidențiale și chirii,
+          atent alese pentru tine.</p>
+      </div>
+      <div class="hero-line" data-seg="1">
+        <h1 class="display">Profesionalism și <em>expertiză</em> în domeniul imobiliarelor</h1>
+      </div>
+      <div class="hero-line" data-seg="2">
+        <h1 class="display">Proprietăți atent <em>selecționate</em></h1>
+      </div>
+      <div class="hero-line" data-seg="3">
+        <h1 class="display">Soluții <em>personalizate</em> atât pentru cumpărător, cât și pentru vânzător</h1>
+      </div>
     </div>
 
     <div class="stage">
@@ -52,32 +66,46 @@
 <section class="band wrap" id="agentie">
   <div class="story">
     <div class="fade">
-      <h2 class="sec">Nu o listă,<br>un răspuns</h2>
+      <h2 class="sec">Un concept nou<br>pe piața imobiliară</h2>
     </div>
     <div class="story-body fade">
-      <p>Pe litoral sunt câteva sute de anunțuri în orice moment. Foarte puține merită
-        drumul. Alegerea dintre ele o facem noi, înainte să vă sunăm.</p>
-      <p><strong>Verificăm actele înainte de vizionare, nu după.</strong> Ca să nu vă
-        atașați de o casă care are o problemă, și ca să nu aflați de ea abia la notar,
-        două luni mai târziu.</p>
-      <p>Case, vile, apartamente și terenuri, pe toată banda litoralului. Vindem,
-        închiriem, evaluăm, și rămânem lângă dumneavoastră până la semnătură.</p>
-
-      <dl class="field" style="margin-block-start:clamp(28px,4vw,48px)">
-        <div class="field-row"><dt>Vechime pe piață</dt><dd class="num">11 <small>ani</small></dd></div>
-        <div class="field-row"><dt>Tranzacții încheiate anul trecut</dt><dd class="num">137</dd></div>
-        <div class="field-row"><dt>De la prima discuție la o ofertă scrisă</dt><dd class="num">6 <small>zile în medie</small></dd></div>
-        <div class="field-row"><dt>Dosare oprite la verificarea actelor</dt><dd class="num">9 <small>anul trecut</small></dd></div>
-      </dl>
+      <p>Alpetri Real Estate a pornit dintr-o observație simplă: piața s-a mutat, iar
+        felul în care se vând imobilele a rămas în urmă. Un anunț și două fotografii
+        făcute în grabă nu mai înseamnă promovare.</p>
+      <p><strong>Promovăm fiecare imobil ca pe un produs.</strong> Fotografie și video
+        de calitate, prezență constantă pe social media, campanii duse către oamenii
+        care chiar caută acum. Așa ajunge proprietatea în fața cui trebuie, nu în fața
+        tuturor.</p>
+      <p>În spate stau experiența de broker și, sincer, o pasiune veche pentru domeniu.
+        Folosim tot ce ajută, de la instrumente AI până la orice unealtă care scurtează
+        drumul până la semnătură, fără să transformăm asta într-un moft tehnologic.</p>
+      <p>Obiectivul rămâne același de ambele părți ale mesei: vânzătorul să încheie
+        repede și corect, cumpărătorul să plece cu imobilul potrivit nevoilor lui. Când
+        una dintre părți pierde, tranzacția nu este reușită, este doar încheiată.</p>
     </div>
   </div>
 </section>
 
-<!-- ============ statement, parallax ============ -->
-<section class="statement">
-  <div class="statement-bg" id="stBg"><img src="media/statement.jpg" alt="Vilă mediteraneană cu piscină, la ora aurie"></div>
-  <div class="statement-in">
-    <p class="fade">O casă bună nu se vinde repede.<br>Se vinde <em>bine</em>.</p>
+<!-- ============ broker fondator ============ -->
+<section class="band founder" id="fondator">
+  <div class="wrap founder-grid">
+    <figure class="founder-photo fade">
+      <img src="media/razvan-alpetri.jpg" alt="Răzvan Alpetri, broker fondator Alpetri Real Estate">
+    </figure>
+    <div class="founder-body fade">
+      <p class="founder-role">Broker fondator</p>
+      <h2 class="sec">Răzvan Alpetri</h2>
+      <p>Am fondat Alpetri Real Estate ca să aduc pe piață un mod de lucru care lipsea:
+        expertiza clasică de broker, pusă la treabă împreună cu social media, cu
+        instrumente AI și cu orice altceva face vânzarea mai rapidă și mai eficientă.</p>
+      <p>Pentru <strong>vânzători</strong>, asta înseamnă un imobil promovat serios și
+        vândut într-un termen rezonabil, la un preț pe care îl pot susține cu argumente.</p>
+      <p>Pentru <strong>cumpărători</strong>, înseamnă că nu rămâneți cu ce a mai rămas.
+        Căutăm până găsim imobilul potrivit nevoilor dumneavoastră, fie că e vorba de o
+        chirie sau de o achiziție.</p>
+      <p>Lucrez direct cu fiecare client. Nu veți fi pasat de la un coleg la altul.</p>
+      <a class="founder-tel" href="tel:+40725367954">0725.367.954</a>
+    </div>
   </div>
 </section>
 
@@ -88,6 +116,9 @@
     <div class="svc-row fade"><h3>Vânzări</h3>
       <p>Pregătim proprietatea înainte să o arătăm cuiva: fotografie ca lumea, acte puse
         la punct, și un preț pe care îl putem susține cu tranzacții reale din zonă.</p></div>
+    <div class="svc-row fade"><h3>Ansambluri rezidențiale</h3>
+      <p>Lucrăm și cu stoc nou, direct de la dezvoltatori. Vă arătăm stadiul real,
+        termenul contractual și ce se întâmplă dacă termenul nu este respectat.</p></div>
     <div class="svc-row fade"><h3>Reprezentare cumpărător</h3>
       <p>Suntem de partea dumneavoastră, nu a vânzătorului. Căutăm, negociem, și vă
         spunem deschis când merită să vă retrageți.</p></div>
@@ -181,7 +212,8 @@
       <div>
         <h4>Pagini</h4>
         <ul>
-          <li><a href="#agentie">Agenția</a></li>
+          <li><a href="#agentie">Conceptul</a></li>
+          <li><a href="#fondator">Fondator</a></li>
           <li><a href="#servicii">Ce facem</a></li>
           <li><a href="#proces">Cum lucrăm</a></li>
           <li><a href="#contact">Contact</a></li>

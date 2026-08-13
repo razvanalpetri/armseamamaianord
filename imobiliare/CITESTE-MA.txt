@@ -30,20 +30,27 @@ chiar Notepad). Textul stă între etichete, de exemplu:
 Modifici doar ce e între > și <. Cuvântul din <em> apare în chihlimbar.
 
 Secțiunile, în ordinea din fișier:
-  - hero            titlul mare peste video
+  - hero            patru titluri, câte unul per încăpere din tur.
+                    Se schimbă la scroll, în același moment cu eticheta
+                    din colț (Piscină, Living, Bucătărie, Dormitor).
+                    Se editează în blocurile <div class="hero-line">
   - marquee         banda cu text care se mișcă
-  - #agentie        „O agenție, nu un portal" + cele 4 cifre
-  - statement       propoziția mare peste fotografie
+  - #agentie        „Un concept nou pe piața imobiliară"
+  - #fondator       Răzvan Alpetri, poza și textul de prezentare
   - #servicii       cele 6 servicii
   - #proces         cei 5 pași
   - #contact        telefon, program, adresă
   - footer
 
+POZA FONDATORULUI
+  Înlocuiți fișierul   web/media/razvan-alpetri.jpg
+  Raport 4:5 vertical, minim 900x1125 px. Păstrați exact acest nume de fișier.
+  Acum acolo e un substituent care spune același lucru pe imagine.
+
 DE COMPLETAT (sunt valori inventate, puse ca substituent):
   - Strada Exemplu 12          apare de 2 ori
   - Constanța                  apare de 2 ori, verifică dacă e orașul corect
   - contact@alpetri.ro         apare de 2 ori
-  - cele 4 cifre din #agentie  vechime, tranzacții, zile, dosare oprite
 
 Telefonul 0725.367.954 este deja cel real, apare în 5 locuri. Dacă îl
 schimbi, schimbă și link-urile tel:+40725367954
@@ -54,9 +61,10 @@ ATENȚIE LA DIACRITICE
 Fontul are toate diacriticele românești corecte (ș și ț cu virgulă dedesubt,
 nu cu sedilă). Când scrii text nou, folosește ș ț ă â î, nu ş ţ.
 
-O regulă specifică: în titlul mare din hero NU folosi cuvinte cu ș sau ț.
-La dimensiunea aceea virgula de sub literă se desprinde vizual și arată ca un
-apostrof pus greșit. Explicația completă e în DESIGN.md.
+Titlurile din hero au voie cu ș și ț. Interliniajul din CSS (line-height 1.15)
+e calculat exact ca virgula de sub literă să nu cadă peste rândul următor. Dacă
+scrii un titlu nou mai lung de trei rânduri, uită-te la el pe ecran înainte să
+îl consideri gata. Explicația completă e în DESIGN.md.
 
 
 CULORILE ȘI FONTUL
