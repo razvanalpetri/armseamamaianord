@@ -45,23 +45,33 @@ Aproape tot conținutul scris vine după ce turul s-a terminat de derulat.
 
 ## Tonul
 
-Măsurat, structural, nesentimental. Vorbește ca un om care a fost pe șantier, nu ca un
-copywriter de imobiliare.
+**Sigur pe el, cald, specific.** Vorbește ca un agent care a văzut casa, nu ca un
+funcționar care citește dosarul.
+
+Registrul ăsta l-a înlocuit pe primul, care era „măsurat, structural, nesentimental,
+ca un om care a fost pe șantier". Acela se potrivea cu eroul inițial, blocuri în
+construcție. Eroul e acum o vilă albă de marmură cu piscină, iar vocea de șantier
+suna birocratic peste imaginea aia. Faptele au rămas, felul de a le spune s-a schimbat.
 
 | nu așa | așa |
 |---|---|
-| „Casa visurilor tale te așteaptă" | „Actele sunt curate. Intabularea, făcută în martie." |
-| „Locație premium, finisaje de lux" | „180 m de plajă. Travertin pe hol, tâmplărie aluminiu." |
-| „Soluții imobiliare integrate" | „Vindem, închiriem, evaluăm. Și mergem cu tine la notar." |
+| „Casa visurilor tale te așteaptă" | „O casă bună nu se vinde repede. Se vinde bine." |
+| „Verificăm cadastru, intabulare, sarcini, situația juridică" | „Ca să nu vă atașați de o casă care are o problemă" |
+| „Soluții imobiliare integrate" | „Vindem, închiriem, evaluăm, și rămânem lângă dumneavoastră până la semnătură" |
 
 Reguli de scriere:
 
+- **Conduceți cu ce câștigă clientul, nu cu procedura.** Procedura vine imediat după,
+  în aceeași frază, ca dovadă. Nu invers.
 - **Fără liniuțe de dialog folosite ca punctuație** (nici `-`, nici `--`). Virgulă, două
   puncte, punct și virgulă, paranteze.
-- Adresare directă, la persoana a II-a plural, fără rigiditate. „Vă arătăm", nu „Clientul
-  beneficiază de".
+- Adresare la persoana a II-a plural, „dumneavoastră". Decizie confirmată de client.
+  Nu se trece la „tu" fără cerere explicită.
 - Cifrele sunt argumente. Unde există un număr real, numărul intră în copy.
 - Niciun titlu nu se repetă în paragraful de sub el.
+- Enumerările birocratice de trei sau mai mulți termeni (cadastru, intabulare, sarcini,
+  autorizații) au voie **o singură dată pe pagină**, acolo unde chiar sunt lista de
+  verificări. În rest se spune consecința, nu lista.
 
 ## Anti-referințe
 
