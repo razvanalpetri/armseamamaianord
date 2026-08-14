@@ -126,9 +126,13 @@ Ce NU este acest site:
 3. **Fără cifre despre agenție.** Vechimea, numărul de tranzacții și restul
    indicatorilor au fost scoase la cererea clientului. Dacă se întorc vreodată, se
    întorc ca fișă de teren, cifre tabulare aliniate, nu ca dashboard cu carduri.
-4. **Nimic nu se centrează din reflex.** Stiva centrată iconiță-titlu-subtitlu este
+4. **Fără listă de servicii și fără pași de proces.** Secțiunile „Ce facem" și „Cum
+   lucrăm" au fost eliminate la cererea clientului. Ce face agenția se citește din
+   subtitlul eroului, din marquee și din secțiunea fondatorului. Dacă revin vreodată,
+   revin ca rânduri cu rigle, nu ca grilă de carduri.
+5. **Nimic nu se centrează din reflex.** Stiva centrată iconiță-titlu-subtitlu este
    interzisă.
-5. Site-ul nu e avantajul competitiv. Poziționarea este. Dacă cineva îl citește 8 secunde
+6. Site-ul nu e avantajul competitiv. Poziționarea este. Dacă cineva îl citește 8 secunde
    și nu a înțeles că e o agenție care filtrează și verifică înainte, site-ul a eșuat.
 
 ## Relația cu repo-ul

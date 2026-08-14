@@ -247,31 +247,6 @@ h2.sec {
 .story-body p:last-child { margin-block-end: 0; }
 .story-body strong { color: var(--limestone); font-variation-settings: 'wdth' 100, 'wght' 600; }
 
-/* fisa de teren: cifre tabulare, rigle, fara carduri */
-.field { border-block-start: 1px solid var(--line); }
-.field-row {
-  display: grid; grid-template-columns: 1fr auto;
-  gap: 12px 20px; align-items: baseline;
-  padding-block: clamp(14px, 2vw, 22px);
-  border-block-end: 1px solid var(--line);
-}
-.field-row dt {
-  font-size: clamp(.82rem, .78rem + .2vw, .96rem);
-  color: var(--concrete);
-  letter-spacing: .01em;
-}
-.field-row dd {
-  margin: 0; text-align: end;
-  font-variation-settings: 'wdth' 100, 'wght' 600;
-  font-variant-numeric: tabular-nums;
-  font-size: clamp(1.05rem, .95rem + .5vw, 1.5rem);
-  color: var(--limestone);
-}
-.field-row dd small {
-  display: block; font-size: .68rem; letter-spacing: .08em; text-transform: uppercase;
-  color: var(--concrete-d); font-variation-settings: 'wdth' 100, 'wght' 500;
-}
-
 /* ---------- broker fondator ---------- */
 .founder { background: var(--ink-2); border-block: 1px solid var(--line); }
 .founder-grid { display: grid; grid-template-columns: 1fr; gap: clamp(28px, 4vw, 64px); }
@@ -301,44 +276,6 @@ h2.sec {
   transition: color .2s ease;
 }
 .founder-tel:hover { color: var(--amber); }
-
-/* ---------- proces: o secventa reala, deci numerele inseamna ceva ---------- */
-.steps {
-  list-style: none; margin: 0; padding: 0;
-  border-block-start: 1px solid var(--line);
-}
-.step {
-  display: grid; grid-template-columns: auto 1fr; gap: 4px 22px;
-  padding-block: clamp(18px, 2.6vw, 34px);
-  border-block-end: 1px solid var(--line);
-}
-@media (min-width: 800px) { .step { grid-template-columns: 4.5rem 1fr; gap: 4px 40px; } }
-.step-n {
-  font-variation-settings: 'wdth' 125, 'wght' 600;
-  font-size: clamp(.86rem, .8rem + .3vw, 1.05rem);
-  color: var(--amber); letter-spacing: .04em; line-height: 1.5;
-}
-.step h3 {
-  margin: 0 0 .35em;
-  font-variation-settings: 'wdth' 112, 'wght' 660;
-  text-transform: uppercase; letter-spacing: .045em; line-height: 1.25;
-  font-size: clamp(.95rem, .88rem + .35vw, 1.2rem);
-}
-.step p { margin: 0; color: var(--concrete); max-width: 60ch; }
-
-/* ---------- servicii, lista simpla, fara grila de carduri ---------- */
-.svc { border-block-start: 1px solid var(--line); }
-.svc-row {
-  display: grid; grid-template-columns: 1fr; gap: 6px 32px;
-  padding-block: clamp(18px, 2.6vw, 34px); border-block-end: 1px solid var(--line);
-}
-@media (min-width: 800px) { .svc-row { grid-template-columns: minmax(0, 22ch) 1fr; align-items: start; } }
-.svc-row h3 {
-  margin: 0; font-variation-settings: 'wdth' 112, 'wght' 660;
-  text-transform: uppercase; letter-spacing: .045em; line-height: 1.25;
-  font-size: clamp(.95rem, .88rem + .35vw, 1.2rem);
-}
-.svc-row p { margin: 0; color: var(--concrete); max-width: 64ch; }
 
 /* ---------- conversie, drenata in chihlimbar ---------- */
 .convert { background: var(--amber); color: var(--ink); }

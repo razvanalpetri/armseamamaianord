@@ -37,8 +37,6 @@ Secțiunile, în ordinea din fișier:
   - marquee         banda cu text care se mișcă
   - #agentie        „Un concept nou pe piața imobiliară"
   - #fondator       Răzvan Alpetri, poza și textul de prezentare
-  - #servicii       cele 6 servicii
-  - #proces         cei 5 pași
   - #contact        telefon, program, adresă
   - footer
 
