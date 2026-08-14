@@ -249,10 +249,12 @@ h2.sec {
 
 /* ---------- broker fondator ---------- */
 .founder { background: var(--ink-2); border-block: 1px solid var(--line); }
-.founder-grid { display: grid; grid-template-columns: 1fr; gap: clamp(28px, 4vw, 64px); }
-/* celule inegale, nu doua coloane egale */
-@media (min-width: 900px) { .founder-grid { grid-template-columns: .82fr 1.18fr; align-items: start; } }
-.founder-photo { margin: 0; }
+.founder-grid { display: grid; grid-template-columns: 1fr; gap: clamp(26px, 3.5vw, 56px); }
+/* Coloana fotografiei e fixa, nu fractionara: pe ecran lat o coloana in fr
+   crestea odata cu pagina si poza ajungea sa domine textul. */
+@media (min-width: 900px) { .founder-grid { grid-template-columns: 300px 1fr; align-items: start; } }
+.founder-photo { margin: 0; max-width: 220px; }   /* pe mobil nu ocupa toata latimea */
+@media (min-width: 900px) { .founder-photo { max-width: none; } }
 .founder-photo img {
   width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
   filter: saturate(.96);
