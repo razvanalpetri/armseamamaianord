@@ -41,9 +41,9 @@ Secțiunile, în ordinea din fișier:
   - footer
 
 POZA FONDATORULUI
-  Înlocuiți fișierul   web/media/razvan-alpetri.jpg
-  Raport 4:5 vertical, minim 900x1125 px. Păstrați exact acest nume de fișier.
-  Acum acolo e un substituent care spune același lucru pe imagine.
+  Fișierul e   web/media/razvan-alpetri.webp   (700x875, raport 4:5)
+  Dacă vreți alta, decupați-o 4:5 și salvați-o cu același nume și format.
+  WebP e format de imagine comprimat, nu WebM, care e format video.
 
 DE COMPLETAT (sunt valori inventate, puse ca substituent):
   - Strada Exemplu 12          apare de 2 ori

@@ -35,9 +35,10 @@ combinată cu social media și instrumente AI, apoi ce înseamnă concret pentru
 parte, vânzător și cumpărător. Se încheie cu o promisiune verificabilă, „lucrez direct
 cu fiecare client".
 
-Fotografia este obligatorie aici. Fișierul este `web/media/razvan-alpetri.jpg`, raport
-4:5 vertical. Până la poza reală, în locul ei stă un substituent care spune exact ce
-trebuie înlocuit.
+Fotografia este obligatorie aici. Fișierul este `web/media/razvan-alpetri.webp`, 700x875,
+raport 4:5 vertical, decupat pe cap și bust. La 300 de pixeli lățime pe desktop, un cadru
+cu tot corpul ar face persoana ilizibilă, deci încadrarea se face strâns, nu se lasă poza
+întreagă.
 
 ## Momentul erou
 

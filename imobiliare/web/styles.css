@@ -256,7 +256,11 @@ h2.sec {
 .founder-photo { margin: 0; max-width: 220px; }   /* pe mobil nu ocupa toata latimea */
 @media (min-width: 900px) { .founder-photo { max-width: none; } }
 .founder-photo img {
-  width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
+  /* height:auto e obligatoriu. Atributele width/height de pe <img> se mapeaza
+     ca presentational hints pe CSS width si height. Fara height:auto, hint-ul
+     height=875 ramane activ, anuleaza aspect-ratio si poza iese 300x875. */
+  width: 100%; height: auto;
+  aspect-ratio: 4 / 5; object-fit: cover;
   filter: saturate(.96);
 }
 .founder-role {

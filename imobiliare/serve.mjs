@@ -18,6 +18,8 @@ const TYPES = {
   '.jpg': 'image/jpeg',
   '.jpeg': 'image/jpeg',
   '.png': 'image/png',
+  '.webp': 'image/webp',
+  '.avif': 'image/avif',
   '.svg': 'image/svg+xml',
   '.css': 'text/css; charset=utf-8',
   '.js': 'text/javascript; charset=utf-8',
