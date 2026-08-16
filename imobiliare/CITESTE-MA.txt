@@ -45,6 +45,10 @@ POZA FONDATORULUI
   Dacă vreți alta, decupați-o 4:5 și salvați-o cu același nume și format.
   WebP e format de imagine comprimat, nu WebM, care e format video.
 
+  În folder mai stă și   web/media/razvan-alpetri-alt.webp
+  poza anterioară, cea de la apus. Ca să reveniți la ea, în index.html
+  schimbați numele fișierului din <img src="..."> în cel cu -alt.
+
 DE COMPLETAT (sunt valori inventate, puse ca substituent):
   - Strada Exemplu 12          apare de 2 ori
   - Constanța                  apare de 2 ori, verifică dacă e orașul corect
