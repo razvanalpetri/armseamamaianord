@@ -49,10 +49,11 @@ POZA FONDATORULUI
   poza anterioară, cea de la apus. Ca să reveniți la ea, în index.html
   schimbați numele fișierului din <img src="..."> în cel cu -alt.
 
-DE COMPLETAT (sunt valori inventate, puse ca substituent):
-  - Strada Exemplu 12          apare de 2 ori
-  - Constanța                  apare de 2 ori, verifică dacă e orașul corect
-  - contact@alpetri.ro         apare de 2 ori
+DE COMPLETAT
+  Adresa, emailul și telefonul sunt cele reale.
+  A mai rămas un singur lucru de confirmat:
+  - Constanța    apare de 2 ori. L-am presupus eu din contextul repo-ului.
+                 Dacă biroul e în alt oraș, schimbați-l în ambele locuri.
 
 Telefonul 0725.367.954 este deja cel real, apare în 5 locuri. Dacă îl
 schimbi, schimbă și link-urile tel:+40725367954

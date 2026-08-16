@@ -136,6 +136,20 @@ Ce NU este acest site:
 6. Site-ul nu e avantajul competitiv. Poziționarea este. Dacă cineva îl citește 8 secunde
    și nu a înțeles că e o agenție care filtrează și verifică înainte, site-ul a eșuat.
 
+## Date de contact
+
+Reale, confirmate de client:
+
+| | |
+|---|---|
+| Telefon | 0725.367.954 |
+| Email | razvanalpetri@yahoo.ro |
+| Birou | Calea Dobrogei 236B |
+| Vizionări | Stabilit la telefon |
+
+Orașul, Constanța, este singurul câmp încă presupus. A fost dedus din contextul
+repo-ului și nu a fost confirmat explicit.
+
 ## Relația cu repo-ul
 
 Acest site trăiește în `/imobiliare` și este complet independent de site-ul ARM Sea Mamaia
