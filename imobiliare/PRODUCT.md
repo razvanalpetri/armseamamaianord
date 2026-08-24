@@ -32,8 +32,16 @@ nu agenția, și de aceea stă imediat după secțiunea de concept.
 
 Argumentul, în ordinea asta: un mod de lucru care lipsea pe piață, expertiza de broker
 combinată cu social media și instrumente AI, apoi ce înseamnă concret pentru fiecare
-parte, vânzător și cumpărător. Se încheie cu o promisiune verificabilă, „lucrez direct
-cu fiecare client".
+parte, vânzător și cumpărător. Ultimul lucru din secțiune este telefonul.
+
+**Secțiunea nu se închide cu o frază despre cum se lucrează.** A avut două, pe rând, și
+au căzut amândouă. Prima, „lucrez direct cu fiecare client, nu veți fi pasat de la un
+coleg la altul", semnala om singur exact când site-ul trebuia să sune a echipă. A doua,
+scrisă ca să repare prima, spunea că fondatorul conduce mandatul și echipa execută;
+clientul a scos-o și pe aceea. Rezultatul e mai bun: după paragraful despre cumpărători
+argumentul e complet, iar o a patra frază despre organizare doar amâna telefonul. Dacă
+se propune vreodată o închidere nouă aici, întrebarea e ce adaugă peste ce s-a spus deja,
+nu cum sună.
 
 Fotografia este obligatorie aici. Fișierul este `web/media/razvan-alpetri.webp`, 700x875,
 raport 4:5 vertical, decupat pe cap și bust. La 300 de pixeli lățime pe desktop, un cadru
@@ -127,9 +135,11 @@ funcționar care citește dosarul.
 sune ca și cum în spate stă o structură, nu un broker care le face pe toate.
 Persoana I plural peste tot, iar diviziunea muncii se spune pe nume: cine
 evaluează, cine filmează, cine duce campania, cine ține legătura. Fondatorul
-rămâne singurul „eu" din pagină, iar rolul lui devine să conducă și să răspundă,
-nu să execute. Linia „Lucrez direct cu fiecare client. Nu veți fi pasat de la un
-coleg la altul" a fost scoasă din secțiunea fondator: era exact semnalul opus.
+rămâne singurul „eu" din pagină. Linia „Lucrez direct cu fiecare client. Nu veți
+fi pasat de la un coleg la altul" a fost scoasă din secțiunea fondator: era exact
+semnalul opus. Fraza care o înlocuia, despre conducerea mandatului și execuția
+de către echipă, a fost scoasă și ea la cererea clientului; secțiunea se încheie
+acum pe argumentul pentru cumpărători.
 
 Nu se inventează cifre pentru asta. Nicăieri nu scrie câți oameni sunt.
 Impresia vine din felul de a vorbi și din faptul că există un flux de lucru,
