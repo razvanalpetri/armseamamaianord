@@ -127,6 +127,30 @@ După ce schimbi durata videoului, ajustează --hero-vh din styles.css:
 aproximativ 32vh pentru fiecare secundă de video.
 
 
+DACĂ VIDEOUL NU SE DERULEAZĂ LA SCROLL
+--------------------------------------
+Adăugați  ?diag  la adresa site-ului, de exemplu:
+
+    https://site-ul-vostru.netlify.app/?diag
+
+Apare un panou verde peste pagină cu starea reală a videoului. Rândurile care
+contează:
+
+  range     trebuie să scrie 206. Dacă scrie 200, serverul nu suportă
+            HTTP Range, iar derularea nu are cum să funcționeze. Netlify,
+            Vercel și Cloudflare Pages îl suportă. Deschiderea prin
+            dublu-clic pe fișier (file://) NU îl suportă.
+  seekable  trebuie să fie 1. Dacă e 0, videoul încă nu poate fi căutat.
+  eroare    cod 4 înseamnă că browserul nu poate reda formatul.
+  deblocat  pe iPhone trebuie să devină true după prima atingere a ecranului.
+
+Pe iPhone și iPad, Safari nu descarcă videoul până nu atingeți ecranul o dată.
+Site-ul se ocupă singur de asta, dar înseamnă că primul scroll poate fi gol
+până se încarcă. Nu e defecțiune.
+
+Panoul apare NUMAI cu ?diag în adresă. Vizitatorii obișnuiți nu îl văd.
+
+
 PUBLICARE ONLINE
 ----------------
 Folderul web/ se urcă ca atare pe Vercel, Netlify sau Cloudflare Pages.

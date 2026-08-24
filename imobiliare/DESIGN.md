@@ -272,3 +272,20 @@ Două reguli ies de aici, ambele verificate pe acest build:
 - Dimensiunea se spune cu voce tare înainte de livrare.
 - Serverul TREBUIE să suporte HTTP Range. Fără Range, `currentTime` nu face nimic și nu
   apare nicio eroare nicăieri.
+
+### iOS ignoră `preload`, iar simptomul e identic cu lipsa lui Range
+
+Safari pe iPhone și iPad nu descarcă datele video până când elementul nu a
+pornit măcar o dată, oricât ar scrie în `preload`. Până atunci `currentTime` nu
+are unde să sară, scrub-ul pare mort și nu se aprinde nicio eroare. Exact
+simptomul pe care îl dă și un server fără Range, din cauză cu totul alta.
+
+Rezolvarea este un `play()` mut urmat imediat de `pause()`, la primul gest de
+utilizator. Detaliul care contează: **elementul se marchează ca deblocat doar
+dacă `play()` chiar a reușit.** Marcat la prima încercare, un apel făcut fără
+gest valid consumă singura șansă, iar atingerea adevărată nu mai reîncearcă.
+
+Pentru că cele două cauze arată la fel din afară, `?diag` afișează un panou cu
+starea reală: codul răspunsului la o cerere Range, `readyState`, `seekable`,
+`buffered`, codul de eroare și dacă deblocarea a avut loc. Există ca să se poată
+diagnostica de pe telefon, fără consolă.
