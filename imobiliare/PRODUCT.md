@@ -43,10 +43,14 @@ argumentul e complet, iar o a patra frază despre organizare doar amâna telefon
 se propune vreodată o închidere nouă aici, întrebarea e ce adaugă peste ce s-a spus deja,
 nu cum sună.
 
-Fotografia este obligatorie aici. Fișierul este `web/media/razvan-alpetri.webp`, 700x875,
-raport 4:5 vertical, decupat pe cap și bust. La 300 de pixeli lățime pe desktop, un cadru
-cu tot corpul ar face persoana ilizibilă, deci încadrarea se face strâns, nu se lasă poza
-întreagă.
+Fotografia este obligatorie aici. Fișierul este `web/media/razvan-alpetri.webp`, 700x875.
+
+**Nu se decupează.** Slotul afișează fotografia întreagă, la raportul ei, oricare ar fi
+el: coloana de 300 de pixeli dă lățimea, înălțimea vine de la sine. Regula anterioară
+cerea decupaj 4:5 strâns pe cap și bust, cu argumentul că la 300 de pixeli un cadru
+întreg face persoana ilizibilă. Clientul a cerut explicit să nu se taie nimic, deci
+argumentul acela nu mai are cuvântul: dacă o fotografie iese prea mică în coloană,
+se lărgește coloana, nu se taie poza.
 
 ## Cartonul de titlu
 

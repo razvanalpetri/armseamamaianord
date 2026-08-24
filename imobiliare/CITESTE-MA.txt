@@ -56,9 +56,17 @@ Secțiunile, în ordinea din fișier:
   - footer
 
 POZA FONDATORULUI
-  Fișierul e   web/media/razvan-alpetri.webp   (700x875, raport 4:5)
-  Dacă vreți alta, decupați-o 4:5 și salvați-o cu același nume și format.
+  Fișierul e   web/media/razvan-alpetri.webp   (700x875)
+  Poza se vede ÎNTREAGĂ, nu se mai decupează nimic din ea. Nu trebuie să fie
+  4:5 și nu trebuie tăiată: coloana dă lățimea, înălțimea vine de la sine,
+  orice raport ar avea poza.
   WebP e format de imagine comprimat, nu WebM, care e format video.
+
+  Dacă puneți alta, schimbați și cele două numere din index.html:
+      <img src="media/razvan-alpetri.webp" width="700" height="875" ...>
+  trebuie să fie exact lățimea și înălțimea reale ale fișierului. Din ele își
+  rezervă browserul locul înainte să descarce poza; dacă nu se potrivesc,
+  pagina sare când imaginea ajunge.
 
   În folder mai stă și   web/media/razvan-alpetri-alt.webp
   poza anterioară, cea de la apus. Ca să reveniți la ea, în index.html

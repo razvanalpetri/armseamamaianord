@@ -382,11 +382,18 @@ h2.sec {
 .founder-photo { margin: 0; max-width: 220px; }   /* pe mobil nu ocupa toata latimea */
 @media (min-width: 900px) { .founder-photo { max-width: none; } }
 .founder-photo img {
-  /* height:auto e obligatoriu. Atributele width/height de pe <img> se mapeaza
-     ca presentational hints pe CSS width si height. Fara height:auto, hint-ul
-     height=875 ramane activ, anuleaza aspect-ratio si poza iese 300x875. */
+  /* Nicio taiere. Fara aspect-ratio si fara object-fit, poza se vede intreaga,
+     la raportul ei, oricare ar fi el: coloana da latimea, inaltimea urmeaza.
+     Clientul a cerut explicit sa nu se decupeze nimic din fotografie.
+
+     height:auto ramane obligatoriu. Atributele width/height de pe <img> se
+     mapeaza ca presentational hints pe CSS width si height, iar fara auto
+     hint-ul de inaltime ramane activ si poza iese intinsa pe verticala.
+
+     Cele doua atribute de pe <img> trebuie sa fie dimensiunile reale ale
+     fisierului. Din ele isi rezerva browserul locul inainte sa descarce poza;
+     daca nu se potrivesc, pagina sare cand imaginea ajunge. */
   width: 100%; height: auto;
-  aspect-ratio: 4 / 5; object-fit: cover;
   filter: saturate(.96);
 }
 .founder-role {
