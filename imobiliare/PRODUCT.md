@@ -40,6 +40,29 @@ raport 4:5 vertical, decupat pe cap și bust. La 300 de pixeli lățime pe deskt
 cu tot corpul ar face persoana ilizibilă, deci încadrarea se face strâns, nu se lasă poza
 întreagă.
 
+## Cartonul de titlu
+
+Site-ul **incepe cu numele**, nu cu o propunere de vanzare. Primul ecran e o
+suprafata de cerneala cu ALPETRI scris cap la cap, o rigla si doua randuri
+marunte. Nimic altceva.
+
+Latimea marcii e blocata prin `textLength` pe SVG, nu cu `font-size` in `vw`.
+Diferenta se vede: cu vw marca nimereste aproape de coloana de continut si
+niciodata pe ea, iar un logotip care nu se aliniaza cu grila paginii arata
+scris, nu desenat.
+
+Nu e o pagina separata si nu e un preloader. Sta in acelasi erou si pleaca la
+scroll, in doua trepte: fundalul de cerneala se ridica primul si descopera
+turul (pana la 4,2% din erou), numele mai ramane putin peste imagine si pleaca
+si el (pana la 7,5%). Titlul primei incaperi intra exact pe cat iese numele, ca
+sa nu se citeasca doua mesaje peste aceeasi imagine.
+
+**Nu am folosit un serif inalt-contrast pentru marca**, desi acolo duce reflexul
+pentru „font notoriu" la o agentie de lux. Anti-referintele de mai jos interzic
+explicit serif subtire peste poza cu piscina, iar primul cadru al turului e
+exact o poza cu piscina. Semnalul de marca il da scara, nu familia: acelasi
+Archivo Expanded, dus pana la latimea coloanei.
+
 ## Momentul erou
 
 O singură propoziție: **camera trece peste piscină, intră prin ușile glisante și
@@ -71,10 +94,46 @@ Materialele sunt fixe: alb și marmură. Nu lemn, nu bej, nu piatră rustică.
 Videoul se vede **curat**, fără filtru de întunecare, cu foarte puțin text peste el.
 Aproape tot conținutul scris vine după ce turul s-a terminat de derulat.
 
+## Oferta, si de ce e o lista de randuri
+
+Continutul comercial e dat de client, ad litteram: comision 2% din valoarea
+proprietatii, promovare activa pe social media, listare corecta, tururi video,
+unelte AI, si site personalizat pentru proprietate la exclusivitati.
+
+Sta intr-o sectiune pe travertin, `#servicii`, intre concept si fondator.
+E singura banda deschisa la culoare din pagina, si asta e intentionat: eroul,
+conceptul si fondatorul sunt inchise, conversia e chihlimbar. Fara ea, patru
+benzi intunecate una dupa alta.
+
+Forma e **randuri cu rigle**, nu grila de carduri. Principiul 4 de mai jos
+interzicea listele de servicii; clientul le-a cerut inapoi, deci principiul s-a
+schimbat, dar conditia lui a ramas: daca revin, revin ca randuri.
+
+Comisionul are randul lui, deasupra listei, cu cifra tabulara pe coloana din
+stanga. Nu e sablonul hero-metric interzis in DESIGN.md: nu e centrat, nu are
+statistici de sprijin si nu are accent in gradient. E o cifra intr-un tabel.
+
+**Un lucru de confirmat cu clientul:** randul comisionului spune ca tot ce
+urmeaza in lista face parte din mandat si nu se coteaza separat. Este citirea
+naturala a briefingului, in care cele doua au venit ca un pachet, dar este un
+angajament comercial pe care clientul nu l-a formulat in cuvintele astea.
+
 ## Tonul
 
 **Sigur pe el, cald, specific.** Vorbește ca un agent care a văzut casa, nu ca un
 funcționar care citește dosarul.
+
+**Vorbește o echipă, nu un om singur.** Clientul a cerut explicit ca site-ul să
+sune ca și cum în spate stă o structură, nu un broker care le face pe toate.
+Persoana I plural peste tot, iar diviziunea muncii se spune pe nume: cine
+evaluează, cine filmează, cine duce campania, cine ține legătura. Fondatorul
+rămâne singurul „eu" din pagină, iar rolul lui devine să conducă și să răspundă,
+nu să execute. Linia „Lucrez direct cu fiecare client. Nu veți fi pasat de la un
+coleg la altul" a fost scoasă din secțiunea fondator: era exact semnalul opus.
+
+Nu se inventează cifre pentru asta. Nicăieri nu scrie câți oameni sunt.
+Impresia vine din felul de a vorbi și din faptul că există un flux de lucru,
+nu dintr-un număr pe care nimeni nu l-a confirmat.
 
 Registrul ăsta l-a înlocuit pe primul, care era „măsurat, structural, nesentimental,
 ca un om care a fost pe șantier". Acela se potrivea cu eroul inițial, blocuri în
@@ -127,10 +186,12 @@ Ce NU este acest site:
 3. **Fără cifre despre agenție.** Vechimea, numărul de tranzacții și restul
    indicatorilor au fost scoase la cererea clientului. Dacă se întorc vreodată, se
    întorc ca fișă de teren, cifre tabulare aliniate, nu ca dashboard cu carduri.
-4. **Fără listă de servicii și fără pași de proces.** Secțiunile „Ce facem" și „Cum
-   lucrăm" au fost eliminate la cererea clientului. Ce face agenția se citește din
-   subtitlul eroului, din marquee și din secțiunea fondatorului. Dacă revin vreodată,
-   revin ca rânduri cu rigle, nu ca grilă de carduri.
+4. **Lista de servicii s-a întors, ca rânduri.** Secțiunile „Ce facem" și „Cum
+   lucrăm" fuseseră eliminate la cererea clientului; oferta a revenit tot la
+   cererea lui, cu conținut concret de data asta, în `#servicii`. Condiția a
+   rămas în picioare: rânduri cu rigle, nu grilă de carduri, și niciun pas de
+   proces numerotat ca etapă de flux. Numerele 01–05 sunt indici de listă, nu
+   etape.
 5. **Nimic nu se centrează din reflex.** Stiva centrată iconiță-titlu-subtitlu este
    interzisă.
 6. Site-ul nu e avantajul competitiv. Poziționarea este. Dacă cineva îl citește 8 secunde
@@ -146,6 +207,7 @@ Reale, confirmate de client:
 | Email | razvanalpetri@yahoo.ro |
 | Birou | Calea Dobrogei 236B |
 | Vizionări | Stabilit la telefon |
+| Comision | 2% din valoarea proprietății |
 
 Orașul, Constanța, este singurul câmp încă presupus. A fost dedus din contextul
 repo-ului și nu a fost confirmat explicit.

@@ -30,12 +30,27 @@ chiar Notepad). Textul stă între etichete, de exemplu:
 Modifici doar ce e între > și <. Cuvântul din <em> apare în chihlimbar.
 
 Secțiunile, în ordinea din fișier:
+  - cartonul de titlu   ALPETRI pe ecran plin, primul lucru care se vede.
+                    Blocul <div class="hero-intro">. Numele e scris în SVG,
+                    ca să se întindă exact pe lățimea coloanei:
+                        <text ...>ALPETRI</text>
+                    Dacă schimbi numele, schimbă-l acolo ȘI în aria-label-ul
+                    de deasupra. Cele două rânduri mărunte de sub linie sunt
+                    în <div class="wm-sub">.
+                    Cât stă cartonul se reglează din web/app.js, VEIL_END
+                    (când pleacă fundalul) și WM_END (când pleacă numele).
   - hero            patru titluri, câte unul per încăpere din tur.
                     Se schimbă la scroll, în același moment cu eticheta
                     din colț (Piscină, Living, Bucătărie, Dormitor).
                     Se editează în blocurile <div class="hero-line">
   - marquee         banda cu text care se mișcă
   - #agentie        „Un concept nou pe piața imobiliară"
+  - #servicii       comisionul de 2% și lista cu ce intră în mandat.
+                    Fiecare rând e un <div class="offer-row">. Ca să adaugi
+                    unul, copiază un rând întreg și schimbă numărul, titlul
+                    și textul. Ca să scoți unul, șterge tot blocul și
+                    renumerotează. Eticheta portocalie „Exclusivități" e
+                    <span class="offer-tag"> și poate sta pe orice titlu.
   - #fondator       Răzvan Alpetri, poza și textul de prezentare
   - #contact        telefon, program, adresă
   - footer
@@ -51,9 +66,14 @@ POZA FONDATORULUI
 
 DE COMPLETAT
   Adresa, emailul și telefonul sunt cele reale.
-  A mai rămas un singur lucru de confirmat:
+  Au mai rămas două lucruri de confirmat:
   - Constanța    apare de 2 ori. L-am presupus eu din contextul repo-ului.
                  Dacă biroul e în alt oraș, schimbați-l în ambele locuri.
+  - comisionul   Rândul de 2% spune că tot ce e mai jos în listă face parte
+                 din mandat și nu se cotează separat. Așa am înțeles eu din
+                 brief, unde comisionul și serviciile au venit împreună.
+                 Dacă promovarea sau filmarea se facturează separat,
+                 schimbați fraza a doua din <div class="fee-body">.
 
 Telefonul 0725.367.954 este deja cel real, apare în 5 locuri. Dacă îl
 schimbi, schimbă și link-urile tel:+40725367954

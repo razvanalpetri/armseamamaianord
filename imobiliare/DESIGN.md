@@ -31,6 +31,7 @@ literalmente payoff-ul din clipul erou: fereastra aprinsă.
 --limestone  oklch(94% 0.012  78)   /* travertin, fundal secțiuni luminoase */
 --amber      oklch(78% 0.155  68)   /* fereastra aprinsă, culoarea angajată */
 --amber-hi   oklch(86% 0.130  72)   /* hover, accente pe fundal închis */
+--amber-d    oklch(52% 0.135  55)   /* acelasi accent, pe travertin */
 --line       oklch(32% 0.014 258)   /* rigle, chenare pe închis */
 ```
 
@@ -41,6 +42,17 @@ Reguli:
 - Croma scade pe măsură ce luminozitatea se apropie de 0 sau 100.
 - Chihlimbarul are voie pe suprafețe mari. Secțiunea de conversie e drenată în chihlimbar,
   nu decorată cu el.
+- `--amber` la 78% luminozitate n-are contrast pe travertin, se spală. Pe fundal
+  deschis se folosește `--amber-d`, aceeași nuanță coborâtă la 52%. Nu e o a doua
+  culoare, e aceeași culoare la altă lumină de fond.
+
+### Ritmul benzilor
+
+Pagina alternează, iar ordinea nu e decorativă: erou (video) → concept (`--ink`)
+→ ofertă (`--limestone`) → fondator (`--ink-2`) → conversie (`--amber`) → footer.
+Banda deschisă din mijloc e obligatorie. Fără ea sunt patru suprafețe întunecate
+una după alta, iar contactul în chihlimbar de la final vine ca o lovitură, nu ca
+o concluzie.
 
 ## Tipografie
 
@@ -101,6 +113,41 @@ latime de glifa da fals pozitiv, nu inlocuieste privitul.
 
 Fonturi respinse explicit ca reflex: Playfair Display, Cormorant, Instrument Serif/Sans,
 Inter, DM Sans/Serif, Fraunces, Syne, Space Grotesk, Outfit, Plus Jakarta Sans.
+
+## Logotipul din cartonul de titlu
+
+Numele se scrie cu **aceeași familie ca restul paginii**, Archivo la `wdth 125`
+și `wght 860`. Nu s-a adus un al doilea font.
+
+Cererea a fost „un font notoriu". Reflexul e un didone cu contrast mare, tipul
+de literă din logourile caselor de modă. A fost respins pentru un motiv concret,
+nu din gust: anti-referințele proiectului interzic serif subțire peste fotografie
+cu piscină, iar primul cadru al turului este exact asta. Un Bodoni alb peste
+marmură albă la ora prânzului dispare, exact cum dispare un didone la 160px peste
+video, motivul pentru care s-a ales Archivo de la început.
+
+Semnalul de marcă îl dă **scara**, nu familia:
+
+```
+.wm-svg text  font-variation-settings: 'wdth' 125, 'wght' 860
+              font-size: 200px  (in viewBox 0 0 1000 168)
+svg           width: 100%  ->  marca ocupa exact coloana de continut
+text          textLength="1000" lengthAdjust="spacingAndGlyphs"
+```
+
+`textLength` nu e o subtilitate. Cu `font-size` în `vw` marca ajunge aproape de
+marginea coloanei și niciodată pe ea, iar diferența de câțiva pixeli se citește:
+logotipul arată scris, nu desenat. Măsurat pe acest build, la 1440px coloana are
+1312,0px și textul 1311,9px; la 390px, 350,0 și 350,0.
+
+`lengthAdjust="spacingAndGlyphs"` întinde și glifele, nu doar spațiile. La
+`wdth 125` lățimea naturală a cuvântului ALPETRI e deja foarte aproape de
+raportul din viewBox, deci deformarea e sub pragul vizibil. Dacă se schimbă
+numele, se reverifică: un cuvânt mult mai scurt sau mai lung va fi întins vizibil
+și atunci se ajustează viewBox-ul, nu se lasă așa.
+
+Marca din colțul de sus pornește invizibilă și intră când pleacă cartonul. Cât
+timp numele stă pe tot ecranul, același nume scris mărunt în colț e o repetiție.
 
 ## Text peste imagine sau video
 
@@ -202,6 +249,23 @@ cadre sunt P-frame-uri ieftine și I-frame-urile primesc biții rămași.
 Măsurătoarea e făcută pe VP9 în Chromium. Direcția e clară, dar dacă apare
 vreodată scrub sacadat pe Safari sau iOS, prima verificare e coborârea la
 `keyint=2`, nu creșterea CRF-ului.
+
+### `prefers-reduced-motion` rupe orice e condus de progresul scroll-ului
+
+Sub reduced-motion eroul devine `100svh`, deci `offsetHeight - innerHeight` este
+0 și progresul rămâne 0 pentru totdeauna. Orice se calculează din el rămâne
+înghețat la starea de start: valul de cerneală al cartonului nu s-ar mai ridica
+niciodată și pagina ar sta acoperită.
+
+Două reguli ies de aici, ambele verificate pe acest build:
+
+1. Bucla de scroll **nu scrie stil inline** când `h <= 0`. Stilul inline bate
+   orice regulă din foaia de stil, deci un `opacity: 0` scris acolo nu mai poate
+   fi corectat din CSS, nici măcar dintr-un `@media`. Prima versiune stingea
+   titlul eroului exact așa.
+2. `@media (prefers-reduced-motion: reduce)` are propria stare pentru carton:
+   voal parțial peste primul cadru, nume vizibil, marcă din header vizibilă.
+   Nu e degradare, e o a doua compoziție.
 
 - 30fps, nu 24. La 24 se vede stepping la scroll lent.
 - `+faststart`, ca redarea să înceapă înainte de sosirea întregului fișier.

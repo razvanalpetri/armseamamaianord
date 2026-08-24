@@ -26,6 +26,13 @@ const vid = document.getElementById('heroVideo');
 const heroContent = document.getElementById('heroContent');
 const stageNow = document.getElementById('stageNow');
 const stageBar = document.getElementById('stageBar');
+const intro = document.getElementById('heroIntro');
+
+// Cartonul de titlu. Doua praguri, nu unul: valul de cerneala pleaca primul si
+// descopera turul, iar numele mai sta cateva procente peste imagine inainte sa
+// plece si el. Daca ar pleca odata, ar arata a preloader care se stinge.
+const VEIL_END = 0.042;   // pana aici se ridica fundalul
+const WM_END   = 0.075;   // pana aici sta logotipul
 
 // Cate o eticheta per clip: fiecare segment de scroll e o tranzitie de camera
 // dintr-o incapere in urmatoarea, si eticheta face tranzitia vizibila.
@@ -72,6 +79,25 @@ function heroTick() {
     for (const el of heroLines) el.classList.toggle('on', +el.dataset.seg === seg);
   }
 
+  // h <= 0 inseamna erou fara inaltime de derulare, adica prefers-reduced-motion.
+  // Acolo p ramane 0 pentru totdeauna: valul nu s-ar ridica niciodata, iar
+  // opacitatea 0 scrisa inline pe titlu ar bate orice regula din foaia de stil,
+  // pentru ca stilul inline castiga. Deci nu scriem nimic si lasa CSS-ul, care
+  // are un carton static pregatit exact pentru cazul asta.
+  if (intro && h > 0) {
+    const veil = 1 - clamp(p / VEIL_END);
+    const wm = 1 - clamp(p / WM_END);
+    intro.style.setProperty('--veil', veil.toFixed(3));
+    intro.style.setProperty('--wm', wm.toFixed(3));
+    // scos din compunere cand nu mai are ce arata: altfel un strat de ecran
+    // intreg cu opacity 0 ramane in stiva la fiecare cadru al scrub-ului
+    intro.style.visibility = wm < 0.002 ? 'hidden' : 'visible';
+    if (hdr) hdr.classList.toggle('revealed', wm < 0.45);
+    // Titlul intra exact pe cat iese marca. Fara asta cele doua se suprapun in
+    // tranzitie si se citesc doua mesaje deodata peste aceeasi imagine.
+    if (heroContent) heroContent.style.opacity = (1 - wm).toFixed(3);
+  }
+
   if (stageBar) stageBar.style.width = (p * 100).toFixed(2) + '%';
   if (stageNow) {
     let label = STAGES[0][1];
@@ -79,12 +105,20 @@ function heroTick() {
     if (stageNow.textContent !== label) stageNow.textContent = label;
   }
 }
+/* ---------------- header ----------------
+   Declarat inaintea primei chemari a lui heroTick: `const` nu se ridica
+   utilizabil, iar heroTick il citeste ca sa comute .revealed. */
+const hdr = document.querySelector('.hdr');
+
 addEventListener('scroll', heroTick, { passive: true });
 addEventListener('resize', heroTick);
 heroTick();
 
-/* ---------------- header: fundal plin dupa erou ---------------- */
-const hdr = document.querySelector('.hdr');
+// Fara carton de titlu nimic nu ar mai comuta .revealed si marca ar ramane
+// invizibila. Plasa de siguranta, nu cale normala.
+if (hdr && !intro) hdr.classList.add('revealed');
+
+/* fundal plin dupa erou */
 function hdrTick() {
   if (!hdr || !hero) return;
   hdr.classList.toggle('solid', scrollY > hero.offsetHeight - innerHeight * 0.6);

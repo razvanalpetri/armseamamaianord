@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Alpetri Real Estate | Agenție imobiliară pe litoral</title>
-<meta name="description" content="Agenție imobiliară pe litoral. Vânzări, închirieri, terenuri, evaluare și consultanță. Verificăm actele înainte de vizionare, nu după.">
+<meta name="description" content="Agenție imobiliară pe litoral. Comision 2% din valoarea proprietății, promovare activă pe social media, tur video, listare corectă și site dedicat pentru mandatele exclusive.">
 <meta name="theme-color" content="#0b1020">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -26,6 +26,23 @@
       <source id="srcMp4" src="media/hero.mp4" type="video/mp4">
     </video>
     <div class="hero-scrim"></div>
+
+    <!-- Cartonul de titlu. Site-ul incepe cu numele, nu cu o propunere de
+         vanzare. Fundalul de cerneala se ridica in primele procente de scroll
+         si descopera turul; logotipul mai sta putin peste imagine, apoi pleaca.
+         Latimea e blocata cap la cap prin textLength, nu prin font-size in vw:
+         asa marca ocupa exact coloana de continut la orice latime de ecran. -->
+    <div class="hero-intro" id="heroIntro">
+      <div class="wm">
+        <svg class="wm-svg" viewBox="0 0 1000 168" role="img" aria-label="Alpetri" focusable="false">
+          <text x="0" y="156" textLength="1000" lengthAdjust="spacingAndGlyphs">ALPETRI</text>
+        </svg>
+        <div class="wm-sub">
+          <span>Agenție imobiliară</span>
+          <span>Vânzări · Închirieri · Terenuri</span>
+        </div>
+      </div>
+    </div>
 
     <!-- Patru titluri suprapuse, ancorate de aceeasi linie de jos. Se schimba
          odata cu incaperea din tur: fiecare segment de scroll aduce alt mesaj. -->
@@ -57,8 +74,8 @@
 <!-- ============ marquee ============ -->
 <div class="marquee-band">
   <div class="marquee" id="mq1">
-    <span>Vânzări · Închirieri · Terenuri · Evaluare · <b>Consultanță</b> · </span>
-    <span>Vânzări · Închirieri · Terenuri · Evaluare · <b>Consultanță</b> · </span>
+    <span>Comision <b>2%</b> · Promovare activă · Tur video · Site dedicat · </span>
+    <span>Comision <b>2%</b> · Promovare activă · Tur video · Site dedicat · </span>
   </div>
 </div>
 
@@ -76,13 +93,91 @@
         de calitate, prezență constantă pe social media, campanii duse către oamenii
         care chiar caută acum. Așa ajunge proprietatea în fața cui trebuie, nu în fața
         tuturor.</p>
-      <p>În spate stau experiența de broker și, sincer, o pasiune veche pentru domeniu.
-        Folosim tot ce ajută, de la instrumente AI până la orice unealtă care scurtează
-        drumul până la semnătură, fără să transformăm asta într-un moft tehnologic.</p>
+      <p>În spatele fiecărui mandat stă o echipă și un mod de lucru fix: cine evaluează,
+        cine filmează, cine duce campania, cine ține legătura cu proprietarul. Nimic nu
+        depinde de dispoziția cuiva într-o zi anume.</p>
       <p>Obiectivul rămâne același de ambele părți ale mesei: vânzătorul să încheie
         repede și corect, cumpărătorul să plece cu imobilul potrivit nevoilor lui. Când
         una dintre părți pierde, tranzacția nu este reușită, este doar încheiată.</p>
     </div>
+  </div>
+</section>
+
+<!-- ============ oferta: comision + ce intra in mandat ============
+     Randuri cu rigle, nu grila de carduri. Sectiunea sta pe travertin, ca
+     ritmul paginii sa nu fie patru benzi intunecate una dupa alta. -->
+<section class="band offer" id="servicii">
+  <div class="wrap">
+    <div class="fade">
+      <h2 class="sec">Ce punem în spatele<br>unei vânzări</h2>
+      <p class="lede">Un mandat la Alpetri nu înseamnă un anunț publicat și o așteptare.
+        Înseamnă un plan de promovare, o echipă care îl duce până la capăt și un
+        proprietar care știe în fiecare săptămână unde se află.</p>
+    </div>
+
+    <div class="fee fade">
+      <p class="fee-fig num">2%</p>
+      <div class="fee-body">
+        <h3>Comision, din valoarea proprietății</h3>
+        <p>Un singur procent, spus de la început, nu descoperit la semnătură. Tot ce
+          urmează mai jos face parte din mandat, nu se cotează separat.</p>
+      </div>
+    </div>
+
+    <div class="offer-list">
+      <div class="offer-row fade">
+        <p class="offer-idx num">01</p>
+        <div>
+          <h3>Promovare activă pe social media</h3>
+          <p>Proprietatea intră în campanii duse către oamenii care caută acum în zona
+            ei, nu într-un feed general. Conținut filmat, publicat constant, cu bugetul
+            urmărit săptămână de săptămână.</p>
+        </div>
+      </div>
+
+      <div class="offer-row fade">
+        <p class="offer-idx num">02</p>
+        <div>
+          <h3>Listare corectă</h3>
+          <p>Suprafețe reale, situația actelor verificată înainte de publicare, fără
+            fotografii care promit altceva decât se vede la fața locului. O listare
+            corectă aduce mai puține telefoane și mai mulți cumpărători serioși.</p>
+        </div>
+      </div>
+
+      <div class="offer-row fade">
+        <p class="offer-idx num">03</p>
+        <div>
+          <h3>Tur video</h3>
+          <p>Filmăm proprietatea și o arătăm în mișcare, așa cum se parcurge. La
+            vizionare ajung oamenii care au văzut deja casa și tot au vrut să vină,
+            iar programul dumneavoastră nu se mai umple cu curioși.</p>
+        </div>
+      </div>
+
+      <div class="offer-row fade">
+        <p class="offer-idx num">04</p>
+        <div>
+          <h3>Instrumente AI</h3>
+          <p>Le folosim unde chiar scurtează drumul: pregătirea materialelor, testarea
+            mesajelor care aduc cereri, urmărirea prețurilor din zonă. Nu ca argument
+            de vânzare, ca timp câștigat.</p>
+        </div>
+      </div>
+
+      <div class="offer-row fade">
+        <p class="offer-idx num">05</p>
+        <div>
+          <h3>Site dedicat proprietății <span class="offer-tag">Exclusivități</span></h3>
+          <p>Pentru mandatele exclusive construim o pagină numai a acelei proprietăți,
+            cu tur video, plan, suprafețe și date. Un singur link, pe care îl trimiteți
+            oricui, și care arată a produs, nu a anunț printre alte o mie.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="offer-close fade">Toate au un singur scop: o proprietate bună vândută la
+      un preț bun, într-un termen pe care îl puteți planifica.</p>
   </div>
 </section>
 
@@ -103,7 +198,9 @@
       <p>Pentru <strong>cumpărători</strong>, înseamnă că nu rămâneți cu ce a mai rămas.
         Căutăm până găsim imobilul potrivit nevoilor dumneavoastră, fie că e vorba de o
         chirie sau de o achiziție.</p>
-      <p>Lucrez direct cu fiecare client. Nu veți fi pasat de la un coleg la altul.</p>
+      <p>Conduc personal fiecare mandat și răspund de rezultatul lui. Promovarea,
+        filmarea, campaniile și actele sunt duse de echipă, după același flux, de la
+        primul client până la ultimul.</p>
       <a class="founder-tel" href="tel:+40725367954">0725.367.954</a>
     </div>
   </div>
@@ -136,6 +233,7 @@
         <div><dt>Duminică</dt><dd>Doar programări</dd></div>
       </dl>
       <dl>
+        <div><dt>Comision</dt><dd class="num">2% din valoare</dd></div>
         <div><dt>Email</dt><dd>razvanalpetri@yahoo.ro</dd></div>
         <div><dt>Vizionări</dt><dd>Stabilit la telefon</dd></div>
       </dl>
@@ -160,6 +258,7 @@
         <h4>Pagini</h4>
         <ul>
           <li><a href="#agentie">Conceptul</a></li>
+          <li><a href="#servicii">Ce facem</a></li>
           <li><a href="#fondator">Fondator</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>

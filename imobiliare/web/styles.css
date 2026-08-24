@@ -38,6 +38,7 @@
   --limestone:  oklch(94% 0.012 78);
   --amber:      oklch(78% 0.155 68);
   --amber-hi:   oklch(86% 0.130 72);
+  --amber-d:    oklch(52% 0.135 55);   /* acelasi accent, coborat ca sa aiba contrast pe travertin */
   --line:       oklch(32% 0.014 258);
   --line-lt:    oklch(86% 0.012 78);
 
@@ -135,6 +136,11 @@ h2.sec {
   font-size: .82rem; color: #fff;
   text-shadow: 0 1px 12px oklch(10% .02 258 / .7);
 }
+/* Cat timp cartonul de titlu tine numele pe tot ecranul, aceeasi marca scrisa
+   marunt in coltul de sus e o repetitie. Intra cand pleaca el. JS pune
+   .revealed pe header. */
+.hdr .mark { opacity: 0; transition: opacity .5s ease; }
+.hdr.revealed .mark { opacity: 1; }
 .mark span { font-variation-settings: 'wdth' 125, 'wght' 400; }
 .hdr-tel {
   font-variation-settings: 'wdth' 100, 'wght' 500;
@@ -166,6 +172,57 @@ h2.sec {
     oklch(14% .02 258 / 0)   34%,  oklch(14% .02 258 / 0)   52%,
     oklch(14% .02 258 / .58) 78%,  oklch(14% .02 258 / .90) 100%);
 }
+/* ---------- cartonul de titlu ----------
+   Site-ul incepe cu numele. Valul de cerneala sta peste tot cadrul si se
+   ridica in primele procente de scroll, iar logotipul mai ramane putin peste
+   imagine si apoi pleaca. Cele doua opacitati sunt conduse din JS prin --veil
+   si --wm, ca sa fie legate de scrub, nu de un timer. */
+.hero-intro {
+  position: absolute; inset: 0; z-index: 3;
+  display: grid; align-content: center;
+  pointer-events: none;
+}
+.hero-intro::before {
+  content: ""; position: absolute; inset: 0;
+  background: var(--ink);
+  opacity: var(--veil, 1);
+}
+.wm {
+  position: relative;
+  width: 100%; max-width: var(--maxw);
+  margin-inline: auto; padding-inline: var(--gut);
+  opacity: var(--wm, 1);
+}
+/* textLength blocheaza marca exact pe latimea coloanei de continut, la orice
+   ecran. font-size in vw ar nimeri aproape, dar niciodata fix, iar un logotip
+   care nu se aliniaza cu grila nu arata desenat, arata scris. */
+.wm-svg { display: block; width: 100%; height: auto; overflow: visible; }
+.wm-svg text {
+  fill: #fff;
+  font-family: var(--disp);
+  font-variation-settings: 'wdth' 125, 'wght' 860;
+  font-size: 200px;
+}
+.wm-sub {
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px;
+  margin-block-start: clamp(12px, 1.8vh, 22px);
+  padding-block-start: clamp(10px, 1.4vh, 18px);
+  border-block-start: 1px solid oklch(100% 0 0 / .3);
+  font-variation-settings: 'wdth' 112, 'wght' 560;
+  text-transform: uppercase; letter-spacing: .16em;
+  font-size: clamp(.6rem, .54rem + .3vw, .78rem);
+  color: oklch(100% 0 0 / .78);
+}
+@media (max-width: 620px) {
+  /* Pe ecran inalt si ingust marca nu poate creste, e legata de latimea
+     coloanei. Centrata, ramanea un bloc mic in mijlocul unui cadru gol; jos
+     citeste ca afis. Randurile se stivuiesc, nu se ascund. */
+  .hero-intro { align-content: end; padding-block-end: 30vh; }
+  .wm-sub { display: block; letter-spacing: .13em; }
+  .wm-sub span { display: block; }
+  .wm-sub span + span { margin-block-start: 5px; color: oklch(100% 0 0 / .55); }
+}
+
 .hero-content {
   position: absolute; z-index: 2;
   inset-inline: 0; inset-block-end: clamp(74px, 12vh, 128px);
@@ -246,6 +303,75 @@ h2.sec {
 .story-body p { margin-block: 0 1.1em; color: var(--concrete); }
 .story-body p:last-child { margin-block-end: 0; }
 .story-body strong { color: var(--limestone); font-variation-settings: 'wdth' 100, 'wght' 600; }
+
+/* ---------- oferta ----------
+   Randuri cu rigle, nu carduri. Pe travertin, ca pagina sa nu fie patru benzi
+   intunecate la rand: erou inchis, concept inchis, oferta deschisa, fondator
+   inchis, conversie chihlimbar. */
+.offer { background: var(--limestone); color: var(--ink); }
+.offer h2.sec { color: var(--ink); }
+.offer .lede { color: var(--concrete-d); }
+.offer h3 {
+  margin: 0 0 .4em;
+  font-variation-settings: 'wdth' 112, 'wght' 660;
+  font-size: clamp(1.08rem, 1rem + .5vw, 1.35rem);
+  letter-spacing: .005em; line-height: 1.25;
+}
+.offer p { color: var(--concrete-d); }
+
+/* comisionul: o singura cifra tabulara intr-un rand, nu un card de statistica */
+.fee {
+  display: grid; grid-template-columns: 1fr; gap: 4px clamp(24px, 4vw, 56px);
+  margin-block-start: clamp(40px, 6vw, 80px);
+  padding-block: clamp(22px, 3vw, 38px);
+  border-block: 1px solid var(--line-lt);
+}
+@media (min-width: 760px) { .fee { grid-template-columns: minmax(0, 9.5rem) 1fr; align-items: start; } }
+.offer .fee-fig {
+  margin: 0;
+  font-variation-settings: 'wdth' 118, 'wght' 800;
+  font-size: clamp(3rem, 1.6rem + 6vw, 6.4rem);
+  line-height: .88; letter-spacing: -.01em;
+  color: var(--ink);
+}
+.fee-body p { margin: 0; max-width: 54ch; }
+
+.offer-list { margin-block-start: clamp(6px, 1vw, 14px); }
+.offer-row {
+  display: grid; grid-template-columns: 2.2rem 1fr; gap: 0 16px;
+  padding-block: clamp(20px, 2.6vw, 34px);
+  border-block-end: 1px solid var(--line-lt);
+}
+/* Peste 760px jgheabul e acelasi cu al randului de comision, altfel coloana de
+   text a comisionului porneste cu 22px mai la dreapta decat restul listei si
+   se vede ca doua liste lipite. */
+@media (min-width: 760px) {
+  .offer-row { grid-template-columns: minmax(0, 9.5rem) 1fr; gap: 0 clamp(24px, 4vw, 56px); }
+}
+.offer .offer-idx {
+  margin: 0;
+  font-variation-settings: 'wdth' 112, 'wght' 640;
+  font-size: .82rem; letter-spacing: .1em;
+  color: var(--amber-d);
+  padding-block-start: .35em;
+}
+.offer-row p { margin: 0; max-width: 62ch; }
+.offer-tag {
+  display: inline-block; vertical-align: .18em;
+  margin-inline-start: .7em;
+  font-variation-settings: 'wdth' 112, 'wght' 660;
+  text-transform: uppercase; letter-spacing: .12em;
+  font-size: .6rem; color: var(--amber-d);
+  border: 1px solid oklch(52% .135 55 / .45);
+  padding: .35em .6em .48em;
+}
+.offer .offer-close {
+  margin-block-start: clamp(28px, 4vw, 52px);
+  max-width: 46ch;
+  font-variation-settings: 'wdth' 100, 'wght' 500;
+  font-size: clamp(1.05rem, .98rem + .5vw, 1.3rem);
+  color: var(--ink);
+}
 
 /* ---------- broker fondator ---------- */
 .founder { background: var(--ink-2); border-block: 1px solid var(--line); }
@@ -332,4 +458,10 @@ h2.sec {
 @media (prefers-reduced-motion: reduce) {
   .fade { opacity: 1; transform: none; transition: none; }
   .hero { height: 100svh; }
+  /* Fara inaltime de derulare progresul ramane 0, deci JS nu ridica niciodata
+     valul si pagina ar sta acoperita. Aici cartonul devine static: un voal
+     partial peste primul cadru, cu numele lizibil peste el. */
+  .hero-intro::before { opacity: .58; }
+  .wm { opacity: 1; }
+  .hdr .mark { opacity: 1; }
 }
