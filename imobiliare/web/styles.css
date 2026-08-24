@@ -378,8 +378,12 @@ h2.sec {
 .founder-grid { display: grid; grid-template-columns: 1fr; gap: clamp(26px, 3.5vw, 56px); }
 /* Coloana fotografiei e fixa, nu fractionara: pe ecran lat o coloana in fr
    crestea odata cu pagina si poza ajungea sa domine textul. */
-@media (min-width: 900px) { .founder-grid { grid-template-columns: 300px 1fr; align-items: start; } }
-.founder-photo { margin: 0; max-width: 220px; }   /* pe mobil nu ocupa toata latimea */
+/* 380px, nu 300. Fotografia nu se mai decupeaza, deci nu mai e un portret
+   strans pe cap si bust: e un cadru cu context, iar la 300px chipul ajungea
+   prea mic ca sa se citeasca. Cand o poza iese mica in coloana, se lateste
+   coloana. */
+@media (min-width: 900px) { .founder-grid { grid-template-columns: 380px 1fr; align-items: start; } }
+.founder-photo { margin: 0; max-width: 300px; }   /* pe mobil nu ocupa toata latimea */
 @media (min-width: 900px) { .founder-photo { max-width: none; } }
 .founder-photo img {
   /* Nicio taiere. Fara aspect-ratio si fara object-fit, poza se vede intreaga,

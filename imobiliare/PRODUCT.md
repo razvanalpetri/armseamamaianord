@@ -43,14 +43,18 @@ argumentul e complet, iar o a patra frază despre organizare doar amâna telefon
 se propune vreodată o închidere nouă aici, întrebarea e ce adaugă peste ce s-a spus deja,
 nu cum sună.
 
-Fotografia este obligatorie aici. Fișierul este `web/media/razvan-alpetri.webp`, 700x875.
+Fotografia este obligatorie aici. Fișierul este `web/media/razvan-alpetri.webp`, 768x1024,
+raport 3:4. Este un cadru cu context, nu un portret de studio, și asta e alegerea
+clientului.
 
 **Nu se decupează.** Slotul afișează fotografia întreagă, la raportul ei, oricare ar fi
 el: coloana de 300 de pixeli dă lățimea, înălțimea vine de la sine. Regula anterioară
 cerea decupaj 4:5 strâns pe cap și bust, cu argumentul că la 300 de pixeli un cadru
 întreg face persoana ilizibilă. Clientul a cerut explicit să nu se taie nimic, deci
 argumentul acela nu mai are cuvântul: dacă o fotografie iese prea mică în coloană,
-se lărgește coloana, nu se taie poza.
+se lărgește coloana, nu se taie poza. Asta s-a și întâmplat la prima fotografie
+netăiată: coloana a trecut de la 300 la 380 de pixeli pe desktop și de la 220 la 300
+pe telefon, ca chipul să rămână lizibil într-un cadru care are și fundal.
 
 ## Cartonul de titlu
 

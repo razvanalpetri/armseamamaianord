@@ -56,7 +56,7 @@ Secțiunile, în ordinea din fișier:
   - footer
 
 POZA FONDATORULUI
-  Fișierul e   web/media/razvan-alpetri.webp   (700x875)
+  Fișierul e   web/media/razvan-alpetri.webp   (768x1024)
   Poza se vede ÎNTREAGĂ, nu se mai decupează nimic din ea. Nu trebuie să fie
   4:5 și nu trebuie tăiată: coloana dă lățimea, înălțimea vine de la sine,
   orice raport ar avea poza.
@@ -68,9 +68,11 @@ POZA FONDATORULUI
   rezervă browserul locul înainte să descarce poza; dacă nu se potrivesc,
   pagina sare când imaginea ajunge.
 
-  În folder mai stă și   web/media/razvan-alpetri-alt.webp
-  poza anterioară, cea de la apus. Ca să reveniți la ea, în index.html
-  schimbați numele fișierului din <img src="..."> în cel cu -alt.
+  În folder mai stau și pozele anterioare, toate 700x875:
+      web/media/razvan-alpetri-alt.webp     cea de la apus
+      web/media/razvan-alpetri-alt-2.webp   cea din mașină
+  Ca să reveniți la una din ele, în index.html schimbați numele fișierului
+  din <img src="...">   ȘI puneți width="700" height="875".
 
 DE COMPLETAT
   Adresa, emailul și telefonul sunt cele reale.
