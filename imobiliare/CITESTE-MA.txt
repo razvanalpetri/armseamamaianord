@@ -111,18 +111,31 @@ Nu schimba nimic din @font-face, acolo sunt fonturile încorporate.
 
 VIDEOUL
 -------
-web/media/hero.mp4       1600x900, pentru desktop
-web/media/hero-sm.mp4    1200x676, se încarcă automat pe telefon
+web/media/hero.mp4       1600x900, 6,9 MB, pentru desktop
+web/media/hero-sm.mp4    1200x676, 3,6 MB, se încarcă automat sub 1100px lățime
 web/media/poster.jpg     imaginea afișată până se încarcă videoul
+
+Cât timp videoul se descarcă, eticheta din colțul de jos scrie „Se încarcă".
+Dispare singură. Nu e defecțiune.
 
 Dacă înlocuiești videoul, encodează-l cu:
 
     ffmpeg -i sursa.mp4 -an -vf "scale=1600:900,format=yuv420p" \
-      -c:v libx264 -preset slow -crf 21 \
-      -x264-params "keyint=4:min-keyint=4:scenecut=0" \
+      -c:v libx264 -preset slow -crf 24 \
+      -x264-params "keyint=6:min-keyint=6:scenecut=0" \
       -movflags +faststart hero.mp4
 
-keyint=4 este important pentru scroll. Detalii în DESIGN.md.
+Și varianta mică:
+
+    ffmpeg -i sursa.mp4 -an -vf "scale=1200:676,format=yuv420p" \
+      -c:v libx264 -preset slow -crf 26 \
+      -x264-params "keyint=6:min-keyint=6:scenecut=0" \
+      -movflags +faststart hero-sm.mp4
+
+keyint=6 este important pentru scroll, iar peste CRF 24 se pierde textura
+marmurei. Măsurătorile sunt în DESIGN.md.
+NU reencoda din hero.mp4, pornește de la sursa originală: comprimarea peste
+o comprimare adaugă pierderi care nu se mai recuperează.
 După ce schimbi durata videoului, ajustează --hero-vh din styles.css:
 aproximativ 32vh pentru fiecare secundă de video.
 

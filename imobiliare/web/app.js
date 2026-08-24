@@ -5,12 +5,20 @@
 const clamp = v => Math.min(1, Math.max(0, v));
 
 /* ---------------- sursa video, in functie de latime ----------------
-   Fisierul all-keyframe e mare prin constructie. Telefonul primeste varianta
-   mica. Se seteaza inainte de incarcare, altfel se descarca ambele. */
+   Doua fisiere: 1600x900 si 1200x676. Se alege inainte de incarcare, altfel
+   se descarca amandoua.
+
+   Pragul e 1100, nu 820. Pe un ecran portret, object-fit:cover potriveste
+   inaltimea si taie lateral, deci din cadru se vede doar o fasie de vreo 26%
+   care apoi e marita. Masurat pe un iPhone de 390x844 la DPR 3: din fisierul
+   de 1200px se folosesc 312 si ajung intinsi pe 1170 pixeli de ecran, adica o
+   marire de 3,8x. De aia varianta de telefon a ramas la 1200 de pixeli lati:
+   nu mai are de unde sa scada. Ce s-a redus e bitrate-ul, nu latimea. Iar
+   tabletele, la fel de decupate, primesc si ele fisierul mic. */
 (function pickSource() {
   const v = document.getElementById('heroVideo');
   if (!v) return;
-  const small = innerWidth <= 820 ||
+  const small = innerWidth <= 1100 ||
     (navigator.connection && /2g|3g/.test(navigator.connection.effectiveType || ''));
   if (!small) return;
   // Se rescrie <source>, nu atributul src al lui <video>: un src pe element ar
@@ -46,6 +54,21 @@ const STAGES = [
 const heroLines = [...document.querySelectorAll('.hero-line')];
 let curSeg = 0;
 let ready = false, target = 0, cur = 0;
+
+/* Cat timp nu s-a strans destul din tur, scroll-ul misca bara dar imaginea sta
+   pe loc, si asta arata a site stricat, nu a fisier care se descarca. Eticheta
+   de stadiu spune „Se incarca" pana atunci. Pragul e cantitatea din buffer,
+   nu readyState: readyState scade inapoi la fiecare cautare, iar eticheta ar
+   clipi la fiecare gest de scroll. Odata aprins, ramane aprins. */
+let scrubReady = false;
+function checkBuffer() {
+  if (scrubReady || !vid.duration) return;
+  const b = vid.buffered;
+  if (b.length && b.end(b.length - 1) >= Math.min(5, vid.duration * 0.25)) scrubReady = true;
+}
+vid.addEventListener('canplaythrough', () => { scrubReady = true; });
+vid.addEventListener('progress', checkBuffer);
+
 const mark = () => { ready = true; vid.pause(); };
 vid.addEventListener('loadedmetadata', mark);
 vid.addEventListener('loadeddata', mark);
@@ -126,8 +149,11 @@ function heroTick() {
 
   if (stageBar) stageBar.style.width = (p * 100).toFixed(2) + '%';
   if (stageNow) {
+    checkBuffer();
     let label = STAGES[0][1];
     for (const [at, name] of STAGES) if (p >= at) label = name;
+    if (!scrubReady) label = 'Se încarcă';
+    stageNow.classList.toggle('loading', !scrubReady);
     if (stageNow.textContent !== label) stageNow.textContent = label;
   }
 }

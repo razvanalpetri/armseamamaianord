@@ -268,8 +268,12 @@ h2.sec {
   text-transform: uppercase; letter-spacing: .09em;
   font-size: clamp(.72rem, .68rem + .2vw, .84rem);
   color: var(--amber);
-  min-width: 9ch;                      /* nu sare layoutul cand se schimba cuvantul */
+  min-width: 11ch;                     /* nu sare layoutul cand se schimba cuvantul */
 }
+/* Pana se strange destul din tur. Pulsul spune ca se lucreaza, nu ca s-a blocat. */
+.stage-now.loading { color: oklch(100% 0 0 / .62); animation: pulse 1.4s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { opacity: .45 } 50% { opacity: 1 } }
+@media (prefers-reduced-motion: reduce) { .stage-now.loading { animation: none; opacity: .8 } }
 .stage-bar {
   flex: 1; max-width: 380px; height: 2px;
   background: oklch(100% 0 0 / .22); position: relative;

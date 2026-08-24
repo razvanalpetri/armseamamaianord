@@ -206,6 +206,11 @@ living, bucătărie open space cu insulă, dormitor.
 Patru clipuri de 5s, deci 20s și 640vh. Un clip per încăpere, ca fiecare segment de
 scroll să fie o tranziție de cameră, marcată și de eticheta din colț.
 
+Livrat: `hero.mp4` 1600x900, 6,9 MB, și `hero-sm.mp4` 1200x676, 3,6 MB. Cât timp
+nu s-a strâns destul din tur în buffer, eticheta de stadiu scrie „Se încarcă".
+Fără ea, scroll-ul mișcă bara iar imaginea stă pe loc, ceea ce arată a site
+stricat, nu a fișier care se descarcă.
+
 Paleta filmării, alb și marmură, e alta decât paleta paginii, albastru-negru cu
 chihlimbar. Asta e intenționat: eroul e o fereastră luminoasă într-o pagină întunecată.
 Legătura o face imaginea de statement, aceeași vilă la ora albastră, unde albul rămâne
@@ -241,14 +246,54 @@ Un GOP între 3 și 6 este **la fel de fluid** ca all-keyframe. Prăbușirea e �
 6 și 12, unde o căutare aterizează prea des pe keyframe și se pierd jumătate din
 cadre. Livrăm `keyint=4`, marjă de siguranță sub prag.
 
-Ce cumpără asta: la aceeași dimensiune, CRF 21 în loc de CRF 28. La `keyint=1`
+Ce cumpără asta: la aceeași dimensiune, CRF 24 în loc de CRF 28. La `keyint=1`
 nu există predicție între cadre, deci fiecare cadru e un JPEG de sine stătător,
-iar la 0,14 biți/pixel arată exact ca un JPEG prost. Cu GOP 4, trei din patru
+iar la 0,14 biți/pixel arată exact ca un JPEG prost. Cu GOP 6, cinci din șase
 cadre sunt P-frame-uri ieftine și I-frame-urile primesc biții rămași.
 
 Măsurătoarea e făcută pe VP9 în Chromium. Direcția e clară, dar dacă apare
 vreodată scrub sacadat pe Safari sau iOS, prima verificare e coborârea la
-`keyint=2`, nu creșterea CRF-ului.
+`keyint=3`, nu creșterea CRF-ului.
+
+### CRF-ul livrat: 24, pentru că peste el se topesc venele marmurei
+
+Prima livrare a fost CRF 21 și 11,5 MB pe desktop, iar clientul a reclamat
+încărcarea. Reencodat din clipurile Kling originale, nu din fișierul livrat,
+ca să nu se adune o a doua generație de pierderi. Comparat pe un decupaj 1:1
+din perete de marmură, cadrul de la secunda 11,5:
+
+| CRF, 1600x900, GOP 6 | dimensiune | ce se vede la 1:1 |
+|---|---|---|
+| 21 (livrarea veche, GOP 4) | 11,5 MB | referința |
+| **24** | **6,9 MB** | imposibil de deosebit de referință |
+| 26 | 5,5 MB | venele fine din umbră încep să se lege între ele |
+| 28 | 4,4 MB | venele subțiri fuzionează, piatra devine pată |
+
+Pragul e între 24 și 26. Se livrează 24: 40% mai puțin, fără nimic vizibil
+pierdut. Coborârea rezoluției nu e o alternativă bună, 1280 urcat înapoi la
+1600 e mai moale decât 1600 la CRF 26, la dimensiune apropiată.
+
+24fps în loc de 30 economisește doar 8%, deși sursa Kling chiar are 24. Nu
+merită: la 30 cadrele duplicate sunt P-frame-uri aproape gratuite, iar scroll-ul
+lent arată mai bine.
+
+### Varianta de telefon rămâne la 1200 de pixeli lățime
+
+Tentația e să se scadă rezoluția pentru telefon. Este greșit, și se poate
+calcula de ce. Pe ecran portret `object-fit: cover` potrivește înălțimea și
+taie lateral, deci din cadrul 16:9 se vede o fâșie de aproximativ 26%, care e
+apoi mărită:
+
+| ecran | sursă 1200 | sursă 960 |
+|---|---|---|
+| iPhone 390x844 @3x | 312px întinși pe 1170 = **x3,8** | 250px pe 1170 = x4,7 |
+| iPhone Max 430x932 @3x | 311px pe 1290 = **x4,1** | 249px pe 1290 = x5,2 |
+
+Este deja mărit de aproape patru ori. Ce s-a redus pentru telefon este bitrate-ul,
+nu lățimea: 1200x676 la CRF 26, 3,6 MB în loc de 5,8.
+
+Pragul de alegere a fișierului a urcat de la 820 la 1100 de pixeli, ca tabletele,
+la fel de decupate în portret, să primească tot fișierul mic.
 
 ### `prefers-reduced-motion` rupe orice e condus de progresul scroll-ului
 
