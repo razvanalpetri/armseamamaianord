@@ -32,8 +32,43 @@
     if (vid.readyState >= 1) markReady();
   }
 
+  /* ---------- plasa de siguranta pentru servere fara HTTP Range ----------
+     Daca serverul nu trimite 206, seek-ul esueaza IN TACERE: currentTime ramane
+     0 si nu apare nicio eroare nicaieri. In loc sa lasam eroul inghetat pe
+     primul cadru, il redam in bucla.
+
+     ATENTIE, masurat: `seekable.length` NU este un indicator de incredere.
+     Servit de `python3 -m http.server`, care nu suporta Range, Chromium
+     raporteaza totusi seekable.length === 1, desi currentTime nu se misca.
+     De aceea sonda de mai jos chiar incearca un seek si verifica rezultatul. */
+  var scrubOK = true, probing = false, probed = false;
+
+  function probeSeek() {
+    if (probed || !vid || !vid.duration) return;
+    probed = true;
+    probing = true;                                   // suspenda bucla de scrub
+    var mark = Math.min(0.8, vid.duration / 4);
+    try { vid.currentTime = mark; } catch (e) { /* ignorat */ }
+    setTimeout(function () {
+      var moved = vid.currentTime > 0.05;
+      probing = false;
+      if (moved) {
+        cur = vid.currentTime;                        // evita un salt la reluare
+      } else {
+        scrubOK = false;
+        vid.loop = true;
+        var pl = vid.play();
+        if (pl && pl.catch) pl.catch(function () {});
+      }
+    }, 900);
+  }
+  if (vid) {
+    vid.addEventListener('loadeddata', probeSeek);
+    if (vid.readyState >= 2) probeSeek();
+  }
+
   (function scrubLoop() {
-    if (ready && vid && vid.duration) {
+    if (scrubOK && !probing && ready && vid && vid.duration) {
       cur += (target - cur) * 0.11;
       if (Math.abs(vid.currentTime - cur) > 0.004) {
         try { vid.currentTime = cur; } catch (e) { /* seek respins in timpul unui alt seek */ }
@@ -47,7 +82,7 @@
     var r = hero.getBoundingClientRect();
     var h = hero.offsetHeight - window.innerHeight;
     var p = h > 0 ? clamp(-r.top / h) : 0;
-    if (ready && vid && vid.duration) target = p * (vid.duration - 0.05);
+    if (scrubOK && ready && vid && vid.duration) target = p * (vid.duration - 0.05);
 
     var out = clamp((p - 0.46) / 0.2);
     if (heroInner) {
