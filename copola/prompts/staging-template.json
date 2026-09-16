@@ -1,0 +1,23 @@
+{
+  "task": "VIRTUAL STAGING of a real photograph of an empty newly-built <ROOM>. Furnish it with warm minimalist contemporary luxury furniture, and remove construction leftovers. The ARCHITECTURE MUST NOT CHANGE AT ALL.",
+  "source": "<descrierea fotografiei reale: pardoseala, pereti, tamplarie, radiatoare, ce se vede pe geam, ce resturi de santier sunt in cadru>",
+  "add_furniture": ["<piesele, cu material si pozitie fata de pereti>"],
+  "remove": [
+    "the toolbox and all building debris on the floor",
+    "the bare hanging light bulbs and their loose wires",
+    "any protective tape, plastic sheeting or wrapped objects"
+  ],
+  "new_lighting": "soft warm natural daylight entering from the existing openings, gentle realistic contact shadows under every piece of furniture, warm neutral white balance",
+  "style": "real interior photography for a premium property listing, 35mm, natural perspective, photographic and restrained, NOT a 3D render",
+  "must_preserve_exactly": [
+    "the exact camera angle, perspective, framing, crop and 4:3 aspect ratio",
+    "every wall position and the ceiling",
+    "every door and door frame, every window and window frame",
+    "the exact view through the glass, unchanged in content",
+    "every radiator and its position",
+    "the floor material, plank direction and colour"
+  ],
+  "quality_bar": "looks like the same room photographed after a real furniture delivery. Furniture sits flat on the floor with correct scale and perspective, correct contact shadows, no floating objects, no warped walls",
+  "resolution": "2048 resolution",
+  "negative_prompt": "changed room shape, moved walls, removed radiator, changed floor, different view outside, different camera angle, recomposed, cropped, zoomed, square image, 3d render look, cgi, plastic surfaces, oversaturated, hdr glow, people, hands, text, watermark, logo, cluttered, too much furniture, dark gloomy"
+}

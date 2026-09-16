@@ -1,0 +1,50 @@
+{
+  "_nota": "Ce diferă față de staging-template.json. Restul clauzelor rămân identice.",
+  "_consistenta": "living-b se generează DUPĂ living-a, cu job_id-ul lui living-a trecut ca a doua referință. Fără asta, cele două unghiuri ies cu mobilă diferită și nu se mai citesc ca aceeași casă.",
+
+  "living-a": {
+    "sursa": "media/real-living-a.jpg",
+    "mobilier": ["canapea colțar bouclé crem pe covor de lână", "măsuță joasă stejar și travertin",
+                 "lampadar arcuit", "bufet lung din stejar", "tablou abstract mare, tonuri de pământ",
+                 "masă de dining stejar cu 6 scaune tapițate crem", "pendul de in peste masă",
+                 "măslin în ghiveci de teracotă", "perdele de in la fereastra din dreapta"]
+  },
+  "living-b": {
+    "sursa": "media/real-living-b.jpg",
+    "referinta_suplimentara": "job_id-ul rezultatului living-a",
+    "mobilier": "IDENTIC cu living-a. Se copiază piesele, NU unghiul de cameră al referinței."
+  },
+  "dormitor-1": {
+    "sursa": "media/real-dormitor-1.jpg",
+    "mobilier": ["pat tapițat in bej pe peretele lung din stânga", "două noptiere stejar cu veioze ceramice",
+                 "bancă de stejar la picioarele patului", "covor de lână", "perdele de in la ușa de balcon",
+                 "o lucrare înrămată deasupra tăbliei"]
+  },
+  "dormitor-2": {
+    "sursa": "media/real-dormitor-2.jpg",
+    "mobilier": ["pat tapițat pe peretele din dreapta, pled ruginiu", "noptieră stejar cu veioză",
+                 "fotoliu bouclé crem lângă ușa de balcon", "lampadar negru de lectură", "covor de lână"],
+    "lumina": "auriu de după-amiază târzie, veioza aprinsă"
+  },
+  "dormitor-3": {
+    "sursa": "media/real-dormitor-3.jpg",
+    "mobilier": ["pat mic tapițat pe peretele din stânga, pled măsliniu", "noptieră stejar",
+                 "fotoliu bouclé compact", "raft jos de stejar", "covor mic de lână"],
+    "atentie": "Casa în construcție și câmpul de pe geam SE PĂSTREAZĂ. Zona e în dezvoltare și site-ul nu ascunde asta."
+  },
+  "baie-mare": {
+    "sursa": "media/real-baie-mare.jpg",
+    "task": "DOAR relight plus accesorii. Niciun obiect sanitar nu se mută, nu se înlocuiește și nu se restilizează.",
+    "accesorii": ["prosoape albe rulate pe blat", "tavă neagră cu două sticle chihlimbar și o lumânare",
+                  "prosop pe marginea căzii", "ramură de măslin în vază ceramică", "covoraș de baie"],
+    "critical_fixture_lock": "Frontul mobilierului de sub lavoar este COMPLET PLAT, neted, lucios. NU canelat, NU striat, NU cu lamele, NU casetat."
+  },
+  "baie-mica": {
+    "sursa": "media/real-baie-mica.jpg",
+    "task": "DOAR corecție de expunere plus accesorii. Fotografia sursă este puternic subexpusă, corectarea expunerii este instrucțiunea dominantă.",
+    "accesorii": ["prosoape rulate pe radiatorul port-prosop, vizibil în oglindă", "dozator negru de săpun",
+                  "plantă mică în ghiveci ceramic", "covoraș de baie"],
+    "critical_fixture_lock": "Identic cu baie-mare.",
+    "atentie": "Oglinda reflectă radiatorul port-prosop. Reflexia trebuie să rămână fizic corectă."
+  }
+}
