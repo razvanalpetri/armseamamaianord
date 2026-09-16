@@ -2,179 +2,159 @@
 
 Se verifică înainte de fiecare livrare. Dacă build-ul contrazice ceva de aici, build-ul greșește.
 
-## Scena fizică
+## Sursa designului: o referință aleasă de client
 
-Cineva stă pe marginea patului, într-un apartament de bloc din Constanța, joi seara, după
-program. Telefonul e la 30 cm de față și e singura sursă de lumină din cameră. Se uită la
-o casă pe care nu a văzut-o încă, și încearcă să își dea seama dacă îi încape canapeaua
-în living și dacă își permite.
+Sistemul vizual **nu este inventat**. Este extras din site-ul indicat de client,
+`sterling.stn-automations.xyz`, un landing pentru un apartament din Downtown Dubai,
+aceeași categorie: o singură proprietate, cu tur walk-through legat de scroll.
 
-Pagina trebuie să arate ca acel moment: fond întunecat care nu obosește ochiul seara, și
-camerele vilei intrând în cadru ca niște ferestre luminate.
+Regula, moștenită din skill și confirmată aici: **când clientul indică un site anume,
+acela se replică, nu se „îmbunătățește".** Un schimb de font „ca să aibă mai multă
+personalitate", făcut peste o referință deja aprobată, este exact felul în care încep
+trei runde de refacere.
 
-## Strategia de culoare
+Tokenii de mai jos sunt citiți din CSS-ul referinței, nu ghiciți dintr-o captură.
 
-**Committed.** Verdele saturat duce între 30 și 60% din suprafață. Nu „neutru plus accent
-de 10%", ăla e regimul timid care face pagina să pară un template.
+## Ce a înlocuit versiunea anterioară
 
-Toate culorile sunt extrase din materialele reale ale vilei, nu dintr-un moodboard:
+Prima versiune a acestui site avea alt sistem, construit de la zero: negru cu subton verde,
+verde de câmp pe suprafețe mari, Bricolage Grotesque la greutatea 780, auriu interzis
+explicit, etichete majuscule tracked interzise explicit.
 
-| sursă reală în vilă | token |
-|---|---|
-| marmura Nero Marquina din cele două băi | `--nero`, `--nero-2` |
-| microcimentul bej de pe peretele băii mari | `--plaster`, `--plaster-2` |
-| parchetul laminat gri și stejarul din staging | `--oak` |
-| câmpul verde care se vede pe geamul dormitorului mic | `--field`, `--field-hi` |
+**Toate acele reguli sunt anulate.** Referința folosește auriu și folosește intens
+etichete majuscule tracked. Clientul a ales referința. Nu ne întoarcem la regulile vechi
+pentru că „erau mai curate", pentru că nu noi le judecăm.
+
+Fonturile Bricolage Grotesque și Public Sans au fost șterse din `web/fonts/`.
+
+## Culoare
 
 ```
---nero       oklch(15% 0.016 158)   /* ground. Negru de marmură, subton VERDE, niciodată #000 */
---nero-2     oklch(20% 0.018 158)   /* suprafețe ridicate */
---plaster    oklch(95% 0.010  92)   /* microciment, fundal secțiuni luminoase */
---plaster-2  oklch(88% 0.013  90)   /* microciment în umbră */
---oak        oklch(72% 0.045  75)   /* stejar, text secundar pe fond închis */
---oak-d      oklch(46% 0.030  75)   /* text secundar pe fond deschis */
---field      oklch(54% 0.105 135)   /* VERDE ANGAJAT, culoarea de teren */
---field-hi   oklch(68% 0.115 132)   /* hover, accente pe fond închis */
---line       oklch(30% 0.012 158)   /* rigle și chenare pe închis */
+--paper   #F3F1EC   hârtie caldă, fundalul dominant al secțiunilor de conținut
+--ink     #14151A   cerneală, textul pe hârtie
+--muted   #83837f   gri secundar, corpul de text din coloana dreaptă
+--dark    #0B0C10   aproape negru, turul, secțiunea de contact, footerul
+--line    rgba(20,21,26,.14)   rigle fine, singurul separator folosit
+--gold    #B69A6B   accent: cifra din acordeon, telefonul, butonul activ
 ```
 
 Reguli:
 
-- Niciun `#000`, niciun `#fff`. Neutrele închise sunt împinse spre verde (marmura), cele
-  deschise spre cald (microcimentul). Croma între 0.010 și 0.020 e suficientă.
-- Croma scade pe măsură ce luminozitatea se apropie de 0 sau de 100.
-- **Negrul de aici are subton verde, nu albastru.** Site-ul din `/imobiliare` folosește
-  negru-albastru. Dacă acesta ajunge albastru, cele două devin frați și amândouă pierd.
-- Verdele are voie pe suprafețe mari. Secțiunea „Ce intră în preț" e **drenată** în verde,
-  nu decorată cu el.
-- **Auriul este interzis în orice doză.** Navy cu auriu este reflexul de ordinul întâi al
-  categoriei.
+- Auriul este **accent**, nu suprafață. Apare pe semnul `+` din întrebări, pe numărul de
+  telefon din contact, pe bara preloaderului și pe butonul unei camere dezvăluite. Nimic
+  mai mult.
+- Separatorul este întotdeauna o **riglă de 1px**, niciodată o umbră, niciodată un card
+  cu fundal. Singurele chenare din pagină sunt la cardurile din „Ce intră în preț" și la
+  butoanele-pastilă.
+- Pagina alternează: tur întunecat, conținut pe hârtie, contact întunecat. Fără gradient
+  între ele.
 
 ## Tipografie
 
-Două familii variabile, self-hostate, patru fișiere woff2. Fără Google Fonts la runtime.
+**O singură familie: Inter variabilă**, self-hostată, latin plus latin-ext, două fișiere
+woff2. Referința o încarcă de la Google Fonts la runtime; noi o self-hostăm, ceea ce e
+strict mai bun și complet invizibil vizual.
 
 | rol | setare |
 |---|---|
-| display (hero, titluri secțiune) | Bricolage Grotesque, `opsz 96`, `wght 780`, `wdth 100` |
-| titluri mici, subsecțiuni | Bricolage Grotesque, `opsz 24`, `wght 620` |
-| corp | Public Sans, `wght 400` |
-| date, prețuri, tabele | Public Sans, `wght 560`, `font-variant-numeric: tabular-nums` |
+| titluri, toate nivelurile | `font-weight:200`, `text-transform:uppercase`, `letter-spacing:-.01em`, `line-height:1.02` |
+| corp | `font-weight:300`, `line-height:1.65` |
+| etichetă mică (`.kick`) | `.68rem`, `letter-spacing:.32em`, majuscule, încadrată automat în `[ ]` |
+| navigație | `.7rem`, `letter-spacing:.2em`, majuscule |
+| logo | `1rem`, `letter-spacing:.3em`, majuscule |
+| cifre mari | `font-weight:200`, `font-variant-numeric:tabular-nums` |
 
-Tracking, calibrat pentru aceste două fețe (NU pentru un didone, valorile diferă):
+**Titlurile sunt subțiri și majuscule.** Este gestul central al referinței și nu se
+negociază: un titlu gros ar rupe complet raportul dintre titlu și rigla de sub el.
 
-```
-hero               letter-spacing: -.02em ; line-height: 0.98
-titluri secțiune   letter-spacing: -.012em; line-height: 1.04
-rânduri de listă   letter-spacing: 0      ; line-height: 1.35
-corp               letter-spacing: .002em ; line-height: 1.6
-```
+### Diacriticele, verificate, nu presupuse
 
-De ce Bricolage și nu altceva:
-
-- Are **axă optică reală** (`opsz 12..96`). Aceeași familie desenează altfel la 14px și la
-  120px, ceea ce niciun grotesc static nu face. Titlurile capătă masă fără să devină greoaie.
-- Terminațiile ușor neregulate se citesc ca **desen**, nu ca font implicit. Un grotesc
-  perfect neutru la 120px peste un video arată a Figma, nu a brand.
-- Public Sans dă cifre tabulare native, deci tabelul de preț și fișa tehnică se aliniază
-  fără să import un mono. **Etichetele mici majuscule tracked deasupra fiecărei secțiuni
-  sunt interzise**, sunt schelărie de AI și reflexul de ordinul doi al categoriei.
-
-### Diacriticele, verificate în cmap, nu presupuse
-
-Verificat cu fontTools pe fișierele livrate, nu din documentație:
+Verificat cu fontTools în cmap-ul fișierelor livrate, apoi măsurat în browser prin lățimea
+reală a glifelor:
 
 ```
-Bricolage  : ă â î ș ț Ă Â Î Ș Ț  toate prezente
-Public Sans: ă â î ș ț Ă Â Î Ș Ț  toate prezente
+Inter: ă â î ș ț Ă Â Î Ș Ț €   toate prezente
 ș = U+0219, ț = U+021B, cu VIRGULĂ dedesubt, nu sedilă
 ```
 
-Textul sursă se scrie **exclusiv** cu U+0219 / U+021B. Formele cu sedilă (U+015F, U+0163)
-sunt interzise în copy. Bricolage nici măcar nu are `ţ` cu sedilă, deci o sedilă strecurată
-în copy ar cădea pe font de rezervă și s-ar vedea.
-
-### `ș` și `ț` nu au voie în linia de display
-
-Regulă moștenită dintr-un build anterior, măsurată acolo și valabilă și aici: la peste
-130px, virgula de sub `ș` și `ț` se desprinde vizual de literă și se citește ca un apostrof
-pus greșit. Mărirea interliniajului nu rezolvă, pentru că problema nu e spațiul.
-
-**În `h1.display` se folosesc doar cuvinte fără `ș` și `ț`.** Restul paginii păstrează
-diacriticele complete. `ă`, `â`, `î` nu au problema asta, semnul lor stă deasupra.
-
-Titlul ales respectă regula: „La cheie înseamnă exact ce scrie mai jos." Are `î` și `ă`,
-niciun `ș`, niciun `ț`.
-
-Fonturi respinse explicit ca reflex de categorie: Playfair Display, Cormorant, Instrument
-Serif și Sans, Inter, DM Sans și Serif, Fraunces, Syne, Space Grotesk, Outfit, Plus Jakarta
-Sans. Respins separat: **Archivo**, pentru că e fața site-ului din `/imobiliare`.
-
-## Text peste video
-
-Alb peste imagine eșuează mai des decât reușește. Se aplică toate trei, nu unul:
-
-```css
-.hero-media { filter: saturate(.94) brightness(.72); }
-.hero::before {
-  content: ""; position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(180deg,
-    oklch(15% .016 158 / .72) 0%,  oklch(15% .016 158 / .48) 34%,
-    oklch(15% .016 158 / .84) 68%, oklch(15% .016 158 / .97) 100%);
-}
-.hero h1 { text-shadow: 0 2px 44px oklch(10% .014 158 / .85), 0 1px 4px oklch(10% .014 158 / .5); }
-```
-
-Cadrele erou au fost tăiate cu **spațiu negativ sus**, ca titlul să aibă unde sta.
+Majusculele contează aici mai mult decât în versiunea anterioară, pentru că **toate
+titlurile sunt uppercase**, deci `Ș` și `Ț` apar la corp mare, nu doar în text curent.
+Verificat vizual la `clamp(2rem,5vw,4.2rem)`, adică până la circa 67px: virgula stă lipită
+de literă. Pragul la care se desprinde, măsurat într-un build anterior, este în jur de
+130px, iar pagina nu are niciun text atât de mare de când titlul erou a fost scos.
 
 ## Layout
 
-- Ritm variabil. Padding identic peste tot arată a template.
+```
+.wrap   max-width:1400px; padding-inline:5vw
+.sec    padding-block:14vh          .sec.tight  padding-block:9vh
+.lead   grid 1.1fr .9fr; gap:6vw; align-items:end
+```
+
+- Fiecare secțiune începe cu același bloc `.lead`: titlu în stânga, două paragrafe în
+  dreapta, aliniate la bază. Este ritmul referinței și se respectă peste tot.
+- Gutterul este `5vw`, nu un rem fix. Toate elementele din tur sunt ancorate la `5vw`.
 - **Proprietăți logice**, `padding-inline` și `padding-block`, niciodată shorthand-ul
   `padding` care omoară padding-ul orizontal al containerului.
-- Cardurile sunt răspunsul leneș. Carduri în carduri sunt întotdeauna greșite.
-- Nu se centrează tot. Stiva centrată iconiță, titlu, subtitlu este interzisă.
-- Fișa tehnică e **tabel cu cifre aliniate**, nu grilă de carduri cu iconițe.
+- Galeria are celule **inegale**, pe grilă de 6 coloane: 4, 2, 2, 2, 2, 3, 3. Referința
+  folosește 4 coloane cu celule portret, dar fotografiile noastre sunt landscape, deci
+  proporțiile au fost adaptate ca să nu tăiem camerele.
+
+## Hero, fără text
+
+Clientul a cerut explicit ca **textul din hero să dispară**. Rămâne doar cromul turului,
+exact componentele referinței minus blocul de titlu:
+
+- legenda de capitol, jos-stânga, care se schimbă pe măsură ce derulezi
+- contorul `01 / 04` plus „Turul casei", jos-dreapta
+- rigla de capitole, dreapta, cu punct activ și etichetă la hover
+- indiciul „Derulați ca să intrați", care dispare după primul gest
+
+Nu se readaugă titlu, subtitlu sau propoziție de poziționare în hero. Dacă textul trebuie
+să reapară, se cere clientului, nu se decide aici.
+
+## Adaptări față de referință, și de ce
+
+Trei, toate din cauza conținutului, nu din gust:
+
+1. **Videoul este întunecat cu `brightness(.78)` și vinieta e dusă la `.62`.** Referința
+   are un apartament întunecat, noaptea. Al nostru este un living alb, în plină zi, peste
+   care cromul alb devenea ilizibil. Măsurat: eticheta riglei nu se putea citi.
+2. **Etichetele din tur au `text-shadow`.** Același motiv.
+3. **Pe ecrane sub 700px indiciul urcă la `16vh`.** La 390px se atingea de contor, care stă
+   la `9vh` pe latura opusă. Măsurat, nu estimat.
 
 ## Interdicții pentru acest proiect
 
-- Bordură-accent laterală (`border-left: 4px solid`).
-- Text cu gradient (`background-clip: text`).
-- Glassmorphism ca decor.
-- Șablonul hero-metric: cifră mare, etichetă mică, statistici de sprijin, accent gradient.
-- Grile de carduri identice.
-- Modal ca prima idee.
-- Corp de text scris integral cu majuscule.
-- Etichete mici majuscule tracked deasupra fiecărei secțiuni.
-- Navy cu auriu, în orice doză. Auriu, în orice doză.
-- Serif italic de display.
-- Negru cu subton albastru, pentru că e paleta celuilalt site din repo.
+- Text cu gradient (`background-clip:text`).
+- Umbre ca decor. Singurele umbre permise sunt cele de lizibilitate din tur.
+- Carduri în carduri.
+- Grile în care toate celulele au aceeași dimensiune.
+- Titluri la altă greutate decât 200, sau care nu sunt majuscule.
+- Altă familie de font în afară de Inter.
+- Readăugarea textului în hero.
 
 ## Erou, constrângeri tehnice
 
-- Cadrul de start și cel de final ale unui clip se taie **din aceeași fotografie**, unul larg
-  și unul apropiat. Altfel modelul materializează obiectele care apar doar în cadrul final,
-  în loc să miște camera spre ele.
-- Un singur gest continuu de cameră pe clip. Fără rotație, fără tilt, viteză constantă.
+- Cadrul de start și cel de final ale unui clip se taie **din aceeași fotografie**, unul
+  larg și unul apropiat. Altfel modelul materializează obiectele care apar doar în cadrul
+  final, în loc să miște camera spre ele.
+- Un singur gest continuu de cameră pe clip, fără rotație, fără tilt, viteză constantă.
   Cuvinte interzise în prompt: cinematic, smooth, gently, elegant, sweeping, gracefully.
-  Se înlocuiesc cu distanță plus durată („about three metres across the full five seconds").
-- Buget de schimbare 15 la 25% pe clip de 5s. Peste 40% apare smearing.
-- La clipul final se schimbă **doar lumina**, nu și geometria. Cadrul de amurg se generează
-  separat ca imagine, înainte de animare, ca să rămânem în buget.
-- Audio oprit pe toate clipurile.
+- Buget de schimbare 15 la 25% pe clip de 5s. La clipul final se schimbă doar lumina.
 - Encodare pentru scrub: fiecare cadru keyframe (`keyint=1`), 30fps, `+faststart`.
-  Fișierele all-keyframe sunt mari prin construcție. Dimensiunea se spune cu voce tare
-  înainte de livrare, nu se descoperă în producție.
-- Serverul TREBUIE să suporte HTTP Range. Fără Range, `video.currentTime` nu face absolut
-  nimic, `seekable.length` rămâne 0, iar scrub-ul pare rupt fără nicio eroare în consolă.
-  `python3 -m http.server` NU suportă Range.
+- Serverul TREBUIE să suporte HTTP Range. Pagina are o plasă care redă videoul în buclă
+  dacă seek-ul eșuează, dar plasa nu înlocuiește un server corect.
+  **`seekable.length` nu este un indicator de încredere**, măsurat: fără Range, Chromium
+  raportează totuși `seekable.length === 1` deși `currentTime` rămâne 0. Detecția trebuie
+  să încerce efectiv un seek.
 
 ## Onestitate vizuală
 
-Mobilierul e staging virtual. Regula din PRODUCT.md se traduce în design astfel:
+Neschimbat față de versiunea anterioară, și nenegociabil:
 
-- Galeria are un **slider înainte/după** pe cel puțin o cameră, cu fotografia reală dedesubt.
-  Mânerul e vizibil din start, nu ascuns până la hover, altfel nimeni nu îl găsește pe telefon.
-- Fiecare imagine cu staging poartă atributul `data-staged="true"` și o notă vizibilă,
-  nu un `title` pe care nimeni nu îl citește.
-- Fotografiile reale ale băilor și ale camerelor goale rămân accesibile în pagină.
+- Fiecare fotografie mobilată are un buton care arată fotografia reală, goală.
+- Slider real/mobilat la secțiunea „Așa se predă".
+- Prima întrebare din acordeon este chiar „Mobila din imagini intră în preț?".
+- Notă în footer.
+- Casa în construcție și câmpul vizibile pe geamul dormitorului trei rămân în imagine.

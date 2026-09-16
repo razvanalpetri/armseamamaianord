@@ -45,6 +45,10 @@ Nu e decor. Vila se predă goală, iar o casă goală nu se vinde din fotografie
 nu poate estima dacă îi încape canapeaua. Walkthrough-ul rezolvă exact asta. De aceea
 mobilierul din video există: ca să dea scară, nu ca să mintă.
 
+Turul este împărțit în **patru capitole**, cu legendă care se schimbă pe măsură ce derulezi:
+livingul, spre scară, dormitorul matrimonial, se lasă seara. Capitolele poartă singurul
+text din hero, iar acel text apare doar după ce ai început să derulezi.
+
 ## Regula de onestitate, neneogociabilă
 
 Mobilierul din walkthrough și din galerie este **staging virtual**. Vila se predă
@@ -78,20 +82,31 @@ Reguli de scriere:
 - Niciun titlu nu se repetă în paragraful de sub el.
 - Nu se promite nimic ce nu e în tabelul de mai sus.
 
+## Referința
+
+Clientul a indicat explicit un site de replicat: **`sterling.stn-automations.xyz`**, landing
+pentru un apartament din Downtown Dubai, aceeași categorie ca al nostru, o singură
+proprietate cu tur walk-through legat de scroll.
+
+Sistemul vizual vine de acolo și se respectă. Detaliile sunt în DESIGN.md. Regula de lucru:
+**referința aleasă de client bate orice preferință a noastră.** Nu o „îmbunătățim".
+
+Tot la cererea clientului, **textul din hero a fost eliminat**. Turul începe fără titlu,
+fără subtitlu și fără propoziție de poziționare. Rămâne doar cromul: legenda de capitol,
+contorul și rigla.
+
 ## Anti-referințe
 
 Ce NU este acest site:
 
 - **NU portal de anunțuri.** Fără grilă de carduri cu poză mică și preț roșu, fără
   „vezi toate proprietățile".
-- **NU imobiliară americană de lux.** Fără navy cu auriu, fără serif subțire peste o poză
-  cu piscină, fără agent în costum.
-- **NU editorial cu serif italic și etichete mono tracked.** Este reflexul de ordinul doi
-  al categoriei „premium care nu vrea să fie generic". Îl refuzăm explicit, la fel ca pe
-  primul.
 - **NU landing de SaaS.** Fără trei carduri identice cu iconiță, titlu și două rânduri.
 - **NU clona site-ului din `/imobiliare`.** Acela e un site de agenție, cu altă paletă,
-  alt font și alt erou. Dacă cele două seamănă, acesta a greșit.
+  alt font și alt erou.
+
+Anti-referințele din versiunea anterioară care interziceau auriul și etichetele majuscule
+tracked **nu mai sunt valabile**: referința aleasă de client le folosește pe amândouă.
 
 ## Principii strategice
 

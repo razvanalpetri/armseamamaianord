@@ -3,6 +3,10 @@
 Landing de vânzare pentru un singur produs, cu erou video legat de scroll. Construit cu
 skill-ul `site-3d-scroll`, rețeta **walk-in tour**.
 
+Sistemul vizual replică referința indicată de client, `sterling.stn-automations.xyz`.
+Textul din hero a fost eliminat, tot la cererea clientului: turul începe fără titlu, cu
+legende de capitol care apar pe măsură ce derulezi.
+
 Trăiește în `/copola` și este complet independent de `/imobiliare` (Alpetri Real Estate) și
 de `/src` (ARM Sea Mamaia Nord). Niciunul dintre celelalte două nu a fost modificat.
 
@@ -37,7 +41,7 @@ web/            livrabilul
   styles.css
   app.js
   favicon.svg
-  fonts/        Bricolage Grotesque + Public Sans, variabile, self-hostate
+  fonts/        Inter variabil, self-hostat (latin + latin-ext)
   media/        hero.mp4, hero-sm.mp4, poster, 7 camere mobilate, 7 camere reale
 ```
 
@@ -103,13 +107,25 @@ Măsurat în Chromium, la 1400x900 și la 390x844:
 - **Zero** overflow orizontal: `scrollWidth` egal cu `innerWidth` la ambele lățimi.
 - **Zero** erori de consolă.
 - Grila de camere colapsează la o coloană sub 860px, coloanele de preț sub 880px.
-- Diacriticele `ă â î ș ț Ă Â Î Ș Ț` și `€` sunt prezente în ambele fonturi, verificat
-  întâi în cmap cu fontTools, apoi măsurând lățimea reală a glifelor în browser.
+- Diacriticele `ă â î ș ț Ă Â Î Ș Ț` și `€` sunt prezente în Inter, verificat întâi în
+  cmap cu fontTools, apoi măsurând lățimea reală a glifelor în browser. Contează mai mult
+  decât de obicei, pentru că toate titlurile sunt majuscule, deci `Ș` și `Ț` apar la corp mare.
+- Capitolele turului se schimbă corect la derulare: 01/04 Livingul, 02/04 Spre scară,
+  03/04 Dormitorul matrimonial, 04/04 Se lasă seara.
+- Cifrele urcă la intrarea în ecran: 3, 2, 200.000, 2.
+- Acordeonul de întrebări se deschide, iar în hero indiciul și contorul nu se suprapun
+  la 1400px și nici la 390px (măsurat pe dreptunghiuri, nu estimat din captură).
 
 **Ce NU a fost verificat:** redarea efectivă a `hero.mp4` într-un browser real. Chromium-ul
 din Playwright nu are codec H.264, așa că scrub-ul a fost dovedit pe o variantă VP9 identică
 ca durată și cadre, cu exact același cod. H.264 merge în toate browserele reale, dar
 deschideți pagina o dată în Chrome sau Safari înainte de publicare.
+
+Pagina are o **plasă pentru servere fără HTTP Range**: dacă seek-ul eșuează, turul se redă
+în buclă în loc să înghețe pe primul cadru. Detecția încearcă efectiv un seek, pentru că
+`seekable.length` nu e de încredere: măsurat, fără Range Chromium raportează totuși
+`seekable.length === 1` deși `currentTime` rămâne 0. Testat pe două servere, același build:
+cu Range `currentTime` ajunge la 14,84s la 60% scroll; fără Range se comută pe buclă.
 
 De asemenea nu a fost testat pe iOS Safari. `muted` și `playsinline` sunt puse, care sunt
 condițiile ca iOS să permită setarea programatică a lui `currentTime`.
