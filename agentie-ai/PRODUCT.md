@@ -65,7 +65,9 @@ costă, cât câștig, cât durează.**
 3. **Omul rămâne în buclă.** Agentul predă conversația unui om când nu știe. Spus explicit,
    pentru că e prima teamă a patronului.
 4. **Un singur pas de conversie:** audit gratuit de 30 de minute. Telefon, formular sau DM pe Instagram.
-5. **Estimările sunt marcate ca estimări.** Nu promitem cifre de vânzări.
+5. **Estimările sunt marcate ca estimări.** Singura promisiune fermă e cea din titlul hero,
+   aleasă de client: „Agenți AI care cresc vânzările firmei din primele 30 de zile".
+   Nu adăugăm alte promisiuni de cifre.
 
 ## De completat înainte de publicare
 
