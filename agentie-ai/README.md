@@ -24,7 +24,7 @@ web/
   index.html
   styles.css
   gl.js        obiectul 3D: 9.000 de puncte (5.200 pe mobil), 6 forme, WebGL pur, 17 KB
-  app.js       demo WhatsApp derulat de scroll, calculator, acordeon, marquee, formular
+  app.js       demo WhatsApp derulat de scroll, calculator, acordeon, marquee
   fonts/       Unbounded + Onest, variabile, self-hosted (latin + latin-ext), licență OFL
 ```
 
@@ -48,19 +48,15 @@ funcționează normal.
 
 ## De completat înainte de publicare
 
-Datele de mai jos sunt substituenți:
+Afirmațiile de mai jos trebuie confirmate:
 
 | unde | ce |
 |---|---|
-| `index.html`, secțiunea `#contact` | telefonul `0700 000 000` și linkul `wa.me/40700000000` |
-| `index.html` + `app.js` | e-mailul `salut@nextflowai.ro` (și în `mailto:` din formular); domeniul e presupus |
-| `index.html`, programul | „L–V, 9–18" |
 | `index.html`, FAQ | răspunsul despre GDPR (găzduire UE, DPA, fără antrenare) trebuie să fie adevărat pentru furnizorii folosiți |
 | `index.html`, proces | „prototip în 7 zile", „de obicei în două săptămâni": confirmați că le puteți respecta |
 
-Formularul nu are backend: compune un e-mail către adresa de mai sus. Pentru lead-uri
-direct în CRM, înlocuiți handler-ul din `app.js` cu un `fetch` către un webhook (n8n,
-Make, Formspree).
+Contactul se face doar prin DM pe Instagram: butonul din secțiunea `#contact` deschide
+`https://ig.me/m/razvan.alpetri`. Site-ul nu are formular și nu colectează date.
 
 Conversația WhatsApp („Casa Lemnului"), jurnalul de noapte din hero și cifrele din
 calculator sunt exemple și sunt marcate ca atare pe pagină.

@@ -64,7 +64,8 @@ costă, cât câștig, cât durează.**
    vânzări recuperate e interactiv.
 3. **Omul rămâne în buclă.** Agentul predă conversația unui om când nu știe. Spus explicit,
    pentru că e prima teamă a patronului.
-4. **Un singur pas de conversie:** audit gratuit de 30 de minute. Telefon, formular sau DM pe Instagram.
+4. **Un singur pas de conversie:** audit gratuit de 30 de minute, cerut printr-un DM pe
+   Instagram. Fără formular, fără alte canale de contact pe pagină (decizia clientului).
 5. **Estimările sunt marcate ca estimări.** Singura promisiune fermă e cea din titlul hero,
    aleasă de client: „Agenți AI care cresc vânzările firmei din primele 30 de zile".
    Nu adăugăm alte promisiuni de cifre.

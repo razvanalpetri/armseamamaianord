@@ -94,25 +94,6 @@
   Object.values(ins).forEach(i => i.addEventListener('input', calc));
   calc();
 
-  /* ---------- formular: fara backend, compune un e-mail ---------- */
-  const form = $('#leadForm'), msg = $('#formMsg');
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    const nume = form.nume, tel = form.telefon;
-    let ok = true;
-    for (const f of [nume, tel]) {
-      const bad = !f.value.trim() || (f === tel && f.value.replace(/\D/g, '').length < 9);
-      f.classList.toggle('bad', bad);
-      if (bad && ok) { f.focus(); ok = false; }
-    }
-    if (!ok) { msg.textContent = 'Completați numele și un număr de telefon valid.'; return; }
-    const interes = $$('input[name=interes]:checked', form).map(i => i.value).join(', ') || 'nespecificat';
-    const body = `Nume: ${nume.value}\nFirma: ${form.firma.value}\nTelefon: ${tel.value}\nInteres: ${interes}`;
-    location.href = 'mailto:salut@nextflowai.ro?subject=' + encodeURIComponent('Audit gratuit, ' + nume.value) +
-      '&body=' + encodeURIComponent(body);
-    msg.textContent = 'Mulțumim! Se deschide aplicația de e-mail. Vă sunăm în aceeași zi lucrătoare.';
-  });
-
   /* ---------- o singura bucla ---------- */
   addEventListener('scroll', () => {
     vel += (scrollY - lastY) * .06; lastY = scrollY;

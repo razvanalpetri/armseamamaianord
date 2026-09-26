@@ -429,43 +429,11 @@ input[type=range]::-moz-range-thumb {
 
 /* ---------- conversie, drenata in semnal ---------- */
 .convert { background: var(--signal); color: oklch(18% 0.03 36); padding-block: clamp(90px, 14vh, 160px) }
-.convert-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 480px); gap: 60px; align-items: start }
-.convert-copy > p { margin-top: 22px; font-size: 1.1rem; max-width: 30em }
-.convert-dl { margin-top: 40px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 30px }
-.convert-dl dt { font-size: 13px; font-weight: 600; opacity: .7; margin-bottom: 3px }
-.convert-dl dd { font-weight: 600; font-size: 1.05rem }
-.convert-dl a { text-decoration-thickness: 1.5px; text-underline-offset: 3px }
-.btn-ig { margin-top: 36px; gap: 10px }
-.btn-ig svg { flex: none }
-
-.lead-form {
-  display: grid; gap: 16px; padding: 28px; border-radius: 22px;
-  background: var(--paper); color: var(--ink);
-}
-.lead-form label > span, .lead-form legend { display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px }
-.lead-form input:not([type=checkbox]) {
-  width: 100%; height: 50px; padding: 0 14px; border-radius: 12px;
-  border: 1.5px solid var(--rule); background: var(--paper); font-size: 16px;
-}
-.lead-form input:focus { border-color: var(--ink); outline: none }
-.lead-form input.bad { border-color: var(--signal-d) }
-.lead-form fieldset { border: 0; padding: 0; margin: 0 }
-.chips { display: flex; flex-wrap: wrap; gap: 8px }
-.chips label { position: relative; cursor: pointer }
-.chips input { position: absolute; opacity: 0; pointer-events: none }
-.chips span {
-  display: inline-block; padding: 9px 14px; border-radius: 999px; font-size: 14.5px; font-weight: 500;
-  box-shadow: inset 0 0 0 1.5px var(--rule); transition: background .2s, color .2s, box-shadow .2s;
-}
-.chips input:checked + span { background: var(--ink); color: var(--paper); box-shadow: none }
-.chips input:focus-visible + span { outline: 2px solid var(--signal); outline-offset: 2px }
-.lead-form .btn { width: 100%; margin-top: 6px }
-.form-msg { font-size: 14.5px; min-height: 1.4em }
-@media (max-width: 900px) {
-  .convert-grid { grid-template-columns: 1fr; gap: 40px }
-  .lead-form { padding: 22px 18px }
-}
-@media (max-width: 420px) { .convert-dl { grid-template-columns: 1fr } }
+.convert-copy { max-width: 760px }
+.convert-copy > p { margin-top: 22px; font-size: 1.15rem; max-width: 32em }
+.btn-ig { margin-top: 38px; gap: 12px; min-height: 62px; padding: 0 32px; font-size: 17.5px }
+.btn-ig svg { flex: none; width: 22px; height: 22px }
+@media (max-width: 520px) { .btn-ig { width: 100%; padding: 0 20px; font-size: 16px } }
 
 /* ---------- footer ---------- */
 .foot { background: var(--night); color: var(--on-night); padding-block: 70px 40px }
