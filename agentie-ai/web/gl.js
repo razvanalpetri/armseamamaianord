@@ -241,7 +241,7 @@ void main() {
     gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, FS));
     gl.linkProgram(prog);
     if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(prog));
-  } catch (e) { console.warn('[veghe] WebGL dezactivat:', e.message); canvas.remove(); return; }
+  } catch (e) { console.warn('[nextflowai] WebGL dezactivat:', e.message); canvas.remove(); return; }
   gl.useProgram(prog);
 
   const attr = (name, data, size) => {
@@ -393,5 +393,5 @@ void main() {
 
   resize();
   requestAnimationFrame(frame);
-  window.__veghe = { get state() { return { ...cur, keys: keys.map(k => [Math.round(k.at), k.shape]) }; }, N };
+  window.__nfai = { get state() { return { ...cur, keys: keys.map(k => [Math.round(k.at), k.shape]) }; }, N };
 })();

@@ -1,7 +1,8 @@
-# PRODUCT.md, Veghe (agenție de automatizare cu AI)
+# PRODUCT.md, NextFlowAI (agenție de automatizare cu AI)
 
-> **„Veghe" este un nume substituent.** Se schimbă în `web/index.html` (titlu, header,
-> footer, meta) și în acest fișier. Restul copy-ului nu depinde de nume.
+> Numele agenției este **NextFlowAI**. În logo, „AI" e scris în culoarea de semnal.
+> Instagram: [@razvan.alpetri](https://www.instagram.com/razvan.alpetri/), butonul de DM
+> din secțiunea de contact folosește `https://ig.me/m/razvan.alpetri`.
 
 ## Ce este
 
@@ -10,8 +11,7 @@ agenți care vând, răspund la telefon, scriu pe WhatsApp și programează clie
 „inteligență artificială", vinde **conversații care nu se mai pierd** și **vânzări care nu
 mai așteaptă programul de lucru**.
 
-Numele vine din „a sta de veghe": cineva e treaz când toți ceilalți dorm. Asta este
-promisiunea, iar tot site-ul o ilustrează.
+Promisiunea: firma e trează și când toți ceilalți dorm. Tot site-ul o ilustrează.
 
 ## Servicii (ordinea contează)
 
@@ -64,7 +64,7 @@ costă, cât câștig, cât durează.**
    vânzări recuperate e interactiv.
 3. **Omul rămâne în buclă.** Agentul predă conversația unui om când nu știe. Spus explicit,
    pentru că e prima teamă a patronului.
-4. **Un singur pas de conversie:** audit gratuit de 30 de minute. Telefon și formular.
+4. **Un singur pas de conversie:** audit gratuit de 30 de minute. Telefon, formular sau DM pe Instagram.
 5. **Estimările sunt marcate ca estimări.** Nu promitem cifre de vânzări.
 
 ## De completat înainte de publicare

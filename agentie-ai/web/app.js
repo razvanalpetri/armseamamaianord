@@ -108,7 +108,7 @@
     if (!ok) { msg.textContent = 'Completați numele și un număr de telefon valid.'; return; }
     const interes = $$('input[name=interes]:checked', form).map(i => i.value).join(', ') || 'nespecificat';
     const body = `Nume: ${nume.value}\nFirma: ${form.firma.value}\nTelefon: ${tel.value}\nInteres: ${interes}`;
-    location.href = 'mailto:salut@veghe.ro?subject=' + encodeURIComponent('Audit gratuit, ' + nume.value) +
+    location.href = 'mailto:salut@nextflowai.ro?subject=' + encodeURIComponent('Audit gratuit, ' + nume.value) +
       '&body=' + encodeURIComponent(body);
     msg.textContent = 'Mulțumim! Se deschide aplicația de e-mail. Vă sunăm în aceeași zi lucrătoare.';
   });

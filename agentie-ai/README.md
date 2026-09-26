@@ -1,4 +1,4 @@
-# Veghe, agenție de automatizare cu AI
+# NextFlowAI, agenție de automatizare cu AI
 
 Site one-page cu un obiect 3D real, desenat în WebGL și legat de scroll, construit cu
 skill-ul `site-3d-scroll` (rețeta C, geometrie reală, fără video). Trăiește separat de
@@ -52,9 +52,8 @@ Datele de mai jos sunt substituenți:
 
 | unde | ce |
 |---|---|
-| peste tot | **numele „Veghe"**: `<title>`, meta, header, footer, `PRODUCT.md` |
 | `index.html`, secțiunea `#contact` | telefonul `0700 000 000` și linkul `wa.me/40700000000` |
-| `index.html` + `app.js` | e-mailul `salut@veghe.ro` (și în `mailto:` din formular) |
+| `index.html` + `app.js` | e-mailul `salut@nextflowai.ro` (și în `mailto:` din formular); domeniul e presupus |
 | `index.html`, programul | „L–V, 9–18" |
 | `index.html`, FAQ | răspunsul despre GDPR (găzduire UE, DPA, fără antrenare) trebuie să fie adevărat pentru furnizorii folosiți |
 | `index.html`, proces | „prototip în 7 zile", „de obicei în două săptămâni": confirmați că le puteți respecta |

@@ -1,4 +1,4 @@
-/* Veghe. Paleta si tipografia sunt fixate in DESIGN.md. */
+/* NextFlowAI. Paleta si tipografia sunt fixate in DESIGN.md. */
 
 @font-face {
   font-family: "Unbounded"; font-style: normal; font-display: swap; font-weight: 200 900;
@@ -130,6 +130,7 @@ main, .foot { position: relative; z-index: 1 }
   display: inline-flex; align-items: center; gap: 10px; margin-right: auto;
   font: 720 21px/1 var(--disp); letter-spacing: -.02em; text-decoration: none;
 }
+.mark b { color: var(--signal); font-weight: inherit }
 .hdr-nav { display: flex; gap: 26px; font-size: 15px; font-weight: 500 }
 .hdr-nav a { text-decoration: none; padding-block: 6px }
 .hdr-nav a:hover { color: var(--signal-d) }
@@ -434,6 +435,8 @@ input[type=range]::-moz-range-thumb {
 .convert-dl dt { font-size: 13px; font-weight: 600; opacity: .7; margin-bottom: 3px }
 .convert-dl dd { font-weight: 600; font-size: 1.05rem }
 .convert-dl a { text-decoration-thickness: 1.5px; text-underline-offset: 3px }
+.btn-ig { margin-top: 36px; gap: 10px }
+.btn-ig svg { flex: none }
 
 .lead-form {
   display: grid; gap: 16px; padding: 28px; border-radius: 22px;

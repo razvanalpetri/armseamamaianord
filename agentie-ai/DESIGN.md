@@ -1,4 +1,4 @@
-# DESIGN.md, Veghe
+# DESIGN.md, NextFlowAI
 
 Se verifică înainte de fiecare livrare. Dacă build-ul contrazice ceva de aici, build-ul greșește.
 
