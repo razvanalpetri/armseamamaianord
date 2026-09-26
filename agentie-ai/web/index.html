@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Veghe | Agenți AI care vând, răspund la telefon și pe WhatsApp, 24/7</title>
+<meta name="description" content="Construim agenți AI pentru firme din România: agenți de vânzări, agenți vocali care răspund la telefon, agenți pe WhatsApp, programări și integrare CRM. Activi 24/7, în limba română.">
+<meta name="theme-color" content="#f4f0e7">
+<meta property="og:title" content="Veghe | Agenți AI pentru firme din România">
+<meta property="og:description" content="Firma dumneavoastră răspunde. La orice oră. Agenți AI de vânzări, vocali și pe WhatsApp.">
+<link rel="preload" href="fonts/unbounded-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/onest-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<canvas class="gl" id="gl" aria-hidden="true"></canvas>
+
+<header class="hdr" id="hdr">
+  <a class="mark" href="#top" aria-label="Veghe, începutul paginii"><i class="lamp" aria-hidden="true"></i>Veghe</a>
+  <nav class="hdr-nav" aria-label="Principal">
+    <a href="#servicii">Servicii</a>
+    <a href="#demo">Demo</a>
+    <a href="#calculator">Calculator</a>
+    <a href="#intrebari">Întrebări</a>
+  </nav>
+  <a class="btn btn-sm" href="#contact">Audit gratuit</a>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top" data-shape="0">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="kicker">Agenți AI pentru firme din România</p>
+      <h1 class="display">Firma dumneavoastră răspunde. <span class="sig">La orice oră.</span></h1>
+      <p class="lead">Construim agenți AI care vând, preiau apeluri, scriu pe WhatsApp și fac programări în locul echipei, seara, în weekend și de sărbători. Vorbesc românește și predau conversația unui om când e cazul.</p>
+      <div class="cta-row">
+        <a class="btn" href="#contact">Programați un audit gratuit</a>
+        <a class="btn-ghost" href="#demo">Vedeți un agent la lucru <span aria-hidden="true">↓</span></a>
+      </div>
+    </div>
+
+    <div class="log" aria-live="off">
+      <p class="log-h"><i class="lamp" aria-hidden="true"></i>Noaptea trecută, la un client <span>(exemplu)</span></p>
+      <ol class="log-list" id="logList">
+        <li><time>23:47</time><span>WhatsApp</span><em>Canapea rezervată, 3.890 lei</em></li>
+        <li><time>00:12</time><span>Telefon</span><em>Programare confirmată joi, 10:30</em></li>
+        <li><time>02:05</time><span>Site</span><em>Ofertă trimisă pentru 40 m² de parchet</em></li>
+        <li><time>06:58</time><span>Rezumat</span><em>14 conversații, 3 vânzări, 1 predată lui Mihai</em></li>
+      </ol>
+    </div>
+  </div>
+  <a class="scroll-cue" href="#vanzari" aria-label="Derulați la servicii"><span></span></a>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee-band" aria-hidden="true">
+  <div class="marquee" id="mq1">
+    <span>Vânzări</span><b>·</b><span>Apeluri</span><b>·</b><span>WhatsApp</span><b>·</b><span>Programări</span><b>·</b><span>CRM</span><b>·</b><span>24/7</span><b>·</b>
+    <span>Vânzări</span><b>·</b><span>Apeluri</span><b>·</b><span>WhatsApp</span><b>·</b><span>Programări</span><b>·</b><span>CRM</span><b>·</b><span>24/7</span><b>·</b>
+  </div>
+</div>
+
+<!-- ============ CAPITOLE, obiectul 3D își schimbă forma ============ -->
+<div class="chapters" id="servicii">
+
+  <article class="chapter" id="vanzari" data-shape="1">
+    <div class="wrap">
+      <div class="ch-body fade">
+        <p class="ch-num">01 <span>Agenți AI de vânzări</span></p>
+        <h2 class="title">Agenți care vând, nu doar răspund.</h2>
+        <p>Agentul cunoaște produsele, prețurile și stocul. Pune întrebările potrivite, recomandă, trimite oferta și revine singur la clienții care au tăcut.</p>
+        <ul class="ticks">
+          <li>Calificarea lead-urilor din Facebook și Google în sub un minut</li>
+          <li>Follow-up automat după 1, 3 și 7 zile</li>
+          <li>Recuperarea coșurilor abandonate, cu oferta potrivită</li>
+          <li>Recomandări pe baza istoricului fiecărui client</li>
+        </ul>
+        <p class="aside">Cine răspunde primul vinde, de cele mai multe ori, primul.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="chapter" id="nonstop" data-shape="2">
+    <div class="wrap">
+      <div class="ch-body fade">
+        <p class="ch-num">02 <span>Sisteme active 24/7</span></p>
+        <h2 class="title">Deschis și când firma e închisă.</h2>
+        <p>Seara, în weekend, de Crăciun. Cererile sunt preluate, sortate și rezolvate pe loc, sau predate colegului potrivit, cu tot contextul.</p>
+        <ul class="ticks">
+          <li>Triere automată: urgent, vânzare, suport, spam</li>
+          <li>Predare către un om când agentul nu e sigur</li>
+          <li>Rezumat dimineața: ce s-a întâmplat peste noapte</li>
+          <li>Monitorizare și alertă dacă ceva nu funcționează</li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <article class="chapter" id="voce" data-shape="3">
+    <div class="wrap">
+      <div class="ch-body fade">
+        <p class="ch-num">03 <span>Agenți vocali AI</span></p>
+        <h2 class="title">Răspunde la telefon cu voce de om.</h2>
+        <p>Agentul vocal vorbește românește natural, înțelege când e întrerupt și ține minte ce i s-a spus. Preia apelurile ratate, confirmă programări și sună înapoi clienții.</p>
+        <ul class="ticks">
+          <li>Preluarea apelurilor în afara programului sau la aglomerație</li>
+          <li>Confirmări și reamintiri telefonice pentru programări</li>
+          <li>Apeluri de calificare pentru lead-urile noi</li>
+          <li>Transfer către un coleg, cu rezumatul discuției</li>
+        </ul>
+        <div class="call" aria-hidden="true">
+          <span class="call-dot"></span><span>Apel în curs</span><time id="callTime">00:00</time>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="chapter" id="whatsapp" data-shape="4">
+    <div class="wrap">
+      <div class="ch-body fade">
+        <p class="ch-num">04 <span>Agenți conversaționali pe WhatsApp</span></p>
+        <h2 class="title">Pe WhatsApp, acolo unde clienții chiar scriu.</h2>
+        <p>Pe numărul oficial al firmei, prin WhatsApp Business API. Agentul trimite catalogul, răspunde la întrebări, preia comenzi și programări și trimite linkul de plată.</p>
+        <ul class="ticks">
+          <li>Catalog, prețuri și disponibilitate direct în conversație</li>
+          <li>Programări și confirmări în chat</li>
+          <li>Link de plată și statusul comenzii</li>
+          <li>Mesaje către clienții care și-au dat acordul</li>
+        </ul>
+      </div>
+    </div>
+  </article>
+</div>
+
+<!-- ============ STATEMENT ============ -->
+<section class="statement">
+  <div class="wrap">
+    <p class="statement-line fade">Nu înlocuim oamenii. Preluăm apelul de la 23:40, ca dimineață ei să-l închidă cu o vânzare.</p>
+  </div>
+</section>
+
+<!-- ============ DEMO WhatsApp, derulat de scroll ============ -->
+<section class="demo" id="demo">
+  <div class="demo-sticky">
+    <div class="wrap demo-grid">
+      <div class="demo-copy">
+        <h2 class="title">23:47. Magazinul e închis. Vânzarea, nu.</h2>
+        <p>O conversație reală ca formă, cu nume schimbate. Derulați și urmăriți ce face agentul fără ca cineva din firmă să atingă telefonul.</p>
+        <ol class="demo-facts" id="demoFacts">
+          <li data-at="0.14"><b>4 secunde</b> până la primul răspuns</li>
+          <li data-at="0.42"><b>Stoc și prețuri</b> citite live din sistemul magazinului</li>
+          <li data-at="0.80"><b>Rezervare, programare, CRM</b> făcute singur, predate lui Mihai</li>
+        </ol>
+      </div>
+
+      <div class="phone" aria-label="Exemplu de conversație pe WhatsApp cu un agent AI">
+        <div class="phone-top">
+          <span class="ph-avatar" aria-hidden="true">CL</span>
+          <div><b>Casa Lemnului</b><small id="phStatus">online</small></div>
+          <time id="phClock">23:47</time>
+        </div>
+        <div class="chat" id="chat">
+          <p class="msg in"  data-at="0.02">Bună seara, mai aveți canapeaua Oslo pe gri? Am văzut-o pe site.<time>23:47</time></p>
+          <p class="msg out" data-at="0.12">Bună seara! Da, Oslo gri antracit e în stoc, 2 bucăți în showroom. Varianta de 3 locuri costă 3.490 lei.<time>23:47</time></p>
+          <p class="msg in"  data-at="0.24">Încape într-o sufragerie de 3,2 m? Există și extensibilă?<time>23:48</time></p>
+          <p class="msg out" data-at="0.36">Are 2,24 m, deci vă rămâne aproape un metru liber. Varianta extensibilă, cu ladă de depozitare, costă 3.890 lei.<time>23:48</time></p>
+          <p class="msg in"  data-at="0.48">Și cât durează livrarea?<time>23:49</time></p>
+          <p class="msg out" data-at="0.58">Trei zile lucrătoare, gratuit în oraș. Vă pot rezerva una acum, cu plata la livrare. Pe ce nume?<time>23:49</time></p>
+          <p class="msg in"  data-at="0.68">Andreea Popescu. Pot veni mâine s-o văd?<time>23:51</time></p>
+          <p class="msg out" data-at="0.78">Gata. Oslo extensibilă, rezervată pe numele dumneavoastră. Vă așteptăm mâine la 17:30 în showroom, primiți un reminder cu o oră înainte.<time>23:51</time></p>
+          <p class="msg sys" data-at="0.88">Lead salvat în CRM · programare în calendar · Mihai a fost anunțat</p>
+          <p class="typing" id="typing" aria-hidden="true"><i></i><i></i><i></i></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICII SUPLIMENTARE ============ -->
+<section class="more" data-shape="5">
+  <div class="wrap more-grid">
+    <h2 class="title fade">Plus tot ce le face să funcționeze.</h2>
+    <ul class="svc" id="svc">
+      <li>
+        <button type="button" aria-expanded="false"><span class="svc-n">05</span><span class="svc-t">Programări automate și remindere</span><span class="svc-x" aria-hidden="true"></span></button>
+        <div class="svc-d"><p>Agentul vede calendarul real al echipei și programează direct, fără dublări. Reamintiri prin SMS, WhatsApp sau apel, cu reprogramare dintr-un singur mesaj. Funcționează cu Google Calendar, Outlook, Calendly și softurile uzuale de clinică sau salon.</p></div>
+      </li>
+      <li>
+        <button type="button" aria-expanded="false"><span class="svc-n">06</span><span class="svc-t">Integrare CRM și scoring de lead-uri</span><span class="svc-x" aria-hidden="true"></span></button>
+        <div class="svc-d"><p>Fiecare conversație ajunge în CRM cu rezumat, buget și termen. Lead-urile primesc un scor, iar cele fierbinți ajung imediat la vânzători. HubSpot, Pipedrive, Zoho, SmartBill sau un simplu Google Sheet.</p></div>
+      </li>
+      <li>
+        <button type="button" aria-expanded="false"><span class="svc-n">07</span><span class="svc-t">Asistent pe site, antrenat pe documentele firmei</span><span class="svc-x" aria-hidden="true"></span></button>
+        <div class="svc-d"><p>Răspunde din prețurile, fișele tehnice, politicile de retur și întrebările frecvente ale firmei, nu din internet. Când nu găsește răspunsul, spune asta și cere datele de contact.</p></div>
+      </li>
+      <li>
+        <button type="button" aria-expanded="false"><span class="svc-n">08</span><span class="svc-t">Automatizări de back-office</span><span class="svc-x" aria-hidden="true"></span></button>
+        <div class="svc-d"><p>Oferte generate din conversație, facturi emise automat, e-mailuri sortate și răspunse, date mutate între aplicații. Construite în n8n sau Make, documentate, predate echipei.</p></div>
+      </li>
+      <li>
+        <button type="button" aria-expanded="false"><span class="svc-n">09</span><span class="svc-t">Recenzii Google și reactivarea clienților</span><span class="svc-x" aria-hidden="true"></span></button>
+        <div class="svc-d"><p>După fiecare vânzare reușită, clientul mulțumit primește un link de recenzie. Clienții care nu au mai cumpărat de câteva luni primesc un mesaj personal, la momentul potrivit.</p></div>
+      </li>
+      <li>
+        <button type="button" aria-expanded="false"><span class="svc-n">10</span><span class="svc-t">Audit de automatizare și raport lunar</span><span class="svc-x" aria-hidden="true"></span></button>
+        <div class="svc-d"><p>Analizăm unde se pierd timp și clienți și calculăm ce merită automatizat întâi. După lansare, un raport lunar: câte conversații, câte vânzări, ce am corectat.</p></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ PROCES ============ -->
+<section class="process">
+  <div class="wrap">
+    <h2 class="title fade">De la primul apel la agent live, de obicei în două săptămâni.</h2>
+    <ol class="steps">
+      <li class="fade"><span class="st-n">1</span><h3>Audit gratuit, 30 de minute</h3><p>Ne arătați unde pierdeți timp și clienți. Plecați cu o listă de trei automatizări, chiar dacă nu lucrăm împreună.</p></li>
+      <li class="fade"><span class="st-n">2</span><h3>Prototip în 7 zile</h3><p>Agentul, antrenat pe datele dumneavoastră. Îl testați cu echipa înainte de lansare.</p></li>
+      <li class="fade"><span class="st-n">3</span><h3>Lansare și integrare</h3><p>Conectăm WhatsApp, telefonul, CRM-ul și calendarul. Echipa primește un training de o oră.</p></li>
+      <li class="fade"><span class="st-n">4</span><h3>Veghe lunară</h3><p>Citim conversațiile, corectăm, îmbunătățim. Primiți lunar un raport cu cifre.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ CALCULATOR ============ -->
+<section class="calc" id="calculator">
+  <div class="wrap calc-grid">
+    <div class="calc-copy fade">
+      <h2 class="title">Cât pierdeți când nu răspunde nimeni?</h2>
+      <p>Mutați valorile după cum arată firma dumneavoastră. Calculul e simplu și îl vedeți dedesubt: cereri ratate înmulțite cu rata de conversie și valoarea medie a unei vânzări.</p>
+    </div>
+    <form class="calc-form" id="calcForm" onsubmit="return false">
+      <label class="rng">
+        <span>Cereri pe lună (apeluri, mesaje, formulare)</span>
+        <output id="o-leads">400</output>
+        <input type="range" id="leads" min="50" max="3000" step="50" value="400">
+      </label>
+      <label class="rng">
+        <span>Cât la sută rămân fără răspuns rapid</span>
+        <output id="o-miss">30%</output>
+        <input type="range" id="miss" min="5" max="70" step="5" value="30">
+      </label>
+      <label class="rng">
+        <span>Din cele preluate, câte devin vânzări</span>
+        <output id="o-conv">15%</output>
+        <input type="range" id="conv" min="2" max="60" step="1" value="15">
+      </label>
+      <label class="rng">
+        <span>Valoarea medie a unei vânzări</span>
+        <output id="o-val">1.200 lei</output>
+        <input type="range" id="val" min="50" max="20000" step="50" value="1200">
+      </label>
+      <div class="calc-out">
+        <p>Vânzări pe care le puteți recupera, pe lună</p>
+        <p class="calc-sum" id="calcSum">21.600 lei</p>
+        <p class="calc-how" id="calcHow">400 × 30% × 15% × 1.200 lei</p>
+        <p class="calc-note">Estimare, nu promisiune. În audit o refacem cu cifrele reale.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq" id="intrebari">
+  <div class="wrap faq-grid">
+    <h2 class="title fade">Întrebările pe care ni le pun toți patronii.</h2>
+    <div class="faq-list">
+      <details>
+        <summary>Își dau seama clienții că vorbesc cu un AI?</summary>
+        <p>Da, și așa e corect: agentul se prezintă ca asistent virtual, cum cere și regulamentul european AI Act. Clienților le pasă însă mai mult că primesc un răspuns corect în câteva secunde, la 11 seara.</p>
+      </details>
+      <details>
+        <summary>Ce se întâmplă când agentul nu știe răspunsul?</summary>
+        <p>Nu inventează. Spune că verifică, predă conversația unui coleg cu tot contextul și îl anunță pe telefon sau pe e-mail. Stabilim împreună exact ce are voie să promită și ce nu.</p>
+      </details>
+      <details>
+        <summary>Cum rămâne cu datele clienților și GDPR?</summary>
+        <p>Lucrăm cu furnizori care găzduiesc datele în Uniunea Europeană, semnăm acord de prelucrare a datelor și nu folosim conversațiile clienților dumneavoastră pentru a antrena alte modele.</p>
+      </details>
+      <details>
+        <summary>Cât costă?</summary>
+        <p>Depinde de canale și de volum. De regulă e o configurare inițială plus un abonament lunar. Prețul exact îl primiți în scris după audit, înainte să vă angajați la ceva.</p>
+      </details>
+      <details>
+        <summary>Trebuie să schimb programele pe care le folosesc?</summary>
+        <p>Nu. Agentul se conectează la ce aveți deja: CRM, calendar, magazin online, soft de facturare. Dacă ceva nu are conexiune directă, folosim n8n sau Make ca punte.</p>
+      </details>
+      <details>
+        <summary>Vorbește și alte limbi?</summary>
+        <p>Da. Pornim în română și putem adăuga engleză, maghiară, germană sau altă limbă de care au nevoie clienții dumneavoastră. Agentul răspunde în limba în care i se scrie.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONVERSIE ============ -->
+<section class="convert" id="contact">
+  <div class="wrap convert-grid">
+    <div class="convert-copy">
+      <h2 class="display-2">Audit gratuit, 30 de minute.</h2>
+      <p>Ne spuneți cum lucrați azi. Vă spunem ce ar face un agent AI în firma dumneavoastră, cât ar costa și cât ați putea câștiga. Fără obligații.</p>
+      <dl class="convert-dl">
+        <div><dt>Telefon</dt><dd><a href="tel:+40700000000">0700 000 000</a></dd></div>
+        <div><dt>WhatsApp</dt><dd><a href="https://wa.me/40700000000">Scrieți-ne</a></dd></div>
+        <div><dt>E-mail</dt><dd><a href="mailto:salut@veghe.ro">salut@veghe.ro</a></dd></div>
+        <div><dt>Program</dt><dd>Oamenii: L–V, 9–18. Agenții: mereu.</dd></div>
+      </dl>
+    </div>
+
+    <form class="lead-form" id="leadForm" novalidate>
+      <label><span>Nume</span><input name="nume" autocomplete="name" required></label>
+      <label><span>Firma</span><input name="firma" autocomplete="organization"></label>
+      <label><span>Telefon</span><input name="telefon" type="tel" autocomplete="tel" inputmode="tel" required></label>
+      <fieldset>
+        <legend>Ce ați vrea să automatizați?</legend>
+        <div class="chips">
+          <label><input type="checkbox" name="interes" value="Vânzări"><span>Vânzări</span></label>
+          <label><input type="checkbox" name="interes" value="Telefon"><span>Telefon</span></label>
+          <label><input type="checkbox" name="interes" value="WhatsApp"><span>WhatsApp</span></label>
+          <label><input type="checkbox" name="interes" value="Programări"><span>Programări</span></label>
+          <label><input type="checkbox" name="interes" value="Altceva"><span>Altceva</span></label>
+        </div>
+      </fieldset>
+      <button class="btn btn-ink" type="submit">Vreau auditul</button>
+      <p class="form-msg" id="formMsg" role="status"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <div>
+      <p class="mark mark-foot"><i class="lamp" aria-hidden="true"></i>Veghe</p>
+      <p class="foot-tag">Agenți AI care stau treji în locul echipei dumneavoastră.</p>
+    </div>
+    <nav aria-label="Subsol">
+      <a href="#servicii">Servicii</a>
+      <a href="#demo">Demo</a>
+      <a href="#calculator">Calculator</a>
+      <a href="#intrebari">Întrebări</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <p class="foot-legal">© 2026 Veghe. Obiectul 3D e desenat live în browser, din puncte. Conversația și jurnalul de noapte sunt exemple.</p>
+  </div>
+</footer>
+
+<script src="gl.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
