@@ -31,6 +31,7 @@
 
 /* ---------- tokens ---------- */
 :root {
+  color-scheme: dark;          /* controalele native si scrollbar-ul urmeaza paleta */
   --ink:        oklch(14% 0.020 258);
   --ink-2:      oklch(19% 0.022 258);
   --concrete:   oklch(62% 0.012 72);

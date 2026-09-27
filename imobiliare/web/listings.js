@@ -145,7 +145,7 @@
   function propPage(list) {
     const root = document.getElementById('prop');
     if (!root) return;
-    const id = new URLSearchParams(location.search).get('id');
+    const id = new URLSearchParams(location.search).get('id') || decodeURIComponent(location.hash.slice(1));
     const l = list.find(x => x.id === id);
     if (!l) {
       root.innerHTML = `<h1 class="sec">Nu am găsit proprietatea</h1>
