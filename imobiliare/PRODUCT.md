@@ -81,6 +81,25 @@ Ce NU este acest site:
 5. Site-ul nu e avantajul competitiv. Poziționarea este. Dacă cineva îl citește 8 secunde
    și nu a înțeles că lucrăm cu imobile în construcție, site-ul a eșuat.
 
+## Listările
+
+Site-ul este și locul unde stau listările agenției, nu doar cartea de vizită.
+Reguli pentru ele:
+
+- **O listare e o fișă de teren, nu un anunț.** Cifrele stau într-un tabel cu
+  rigle, descrierea spune stadiul verificat și data la care l-am verificat, iar
+  ce nu știm nu apare, nu se umple cu adjective.
+- **Prețul e vizibil din grilă**, nu ascuns după „preț la cerere", cu excepția
+  cazurilor în care chiar nu există unul.
+- **Fotografiile reale se marchează ca atare.** Când o listare are poze făcute de
+  noi, poartă eticheta „Fotografii reale". Randările și imaginile generate nu
+  primesc niciodată eticheta asta.
+- **Referința se spune la telefon.** Fiecare fișă are un cod (`ALP-004`) și
+  butonul de WhatsApp îl pune deja în mesaj, ca discuția să înceapă de la
+  proprietate, nu de la „despre ce apartament vorbiți".
+- **Filtrele sunt puține și fără sidebar.** Tranzacție, tip, zonă, camere, buget.
+  Atât. Restul se rezolvă la telefon, principiul 2.
+
 ## Relația cu repo-ul
 
 Acest site trăiește în `/imobiliare` și este complet independent de site-ul ARM Sea Mamaia

@@ -121,6 +121,27 @@ Cadrele erou se generează cu **spațiu negativ sus**, ca titlul să aibă unde 
 - Nu se centrează tot. Stiva centrată iconiță-titlu-subtitlu este interzisă.
 - Grila de proprietăți are celule **inegale**, nu `repeat(auto-fit)` cu toate la fel.
 
+## Listări
+
+- **Grila are celule inegale, pe un model de șase:** 4+2 / 3+3 / 2+4 coloane
+  dintr-o grilă de 6. Celulele înguste au raport 4:5, cele late 3:2. Sub 980px
+  modelul devine 2 / 1+1, sub 600px o singură coloană.
+- **Cardul nu are chenar și nu are fundal.** Imagine, apoi două coloane de text
+  aliniate ca în lista de pe prima pagină: nume și zonă în stânga, preț și cifre
+  în dreapta, tabulare.
+- **Înclinarea 3D** a imaginii urmărește cursorul cu maximum 6° pe X și 8° pe Y,
+  numai pe dispozitive cu `hover` și fără `prefers-reduced-motion`. Peste 8° se
+  citește ca o carte de joc. Pe touch nu există.
+- **Etichetele de pe imagine** (`structură`, `Fotografii reale`) sunt singurele
+  etichete mici cu majuscule tracked permise, pentru că stau pe fotografie, nu
+  deasupra unei secțiuni.
+- **Fișa de proprietate:** galeria în stânga, la 1.5fr, foaia de cifre în dreapta
+  la .8fr, lipicioasă la scroll. Prețul e singurul element de display din foaie.
+  Butonul de telefon e plin, chihlimbar. WhatsApp e contur.
+- **Filtrele** folosesc controale native (`select`, `input`) stilizate, nu
+  dropdown-uri custom. Segmentul Toate / Vânzare / Închiriere e singurul control
+  cu fundal chihlimbar la selecție.
+
 ## Interdicții pentru acest proiect
 
 - Bordură-accent laterală (`border-left: 4px solid`).

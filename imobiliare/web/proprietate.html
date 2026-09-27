@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proprietate | Alpetri Real Estate</title>
+<meta name="description" content="Fișa proprietății: preț, suprafață, stadiu, dotări și fotografii. Alpetri Real Estate.">
+<meta name="theme-color" content="#0b1020">
+<link rel="preload" href="fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/archivo-latinext.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="hdr">
+  <a class="mark" href="index.html">Alpetri <span>Real Estate</span></a>
+  <nav class="hdr-nav">
+    <a href="listari.html">Listări</a>
+    <a href="index.html#agentie">Agenția</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+  <a class="hdr-tel" href="tel:+40722000000">0722 000 000</a>
+</header>
+
+<main class="wrap page" id="top">
+  <p class="crumbs"><a href="listari.html">Toate listările</a></p>
+  <div id="prop"><p class="lede">Se încarcă…</p></div>
+
+  <section class="prop-sim">
+    <div class="fade"><h2 class="sec">Alte proprietăți</h2></div>
+    <div class="lst" id="simGrid"></div>
+  </section>
+</main>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Galerie foto">
+  <img src="" alt="">
+  <button type="button" class="lb-prev" aria-label="Fotografia anterioară"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <button type="button" class="lb-next" aria-label="Fotografia următoare"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 5l7 7-7 7"/></svg></button>
+  <button type="button" class="lb-close" aria-label="Închideți galeria"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+  <span class="lb-idx num"></span>
+</div>
+
+<div class="marquee-band">
+  <div class="marquee reverse">
+    <span>Vizionare · <b>0722 000 000</b> · Și după program · </span>
+    <span>Vizionare · <b>0722 000 000</b> · Și după program · </span>
+  </div>
+</div>
+
+<section class="convert band" id="contact">
+  <div class="wrap">
+    <div class="fade">
+      <h2 class="sec">Programați o vizionare</h2>
+      <p class="lede">Spuneți referința proprietății la telefon. Mergem împreună, inclusiv
+        pe șantier dacă e în construcție.</p>
+      <a class="tel-big" href="tel:+40722000000">0722 000 000</a>
+    </div>
+  </div>
+</section>
+
+<footer class="ftr band-tight">
+  <div class="wrap">
+    <div class="ftr-grid">
+      <div>
+        <a class="mark" href="index.html" style="mix-blend-mode:normal;color:var(--limestone)">Alpetri <span>Real Estate</span></a>
+        <p style="color:var(--concrete);max-width:34ch;margin-block-start:14px">
+          Agenție imobiliară. Vânzări, închirieri, terenuri și ansambluri noi.</p>
+      </div>
+      <div>
+        <h4>Pagini</h4>
+        <ul>
+          <li><a href="listari.html">Toate listările</a></li>
+          <li><a href="listari.html?tranzactie=vanzare">De vânzare</a></li>
+          <li><a href="listari.html?tranzactie=inchiriere">De închiriat</a></li>
+          <li><a href="index.html#agentie">Agenția</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+40722000000">0722 000 000</a></li>
+          <li><a href="mailto:contact@alpetri.ro">contact@alpetri.ro</a></li>
+          <li>Strada Exemplu 12, Constanța</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-legal">
+      <span>© <span class="num">2026</span> Alpetri Real Estate</span>
+      <span>Imaginile marcate ca ilustrative sunt generate; cele marcate „fotografii reale" sunt făcute de noi</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script src="listings.js"></script>
+</body>
+</html>

@@ -36,12 +36,14 @@ const STAGES = [
 
 let ready = false, target = 0, cur = 0;
 const mark = () => { ready = true; vid.pause(); };
-vid.addEventListener('loadedmetadata', mark);
-vid.addEventListener('loadeddata', mark);
-if (vid.readyState >= 1) mark();
+if (vid) {
+  vid.addEventListener('loadedmetadata', mark);
+  vid.addEventListener('loadeddata', mark);
+  if (vid.readyState >= 1) mark();
+}
 
 (function loop() {
-  if (ready && vid.duration) {
+  if (vid && ready && vid.duration) {
     cur += (target - cur) * 0.11;
     if (Math.abs(vid.currentTime - cur) > 0.004) {
       try { vid.currentTime = cur; } catch (e) { /* seek ignorat in tranzitie */ }
@@ -51,7 +53,7 @@ if (vid.readyState >= 1) mark();
 })();
 
 function heroTick() {
-  if (!hero) return;
+  if (!hero || !vid) return;
   const r = hero.getBoundingClientRect();
   const h = hero.offsetHeight - innerHeight;
   const p = h > 0 ? clamp(-r.top / h) : 0;
@@ -77,7 +79,7 @@ heroTick();
 /* ---------------- reveal la scroll ----------------
    IntersectionObserver rateaza elemente la saltul programatic al ancorelor,
    deci maturam manual. */
-const reveals = [...document.querySelectorAll('.fade')];
+let reveals = [...document.querySelectorAll('.fade')];
 function sweep() {
   const vh = innerHeight;
   for (const el of reveals) {
@@ -94,6 +96,10 @@ addEventListener('resize', sweep);
 requestAnimationFrame(() => requestAnimationFrame(sweep));
 addEventListener('load', sweep);
 document.fonts?.ready.then(sweep);
+document.addEventListener('listings:rendered', () => {
+  reveals = [...document.querySelectorAll('.fade')];
+  requestAnimationFrame(() => requestAnimationFrame(sweep));
+});
 
 /* ---------------- marquee, condus de viteza scroll-ului ---------------- */
 const marquees = [...document.querySelectorAll('.marquee')].map(el => ({
@@ -123,18 +129,23 @@ addEventListener('scroll', () => {
   requestAnimationFrame(mqLoop);
 })();
 
-/* ---------------- imaginea care urmareste cursorul peste lista ---------------- */
-const items = [...document.querySelectorAll('.folio-item')];
-const figs = [...document.querySelectorAll('.hover-fig')];
-const list = document.getElementById('folioList');
+/* ---------------- imaginea care urmareste cursorul peste lista ----------------
+   Randurile si imaginile vin din data/listings.json, deci legarea se face la
+   evenimentul listings:rendered, nu la parsare. */
+let figs = [];
 let mx = 0, my = 0, fx = 0, fy = 0, on = false;
-
-items.forEach(it => it.addEventListener('mouseenter', () => {
-  figs.forEach(f => f.classList.remove('active'));
-  const f = figs[+it.dataset.img];
-  if (f) { f.classList.add('active'); on = true; }
-}));
-list?.addEventListener('mouseleave', () => { figs.forEach(f => f.classList.remove('active')); on = false; });
+function bindFolio() {
+  const list = document.getElementById('folioList');
+  figs = [...document.querySelectorAll('.hover-fig')];
+  if (!list || !figs.length) return;
+  list.querySelectorAll('.folio-item').forEach(it => it.addEventListener('mouseenter', () => {
+    figs.forEach(f => f.classList.remove('active'));
+    const f = figs[+it.dataset.img];
+    if (f) { f.classList.add('active'); on = true; }
+  }));
+  list.addEventListener('mouseleave', () => { figs.forEach(f => f.classList.remove('active')); on = false; });
+}
+document.addEventListener('listings:rendered', bindFolio);
 addEventListener('mousemove', e => {
   mx = e.clientX; my = e.clientY;
   if (!on) { fx = mx; fy = my; }   // altfel imaginea zboara din ultima pozitie cand reapare

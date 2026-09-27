@@ -15,6 +15,11 @@
 
 <header class="hdr">
   <a class="mark" href="#top">Alpetri <span>Real Estate</span></a>
+  <nav class="hdr-nav">
+    <a href="listari.html">Listări</a>
+    <a href="#agentie">Agenția</a>
+    <a href="#contact">Contact</a>
+  </nav>
   <a class="hdr-tel" href="tel:+40722000000">0722 000 000</a>
 </header>
 
@@ -85,50 +90,21 @@
   </div>
 </section>
 
-<!-- ============ portofoliu ============ -->
+<!-- ============ listari recente, din data/listings.json ============ -->
 <section class="band wrap" id="portofoliu">
-  <div class="fade"><h2 class="sec">Portofoliu</h2></div>
+  <div class="fade"><h2 class="sec">Listări recente</h2></div>
   <div class="folio">
-    <div class="folio-list" id="folioList">
-      <a class="folio-item fade" href="#contact" data-img="0">
-        <span class="folio-idx num">01</span>
-        <span class="folio-name">Solaris Residence<i>Ansamblu nou, 7 etaje, 64 de apartamente</i></span>
-        <span class="folio-meta num"><b>de la 78.400 €</b><small>stadiu: fațadă</small></span>
-      </a>
-      <a class="folio-item fade" href="#contact" data-img="1">
-        <span class="folio-idx num">02</span>
-        <span class="folio-name">Vila Meridian<i>Vilă individuală, 210 m², teren 480 m²</i></span>
-        <span class="folio-meta num"><b>289.000 €</b><small>stadiu: finalizat</small></span>
-      </a>
-      <a class="folio-item fade" href="#contact" data-img="2">
-        <span class="folio-idx num">03</span>
-        <span class="folio-name">Lot cadastral 44/B<i>Teren intravilan, 620 m², utilități la stradă</i></span>
-        <span class="folio-meta num"><b>66.000 €</b><small>stadiu: liber</small></span>
-      </a>
-      <a class="folio-item fade" href="#contact" data-img="3">
-        <span class="folio-idx num">04</span>
-        <span class="folio-name">Coral Park<i>Ansamblu nou, 5 etaje, recepție trimestrul 2</i></span>
-        <span class="folio-meta num"><b>de la 112.000 €</b><small>stadiu: structură</small></span>
-      </a>
-      <a class="folio-item fade" href="#contact" data-img="4">
-        <span class="folio-idx num">05</span>
-        <span class="folio-name">Apartament Orion<i>Închiriere, 2 camere, mobilat complet</i></span>
-        <span class="folio-meta num"><b>520 €/lună</b><small>stadiu: disponibil</small></span>
-      </a>
-    </div>
+    <div class="folio-list" id="folioList"><p class="lede">Se încarcă…</p></div>
     <aside class="folio-aside fade">
       <p>Lista se schimbă săptămânal. Dacă nu găsiți aici ce vă trebuie, spuneți-ne
         criteriile și căutăm noi, inclusiv în stocuri care nu sunt publicate nicăieri.</p>
+      <p><a class="u" href="listari.html">Vedeți toate cele <span class="num" id="lstTotal">…</span> listări</a></p>
     </aside>
   </div>
 </section>
 
-<!-- imaginile care urmăresc cursorul peste listă -->
-<img class="hover-fig" src="media/folio-1.jpg" alt="">
-<img class="hover-fig" src="media/folio-2.jpg" alt="">
-<img class="hover-fig" src="media/folio-3.jpg" alt="">
-<img class="hover-fig" src="media/folio-4.jpg" alt="">
-<img class="hover-fig" src="media/folio-5.jpg" alt="">
+<!-- imaginile care urmaresc cursorul peste lista, puse de listings.js -->
+<div id="hoverFigs"></div>
 
 <!-- ============ before / after ============ -->
 <section class="band wrap" id="stadiu">
@@ -218,8 +194,10 @@
       <div>
         <h4>Pagini</h4>
         <ul>
+          <li><a href="listari.html">Toate listările</a></li>
+          <li><a href="listari.html?tranzactie=vanzare">De vânzare</a></li>
+          <li><a href="listari.html?tranzactie=inchiriere">De închiriat</a></li>
           <li><a href="#agentie">Agenția</a></li>
-          <li><a href="#portofoliu">Portofoliu</a></li>
           <li><a href="#stadiu">Stadiu șantier</a></li>
           <li><a href="#servicii">Ce facem</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -236,11 +214,12 @@
     </div>
     <div class="ftr-legal">
       <span>© <span class="num">2026</span> Alpetri Real Estate</span>
-      <span>Imaginile ansamblurilor sunt generate și au caracter ilustrativ</span>
+      <span>Imaginile marcate ca ilustrative sunt generate; cele marcate „fotografii reale" sunt făcute de noi</span>
     </div>
   </div>
 </footer>
 
 <script src="app.js"></script>
+<script src="listings.js"></script>
 </body>
 </html>

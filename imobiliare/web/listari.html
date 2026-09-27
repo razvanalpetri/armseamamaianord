@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Listări | Alpetri Real Estate</title>
+<meta name="description" content="Toate proprietățile Alpetri Real Estate: apartamente, vile, case, terenuri și spații, la vânzare sau de închiriat, cu stadiul real și prețul la zi.">
+<meta name="theme-color" content="#0b1020">
+<link rel="preload" href="fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/archivo-latinext.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="hdr">
+  <a class="mark" href="index.html">Alpetri <span>Real Estate</span></a>
+  <nav class="hdr-nav">
+    <a href="listari.html" aria-current="page">Listări</a>
+    <a href="index.html#agentie">Agenția</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+  <a class="hdr-tel" href="tel:+40722000000">0722 000 000</a>
+</header>
+
+<main class="wrap page" id="top">
+  <div class="lst-head">
+    <h1 class="sec">Listări</h1>
+    <p class="lede">Apartamente, vile, case, terenuri și spații, la vânzare sau de închiriat.
+      Pentru ansamblurile în construcție scriem stadiul real, verificat de noi pe șantier, și data
+      la care l-am verificat.</p>
+  </div>
+
+  <form class="filters" id="filters" autocomplete="off">
+    <div class="seg" role="radiogroup" aria-label="Tranzacție">
+      <label><input type="radio" name="tranzactie" value="" checked><span>Toate</span></label>
+      <label><input type="radio" name="tranzactie" value="vanzare"><span>Vânzare</span></label>
+      <label><input type="radio" name="tranzactie" value="inchiriere"><span>Închiriere</span></label>
+    </div>
+    <label>Tip
+      <select name="tip">
+        <option value="">Orice tip</option>
+        <option value="apartament">Apartament</option>
+        <option value="studio">Studio</option>
+        <option value="vila">Vilă</option>
+        <option value="casa">Casă</option>
+        <option value="teren">Teren</option>
+        <option value="comercial">Spațiu comercial</option>
+      </select>
+    </label>
+    <label>Zonă
+      <select name="zona"><option value="">Oriunde</option></select>
+    </label>
+    <label>Camere
+      <select name="camere">
+        <option value="">Oricâte</option>
+        <option value="1">1 sau mai multe</option>
+        <option value="2">2 sau mai multe</option>
+        <option value="3">3 sau mai multe</option>
+        <option value="4">4 sau mai multe</option>
+      </select>
+    </label>
+    <label>Buget maxim, €
+      <input type="number" name="pret" min="0" step="1000" placeholder="oricât" inputmode="numeric">
+    </label>
+    <label>Ordine
+      <select name="sort">
+        <option value="recente">Cele mai recente</option>
+        <option value="pret-asc">Preț crescător</option>
+        <option value="pret-desc">Preț descrescător</option>
+        <option value="suprafata">Suprafață</option>
+      </select>
+    </label>
+    <button type="reset">Resetează</button>
+  </form>
+
+  <p class="lst-count" id="lstCount">Se încarcă…</p>
+  <div class="lst" id="listGrid"></div>
+  <p class="lst-empty" id="lstEmpty" hidden>Nimic pe criteriile astea. Sunați-ne, avem și stocuri
+    care nu sunt publicate aici, și căutăm după ce ne spuneți.</p>
+</main>
+
+<div class="marquee-band">
+  <div class="marquee reverse">
+    <span>Nu găsiți? · <b>0722 000 000</b> · Căutăm noi, în stocuri nepublicate · </span>
+    <span>Nu găsiți? · <b>0722 000 000</b> · Căutăm noi, în stocuri nepublicate · </span>
+  </div>
+</div>
+
+<section class="convert band" id="contact">
+  <div class="wrap">
+    <div class="fade">
+      <h2 class="sec">Spuneți-ne ce căutați</h2>
+      <p class="lede">Un telefon de trei minute ne ajută mai mult decât un formular cu
+        opt câmpuri. Ziceți bugetul, zona și termenul, restul aflăm noi.</p>
+      <a class="tel-big" href="tel:+40722000000">0722 000 000</a>
+    </div>
+  </div>
+</section>
+
+<footer class="ftr band-tight">
+  <div class="wrap">
+    <div class="ftr-grid">
+      <div>
+        <a class="mark" href="index.html" style="mix-blend-mode:normal;color:var(--limestone)">Alpetri <span>Real Estate</span></a>
+        <p style="color:var(--concrete);max-width:34ch;margin-block-start:14px">
+          Agenție imobiliară. Vânzări, închirieri, terenuri și ansambluri noi.</p>
+      </div>
+      <div>
+        <h4>Pagini</h4>
+        <ul>
+          <li><a href="listari.html">Toate listările</a></li>
+          <li><a href="listari.html?tranzactie=vanzare">De vânzare</a></li>
+          <li><a href="listari.html?tranzactie=inchiriere">De închiriat</a></li>
+          <li><a href="index.html#agentie">Agenția</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+40722000000">0722 000 000</a></li>
+          <li><a href="mailto:contact@alpetri.ro">contact@alpetri.ro</a></li>
+          <li>Strada Exemplu 12, Constanța</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-legal">
+      <span>© <span class="num">2026</span> Alpetri Real Estate</span>
+      <span>Imaginile marcate ca ilustrative sunt generate; cele marcate „fotografii reale" sunt făcute de noi</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script src="listings.js"></script>
+</body>
+</html>
