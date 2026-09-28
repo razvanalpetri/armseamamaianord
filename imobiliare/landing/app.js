@@ -24,12 +24,13 @@ if (form) {
     const lines = [name ? `Bună ziua! Mă numesc ${name}.` : 'Bună ziua!'];
     if (svc) lines.push(`Mă interesează: ${svc}.`);
     if (msg) lines.push(`Despre proprietate: ${msg}`);
-    // Un link temporar, nu window.open: cu 'noopener', window.open întoarce
-    // mereu null, deci nu se poate ști dacă fila s-a deschis sau a fost blocată.
-    const a = Object.assign(document.createElement('a'), {
-      href: waLink(lines.join('\n')), target: '_blank', rel: 'noopener',
-    });
-    a.click();
+    // Un link real, nu window.open: cu 'noopener', window.open întoarce mereu
+    // null, deci nu se poate ști dacă fila s-a deschis sau a fost blocată. Linkul
+    // rămâne vizibil sub buton, pentru cazul în care deschiderea a fost blocată.
+    const open = document.getElementById('composer-open');
+    open.href = waLink(lines.join('\n'));
+    open.hidden = false;
+    open.click();
   });
 }
 
