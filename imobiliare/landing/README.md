@@ -18,17 +18,17 @@ server static.
 Folderul `imobiliare/landing` se urcă exact cum este (Netlify Drop, Vercel,
 Cloudflare Pages, orice hosting static). Nu are pas de build și nu are dependențe.
 
-## De completat înainte de publicare
+## Date de contact
 
-Datele de contact sunt substituenți, aceiași ca în `../web`, ca o singură
-căutare-înlocuire să le repare pe ambele site-uri.
+Telefonul `0725.367.954` (`tel:+40725367954`) și emailul `razvanalpetri@yahoo.ro` sunt
+cele reale. WhatsApp folosește același număr, scris o singură dată pe
+`<body data-wa="40725367954">`; linkurile `https://wa.me/40725367954` din HTML sunt
+rezerva pentru browsere fără JavaScript.
+
+## De completat înainte de publicare
 
 | unde | ce |
 |---|---|
-| `index.html`, `0722 000 000` și `tel:+40722000000` | telefonul real (header, pachet, contact, footer, bara de pe telefon) |
-| `index.html`, `<body data-wa="40722000000">` | numărul de WhatsApp, internațional, fără `+` și fără spații; din el se construiesc toate linkurile cu mesaj precompletat |
-| `index.html`, `https://wa.me/40722000000` | același număr, în linkurile de rezervă pentru browsere fără JavaScript |
-| `index.html`, `contact@alpetri.ro` | emailul real |
 | `index.html`, `og:image` | adresa completă după publicare, de exemplu `https://alpetri.ro/media/og-image.jpg`, altfel previzualizarea nu apare în WhatsApp și Facebook |
 
 ## De confirmat cu agenția
@@ -56,9 +56,8 @@ app.js          linkuri WhatsApp, formular, header, bara de apel, paralaxa banne
 DESIGN.md       deciziile de design și cum a fost făcut bannerul
 fonts/          Cinzel și Archivo, self-hosted, latin + latin-ext
 media/
-  emblem.webp     emblema din logo, cu transparență       (stratul din spate)
-  agent.webp      fotografia, fără fundal                 (stratul din mijloc)
-  wordmark.webp   ALPETRI REAL ESTATE, cu transparență    (stratul din față)
+  emblem.webp     emblema din logo, cu transparență       (bannerul, sus)
+  wordmark.webp   ALPETRI REAL ESTATE, cu transparență    (bannerul, jos)
   emblem-sm.webp  emblema pentru header
   lockup.webp     logo-ul întreg pentru footer
   og-image.jpg    imaginea care apare când linkul e trimis pe WhatsApp / Facebook

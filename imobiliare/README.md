@@ -5,7 +5,7 @@ rămâne neatins:
 
 - `web/`, site cu erou video 3D legat de scroll, construit cu skill-ul `site-3d-scroll`.
 - `landing/`, pagina de servicii și prețuri pe identitatea din logo (negru și auriu),
-  cu bannerul în care fotografia stă în interiorul emblemei. Detalii în
+  cu logo-ul ca banner în hero. Detalii în
   [`landing/README.md`](landing/README.md).
 
 ## Pornire locală

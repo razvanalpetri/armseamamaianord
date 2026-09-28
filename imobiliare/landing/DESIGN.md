@@ -51,44 +51,30 @@ Regula „fără auriu” din `../DESIGN.md` a fost scrisă pentru site-ul cu sc
 
 ## Bannerul din hero
 
-Cerința: emblema și fotografia amestecate într-un banner. Rezolvarea: omul stă
-„în” logo. Emblema e în spate, fotografia la mijloc, „ALPETRI REAL ESTATE” în față,
-peste talie, așa că tăietura fotografiei nu se vede.
-
-Trei straturi separate, nu o imagine aplatizată: rămân clare la orice lățime și pot
-avea paralaxă (emblema se mișcă puțin, textul din față mai mult). Scena are
-1000 × 1070 unități:
+Doar logo-ul, fără fotografie (cerința agenției, după prima variantă în care
+fotografia stătea între emblemă și wordmark). Emblema și „ALPETRI REAL ESTATE” sunt
+straturi separate, așezate exact ca în logo, ca să rămână clare la orice lățime și
+să aibă paralaxă ușoară la mouse (emblema se mișcă puțin, textul din față mai mult).
+Scena are 1000 × 946 unități:
 
 | strat | fișier | left | top | width |
 |---|---|---|---|---|
 | lumină | `.glow`, două gradiente radiale | | | |
-| emblemă | `media/emblem.webp` | 17% | 1.869% | 66% |
-| fotografie | `media/agent.webp` | 24% | 17.757% | 57% |
-| ALPETRI | `media/wordmark.webp` | 5% | 74.766% | 90% |
+| emblemă | `media/emblem.webp` | 15.59% | 0 | 68.94% |
+| ALPETRI | `media/wordmark.webp` | 0 | 70.9% | 100% |
 
-Cum au fost făcute straturile:
+Cum au fost făcute straturile: logo-ul trimis de agenție, mărit la 4K (Higgsfield),
+apoi auriul separat de negru ca strat cu transparență, față de fundalul estimat, nu
+față de negru pur (logo-ul are vignetă; altfel rămâne un pătrat gri vizibil). Tăiat
+în emblemă, wordmark și logo întreg (`lockup.webp`, în footer).
 
-1. **Fotografia.** Fundal scos cu Higgsfield (`remove_background`). Apoi curățat de
-   mână: dungile albastre ale cămășii cuiva din spate, lipite de umăr; o geacă de
-   blugi la șold; golul de sub braț, prin care se vedea terasa. Margini decontaminate
-   (culoarea marginii luată din interior, altfel apare un halou de cer), grading ușor
-   cald ca să stea în lumina aurie, contur fin de lumină aurie din spate și fade la
-   picioare, sub „ALPETRI”.
-2. **Logo-ul.** Upscale 4K (Higgsfield, 2 credite), apoi auriul separat de negru ca
-   strat cu transparență, față de fundalul estimat, nu față de negru pur (logo-ul are
-   vignetă). Fără asta rămâne un pătrat gri vizibil. Tăiat în emblemă, wordmark și
-   logo întreg.
-3. **og-image.jpg** este varianta aplatizată a aceleiași scene, cu prețurile, pentru
-   previzualizarea linkului.
-
-Dacă se schimbă fotografia: capul la aproximativ 190/1070 de sus, cureaua în spatele
-lui „ALPETRI”, iar golurile dintre brațe și corp se verifică pe fundal deschis,
-acolo se ascund resturile.
+`og-image.jpg` este imaginea pentru previzualizarea linkului: logo-ul, prețurile și
+telefonul.
 
 ## Layout
 
 - Proprietăți logice peste tot (`padding-inline`, `padding-block`).
-- Pe telefon bannerul vine primul, apoi titlul. Pe desktop, text stânga, banner dreapta.
+- Pe telefon logo-ul vine primul, apoi titlul. Pe desktop, text stânga, logo dreapta.
 - Intermedierea are cifra mare (2%, 50%), pentru că acolo cifra chiar este oferta.
   Serviciile de marketing sunt o listă de tarife cu puncte de legătură, ca un meniu,
   nu carduri.
