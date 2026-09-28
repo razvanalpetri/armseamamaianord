@@ -81,6 +81,23 @@ Ce NU este acest site:
 5. Site-ul nu e avantajul competitiv. Poziționarea este. Dacă cineva îl citește 8 secunde
    și nu a înțeles că lucrăm cu imobile în construcție, site-ul a eșuat.
 
+## Servicii și prețuri (landing-ul din `landing/`)
+
+Date de agenție, sursa de adevăr pentru orice text cu prețuri:
+
+| serviciu | preț |
+|---|---|
+| Vânzări imobiliare | comision 2% din tranzacție |
+| Închirieri | comision 50% din tranzacție |
+| Tur video cu AI al imobilului | 500 lei / video |
+| Site 3D pentru imobil | la cerere |
+| Video de la proprietate, filmat în persoană | 250 lei / video sau 1.000 lei / 5 videoclipuri |
+| Pachet complet de marketing pentru vânzare: site 3D, tur video cu AI, 5 videoclipuri de la proprietate | 3.000 lei |
+
+Landing-ul se adresează în primul rând proprietarilor care vând sau închiriază.
+Gesturile de conversie sunt telefonul și WhatsApp-ul cu mesaj precompletat, nu un
+formular care trimite date undeva.
+
 ## Relația cu repo-ul
 
 Acest site trăiește în `/imobiliare` și este complet independent de site-ul ARM Sea Mamaia

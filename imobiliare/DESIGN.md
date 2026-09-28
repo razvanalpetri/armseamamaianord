@@ -3,6 +3,13 @@
 Documentul ăsta se verifică înainte de fiecare livrare. Dacă build-ul contrazice ceva de
 aici, build-ul greșește.
 
+> **Septembrie 2026: agenția are logo**, emblemă și litere aurii pe negru. Landing-ul din
+> `landing/` urmează logo-ul și are propriul `landing/DESIGN.md`, unde auriul este
+> culoarea angajată. Regulile de mai jos, inclusiv „fără auriu”, au fost scrise înainte
+> de logo și rămân valabile doar pentru site-ul cu scroll din `web/`, care nu a fost
+> modificat. Dacă site-ul cu scroll trece pe identitatea din logo, secțiunea de culoare
+> de aici se rescrie în aceeași sesiune.
+
 ## Scena fizică
 
 Cineva stă în mașină, seara, în parcarea de lângă un ansamblu în construcție. Telefonul e

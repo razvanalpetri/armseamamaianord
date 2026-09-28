@@ -1,12 +1,19 @@
 # Alpetri Real Estate
 
-Site cu erou video 3D legat de scroll, construit cu skill-ul `site-3d-scroll`.
-Trăiește separat de site-ul ARM Sea Mamaia Nord din `/src`, care rămâne neatins.
+Două livrabile, ambele separate de site-ul ARM Sea Mamaia Nord din `/src`, care
+rămâne neatins:
+
+- `web/`, site cu erou video 3D legat de scroll, construit cu skill-ul `site-3d-scroll`.
+- `landing/`, pagina de servicii și prețuri pe identitatea din logo (negru și auriu),
+  cu bannerul în care fotografia stă în interiorul emblemei. Detalii în
+  [`landing/README.md`](landing/README.md).
 
 ## Pornire locală
 
 ```bash
-node imobiliare/serve.mjs        # sau: PORT=3000 node imobiliare/serve.mjs
+node imobiliare/serve.mjs            # site-ul cu scroll, din web/
+node imobiliare/serve.mjs landing    # landing-ul, din landing/
+PORT=3000 node imobiliare/serve.mjs  # alt port
 ```
 
 Apoi http://localhost:8844
@@ -28,8 +35,9 @@ La deploy pe Vercel, Netlify, Cloudflare Pages sau nginx, Range vine implicit.
 PRODUCT.md      poziționare, ton, anti-referințe. Sursa de adevăr pentru copy.
 DESIGN.md       paletă OKLCH, tipografie, interdicții. Sursa de adevăr pentru CSS.
 prompts/        prompturile JSON ale cadrelor erou, pentru regenerare
-serve.mjs       server static cu HTTP Range
-web/            livrabilul
+serve.mjs       server static cu HTTP Range; argumentul alege folderul (web implicit)
+landing/        landing-ul de servicii și prețuri, cu propriile README.md și DESIGN.md
+web/            site-ul cu scroll 3D
   index.html
   styles.css
   app.js

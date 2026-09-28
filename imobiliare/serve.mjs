@@ -8,7 +8,9 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), 'web');
+// Folderul servit: `web` (site-ul cu scroll 3D) implicit, sau `landing`:
+//   node imobiliare/serve.mjs landing
+const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), process.argv[2] || 'web');
 const PORT = Number(process.env.PORT) || 8844;
 
 const TYPES = {
@@ -18,6 +20,7 @@ const TYPES = {
   '.jpg': 'image/jpeg',
   '.jpeg': 'image/jpeg',
   '.png': 'image/png',
+  '.webp': 'image/webp',
   '.svg': 'image/svg+xml',
   '.css': 'text/css; charset=utf-8',
   '.js': 'text/javascript; charset=utf-8',
