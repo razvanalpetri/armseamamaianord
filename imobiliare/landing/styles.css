@@ -531,19 +531,14 @@ a { color: inherit; text-decoration: none; }
 .person-frame {
   position: relative; overflow: hidden;
   aspect-ratio: 4 / 5;
-  background:
-    radial-gradient(60% 55% at 50% 38%, oklch(66% .105 75 / .34), oklch(66% .105 75 / .08) 60%, transparent 80%),
-    var(--ink-2);
-  border: 1px solid var(--line);
+  background: var(--ink-2);
+  border: 1px solid var(--line-gold);
 }
-.person-frame::after {             /* emblema, abia vizibilă în spate */
-  content: ""; position: absolute; z-index: 0;
-  inset-inline: 14%; inset-block-start: 4%;
-  aspect-ratio: 1000 / 964;
-  background: url('media/emblem.webp') center / contain no-repeat;
-  opacity: .14;
+.person-frame img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 1.2s cubic-bezier(.2, .7, .2, 1);
 }
-.person-frame img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; }
+.person:hover .person-frame img { transform: scale(1.03); }
 .person figcaption {
   display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 16px;
   padding-block: 18px 0; margin-block-start: 0;

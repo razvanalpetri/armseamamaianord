@@ -73,12 +73,10 @@ telefonul.
 
 ## Echipa
 
-Două portrete în același format (640 × 800, 4:5): fundal scos cu Higgsfield, același
-contur de lumină aurie din spate, aceeași mărime aparentă a capului, fade la baza
-cadrului. În ramă, o lumină aurie și emblema la 14%, ca portretele să stea în logo.
-Al doilea portret coboară o treaptă pe desktop, ca scara din „Cum lucrăm”. Numele
-sunt scrise exact cum le-a dat agenția: Razvan Alpetri (Broker Imobiliar) și
-Badila Bianca (Agent Imobiliar).
+Fotografiile originale, cu fundal (alegerea agenției, după o variantă cu decupaje),
+încadrate la fel: portret 4:5, 800 × 1000, ramă subțire aurie. Al doilea portret
+coboară o treaptă pe desktop, ca scara din „Cum lucrăm”. Numele sunt scrise exact cum
+le-a dat agenția: Razvan Alpetri (Broker Imobiliar) și Badila Bianca (Agent Imobiliar).
 
 ## Layout
 
