@@ -71,6 +71,15 @@ față de negru pur (logo-ul are vignetă; altfel rămâne un pătrat gri vizibi
 `og-image.jpg` este imaginea pentru previzualizarea linkului: logo-ul, prețurile și
 telefonul.
 
+## Echipa
+
+Două portrete în același format (640 × 800, 4:5): fundal scos cu Higgsfield, același
+contur de lumină aurie din spate, aceeași mărime aparentă a capului, fade la baza
+cadrului. În ramă, o lumină aurie și emblema la 14%, ca portretele să stea în logo.
+Al doilea portret coboară o treaptă pe desktop, ca scara din „Cum lucrăm”. Numele
+sunt scrise exact cum le-a dat agenția: Razvan Alpetri (Broker Imobiliar) și
+Badila Bianca (Agent Imobiliar).
+
 ## Layout
 
 - Proprietăți logice peste tot (`padding-inline`, `padding-block`).

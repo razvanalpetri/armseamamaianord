@@ -60,6 +60,7 @@ media/
   wordmark.webp   ALPETRI REAL ESTATE, cu transparență    (bannerul, jos)
   emblem-sm.webp  emblema pentru header
   lockup.webp     logo-ul întreg pentru footer
+  team-razvan.webp, team-bianca.webp   portretele din secțiunea Echipa, fără fundal
   og-image.jpg    imaginea care apare când linkul e trimis pe WhatsApp / Facebook
   favicon-32.png, apple-touch-icon.png
 ```
