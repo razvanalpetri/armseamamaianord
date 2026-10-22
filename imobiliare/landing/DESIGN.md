@@ -45,7 +45,7 @@ Regula „fără auriu” din `../DESIGN.md` a fost scrisă pentru site-ul cu sc
   verificat și în browser cu testul pe canvas.
 - **Cifra 1 din Cinzel arată ca un I roman.** Orice număr care poate conține 1
   (telefon, un preț ca 1.500 lei) se scrie în Archivo. De aceea telefonul mare și
-  „1.000 lei” de la videoclipuri sunt în Archivo.
+  „1.500 lei” de la videoclipuri sunt în Archivo.
 - Titlurile în Cinzel au line-height 1.12, nu 1.0: virgula lui ț coboară sub
   linie și are nevoie de aer. Verificat pe „anunț” la 390 și 1440 px.
 

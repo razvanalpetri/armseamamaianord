@@ -91,7 +91,7 @@ Date de agenție, sursa de adevăr pentru orice text cu prețuri:
 | Închirieri | comision 50% din tranzacție |
 | Tur video cu AI al imobilului | 500 lei / video |
 | Site 3D pentru imobil | la cerere |
-| Video de la proprietate, filmat în persoană | 250 lei / video sau 1.000 lei / 5 videoclipuri |
+| Video de la proprietate, filmat în persoană | 500 lei / video, minimum 3 videoclipuri; se postează pe conturile lui Razvan Alpetri, iar clientul le poate folosi și pentru propria promovare |
 | Pachet complet de marketing pentru vânzare: site 3D, tur video cu AI, 5 videoclipuri de la proprietate | 3.000 lei |
 
 Landing-ul se adresează în primul rând proprietarilor care vând sau închiriază.
