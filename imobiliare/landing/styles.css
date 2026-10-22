@@ -66,7 +66,6 @@
   --dim:       oklch(57% 0.018 80);
 
   --on-gold:   oklch(17% 0.02 75);
-  --on-gold-2: oklch(29% 0.04 75);
 
   --serif: 'Cinzel', 'Trajan Pro', Georgia, serif;
   --sans:  'Archivo', 'Helvetica Neue', Arial, sans-serif;
@@ -176,10 +175,6 @@ a { color: inherit; text-decoration: none; }
 .btn-line { color: var(--gold-hi); border-color: var(--line-gold); }
 .btn-line:hover { border-color: var(--gold); background: oklch(80% .105 83 / .07); }
 
-.btn-ink { color: var(--gold-hi); background: var(--ink); }
-.btn-ink:hover { background: var(--ink-3); }
-.btn-ink-line { color: var(--on-gold); border-color: oklch(17% .02 75 / .45); }
-.btn-ink-line:hover { border-color: var(--on-gold); background: oklch(17% .02 75 / .06); }
 
 .lnk {
   display: inline-flex; align-items: center; gap: .5em;
@@ -282,7 +277,7 @@ a { color: inherit; text-decoration: none; }
 .tariff {
   list-style: none; padding: 0;
   margin-block: clamp(26px, 4vw, 44px) 0;
-  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
   border-block-start: 1px solid var(--line);
 }
 .tariff li {
@@ -297,7 +292,7 @@ a { color: inherit; text-decoration: none; }
   color: var(--gold);
 }
 @media (min-width: 600px) {
-  .tariff { grid-template-columns: repeat(4, auto); justify-content: start; }
+  .tariff { grid-template-columns: repeat(3, auto); justify-content: start; }
   .tariff li { padding-inline: 0 clamp(18px, 2.4vw, 32px); border-block-end: 0; }
   .tariff li + li { padding-inline-start: clamp(18px, 2.4vw, 32px); border-inline-start: 1px solid var(--line); }
 }
@@ -441,58 +436,6 @@ a { color: inherit; text-decoration: none; }
   .dots { display: none; }
   .item-price { flex-basis: 100%; }
 }
-
-/* ---------- pachet complet, drenat în auriu ---------- */
-.pack {
-  position: relative; overflow: hidden; isolation: isolate;
-  padding-block: clamp(76px, 10vw, 140px);
-  color: var(--on-gold);
-  background:
-    radial-gradient(90% 120% at 8% 0%, oklch(91% .07 90 / .9), transparent 55%),
-    radial-gradient(80% 90% at 100% 100%, oklch(64% .1 74 / .85), transparent 60%),
-    var(--gold);
-}
-.pack::after {                      /* emblema, presată în metal */
-  content: ""; position: absolute; z-index: -1;
-  inset-block-start: 50%; inset-inline-end: -8%;
-  width: min(62vw, 760px); aspect-ratio: 1000 / 964;
-  background: url('media/emblem.webp') center / contain no-repeat;
-  mix-blend-mode: multiply; opacity: .2;
-  transform: translateY(-50%);
-  pointer-events: none;
-}
-.pack-in { display: grid; gap: clamp(36px, 5vw, 72px); }
-@media (min-width: 900px) {
-  .pack-in { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); align-items: end; }
-}
-.pack-tag {
-  display: inline-block; margin: 0 0 22px;
-  padding-block: .55em; padding-inline: 1em;
-  border: 1px solid oklch(17% .02 75 / .4); border-radius: 2px;
-  font-size: .78rem; letter-spacing: .08em;
-  font-variation-settings: 'wdth' 100, 'wght' 600;
-}
-.pack .h-sec { color: var(--on-gold); }
-.pack-lede { margin: 0; max-width: 40ch; font-size: clamp(1.05rem, 1rem + .3vw, 1.22rem); color: var(--on-gold-2); }
-.pack-list { list-style: none; padding: 0; margin-block: clamp(24px, 3vw, 34px) 0; display: grid; gap: 14px; }
-.pack-list li {
-  display: flex; align-items: center; gap: 14px;
-  font-family: var(--serif); font-weight: 600;
-  font-size: clamp(1.05rem, 1rem + .3vw, 1.2rem); letter-spacing: .02em;
-}
-.pack-list .ico {
-  width: 30px; height: 30px; padding: 6px;
-  border: 1px solid oklch(17% .02 75 / .45); border-radius: 50%;
-}
-.pack-num {
-  margin: 0;
-  font-family: var(--serif); font-weight: 700;
-  font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.6rem); line-height: 1; letter-spacing: .02em;
-}
-.pack-num span { font-size: 2.6em; letter-spacing: -.01em; margin-inline-end: .08em; }
-.pack-note { margin-block: 18px 26px; max-width: 44ch; font-size: .96rem; color: var(--on-gold-2); }
-.pack-cta { display: flex; flex-wrap: wrap; gap: 12px; }
-@media (max-width: 480px) { .pack-cta .btn { flex: 1 1 100%; } }
 
 /* ---------- proces, trepte care urcă ---------- */
 .proc { background: var(--ink-2); border-block: 1px solid var(--line); }

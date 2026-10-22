@@ -92,7 +92,9 @@ Date de agenție, sursa de adevăr pentru orice text cu prețuri:
 | Tur video cu AI al imobilului | 500 lei / video |
 | Site 3D pentru imobil | la cerere |
 | Video de la proprietate, filmat în persoană | 500 lei / video, minimum 3 videoclipuri; se postează pe conturile lui Razvan Alpetri, iar clientul le poate folosi și pentru propria promovare |
-| Pachet complet de marketing pentru vânzare: site 3D, tur video cu AI, 5 videoclipuri de la proprietate | 3.000 lei |
+
+Pachetul complet de marketing (3.000 lei) a fost scos din ofertă în octombrie 2026;
+nu se mai afișează nicăieri.
 
 Landing-ul se adresează în primul rând proprietarilor care vând sau închiriază.
 Gesturile de conversie sunt telefonul și WhatsApp-ul cu mesaj precompletat, nu un

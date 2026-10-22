@@ -24,11 +24,12 @@ Regula „fără auriu” din `../DESIGN.md` a fost scrisă pentru site-ul cu sc
 --gold-hi   oklch(89% 0.075 88)     reflexul metalic
 --ivory     oklch(94.5% 0.012 85)   text principal, niciodată #fff
 --muted     oklch(74% 0.018 82)     text secundar
---on-gold   oklch(17% 0.02 75)      text pe secțiunea aurie
+--on-gold   oklch(17% 0.02 75)      text pe butoanele aurii
 ```
 
-- Secțiunea „Pachet complet” este drenată în auriu, cu emblema presată în metal
-  (`multiply`, 20%). E singura suprafață mare aurie și e oferta principală.
+- Pachetul complet de 3.000 lei, cu secțiunea lui drenată în auriu, a fost scos din
+  ofertă la cererea agenției (octombrie 2026). Auriul rămâne pe titluri, prețuri,
+  butoane, rame și pe logo-ul din hero.
 - Butonul principal are un gradient vertical discret, ca un profil de metal.
   Text cu gradient nu există nicăieri.
 
