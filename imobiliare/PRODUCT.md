@@ -100,6 +100,14 @@ Landing-ul se adresează în primul rând proprietarilor care vând sau închiri
 Gesturile de conversie sunt telefonul și WhatsApp-ul cu mesaj precompletat, nu un
 formular care trimite date undeva.
 
+## Campania ALPETRI PROPERTIES SEASON (`properties-season/`)
+
+Funnel separat pentru cine vrea să cumpere: ca investiție sau ca locuință nouă.
+Promisiunea, exact cum a formulat-o agenția: consultanță gratuită și opțiunile
+imobiliare care i se potrivesc, pe WhatsApp. Fiecare categorie are propriul unghi:
+investitorul vrea cifre (preț pe metru pătrat, chirie realistă, verificări), cine
+caută o locuință vrea timp câștigat și pe cineva alături până la notar.
+
 ## Relația cu repo-ul
 
 Acest site trăiește în `/imobiliare` și este complet independent de site-ul ARM Sea Mamaia
