@@ -87,7 +87,7 @@ Date de agenție, sursa de adevăr pentru orice text cu prețuri:
 
 | serviciu | preț |
 |---|---|
-| Vânzări imobiliare | comision 2% din tranzacție |
+| Vânzări imobiliare | comision 3% din tranzacție (până în octombrie 2026 a fost 2%) |
 
 Din octombrie 2026 landing-ul prezintă doar vânzările. Închirierile (50%), turul
 video cu AI, site-ul 3D, videoclipurile de la proprietate și pachetul complet de

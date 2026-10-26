@@ -1,6 +1,6 @@
 # Landing Alpetri Real Estate
 
-Pagina de prezentare a agenției pentru vânzări imobiliare (comision 2% din
+Pagina de prezentare a agenției pentru vânzări imobiliare (comision 3% din
 tranzacție), pe identitatea din logo (negru și auriu). Este independentă de site-ul cu scroll 3D din `../web`, care
 rămâne neatins.
 
@@ -33,7 +33,7 @@ rezerva pentru browsere fără JavaScript.
 
 ## Oferta afișată
 
-Doar vânzări imobiliare, cu comision de 2% din tranzacție. Închirierile, turul video
+Doar vânzări imobiliare, cu comision de 3% din tranzacție. Închirierile, turul video
 cu AI, site-ul 3D, videoclipurile de la proprietate și pachetul complet au fost
 scoase la cererea agenției (octombrie 2026) și nu mai apar nicăieri pe pagină.
 

@@ -83,7 +83,7 @@ le-a dat agenția: Razvan Alpetri (Broker Imobiliar) și Badila Bianca (Agent Im
 
 - Proprietăți logice peste tot (`padding-inline`, `padding-block`).
 - Pe telefon logo-ul vine primul, apoi titlul. Pe desktop, text stânga, logo dreapta.
-- Pagina vinde un singur serviciu, vânzarea, iar cifra lui e afișul secțiunii: „2%”
+- Pagina vinde un singur serviciu, vânzarea, iar cifra lui e afișul secțiunii: „3%”
   mare, auriu, lângă ce include vânzarea. Fără grilă de servicii și fără prețuri în lei.
 - „Cum lucrăm” este o scară care urcă spre dreapta, ca etajele din emblemă.
 - Bara fixă de apel există doar sub 760 px și apare după 60% din primul ecran.
