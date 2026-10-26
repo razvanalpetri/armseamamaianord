@@ -1,7 +1,7 @@
 # Landing Alpetri Real Estate
 
-Pagina de prezentare a agenției, cu servicii și prețuri, pe identitatea din logo
-(negru și auriu). Este independentă de site-ul cu scroll 3D din `../web`, care
+Pagina de prezentare a agenției pentru vânzări imobiliare (comision 2% din
+tranzacție), pe identitatea din logo (negru și auriu). Este independentă de site-ul cu scroll 3D din `../web`, care
 rămâne neatins.
 
 ## Pornire locală
@@ -31,20 +31,18 @@ rezerva pentru browsere fără JavaScript.
 |---|---|
 | `index.html`, `og:image` | adresa completă după publicare, de exemplu `https://alpetri.ro/media/og-image.jpg`, altfel previzualizarea nu apare în WhatsApp și Facebook |
 
-## De confirmat cu agenția
+## Oferta afișată
 
-- Comisionul la închirieri este scris „50% din tranzacție”, exact ca în brief. Pe
-  piață se spune de obicei „50% din chiria lunară”. Dacă asta e intenția, se schimbă
-  un singur rând în secțiunea Servicii (și eticheta din formular).
-- Brieful folosea și „RON”, și „lei”. Pe pagină apare peste tot „lei”, e aceeași
-  monedă.
+Doar vânzări imobiliare, cu comision de 2% din tranzacție. Închirierile, turul video
+cu AI, site-ul 3D, videoclipurile de la proprietate și pachetul complet au fost
+scoase la cererea agenției (octombrie 2026) și nu mai apar nicăieri pe pagină.
 
 ## Cum funcționează contactul
 
-- Fiecare serviciu are un link „Vreau …” care deschide WhatsApp cu un mesaj deja
-  scris pentru serviciul respectiv.
+- Butonul „Vreau să vând” și celelalte linkuri de WhatsApp deschid conversația cu un
+  mesaj deja scris despre vânzarea unei proprietăți.
 - Formularul din secțiunea Contact nu trimite nimic către un server: compune un
-  mesaj din serviciu, nume și detalii și deschide WhatsApp. Pagina nu salvează date.
+  mesaj din nume și detaliile proprietății și deschide WhatsApp. Pagina nu salvează date.
 - Pe telefon, după primul ecran, apare jos o bară fixă cu „Sunați” și „WhatsApp”.
 
 ## Structură

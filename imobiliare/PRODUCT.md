@@ -81,24 +81,21 @@ Ce NU este acest site:
 5. Site-ul nu e avantajul competitiv. Poziționarea este. Dacă cineva îl citește 8 secunde
    și nu a înțeles că lucrăm cu imobile în construcție, site-ul a eșuat.
 
-## Servicii și prețuri (landing-ul din `landing/`)
+## Serviciul afișat (landing-ul din `landing/`)
 
 Date de agenție, sursa de adevăr pentru orice text cu prețuri:
 
 | serviciu | preț |
 |---|---|
 | Vânzări imobiliare | comision 2% din tranzacție |
-| Închirieri | comision 50% din tranzacție |
-| Tur video cu AI al imobilului | 500 lei / video |
-| Site 3D pentru imobil | la cerere |
-| Video de la proprietate, filmat în persoană | 500 lei / video, minimum 3 videoclipuri; se postează pe conturile lui Razvan Alpetri, iar clientul le poate folosi și pentru propria promovare |
 
-Pachetul complet de marketing (3.000 lei) a fost scos din ofertă în octombrie 2026;
-nu se mai afișează nicăieri.
+Din octombrie 2026 landing-ul prezintă doar vânzările. Închirierile (50%), turul
+video cu AI, site-ul 3D, videoclipurile de la proprietate și pachetul complet de
+marketing au fost scoase din ofertă și nu se mai afișează.
 
-Landing-ul se adresează în primul rând proprietarilor care vând sau închiriază.
-Gesturile de conversie sunt telefonul și WhatsApp-ul cu mesaj precompletat, nu un
-formular care trimite date undeva.
+Landing-ul se adresează proprietarilor care vor să vândă. Gesturile de conversie
+sunt telefonul și WhatsApp-ul cu mesaj precompletat, nu un formular care trimite
+date undeva.
 
 ## Campania ALPETRI PROPERTIES SEASON (`properties-season/`)
 

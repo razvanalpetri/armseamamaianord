@@ -18,11 +18,10 @@ if (form) {
   form.action = `https://wa.me/${WA}`;
   form.addEventListener('submit', e => {
     e.preventDefault();
-    const svc = form.querySelector('#f-svc').value.trim();
     const name = form.querySelector('#f-name').value.trim();
     const msg = form.querySelector('#f-msg').value.trim();
     const lines = [name ? `Bună ziua! Mă numesc ${name}.` : 'Bună ziua!'];
-    if (svc) lines.push(`Mă interesează: ${svc}.`);
+    lines.push('Aș dori să vând o proprietate prin Alpetri Real Estate.');
     if (msg) lines.push(`Despre proprietate: ${msg}`);
     // Un link real, nu window.open: cu 'noopener', window.open întoarce mereu
     // null, deci nu se poate ști dacă fila s-a deschis sau a fost blocată. Linkul

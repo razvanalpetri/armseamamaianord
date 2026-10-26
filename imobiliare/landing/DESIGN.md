@@ -45,8 +45,8 @@ Regula „fără auriu” din `../DESIGN.md` a fost scrisă pentru site-ul cu sc
   `ă â î ș ț Ă Â Î Ș Ț` există în cmap la ambele, `ș`/`ț` cu virgulă (U+0219/U+021B),
   verificat și în browser cu testul pe canvas.
 - **Cifra 1 din Cinzel arată ca un I roman.** Orice număr care poate conține 1
-  (telefon, un preț ca 1.500 lei) se scrie în Archivo. De aceea telefonul mare și
-  „1.500 lei” de la videoclipuri sunt în Archivo.
+  (telefon, un preț ca 1.500 lei) se scrie în Archivo. De aceea telefonul mare e în
+  Archivo.
 - Titlurile în Cinzel au line-height 1.12, nu 1.0: virgula lui ț coboară sub
   linie și are nevoie de aer. Verificat pe „anunț” la 390 și 1440 px.
 
@@ -83,9 +83,8 @@ le-a dat agenția: Razvan Alpetri (Broker Imobiliar) și Badila Bianca (Agent Im
 
 - Proprietăți logice peste tot (`padding-inline`, `padding-block`).
 - Pe telefon logo-ul vine primul, apoi titlul. Pe desktop, text stânga, logo dreapta.
-- Intermedierea are cifra mare (2%, 50%), pentru că acolo cifra chiar este oferta.
-  Serviciile de marketing sunt o listă de tarife cu puncte de legătură, ca un meniu,
-  nu carduri.
+- Pagina vinde un singur serviciu, vânzarea, iar cifra lui e afișul secțiunii: „2%”
+  mare, auriu, lângă ce include vânzarea. Fără grilă de servicii și fără prețuri în lei.
 - „Cum lucrăm” este o scară care urcă spre dreapta, ca etajele din emblemă.
 - Bara fixă de apel există doar sub 760 px și apare după 60% din primul ecran.
 

@@ -277,7 +277,7 @@ a { color: inherit; text-decoration: none; }
 .tariff {
   list-style: none; padding: 0;
   margin-block: clamp(26px, 4vw, 44px) 0;
-  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: grid; grid-template-columns: auto; justify-content: start;
   border-block-start: 1px solid var(--line);
 }
 .tariff li {
@@ -292,7 +292,6 @@ a { color: inherit; text-decoration: none; }
   color: var(--gold);
 }
 @media (min-width: 600px) {
-  .tariff { grid-template-columns: repeat(3, auto); justify-content: start; }
   .tariff li { padding-inline: 0 clamp(18px, 2.4vw, 32px); border-block-end: 0; }
   .tariff li + li { padding-inline-start: clamp(18px, 2.4vw, 32px); border-inline-start: 1px solid var(--line); }
 }
@@ -367,20 +366,7 @@ a { color: inherit; text-decoration: none; }
 .sec-head { max-width: 780px; margin-block-end: clamp(36px, 5.5vw, 68px); }
 
 /* ---------- servicii ---------- */
-.svc-grid { display: grid; gap: clamp(56px, 7vw, 96px); }
-@media (min-width: 1000px) {
-  .svc-grid { grid-template-columns: minmax(0, .94fr) minmax(0, 1.06fr); gap: clamp(56px, 6vw, 96px); }
-}
-.grp {
-  margin: 0;
-  padding-block-end: 16px;
-  border-block-end: 1px solid var(--line-gold);
-  font-family: var(--serif); font-weight: 600;
-  font-size: 1.02rem; letter-spacing: .12em;
-  color: var(--gold);
-}
-
-/* intermedierea: cifra este oferta, așa că stă mare */
+/* vânzarea: cifra este oferta, așa că stă mare */
 .deal {
   display: grid;
   grid-template-columns: clamp(7.2rem, 4.6rem + 7vw, 11.5rem) minmax(0, 1fr);
@@ -396,7 +382,7 @@ a { color: inherit; text-decoration: none; }
   line-height: .9; letter-spacing: -.01em;
   color: var(--gold);
 }
-.deal-body h4, .item h4 {
+.deal-body h3 {
   margin: 0;
   font-family: var(--serif); font-weight: 600;
   font-size: clamp(1.25rem, 1.12rem + .5vw, 1.5rem);
@@ -409,33 +395,24 @@ a { color: inherit; text-decoration: none; }
   .deal { grid-template-columns: 1fr; gap: 10px; }
 }
 
-/* marketing: listă de tarife, cu puncte de legătură ca într-un meniu */
-.item { padding-block: clamp(24px, 3vw, 34px); border-block-end: 1px solid var(--line); }
-.item-top { display: flex; align-items: baseline; gap: 14px; }
-.dots {
-  flex: 1 1 auto; min-width: 24px;
-  border-block-end: 1px dotted oklch(80% .105 83 / .5);
-  transform: translateY(-.28em);
+/* un singur serviciu: cifra devine afișul secțiunii */
+.deal-solo {
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(18px, 3vw, 56px);
+  align-items: center;
+  padding-block: clamp(32px, 5vw, 64px);
+  border-block: 1px solid var(--line-gold);
 }
-.item-price {
-  margin: 0; white-space: nowrap;
-  font-family: var(--serif); font-weight: 600;
-  font-size: clamp(1.2rem, 1.1rem + .4vw, 1.45rem); line-height: 1;
-  color: var(--gold);
+@media (min-width: 820px) { .deal-solo { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); } }
+.deal-solo .deal-num { font-size: clamp(6rem, 3.2rem + 11vw, 14rem); line-height: .82; }
+.deal-solo .deal-body h3 { font-size: clamp(1.35rem, 1.15rem + .9vw, 1.9rem); }
+.deal-list { list-style: none; padding: 0; margin-block: clamp(18px, 2.4vw, 26px) clamp(24px, 3vw, 32px); display: grid; gap: 12px; }
+.deal-list li { display: flex; align-items: center; gap: 12px; color: var(--ivory); }
+.deal-list .ico {
+  width: 28px; height: 28px; padding: 6px;
+  border: 1px solid var(--line-gold); border-radius: 50%; color: var(--gold);
 }
-.item-price small {
-  margin-inline-start: .35em;
-  font-family: var(--sans); font-weight: 400; font-size: .62em;
-  letter-spacing: .02em; color: var(--muted);
-}
-.item-alt { margin-block: 10px 0; color: var(--gold-hi); font-size: .98rem; }
-.item-alt b { font-variation-settings: 'wdth' 100, 'wght' 680; }
-.item > p:not(.item-alt) { margin-block: 12px 16px; color: var(--muted); max-width: 56ch; }
-@media (max-width: 520px) {
-  .item-top { flex-wrap: wrap; gap: 6px 12px; }
-  .dots { display: none; }
-  .item-price { flex-basis: 100%; }
-}
+@media (max-width: 520px) { .deal-solo .btn { width: 100%; } }
 
 /* ---------- proces, trepte care urcă ---------- */
 .proc { background: var(--ink-2); border-block: 1px solid var(--line); }
@@ -531,7 +508,7 @@ a { color: inherit; text-decoration: none; }
   font-size: 1.3rem; letter-spacing: .03em;
 }
 .composer label { margin-block-start: 8px; font-size: .86rem; color: var(--muted); }
-.composer input, .composer select, .composer textarea {
+.composer input, .composer textarea {
   width: 100%;
   padding-block: 13px; padding-inline: 14px;
   background: var(--ink); color: var(--ivory);
@@ -540,14 +517,8 @@ a { color: inherit; text-decoration: none; }
   transition: border-color .2s ease;
 }
 .composer textarea { resize: vertical; min-height: 96px; }
-.composer select {
-  appearance: none; -webkit-appearance: none;
-  padding-inline-end: 44px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23d9b56d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
-  background-repeat: no-repeat; background-position: right 14px center; background-size: 18px;
-}
-.composer :is(input, select, textarea):hover { border-color: oklch(40% .03 80); }
-.composer :is(input, select, textarea):focus-visible { outline: 2px solid var(--gold); outline-offset: 0; border-color: transparent; }
+.composer :is(input, textarea):hover { border-color: oklch(40% .03 80); }
+.composer :is(input, textarea):focus-visible { outline: 2px solid var(--gold); outline-offset: 0; border-color: transparent; }
 .composer ::placeholder { color: var(--dim); }
 .composer .btn { margin-block-start: 16px; width: 100%; }
 .composer-note { margin: 4px 0 0; font-size: .8rem; color: var(--dim); }

@@ -4,7 +4,7 @@ Trei livrabile, toate separate de site-ul ARM Sea Mamaia Nord din `/src`, care
 rămâne neatins:
 
 - `web/`, site cu erou video 3D legat de scroll, construit cu skill-ul `site-3d-scroll`.
-- `landing/`, pagina de servicii și prețuri pe identitatea din logo (negru și auriu),
+- `landing/`, pagina agenției pentru vânzări imobiliare, pe identitatea din logo (negru și auriu),
   cu logo-ul ca banner în hero. Detalii în
   [`landing/README.md`](landing/README.md).
 - `properties-season/`, pagina de campanie ALPETRI PROPERTIES SEASON: sales funnel cu
@@ -40,7 +40,7 @@ PRODUCT.md      poziționare, ton, anti-referințe. Sursa de adevăr pentru copy
 DESIGN.md       paletă OKLCH, tipografie, interdicții. Sursa de adevăr pentru CSS.
 prompts/        prompturile JSON ale cadrelor erou, pentru regenerare
 serve.mjs       server static cu HTTP Range; argumentul alege folderul (web implicit)
-landing/        landing-ul de servicii și prețuri, cu propriile README.md și DESIGN.md
+landing/        landing-ul pentru vânzări imobiliare, cu propriile README.md și DESIGN.md
 properties-season/  pagina de campanie ALPETRI PROPERTIES SEASON (funnel cu VSL)
 web/            site-ul cu scroll 3D
   index.html
