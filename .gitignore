@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Arhivele pentru Netlify, generate din imobiliare/*
+alpetri-*-netlify.zip
