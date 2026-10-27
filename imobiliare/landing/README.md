@@ -25,11 +25,12 @@ cele reale. WhatsApp folosește același număr, scris o singură dată pe
 `<body data-wa="40725367954">`; linkurile `https://wa.me/40725367954` din HTML sunt
 rezerva pentru browsere fără JavaScript.
 
-## De completat înainte de publicare
+## Adresa publicată
 
-| unde | ce |
-|---|---|
-| `index.html`, `og:image` | adresa completă după publicare, de exemplu `https://alpetri.ro/media/og-image.jpg`, altfel previzualizarea nu apare în WhatsApp și Facebook |
+Site-ul e pe Netlify, la https://alpetrirealestate.netlify.app/, împreună cu pagina
+vilei (`/vila-valu-lui-traian/`). `og:image`, `og:url` și `canonical` din
+`index.html` folosesc această adresă completă, altfel previzualizarea nu apare în
+WhatsApp și Facebook. La mutarea pe un domeniu propriu, se schimbă în ambele pagini.
 
 ## Oferta afișată
 

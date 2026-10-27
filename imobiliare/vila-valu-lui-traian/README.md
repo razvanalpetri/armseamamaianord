@@ -91,10 +91,13 @@ Apoi http://localhost:8844
 ## Publicare
 
 Folderul `vila-valu-lui-traian` se urcă exact cum este (Netlify Drop, Vercel,
-Cloudflare Pages). Nu are pas de build și nu are dependențe. După publicare,
-puneți în `og:image` adresa completă, de exemplu
-`https://vila.alpetri.ro/media/og-image.jpg`, altfel previzualizarea nu apare în
-WhatsApp și Facebook.
+Cloudflare Pages). Nu are pas de build și nu are dependențe.
+
+Acum e publicată împreună cu site-ul agenției, la
+https://alpetrirealestate.netlify.app/vila-valu-lui-traian/. `og:image`, `og:url` și
+`canonical` din `index.html` folosesc această adresă completă, altfel
+previzualizarea nu apare în WhatsApp și Facebook. La mutarea pe alt domeniu sau
+într-un site separat, se schimbă aici.
 
 ## Structură
 
