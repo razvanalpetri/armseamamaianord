@@ -35,8 +35,7 @@ tehnică, secțiunea Vizionare, footer, meta), în `app.js` (mesajul de WhatsApp
 3. **Spațiile și construcția**: compartimentarea în cifre și fișa tehnică completă.
 4. **Locația**: textul, schema Constanța → Valu lui Traian (15 minute) și un link
    spre zona de lângă Penny pe Google Maps.
-5. **Echipa**: Razvan Alpetri și Badila Bianca, cei care fac vizionarea.
-6. **Vizionare** (secțiunea aurie): o întrebare opțională, „Când ați vrea să vedeți
+5. **Vizionare** (secțiunea aurie): o întrebare opțională, „Când ați vrea să vedeți
    vila?”, apoi butonul de WhatsApp.
 
 ## Fotografiile
@@ -110,7 +109,6 @@ media/
   emblem-sm.webp  emblema pentru header
   lockup.webp     logo-ul întreg, în footer
   foto-1…5-800.webp, foto-1…5-1600.webp   fotografiile vilei
-  team-razvan.webp, team-bianca.webp
   og-image.jpg    previzualizarea linkului: logo, preț, datele vilei, telefon
   favicon-32.png, apple-touch-icon.png
 ```

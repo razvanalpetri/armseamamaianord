@@ -1,6 +1,6 @@
 /* Vilă P+1 în Valu lui Traian, pagina proprietății
    Aceeași identitate ca landing-ul Alpetri Real Estate (negru mat, auriu metalic,
-   Cinzel + Archivo). Fonturile, tokenii, butoanele, headerul, echipa, CTA-ul auriu
+   Cinzel + Archivo). Fonturile, tokenii, butoanele, headerul, CTA-ul auriu
    și footerul sunt preluate identic din ../landing și ../properties-season; restul
    e specific paginii. Deciziile sunt în DESIGN.md din acest folder. */
 
@@ -532,40 +532,6 @@ body:has(.lb[open]) { overflow: hidden; }
   letter-spacing: .04em;
   color: var(--gold-hi);
 }
-
-/* ---------- echipa ---------- */
-.team-grid {
-  display: grid; gap: clamp(36px, 5vw, 64px);
-  grid-template-columns: minmax(0, 1fr);
-  max-width: 980px;
-}
-@media (min-width: 700px) {
-  .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .person:nth-child(2) { margin-block-start: clamp(40px, 6vw, 88px); }  /* aceeași treaptă ca procesul */
-}
-.person { margin: 0; }
-.person-frame {
-  position: relative; overflow: hidden;
-  aspect-ratio: 4 / 5;
-  background: var(--ink-2);
-  border: 1px solid var(--line-gold);
-}
-.person-frame img {
-  width: 100%; height: 100%; object-fit: cover;
-  transition: transform 1.2s cubic-bezier(.2, .7, .2, 1);
-}
-.person:hover .person-frame img { transform: scale(1.03); }
-.person figcaption {
-  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 16px;
-  padding-block: 18px 0; margin-block-start: 0;
-}
-.person h3 {
-  margin: 0;
-  font-family: var(--serif); font-weight: 600;
-  font-size: clamp(1.3rem, 1.15rem + .6vw, 1.65rem); letter-spacing: .03em;
-}
-.person figcaption p { margin: 0; color: var(--gold); letter-spacing: .04em; font-variation-settings: 'wdth' 106, 'wght' 540; }
-
 
 /* ---------- vizionare, drenat în auriu (CTA-ul din campanie) ---------- */
 .final {

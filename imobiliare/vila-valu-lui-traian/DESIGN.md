@@ -30,7 +30,7 @@ Doar fotografiile vilei trimise de agenție; pagina nu adaugă imagini de stoc s
 generate.
 Grila are una mare și patru mici pe desktop (prima, livingul cu scara, e cea mai
 puternică) și una mare peste două rânduri de câte două pe telefon. Ramele sunt
-subțiri, ca la portretele echipei; auriul apare doar la hover.
+subțiri; auriul apare doar la hover.
 
 La apăsare, fotografia se deschide pe tot ecranul într-un `<dialog>` nativ: Esc
 închide, săgețile tastaturii și glisarea schimbă fotografia, focusul revine pe
