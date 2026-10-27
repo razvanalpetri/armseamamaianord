@@ -1,6 +1,6 @@
 # Alpetri Real Estate
 
-Trei livrabile, toate separate de site-ul ARM Sea Mamaia Nord din `/src`, care
+Patru livrabile, toate separate de site-ul ARM Sea Mamaia Nord din `/src`, care
 rămâne neatins:
 
 - `web/`, site cu erou video 3D legat de scroll, construit cu skill-ul `site-3d-scroll`.
@@ -10,6 +10,9 @@ rămâne neatins:
 - `properties-season/`, pagina de campanie ALPETRI PROPERTIES SEASON: sales funnel cu
   VSL pentru cine cumpără ca investiție sau ca locuință, cu CTA pe WhatsApp. Detalii în
   [`properties-season/README.md`](properties-season/README.md).
+- `vila-valu-lui-traian/`, pagina unei singure proprietăți: vila P+1 din Valu lui Traian,
+  242.000 € cu TVA inclus, cu programarea vizionării pe WhatsApp. Detalii în
+  [`vila-valu-lui-traian/README.md`](vila-valu-lui-traian/README.md).
 
 ## Pornire locală
 
@@ -17,6 +20,7 @@ rămâne neatins:
 node imobiliare/serve.mjs            # site-ul cu scroll, din web/
 node imobiliare/serve.mjs landing    # landing-ul, din landing/
 node imobiliare/serve.mjs properties-season   # pagina de campanie
+node imobiliare/serve.mjs vila-valu-lui-traian  # pagina vilei
 PORT=3000 node imobiliare/serve.mjs  # alt port
 ```
 
@@ -42,6 +46,7 @@ prompts/        prompturile JSON ale cadrelor erou, pentru regenerare
 serve.mjs       server static cu HTTP Range; argumentul alege folderul (web implicit)
 landing/        landing-ul pentru vânzări imobiliare, cu propriile README.md și DESIGN.md
 properties-season/  pagina de campanie ALPETRI PROPERTIES SEASON (funnel cu VSL)
+vila-valu-lui-traian/  pagina vilei P+1 din Valu lui Traian
 web/            site-ul cu scroll 3D
   index.html
   styles.css

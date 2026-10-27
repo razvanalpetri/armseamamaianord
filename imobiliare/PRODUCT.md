@@ -105,6 +105,14 @@ imobiliare care i se potrivesc, pe WhatsApp. Fiecare categorie are propriul ungh
 investitorul vrea cifre (preț pe metru pătrat, chirie realistă, verificări), cine
 caută o locuință vrea timp câștigat și pe cineva alături până la notar.
 
+## Pagini de proprietate (`vila-valu-lui-traian/`)
+
+O pagină pentru o singură proprietate, cu un singur gest: programarea vizionării
+(WhatsApp sau telefon). Datele proprietății sunt doar cele date de agenție, iar
+fotografiile sunt doar ale casei; cât timp lipsesc, pagina le oferă pe WhatsApp în
+loc să afișeze imagini generate. Prima: vila P+1 din Valu lui Traian, 242.000 € cu
+TVA inclus (200.000 € + TVA).
+
 ## Relația cu repo-ul
 
 Acest site trăiește în `/imobiliare` și este complet independent de site-ul ARM Sea Mamaia
