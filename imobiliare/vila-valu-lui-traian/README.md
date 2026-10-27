@@ -30,7 +30,8 @@ tehnică, secțiunea Vizionare, footer, meta), în `app.js` (mesajul de WhatsApp
 
 1. **Hero**: titlul „Vilă P+1 în Valu lui Traian”, rezumatul, butonul de vizionare
    și fișa de preț (242.000 €, suprafețele, camerele, telefonul).
-2. **Fotografii**: până sosesc fotografiile, un panou care le oferă pe WhatsApp.
+2. **Fotografii**: cinci fotografii de interior, una mare și patru mici; fiecare se
+   deschide pe tot ecranul, cu săgeți, glisare pe telefon și Esc.
 3. **Spațiile și construcția**: compartimentarea în cifre și fișa tehnică completă.
 4. **Locația**: textul, schema Constanța → Valu lui Traian (15 minute) și un link
    spre zona de lângă Penny pe Google Maps.
@@ -38,12 +39,23 @@ tehnică, secțiunea Vizionare, footer, meta), în `app.js` (mesajul de WhatsApp
 6. **Vizionare** (secțiunea aurie): o întrebare opțională, „Când ați vrea să vedeți
    vila?”, apoi butonul de WhatsApp.
 
-## Când sosesc fotografiile
+## Fotografiile
 
-Puneți imaginile în `media/` (JPG sau WebP, cam 1600 px pe latura lungă) și
-înlocuiți blocul `<div class="photos-ask">…</div>` din secțiunea `#galerie` cu
-galeria. Fotografia cea mai bună a exteriorului poate intra și în hero, în
-`og-image.jpg` și ca fundal al fișei de preț.
+Fiecare fotografie există în două mărimi: `foto-N-800.webp` pentru grilă și
+`foto-N-1600.webp` pentru ecranul complet (browserul o alege singur pe cea mare pe
+ecranele dense). Ordinea din pagină:
+
+| fișier | ce arată |
+|---|---|
+| `foto-1` | livingul de la parter, cu scara spre etaj (fotografia mare) |
+| `foto-2` | livingul cu zona de dining |
+| `foto-3` | dormitor |
+| `foto-4`, `foto-5` | camere cu ieșire pe balcon |
+
+Pentru o fotografie nouă: o salvați în ambele mărimi (1600 și 800 px lățime, 4:3),
+adăugați un `<li>` în `ul.photos` din `#galerie`, cu un `alt` care descrie ce se
+vede, și schimbați totalul din `.lb-count`. Pe desktop grila e făcută pentru
+cinci: una mare și patru mici.
 
 ## Harta
 
@@ -62,13 +74,12 @@ Prefer: în weekend.
 ```
 
 Ultimul rând apare doar dacă vizitatorul a ales o variantă în secțiunea Vizionare.
-Butonul „Primiți fotografiile” cere fotografiile vilei.
 
 ## Urmărirea conversiilor
 
 Lipiți codul Meta Pixel sau Google Analytics în `<head>`, unde este comentariul
 pregătit. La fiecare apăsare pe WhatsApp pagina trimite `Contact` (Meta) și
-`whatsapp_click` (Google), cu intenția: `vizionare` sau `fotografii`.
+`whatsapp_click` (Google).
 
 ## Pornire locală
 
@@ -91,13 +102,14 @@ WhatsApp și Facebook.
 ```
 index.html      pagina
 styles.css      tot stilul; blocurile comune sunt identice cu ../landing și ../properties-season
-app.js          linkuri WhatsApp, alegerea zilei, evenimente de conversie, header, bara de apel
+app.js          linkuri WhatsApp, alegerea zilei, fotografiile pe tot ecranul, evenimente de conversie, header, bara de apel
 DESIGN.md       deciziile de design
 fonts/          Cinzel și Archivo, self-hosted, latin + latin-ext
 media/
   emblem.webp     emblema, ca filigran în hero, în schema locației și în secțiunea aurie
   emblem-sm.webp  emblema pentru header
   lockup.webp     logo-ul întreg, în footer
+  foto-1…5-800.webp, foto-1…5-1600.webp   fotografiile vilei
   team-razvan.webp, team-bianca.webp
   og-image.jpg    previzualizarea linkului: logo, preț, datele vilei, telefon
   favicon-32.png, apple-touch-icon.png

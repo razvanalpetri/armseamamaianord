@@ -24,12 +24,21 @@ care poate conține 1 stă în Archivo:
 - suprafețele din fișa de preț, cifrele compartimentării, „15 minute” din schemă;
 - prețul rămâne în Cinzel pentru că 242.000 nu conține 1.
 
-## Fără fotografii inventate
+## Fotografiile
 
-Până sosesc fotografiile reale, secțiunea Fotografii nu arată imagini generate
-sau de stoc: oferă fotografiile pe WhatsApp. O imagine care nu e casa ar fi o
-promisiune falsă la vizionare. Emblema din logo ține locul vizual (filigran în
-hero, în schema locației și în secțiunea aurie).
+Doar fotografiile vilei trimise de agenție; pagina nu adaugă imagini de stoc sau
+generate.
+Grila are una mare și patru mici pe desktop (prima, livingul cu scara, e cea mai
+puternică) și una mare peste două rânduri de câte două pe telefon. Ramele sunt
+subțiri, ca la portretele echipei; auriul apare doar la hover.
+
+La apăsare, fotografia se deschide pe tot ecranul într-un `<dialog>` nativ: Esc
+închide, săgețile tastaturii și glisarea schimbă fotografia, focusul revine pe
+fotografia apăsată. Pe telefon săgețile stau sub fotografie, la îndemâna degetului.
+Fără JavaScript, fiecare miniatură e un link către fotografia mare.
+
+`alt`-ul descrie doar ce se vede în fotografie, fără să numească încăperea mai
+precis decât se poate verifica din imagine.
 
 ## Fișa tehnică
 
@@ -57,6 +66,8 @@ pe pagină (hero, secțiunea aurie, bara de pe telefon) trimit același mesaj.
 - Zero overflow orizontal la 360, 390, 820, 1280 și 1440 px.
 - Toate resursele răspund 200, consola e curată, cele patru fețe de font se încarcă,
   `ă â î ș ț` randate în ambele familii.
-- 4 linkuri WhatsApp cu mesaj precompletat; alegerea zilei intră în mesaj și se
+- 3 linkuri WhatsApp cu mesaj precompletat; alegerea zilei intră în mesaj și se
   scoate la a doua apăsare.
+- Galeria: deschidere, înainte, înapoi, trecerea de la ultima la prima, Esc și
+  butonul de închidere, pe desktop și pe telefon.
 - Ancorele din meniu aterizează sub header (84 px de sus).

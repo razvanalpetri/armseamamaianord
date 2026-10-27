@@ -38,7 +38,7 @@
   <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M20 6 9 17l-5-5"/></symbol>
   <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></g></symbol>
-  <symbol id="i-image" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1.5"/><circle cx="8.5" cy="9.5" r="1.8"/><path d="m21 16-5-5-8 9"/></g></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
 </svg>
 
 <header class="hdr" id="hdr">
@@ -96,24 +96,42 @@
 </section>
 
 <!-- ============ FOTOGRAFII ============
-     Până sosesc fotografiile, secțiunea oferă trimiterea lor pe WhatsApp.
-     Când există, panoul .photos-ask se înlocuiește cu galeria (vezi README). -->
+     Prima fotografie e mare, celelalte patru stau lângă ea. Fiecare se deschide
+     pe tot ecranul; fără JavaScript, linkul deschide fotografia mare. -->
 <section class="sec gallery" id="galerie">
   <div class="wrap">
     <div class="sec-head reveal">
       <h2 class="h-sec">Fotografii</h2>
     </div>
-    <div class="photos-ask reveal">
-      <svg class="ico photos-ico" aria-hidden="true"><use href="#i-image"/></svg>
-      <div>
-        <h3>Vă trimitem fotografiile vilei pe WhatsApp</h3>
-        <p>Scrieți-ne și primiți imediat fotografiile din interior, din curte și din cartier.</p>
-      </div>
-      <a class="btn btn-gold" href="https://wa.me/40725367954" target="_blank" rel="noopener"
-         data-wa-text="Bună ziua! Aș dori fotografiile vilei P+1 din Valu lui Traian (242.000 €, TVA inclus).">
-        <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Primiți fotografiile</a>
-    </div>
+    <ul class="photos reveal" aria-label="Fotografiile vilei">
+      <li><a href="media/foto-1-1600.webp">
+        <img src="media/foto-1-800.webp" srcset="media/foto-1-800.webp 800w, media/foto-1-1600.webp 1600w"
+             sizes="(min-width: 860px) 50vw, 100vw" width="1600" height="1194" alt="Livingul de la parter, cu canapea de colț, televizor și scara spre etaj" loading="lazy" decoding="async"></a></li>
+      <li><a href="media/foto-2-1600.webp">
+        <img src="media/foto-2-800.webp" srcset="media/foto-2-800.webp 800w, media/foto-2-1600.webp 1600w"
+             sizes="(min-width: 860px) 25vw, 50vw" width="1600" height="1194" alt="Livingul cu zona de dining și scara spre etaj" loading="lazy" decoding="async"></a></li>
+      <li><a href="media/foto-3-1600.webp">
+        <img src="media/foto-3-800.webp" srcset="media/foto-3-800.webp 800w, media/foto-3-1600.webp 1600w"
+             sizes="(min-width: 860px) 25vw, 50vw" width="1600" height="1194" alt="Dormitor cu pat dublu și fereastră mare" loading="lazy" decoding="async"></a></li>
+      <li><a href="media/foto-4-1600.webp">
+        <img src="media/foto-4-800.webp" srcset="media/foto-4-800.webp 800w, media/foto-4-1600.webp 1600w"
+             sizes="(min-width: 860px) 25vw, 50vw" width="1600" height="1194" alt="Cameră luminoasă cu canapea și ieșire pe balcon" loading="lazy" decoding="async"></a></li>
+      <li><a href="media/foto-5-1600.webp">
+        <img src="media/foto-5-800.webp" srcset="media/foto-5-800.webp 800w, media/foto-5-1600.webp 1600w"
+             sizes="(min-width: 860px) 25vw, 50vw" width="1600" height="1194" alt="Cameră cu canapea, fotoliu și ieșire pe balcon" loading="lazy" decoding="async"></a></li>
+    </ul>
   </div>
+
+  <dialog class="lb" id="lb" aria-label="Fotografiile vilei, pe tot ecranul">
+    <img class="lb-img" alt="">
+    <p class="lb-count"><span class="num">1</span> / 5</p>
+    <button class="lb-btn lb-close" type="button" aria-label="Închideți">
+      <svg class="ico" aria-hidden="true"><use href="#i-close"/></svg></button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Fotografia anterioară">
+      <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+    <button class="lb-btn lb-next" type="button" aria-label="Fotografia următoare">
+      <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+  </dialog>
 </section>
 
 <!-- ============ DETALII ============ -->
@@ -214,8 +232,7 @@
     <div class="final-copy reveal">
       <p class="final-kicker">Vilă <span class="d">P+1</span> · Valu lui Traian</p>
       <h2 class="h-sec">Programați o vizionare</h2>
-      <p class="final-lede">Scrieți-ne pe WhatsApp sau sunați și stabilim împreună ziua și ora.
-        Vă trimitem și fotografiile vilei.</p>
+      <p class="final-lede">Scrieți-ne pe WhatsApp sau sunați și stabilim împreună ziua și ora.</p>
     </div>
     <div class="final-form reveal">
       <fieldset class="chips" data-group="cand">

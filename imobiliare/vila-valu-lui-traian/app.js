@@ -9,12 +9,8 @@ const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const WA = document.body.dataset.wa;
 const waLink = text => `https://wa.me/${WA}?text=${encodeURIComponent(text)}`;
 
-document.querySelectorAll('[data-wa-text]').forEach(a => {
-  a.href = waLink(a.dataset.waText);
-});
-
-/* Butoanele de vizionare (.wa-visit) poartă același mesaj; dacă vizitatorul a
-   ales în secțiunea Vizionare când ar vrea să vină, preferința intră în mesaj. */
+/* Toate butoanele de WhatsApp (.wa-visit) poartă același mesaj; dacă vizitatorul
+   a ales în secțiunea Vizionare când ar vrea să vină, preferința intră în mesaj. */
 const chips = document.querySelector('.chips[data-group="cand"]');
 function visitMessage() {
   const lines = ['Bună ziua! Mă interesează vila P+1 din Valu lui Traian (242.000 €, TVA inclus).'];
@@ -43,10 +39,48 @@ chips?.addEventListener('click', e => {
 document.addEventListener('click', e => {
   const a = e.target.closest('a[href^="https://wa.me/"]');
   if (!a) return;
-  const kind = a.classList.contains('wa-visit') ? 'vizionare' : 'fotografii';
-  window.fbq?.('track', 'Contact', { content_name: 'Vila P+1 Valu lui Traian', content_category: kind });
-  window.gtag?.('event', 'whatsapp_click', { property: 'vila-valu-lui-traian', intent: kind });
+  window.fbq?.('track', 'Contact', { content_name: 'Vila P+1 Valu lui Traian' });
+  window.gtag?.('event', 'whatsapp_click', { property: 'vila-valu-lui-traian' });
 });
+
+/* ---------------- fotografiile, pe tot ecranul ----------------
+   Fără JavaScript sau fără <dialog>, linkurile deschid direct fotografia mare. */
+const lb = document.getElementById('lb');
+const shots = [...document.querySelectorAll('.photos a')];
+if (lb?.showModal && shots.length) {
+  const img = lb.querySelector('.lb-img');
+  const count = lb.querySelector('.lb-count .num');
+  let cur = 0;
+  const show = n => {
+    cur = (n + shots.length) % shots.length;
+    img.src = shots[cur].href;
+    img.alt = shots[cur].querySelector('img').alt;
+    count.textContent = cur + 1;
+    new Image().src = shots[(cur + 1) % shots.length].href;   // următoarea, din timp
+  };
+  shots.forEach((a, n) => a.addEventListener('click', e => {
+    e.preventDefault();
+    show(n);
+    lb.showModal();
+  }));
+  lb.querySelector('.lb-prev').addEventListener('click', () => show(cur - 1));
+  lb.querySelector('.lb-next').addEventListener('click', () => show(cur + 1));
+  lb.querySelector('.lb-close').addEventListener('click', () => lb.close());
+  lb.addEventListener('click', e => { if (e.target === lb) lb.close(); });   // clic pe fundal
+  lb.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft') show(cur - 1);
+    if (e.key === 'ArrowRight') show(cur + 1);
+  });
+  // glisare pe telefon
+  let x0 = null;
+  img.addEventListener('pointerdown', e => { x0 = e.clientX; });
+  img.addEventListener('pointerup', e => {
+    if (x0 === null) return;
+    const dx = e.clientX - x0;
+    x0 = null;
+    if (Math.abs(dx) > 40) show(cur + (dx < 0 ? 1 : -1));
+  });
+}
 
 /* ---------------- header și bara de apel ---------------- */
 const hdr = document.getElementById('hdr');
