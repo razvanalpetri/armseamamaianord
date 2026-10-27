@@ -38,6 +38,14 @@ Doar vânzări imobiliare, cu comision de 3% din tranzacție. Închirierile, tur
 cu AI, site-ul 3D, videoclipurile de la proprietate și pachetul complet au fost
 scoase la cererea agenției (octombrie 2026) și nu mai apar nicăieri pe pagină.
 
+## Linkul spre vilă
+
+În footer, deasupra rândului legal, un buton duce la pagina vilei P+1 din Valu lui
+Traian (`vila-valu-lui-traian/`). Linkul e relativ, deci funcționează pe orice
+domeniu, cu condiția ca folderul vilei să fie publicat lângă landing (arhiva comună
+`alpetri-agentie-si-vila-netlify.zip`). Servit singur, cu `serve.mjs landing`,
+linkul duce la o pagină inexistentă.
+
 ## Cum funcționează contactul
 
 - Butonul „Vreau să vând” și celelalte linkuri de WhatsApp deschid conversația cu un
