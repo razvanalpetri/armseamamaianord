@@ -1,0 +1,426 @@
+@import "tailwindcss";
+
+/* Brand tokens. Each one is a CSS variable on :root (e.g. var(--color-primary))
+   and also a Tailwind utility (bg-primary, text-muted, border-line…). */
+@theme {
+  --color-bg: #050507;
+  --color-surface: #0e0e14;
+  --color-surface-2: #15151e;
+  --color-primary: #8b5cf6;
+  --color-primary-strong: #7c3aed;
+  --color-accent: #a855f7;
+  --color-accent-soft: #c084fc;
+  --color-text: #f4f4f5;
+  --color-muted: #a1a1aa;
+  --color-line: rgb(139 92 246 / 0.2);
+
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* next/font sets these variables on <html>, so resolve them at use time. */
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-space-grotesk), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    background-color: var(--color-bg);
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    min-height: 100dvh;
+    background-color: var(--color-bg);
+    background-image: radial-gradient(60rem 40rem at 50% -10%, rgb(139 92 246 / 0.12), transparent 70%);
+    background-repeat: no-repeat;
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
+  }
+
+  /* Film-grain noise over the whole page: a tiny SVG tile, rasterised once. */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: rgb(168 85 247 / 0.45);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent-soft);
+    outline-offset: 3px;
+    border-radius: 0.5rem;
+  }
+}
+
+@layer components {
+  .container-page {
+    width: 100%;
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .container-page {
+      padding-inline: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-page {
+      padding-inline: 2rem;
+    }
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    z-index: 100;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    background: var(--color-primary-strong);
+    color: #fff;
+    font-weight: 600;
+    transition: top 0.2s;
+  }
+
+  .skip-link:focus {
+    top: 1rem;
+  }
+
+  /* Glassmorphism card with a thin violet border. */
+  .glass {
+    position: relative;
+    border: 1px solid var(--color-line);
+    border-radius: 1.25rem;
+    background: linear-gradient(180deg, rgb(21 21 30 / 0.78), rgb(14 14 20 / 0.62));
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.05),
+      0 24px 60px -36px rgb(0 0 0 / 0.9);
+  }
+
+  /* Real backdrop blur, only for elements floating over busy content
+     (blur on every card costs paint time for no visible gain). */
+  .glass-blur {
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+  }
+
+  .glass-hover {
+    transition:
+      border-color 0.3s,
+      box-shadow 0.3s,
+      transform 0.3s var(--ease-out-expo);
+  }
+
+  .glass-hover:hover {
+    border-color: rgb(168 85 247 / 0.45);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.06),
+      0 0 0 1px rgb(168 85 247 / 0.08),
+      0 24px 60px -30px rgb(139 92 246 / 0.45);
+  }
+
+  /* Buttons. The violet fill uses the darker shades so white text keeps
+     at least 4.5:1 contrast. The bright violets go into the glow. */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 2.75rem;
+    padding: 0.7rem 1.35rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    transition:
+      transform 0.2s var(--ease-out-expo),
+      box-shadow 0.25s,
+      background-color 0.25s,
+      border-color 0.25s;
+  }
+
+  .btn:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  .btn-primary {
+    color: #fff;
+    background: linear-gradient(135deg, #7c3aed 0%, #9333ea 100%);
+    box-shadow:
+      inset 0 0 0 1px rgb(216 180 254 / 0.35),
+      0 0 24px -4px rgb(168 85 247 / 0.65),
+      0 10px 30px -10px rgb(139 92 246 / 0.7);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow:
+      inset 0 0 0 1px rgb(216 180 254 / 0.5),
+      0 0 34px -2px rgb(168 85 247 / 0.85),
+      0 14px 36px -10px rgb(139 92 246 / 0.85);
+  }
+
+  .btn-secondary {
+    color: var(--color-text);
+    background: rgb(255 255 255 / 0.03);
+    border: 1px solid rgb(192 132 252 / 0.3);
+  }
+
+  .btn-secondary:hover {
+    transform: translateY(-1px);
+    border-color: rgb(192 132 252 / 0.6);
+    background: rgb(139 92 246 / 0.1);
+    box-shadow: 0 0 24px -8px rgb(168 85 247 / 0.6);
+  }
+
+  /* Neon gradient for key words. */
+  .glow-text {
+    background: linear-gradient(100deg, #e9d5ff 0%, #c084fc 35%, #a855f7 70%, #c084fc 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 22px rgb(168 85 247 / 0.45));
+  }
+
+  /* The "o" of the wordmark: a conic-gradient disc masked into a ring. The
+     glow sits on the parent because a mask would clip a filter on the same
+     element. */
+  .logo-ring {
+    position: relative;
+    display: inline-block;
+    flex: none;
+    filter: drop-shadow(0 0 0.16em rgb(168 85 247 / 0.95));
+  }
+
+  .logo-ring::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background: conic-gradient(from 210deg, #e9d5ff, #c084fc, #8b5cf6, #a855f7, #e9d5ff);
+    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 0.15em), #000 calc(100% - 0.14em));
+    mask: radial-gradient(farthest-side, transparent calc(100% - 0.15em), #000 calc(100% - 0.14em));
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.8rem;
+    border-radius: 9999px;
+    border: 1px solid var(--color-line);
+    background: rgb(139 92 246 / 0.08);
+    color: var(--color-accent-soft);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .icon-tile {
+    display: inline-grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.9rem;
+    color: var(--color-accent-soft);
+    background: radial-gradient(circle at 30% 20%, rgb(168 85 247 / 0.3), rgb(139 92 246 / 0.08) 70%);
+    border: 1px solid rgb(192 132 252 / 0.25);
+    box-shadow: 0 0 24px -8px rgb(168 85 247 / 0.7);
+  }
+
+  /* Faint grid that fades out towards the edges. */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.045) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse 75% 60% at 50% 0%, #000 35%, transparent 100%);
+    mask-image: radial-gradient(ellipse 75% 60% at 50% 0%, #000 35%, transparent 100%);
+  }
+
+  /* Slow drifting violet aurora behind the hero. Only transform animates,
+     so it stays on the compositor. */
+  .hero-aurora {
+    position: absolute;
+    /* Fixed units, not % of the hero: if the hero's height changes while
+       loading, a %-based top would move and count as layout shift. */
+    inset: -14rem -20% auto;
+    height: 72rem;
+    background:
+      radial-gradient(38% 34% at 28% 32%, rgb(139 92 246 / 0.38), transparent 70%),
+      radial-gradient(30% 30% at 74% 22%, rgb(192 132 252 / 0.26), transparent 70%),
+      radial-gradient(40% 36% at 62% 72%, rgb(168 85 247 / 0.2), transparent 70%);
+    will-change: transform;
+    animation: aurora 22s ease-in-out infinite alternate;
+  }
+
+  /* Below-the-fold sections: let the browser skip their layout and paint
+     until they get close to the viewport. */
+  .defer-render {
+    content-visibility: auto;
+    contain-intrinsic-height: auto 900px;
+  }
+
+  /* The hero phone sits below the fold on phones; skip rendering it until
+     it's near the viewport (it was the single biggest main-thread cost). */
+  .defer-render-phone {
+    content-visibility: auto;
+    /* Reserve the exact content-box height of the phone (padding excluded)
+       and only the height: an intrinsic width would widen the hero grid. */
+    contain-intrinsic-height: auto 582px;
+  }
+
+  @media (min-width: 640px) {
+    .defer-render-phone {
+      contain-intrinsic-height: auto 632px;
+    }
+  }
+
+  /* Scroll reveal: hidden until <RevealObserver> marks it as revealed. */
+  [data-reveal] {
+    transition:
+      opacity 0.7s var(--ease-out-expo),
+      transform 0.7s var(--ease-out-expo);
+  }
+
+  [data-reveal]:not([data-revealed]) {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+
+  /* Entrance for chat bubbles in the hero phone. */
+  .chat-in {
+    animation: chat-in 0.38s var(--ease-out-expo) both;
+  }
+
+  .typing-dot {
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 9999px;
+    background: currentColor;
+    animation: typing 1.2s ease-in-out infinite;
+  }
+
+  .typing-dot:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+
+  .typing-dot:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+
+  .pulse-dot {
+    position: relative;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background: #4ade80;
+  }
+
+  .pulse-dot::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: inherit;
+    animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+}
+
+@keyframes aurora {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate3d(4%, -3%, 0) rotate(8deg) scale(1.08);
+  }
+  100% {
+    transform: translate3d(-4%, 3%, 0) rotate(-6deg) scale(1.03);
+  }
+}
+
+@keyframes chat-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0) scale(0.98);
+  }
+}
+
+@keyframes typing {
+  0%,
+  60%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes ping {
+  75%,
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  [data-reveal]:not([data-revealed]) {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero-aurora,
+  .typing-dot,
+  .pulse-dot::after {
+    animation: none !important;
+  }
+}
