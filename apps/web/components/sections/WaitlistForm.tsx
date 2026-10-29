@@ -108,7 +108,7 @@ export function WaitlistForm({ lang, t, privacyHref }: Props) {
 
   const submitting = status.kind === "submitting";
   const inputClass =
-    "mt-2 block w-full rounded-xl border bg-bg/60 px-4 py-3 text-base text-text placeholder:text-zinc-500 transition-colors focus:border-accent-soft focus:outline-none focus:ring-2 focus:ring-accent/40";
+    "glass-field mt-2 block w-full rounded-2xl px-4 py-3 text-base text-text placeholder:text-zinc-500 focus:border-accent-soft focus:outline-none";
 
   return (
     <div className="relative">
@@ -165,7 +165,7 @@ export function WaitlistForm({ lang, t, privacyHref }: Props) {
                 onChange={(event) => setEmail(event.target.value)}
                 aria-invalid={errors.email ? true : undefined}
                 aria-describedby={errors.email ? `${id}-email-error` : undefined}
-                className={`${inputClass} ${errors.email ? "border-red-400/70" : "border-line"}`}
+                className={`${inputClass} ${errors.email ? "border-red-400/70" : "border-white/10"}`}
               />
               {errors.email ? (
                 <p id={`${id}-email-error`} className="mt-2 text-sm text-red-300">
@@ -189,7 +189,7 @@ export function WaitlistForm({ lang, t, privacyHref }: Props) {
                 onChange={(event) => setBusinessName(event.target.value)}
                 aria-invalid={errors.businessName ? true : undefined}
                 aria-describedby={errors.businessName ? `${id}-business-error` : undefined}
-                className={`${inputClass} ${errors.businessName ? "border-red-400/70" : "border-line"}`}
+                className={`${inputClass} ${errors.businessName ? "border-red-400/70" : "border-white/10"}`}
               />
               {errors.businessName ? (
                 <p id={`${id}-business-error`} className="mt-2 text-sm text-red-300">
@@ -204,7 +204,7 @@ export function WaitlistForm({ lang, t, privacyHref }: Props) {
                 {CHANNELS.map((value, index) => (
                   <label
                     key={value}
-                    className="relative flex min-h-11 cursor-pointer items-center justify-center rounded-xl border border-line bg-bg/60 px-3 text-sm font-medium text-muted transition-colors hover:text-text has-[:checked]:border-accent-soft has-[:checked]:bg-primary/15 has-[:checked]:text-text has-[:checked]:shadow-[0_0_20px_-6px_rgb(168_85_247/0.8)] has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-accent-soft"
+                    className="glass-chip relative flex min-h-11 cursor-pointer items-center justify-center rounded-2xl px-3 text-sm font-medium text-muted hover:text-text has-[:checked]:text-white"
                   >
                     <input
                       id={`${id}-channel-${index}`}

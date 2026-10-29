@@ -22,7 +22,7 @@ export function Channels({ t }: { t: Dictionary["channels"] }) {
                       className="absolute -right-20 -top-20 size-56 rounded-full bg-[radial-gradient(closest-side,rgb(139_92_246/0.22),transparent)] transition-opacity duration-500 group-hover:opacity-100 sm:opacity-60"
                     />
                     <div className="relative">
-                      <span className="grid size-14 place-items-center rounded-2xl border border-line bg-surface text-accent-soft shadow-[0_0_28px_-8px_rgb(168_85_247/0.9)]">
+                      <span className="lg-icon grid size-14 place-items-center rounded-[1.25rem]">
                         <Icon className="size-6" aria-hidden="true" />
                       </span>
                       <h3 className="mt-5 text-2xl font-semibold text-text">{item.name}</h3>

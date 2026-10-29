@@ -10,7 +10,7 @@ export function FaqAccordion({ items }: { items: Item[] }) {
   const baseId = useId();
 
   return (
-    <div className="divide-y divide-line overflow-hidden rounded-[1.25rem] border border-line bg-surface/60">
+    <div className="glass divide-y divide-white/[0.07] overflow-hidden">
       {items.map((item, index) => {
         const expanded = open === index;
         const buttonId = `${baseId}-q${index}`;
@@ -25,11 +25,11 @@ export function FaqAccordion({ items }: { items: Item[] }) {
                 aria-expanded={expanded}
                 aria-controls={panelId}
                 onClick={() => setOpen(expanded ? null : index)}
-                className="flex w-full items-center justify-between gap-6 px-5 py-5 text-left text-base font-semibold text-text transition-colors hover:bg-white/[0.02] sm:px-7 sm:text-lg"
+                className="flex w-full items-center justify-between gap-6 px-5 py-5 text-left text-base font-semibold text-text transition-colors hover:bg-white/[0.03] sm:px-7 sm:text-lg"
               >
                 <span>{item.q}</span>
                 <span
-                  className={`grid size-8 shrink-0 place-items-center rounded-full border border-line text-accent-soft transition-transform duration-300 ${
+                  className={`glass-pill grid size-8 shrink-0 place-items-center rounded-full text-accent-soft transition-transform duration-300 ${
                     expanded ? "rotate-45 bg-primary/15" : ""
                   }`}
                 >

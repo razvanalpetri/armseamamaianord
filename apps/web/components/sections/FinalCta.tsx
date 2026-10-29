@@ -28,7 +28,7 @@ export function FinalCta({ lang, t }: Props) {
                 <ul className="mt-8 space-y-3">
                   {t.perks.map((perk) => (
                     <li key={perk} className="flex items-center gap-3 text-text">
-                      <span className="grid size-6 place-items-center rounded-full bg-primary/20 text-accent-soft">
+                      <span className="glass-pill grid size-6 place-items-center rounded-full text-accent-soft">
                         <Check className="size-3.5" aria-hidden="true" />
                       </span>
                       {perk}
@@ -37,7 +37,7 @@ export function FinalCta({ lang, t }: Props) {
                 </ul>
               </div>
 
-              <div className="rounded-[1.5rem] border border-line bg-bg/50 p-5 sm:p-7">
+              <div className="lg-inset rounded-[1.5rem] p-5 sm:p-7">
                 <WaitlistForm lang={lang} t={t} privacyHref={localePath(lang, "privacy")} />
               </div>
             </div>

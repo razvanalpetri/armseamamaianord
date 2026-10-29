@@ -49,10 +49,23 @@ npm run typecheck -w apps/web
 - **No fake social proof**: no testimonials, customer logos, user counts or
   invented statistics. Leave the space out until there are real results.
 - Pricing values are placeholders marked `TBD` in the content files.
-- Brand: dark only. Colour tokens are CSS variables in `@theme` (`--color-bg`,
-  `--color-primary`, …). Use the `.glass`, `.btn-primary`, `.glow-text` and
-  `.icon-tile` helpers. Fonts: Space Grotesk (headings) + Inter (body) via
-  `next/font`, with `latin-ext` for Romanian diacritics.
+- Brand: dark only, violet. Colour tokens are CSS variables in `@theme`
+  (`--color-bg`, `--color-primary`, …). Fonts: Space Grotesk (headings) +
+  Inter (body) via `next/font`, with `latin-ext` for Romanian diacritics.
+- Surfaces use a **Liquid Glass** material (after Apple's iOS 26), defined in
+  `app/globals.css`. Build with these classes instead of ad-hoc borders and fills:
+  - `.glass` (cards and panels), plus `.glass-tint` for the one surface in a group that leads
+  - `.glass-pill` (chips, tags, icon buttons), `.lg-icon` (feature icons), `.lg-badge` (tinted badges)
+  - `.glass-field` and `.glass-chip` (form controls), `.lg-inset` (a well inside a glass panel)
+  - `.lg-nav` (floating navbar capsule), `.lg-sheet` (mobile menu), `.lg-segment` / `.lg-thumb` (EN|RO),
+    `.lg-bezel` (phone frame)
+  - `.btn-primary` / `.btn-secondary` (glass pills)
+
+  The glass needs colour behind it: `<Ambient>` (in `RootShell`) is a fixed
+  light layer under the page, so `body` stays transparent. `<GlassLight>` moves
+  the specular highlight of the `.glass` under the pointer (desktop only).
+  Keep the ambient light static: animated light would make every visible glass
+  surface re-blur on each frame.
 - Motion must respect `prefers-reduced-motion`. Scroll reveals are CSS
   (`<Reveal>` + `<RevealObserver>`), not Framer, to keep hydration cheap.
 - Performance: below-the-fold sections use `.defer-render`

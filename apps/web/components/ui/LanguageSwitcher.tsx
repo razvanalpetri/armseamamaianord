@@ -18,7 +18,7 @@ export function LanguageSwitcher({ lang, page, labels, className = "" }: Props) 
 
   return (
     <div role="group" aria-label={labels.label} className={className}>
-      <ul className="flex items-center rounded-full border border-line bg-white/[0.03] p-1 text-xs font-semibold">
+      <ul className="lg-segment flex items-center rounded-full p-1 text-xs font-semibold">
         {locales.map((code) => {
           const active = code === lang;
           return (
@@ -30,7 +30,7 @@ export function LanguageSwitcher({ lang, page, labels, className = "" }: Props) 
                 aria-current={active ? "page" : undefined}
                 className={`flex min-h-8 min-w-10 items-center justify-center rounded-full px-2.5 transition-colors ${
                   active
-                    ? "bg-primary-strong text-white shadow-[0_0_16px_-4px_rgb(168_85_247/0.9)]"
+                    ? "lg-thumb"
                     : "text-muted hover:text-text"
                 }`}
               >

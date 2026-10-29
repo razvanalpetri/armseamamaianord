@@ -11,10 +11,12 @@ export function Hero({ t }: Props) {
 
   return (
     <section aria-labelledby="hero-title" className="relative isolate overflow-hidden pb-20 pt-28 sm:pt-36 lg:pb-28 lg:pt-40">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 [mask-image:linear-gradient(to_bottom,#000_55%,transparent)]"
+      >
         <div className="hero-aurora" />
         <div className="bg-grid absolute inset-0" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-bg" />
       </div>
 
       <div className="container-page grid items-center gap-16 lg:grid-cols-[1.08fr_0.92fr] lg:gap-10">
@@ -52,7 +54,7 @@ export function Hero({ t }: Props) {
               {channels.map(({ name, Icon }) => (
                 <li
                   key={name}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-line bg-white/[0.03] px-3 py-1.5 text-sm text-text"
+                  className="glass-pill inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm text-text"
                 >
                   <Icon className="size-3.5 text-accent-soft" aria-hidden="true" />
                   {name}

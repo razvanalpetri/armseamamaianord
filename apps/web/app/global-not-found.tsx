@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Ambient } from "@/components/Ambient";
 import { Logo } from "@/components/ui/Logo";
 import { en } from "@/content/en";
 import { ro } from "@/content/ro";
@@ -17,6 +18,7 @@ export default function GlobalNotFound() {
   return (
     <html lang="en" className={`${fontSans.variable} ${fontDisplay.variable}`}>
       <body>
+        <Ambient />
         <main className="relative grid min-h-dvh place-items-center px-4 py-16 text-center">
           <div aria-hidden="true" className="bg-grid pointer-events-none absolute inset-0 -z-10" />
           <div>

@@ -24,9 +24,9 @@ export function HowItWorks({ t }: { t: Dictionary["howItWorks"] }) {
               <li key={step.title} className="relative">
                 <Reveal delay={index * 0.12} className="h-full">
                   <div className="flex h-full flex-col items-center text-center">
-                    <div className="relative grid size-16 place-items-center rounded-2xl border border-accent-soft/40 bg-surface text-accent-soft shadow-[0_0_30px_-6px_rgb(168_85_247/0.8)]">
+                    <div className="lg-icon relative grid size-16 place-items-center rounded-[1.4rem]">
                       <Icon className="size-6" aria-hidden="true" />
-                      <span className="absolute -right-2 -top-2 grid size-7 place-items-center rounded-full bg-primary-strong font-display text-xs font-bold text-white">
+                      <span className="lg-badge absolute -right-2 -top-2 grid size-7 place-items-center rounded-full font-display text-xs font-bold">
                         <span className="sr-only">{t.stepLabel} </span>
                         {index + 1}
                       </span>
@@ -38,7 +38,7 @@ export function HowItWorks({ t }: { t: Dictionary["howItWorks"] }) {
                         {step.tags.map((tag) => (
                           <li
                             key={tag}
-                            className="rounded-full border border-line bg-primary/10 px-3 py-1 text-xs font-medium text-accent-soft"
+                            className="glass-pill rounded-full px-3 py-1 text-xs font-medium text-accent-soft"
                           >
                             {tag}
                           </li>

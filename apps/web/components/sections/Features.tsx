@@ -38,11 +38,11 @@ const sideVisual = new Set(["humanReplies"]);
 /** Two chat bubbles and a typing indicator (decorative). */
 function TypingVisual() {
   return (
-    <div aria-hidden="true" className="mt-6 space-y-2 rounded-2xl border border-white/[0.05] bg-bg/50 p-4">
-      <div className="ml-auto h-8 w-1/2 rounded-2xl rounded-br-md bg-gradient-to-br from-primary-strong/80 to-[#6d28d9]/80" />
-      <div className="h-8 w-3/5 rounded-2xl rounded-bl-md border border-white/[0.06] bg-surface-2" />
-      <div className="h-8 w-2/5 rounded-2xl rounded-bl-md border border-white/[0.06] bg-surface-2" />
-      <div className="inline-flex items-center gap-1 rounded-2xl rounded-bl-md border border-white/[0.06] bg-surface-2 px-3.5 py-3 text-accent-soft">
+    <div aria-hidden="true" className="lg-inset mt-6 space-y-2 rounded-[1.4rem] p-4">
+      <div className="ml-auto h-8 w-1/2 rounded-2xl rounded-br-md bg-gradient-to-br from-primary-strong/85 to-[#6d28d9]/85 shadow-[inset_0_1px_0_rgb(255_255_255/0.35)]" />
+      <div className="h-8 w-3/5 rounded-2xl rounded-bl-md border border-white/10 bg-white/[0.07] shadow-[inset_0_1px_0_rgb(255_255_255/0.12)]" />
+      <div className="h-8 w-2/5 rounded-2xl rounded-bl-md border border-white/10 bg-white/[0.07] shadow-[inset_0_1px_0_rgb(255_255_255/0.12)]" />
+      <div className="inline-flex items-center gap-1 rounded-2xl rounded-bl-md border border-white/10 bg-white/[0.07] px-3.5 py-3 text-accent-soft shadow-[inset_0_1px_0_rgb(255_255_255/0.12)]">
         <span className="typing-dot" />
         <span className="typing-dot" />
         <span className="typing-dot" />
@@ -60,10 +60,8 @@ function StagesVisual({ stages }: { stages: string[] }) {
         return (
           <li
             key={stage}
-            className={`flex items-center gap-2.5 rounded-xl border px-3 py-2 text-sm ${
-              last
-                ? "border-accent-soft/50 bg-primary/15 text-text shadow-[0_0_20px_-6px_rgb(168_85_247/0.8)]"
-                : "border-white/[0.06] bg-white/[0.02] text-muted"
+            className={`flex items-center gap-2.5 rounded-2xl px-3 py-2 text-sm ${
+              last ? "glass-chip glass-chip-on text-text" : "glass-chip text-muted"
             }`}
           >
             <span className={`size-2 rounded-full ${last ? "bg-accent-soft" : "bg-white/25"}`} aria-hidden="true" />
@@ -84,7 +82,7 @@ function BarsVisual() {
         <div
           key={index}
           style={{ height: `${height}%` }}
-          className="flex-1 rounded-t-md bg-gradient-to-t from-primary/20 to-accent-soft/70"
+          className="flex-1 rounded-t-lg border border-b-0 border-white/15 bg-gradient-to-t from-primary/15 to-accent-soft/60 shadow-[inset_0_1px_0_rgb(255_255_255/0.4)]"
         />
       ))}
     </div>
