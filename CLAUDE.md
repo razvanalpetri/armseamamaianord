@@ -11,6 +11,7 @@ human take over any chat in one click.
 | Path | What it is |
 | --- | --- |
 | `apps/web/` | **Closr marketing landing page** (Next.js). npm workspace. |
+| `apps/agency/` | **Closr Agency site** (AI automation agency, Next.js). npm workspace. Same design system as `apps/web`. |
 | `src/`, `index.html`, root `package.json` | Older Vite + React starter (unrelated to Closr, untouched). |
 | `imobiliare/` | Static real-estate sites (unrelated to Closr). |
 
@@ -33,6 +34,8 @@ install instead of resolving the root Vite app's React 18. Don't remove it.
 npm install            # installs every workspace
 npm run dev:web        # http://localhost:3000
 npm run build:web
+npm run dev:agency     # http://localhost:3001
+npm run build:agency
 npm run lint -w apps/web
 npm run typecheck -w apps/web
 ```
@@ -78,6 +81,18 @@ npm run typecheck -w apps/web
   (`content-visibility: auto`). If you change the hero phone's size, update the
   reserved height in `.defer-render-phone`, or the page will shift on load.
 
+## Closr Agency (`apps/agency`)
+
+- Same conventions as `apps/web` (copy in `content/en.ts` / `ro.ts`, EN at `/`,
+  RO at `/ro`, Liquid Glass classes, no invented stats, testimonials or client
+  logos, motion respects reduced motion). The design system is a copy of
+  `apps/web`'s files (`app/globals.css` and the shared components), so a change
+  to the look has to be made in both apps.
+- The only call to action is a free audit by **Instagram DM**; the handle and
+  audit length live in `content/contact.ts`. No form, no data collection.
+- Industries are who the agency builds for, not a client list. Don't promise
+  specific results, prices or timelines; the FAQ says they come after the audit.
+
 ## Status
 
 - [x] **Landing page (`apps/web`)**: done. All 10 sections, EN/RO, SEO
@@ -93,3 +108,4 @@ npm run typecheck -w apps/web
 - [ ] Stripe checkout for the plan CTAs (they link to the waitlist for now).
 - [ ] Replace the `[contact email]` placeholders and the placeholder
   Privacy/Terms text before Meta app review.
+- [x] **Closr Agency site (`apps/agency`)**: one page, EN + RO, Instagram DM CTA.

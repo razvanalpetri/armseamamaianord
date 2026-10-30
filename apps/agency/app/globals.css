@@ -1,0 +1,721 @@
+@import "tailwindcss";
+
+/* Brand tokens. Each one is a CSS variable on :root (e.g. var(--color-primary))
+   and also a Tailwind utility (bg-primary, text-muted, border-line…). */
+@theme {
+  --color-bg: #050507;
+  --color-surface: #0e0e14;
+  --color-surface-2: #15151e;
+  --color-primary: #8b5cf6;
+  --color-primary-strong: #7c3aed;
+  --color-accent: #a855f7;
+  --color-accent-soft: #c084fc;
+  --color-text: #f4f4f5;
+  --color-muted: #a1a1aa;
+  --color-line: rgb(139 92 246 / 0.2);
+
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* next/font sets these variables on <html>, so resolve them at use time. */
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-space-grotesk), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    background-color: var(--color-bg);
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    min-height: 100dvh;
+    /* Transparent: the page colour sits on <html>, and the fixed .ambient
+       light layer shows between the two (behind every glass surface). */
+    background: transparent;
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
+  }
+
+  /* Film-grain noise over the whole page: a tiny SVG tile, rasterised once. */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: rgb(168 85 247 / 0.45);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent-soft);
+    outline-offset: 3px;
+    border-radius: 0.5rem;
+  }
+}
+
+@layer components {
+  .container-page {
+    width: 100%;
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .container-page {
+      padding-inline: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-page {
+      padding-inline: 2rem;
+    }
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    z-index: 100;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    background: var(--color-primary-strong);
+    color: #fff;
+    font-weight: 600;
+    transition: top 0.2s;
+  }
+
+  .skip-link:focus {
+    top: 1rem;
+  }
+
+  /* ---------------------------------------------------------------------
+     Liquid Glass (after Apple's iOS 26 material): a translucent surface that
+     blurs and saturates whatever is behind it, a bright specular rim that
+     catches the light at the top-left and bottom-right, a soft inner glow,
+     and a highlight that follows the pointer (--lg-x / --lg-y, set by
+     <GlassLight>). Only backdrop-filter does real work; the rest is paint.
+     --------------------------------------------------------------------- */
+  .glass {
+    position: relative;
+    border: 1px solid rgb(255 255 255 / 0.08);
+    border-radius: 1.75rem;
+    background:
+      radial-gradient(30rem circle at var(--lg-x, 20%) var(--lg-y, -20%), rgb(255 255 255 / 0.08), transparent 55%),
+      linear-gradient(160deg, rgb(255 255 255 / 0.075), rgb(255 255 255 / 0.015) 45%, rgb(139 92 246 / 0.05));
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    backdrop-filter: blur(24px) saturate(180%);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.18),
+      inset 0 -1px 0 rgb(255 255 255 / 0.04),
+      inset 0 -24px 48px -32px rgb(192 132 252 / 0.22),
+      0 30px 60px -30px rgb(0 0 0 / 0.8);
+  }
+
+  /* Specular rim: a gradient ring drawn inside the edge with a mask. */
+  .glass::before,
+  .lg-nav::before,
+  .lg-bezel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    pointer-events: none;
+    background: linear-gradient(
+      135deg,
+      rgb(255 255 255 / 0.5),
+      rgb(255 255 255 / 0.08) 26%,
+      rgb(255 255 255 / 0) 50%,
+      rgb(255 255 255 / 0.06) 74%,
+      rgb(216 180 254 / 0.42)
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#000 0 0) content-box exclude,
+      linear-gradient(#000 0 0);
+  }
+
+  /* Violet-tinted glass, for the one surface in a group that leads. */
+  .glass-tint {
+    border-color: rgb(216 180 254 / 0.22);
+    background:
+      radial-gradient(30rem circle at var(--lg-x, 20%) var(--lg-y, -20%), rgb(255 255 255 / 0.1), transparent 55%),
+      linear-gradient(160deg, rgb(167 139 250 / 0.2), rgb(124 58 237 / 0.08) 50%, rgb(147 51 234 / 0.16));
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.28),
+      inset 0 -1px 0 rgb(255 255 255 / 0.05),
+      inset 0 -30px 60px -36px rgb(216 180 254 / 0.35),
+      0 0 0 1px rgb(168 85 247 / 0.12),
+      0 34px 80px -34px rgb(124 58 237 / 0.75);
+  }
+
+  /* Kept for markup that predates Liquid Glass; .glass blurs by itself now. */
+  .glass-blur {
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    backdrop-filter: blur(24px) saturate(180%);
+  }
+
+  .glass-hover {
+    transition:
+      box-shadow 0.35s,
+      border-color 0.35s,
+      transform 0.45s var(--ease-out-expo);
+  }
+
+  .glass-hover:hover {
+    transform: translateY(-3px);
+    border-color: rgb(255 255 255 / 0.14);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.26),
+      inset 0 -1px 0 rgb(255 255 255 / 0.06),
+      inset 0 -28px 56px -30px rgb(192 132 252 / 0.32),
+      0 40px 70px -32px rgb(76 29 149 / 0.85);
+  }
+
+  /* Small glass capsule: chips, tags, icon buttons. */
+  .glass-pill {
+    border: 1px solid rgb(255 255 255 / 0.1);
+    background:
+      radial-gradient(120% 160% at 50% -60%, rgb(255 255 255 / 0.16), transparent 55%),
+      rgb(255 255 255 / 0.05);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    backdrop-filter: blur(16px) saturate(180%);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.2),
+      inset 0 -1px 0 rgb(255 255 255 / 0.04),
+      0 8px 20px -12px rgb(0 0 0 / 0.7);
+  }
+
+  /* Recessed glass well (a surface sitting inside another glass surface). */
+  .lg-inset {
+    border: 1px solid rgb(255 255 255 / 0.07);
+    background: linear-gradient(180deg, rgb(5 5 7 / 0.55), rgb(5 5 7 / 0.35));
+    box-shadow:
+      inset 0 2px 10px rgb(0 0 0 / 0.45),
+      inset 0 -1px 0 rgb(255 255 255 / 0.06);
+  }
+
+  /* Form fields: recessed glass that lights up violet on focus. */
+  .glass-field {
+    border-width: 1px;
+    border-style: solid;
+    background: rgb(255 255 255 / 0.04);
+    box-shadow:
+      inset 0 1px 2px rgb(0 0 0 / 0.35),
+      inset 0 -1px 0 rgb(255 255 255 / 0.05);
+    transition:
+      border-color 0.2s,
+      box-shadow 0.2s,
+      background-color 0.2s;
+  }
+
+  .glass-field:focus {
+    background: rgb(255 255 255 / 0.06);
+    box-shadow:
+      inset 0 1px 2px rgb(0 0 0 / 0.35),
+      0 0 0 4px rgb(168 85 247 / 0.18),
+      0 0 24px -6px rgb(168 85 247 / 0.6);
+  }
+
+  /* Selectable glass chip (radio label); turns into tinted glass when checked. */
+  .glass-chip {
+    border: 1px solid rgb(255 255 255 / 0.09);
+    background: rgb(255 255 255 / 0.04);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.1);
+    transition:
+      background-color 0.25s,
+      border-color 0.25s,
+      box-shadow 0.25s,
+      color 0.25s;
+  }
+
+  .glass-chip:has(:checked),
+  .glass-chip-on {
+    border-color: rgb(216 180 254 / 0.4);
+    background:
+      radial-gradient(120% 160% at 50% -60%, rgb(255 255 255 / 0.22), transparent 55%),
+      linear-gradient(135deg, rgb(124 58 237 / 0.55), rgb(147 51 234 / 0.45));
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.35),
+      0 0 22px -6px rgb(168 85 247 / 0.8);
+  }
+
+  .glass-chip:has(:focus-visible) {
+    outline: 2px solid var(--color-accent-soft);
+    outline-offset: 2px;
+  }
+
+  /* Floating navigation capsule. Darker base than cards so links stay
+     readable over any content; firmer once the page has scrolled. */
+  .lg-nav {
+    position: relative;
+    border: 1px solid rgb(255 255 255 / 0.08);
+    background:
+      radial-gradient(120% 200% at 50% -120%, rgb(255 255 255 / 0.12), transparent 60%),
+      rgb(14 14 20 / 0.42);
+    -webkit-backdrop-filter: blur(28px) saturate(200%);
+    backdrop-filter: blur(28px) saturate(200%);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.16),
+      inset 0 -1px 0 rgb(255 255 255 / 0.04),
+      0 16px 40px -20px rgb(0 0 0 / 0.8);
+    transition:
+      background-color 0.3s,
+      box-shadow 0.3s;
+  }
+
+  .lg-nav[data-scrolled] {
+    background:
+      radial-gradient(120% 200% at 50% -120%, rgb(255 255 255 / 0.12), transparent 60%),
+      rgb(14 14 20 / 0.62);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.18),
+      inset 0 -1px 0 rgb(255 255 255 / 0.05),
+      0 20px 50px -18px rgb(0 0 0 / 0.95);
+  }
+
+  /* Dropdown sheet (mobile menu): heavier blur and a darker base so the
+     links stay legible over the hero text behind them. */
+  .lg-sheet {
+    background:
+      radial-gradient(120% 120% at 50% -40%, rgb(255 255 255 / 0.1), transparent 60%),
+      rgb(14 14 20 / 0.72);
+    -webkit-backdrop-filter: blur(32px) saturate(200%);
+    backdrop-filter: blur(32px) saturate(200%);
+  }
+
+  /* Segmented control (EN | RO) with a tinted glass thumb. */
+  .lg-segment {
+    border: 1px solid rgb(255 255 255 / 0.08);
+    background: rgb(255 255 255 / 0.04);
+    box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.35);
+  }
+
+  .lg-thumb {
+    color: #fff;
+    background:
+      radial-gradient(120% 160% at 50% -60%, rgb(255 255 255 / 0.3), transparent 55%),
+      linear-gradient(135deg, #7c3aed, #9333ea);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.4),
+      inset 0 -1px 0 rgb(0 0 0 / 0.2),
+      0 0 16px -4px rgb(168 85 247 / 0.9);
+  }
+
+  /* Glass squircle for feature icons. */
+  .lg-icon {
+    color: var(--color-accent-soft);
+    border: 1px solid rgb(255 255 255 / 0.12);
+    background:
+      radial-gradient(circle at 30% 15%, rgb(255 255 255 / 0.22), transparent 45%),
+      radial-gradient(circle at 70% 90%, rgb(168 85 247 / 0.35), transparent 60%),
+      rgb(255 255 255 / 0.05);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    backdrop-filter: blur(16px) saturate(180%);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.3),
+      inset 0 -1px 0 rgb(255 255 255 / 0.05),
+      0 0 28px -8px rgb(168 85 247 / 0.75),
+      0 12px 24px -14px rgb(0 0 0 / 0.8);
+  }
+
+  /* Tinted glass badge (step numbers, "Recommended"). */
+  .lg-badge {
+    color: #fff;
+    border: 1px solid rgb(233 213 255 / 0.35);
+    background:
+      radial-gradient(120% 160% at 50% -60%, rgb(255 255 255 / 0.35), transparent 55%),
+      linear-gradient(135deg, rgb(124 58 237 / 0.92), rgb(147 51 234 / 0.88));
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.4),
+      0 0 18px -4px rgb(168 85 247 / 0.9);
+  }
+
+  /* Phone bezel: thick clear glass around the dark screen. */
+  .lg-bezel {
+    position: relative;
+    border: 1px solid rgb(255 255 255 / 0.12);
+    background:
+      linear-gradient(160deg, rgb(255 255 255 / 0.16), rgb(255 255 255 / 0.03) 40%, rgb(255 255 255 / 0.08)),
+      rgb(20 20 28 / 0.55);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.3),
+      inset 0 0 0 1px rgb(255 255 255 / 0.03),
+      0 40px 120px -40px rgb(139 92 246 / 0.6),
+      0 30px 60px -30px rgb(0 0 0 / 0.9);
+  }
+
+  /* Buttons: liquid glass pills. The primary one is violet-tinted glass whose
+     fill stays dark enough for 4.5:1 white text; the sheen sits at the top
+     edge, away from the label. */
+  .btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 2.75rem;
+    padding: 0.7rem 1.35rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    backdrop-filter: blur(16px) saturate(180%);
+    transition:
+      transform 0.35s var(--ease-out-expo),
+      box-shadow 0.3s,
+      background-color 0.3s;
+  }
+
+  .btn:active {
+    transform: scale(0.97);
+  }
+
+  .btn-primary {
+    color: #fff;
+    background:
+      radial-gradient(120% 150% at 50% -55%, rgb(255 255 255 / 0.38), transparent 52%),
+      linear-gradient(135deg, rgb(124 58 237 / 0.92), rgb(147 51 234 / 0.86));
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.5),
+      inset 0 -1px 0 rgb(0 0 0 / 0.22),
+      inset 0 0 0 1px rgb(255 255 255 / 0.14),
+      inset 0 -12px 20px -12px rgb(233 213 255 / 0.4),
+      0 0 26px -6px rgb(168 85 247 / 0.75),
+      0 12px 28px -12px rgb(76 29 149 / 0.95);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.6),
+      inset 0 -1px 0 rgb(0 0 0 / 0.22),
+      inset 0 0 0 1px rgb(255 255 255 / 0.2),
+      inset 0 -12px 22px -10px rgb(233 213 255 / 0.5),
+      0 0 36px -4px rgb(168 85 247 / 0.9),
+      0 16px 34px -12px rgb(76 29 149 / 1);
+  }
+
+  .btn-secondary {
+    color: var(--color-text);
+    background:
+      radial-gradient(120% 150% at 50% -55%, rgb(255 255 255 / 0.2), transparent 52%),
+      rgb(255 255 255 / 0.06);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.28),
+      inset 0 -1px 0 rgb(255 255 255 / 0.04),
+      inset 0 0 0 1px rgb(255 255 255 / 0.12),
+      0 10px 24px -14px rgb(0 0 0 / 0.8);
+  }
+
+  .btn-secondary:hover {
+    transform: translateY(-1px);
+    background:
+      radial-gradient(120% 150% at 50% -55%, rgb(255 255 255 / 0.26), transparent 52%),
+      rgb(255 255 255 / 0.1);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.34),
+      inset 0 0 0 1px rgb(255 255 255 / 0.18),
+      0 0 24px -8px rgb(192 132 252 / 0.6),
+      0 12px 26px -14px rgb(0 0 0 / 0.85);
+  }
+
+  /* Neon gradient for key words. */
+  .glow-text {
+    background: linear-gradient(100deg, #e9d5ff 0%, #c084fc 35%, #a855f7 70%, #c084fc 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 22px rgb(168 85 247 / 0.45));
+  }
+
+  /* The "o" of the wordmark: a conic-gradient disc masked into a ring. The
+     glow sits on the parent because a mask would clip a filter on the same
+     element. */
+  .logo-ring {
+    position: relative;
+    display: inline-block;
+    flex: none;
+    filter: drop-shadow(0 0 0.16em rgb(168 85 247 / 0.95));
+  }
+
+  .logo-ring::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background: conic-gradient(from 210deg, #e9d5ff, #c084fc, #8b5cf6, #a855f7, #e9d5ff);
+    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 0.15em), #000 calc(100% - 0.14em));
+    mask: radial-gradient(farthest-side, transparent calc(100% - 0.15em), #000 calc(100% - 0.14em));
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    border: 1px solid rgb(255 255 255 / 0.1);
+    background:
+      radial-gradient(120% 160% at 50% -60%, rgb(255 255 255 / 0.14), transparent 55%),
+      rgb(139 92 246 / 0.1);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    backdrop-filter: blur(16px) saturate(180%);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.18);
+    color: var(--color-accent-soft);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .icon-tile {
+    display: inline-grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.95rem;
+    color: var(--color-accent-soft);
+    border: 1px solid rgb(255 255 255 / 0.12);
+    background:
+      radial-gradient(circle at 30% 15%, rgb(255 255 255 / 0.22), transparent 45%),
+      radial-gradient(circle at 70% 90%, rgb(168 85 247 / 0.35), transparent 60%),
+      rgb(255 255 255 / 0.05);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.3),
+      0 0 24px -8px rgb(168 85 247 / 0.7);
+  }
+
+  /* Ambient light behind the whole page: three soft violet / magenta / indigo
+     pools on a fixed layer, so every glass surface has colour to refract as
+     it scrolls past. Static on purpose: moving light would force each
+     visible glass surface to re-blur on every frame. */
+  .ambient {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .ambient > span {
+    position: absolute;
+    border-radius: 9999px;
+  }
+
+  .ambient > span:nth-child(1) {
+    left: -18vmax;
+    top: -14vmax;
+    width: 62vmax;
+    height: 62vmax;
+    background: radial-gradient(closest-side, rgb(124 58 237 / 0.34), transparent);
+  }
+
+  .ambient > span:nth-child(2) {
+    right: -20vmax;
+    top: 28vh;
+    width: 58vmax;
+    height: 58vmax;
+    background: radial-gradient(closest-side, rgb(192 38 211 / 0.2), transparent);
+  }
+
+  .ambient > span:nth-child(3) {
+    left: 18vw;
+    bottom: -30vmax;
+    width: 66vmax;
+    height: 66vmax;
+    background: radial-gradient(closest-side, rgb(79 70 229 / 0.24), transparent);
+  }
+
+  /* Faint grid that fades out towards the edges. */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.045) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse 75% 60% at 50% 0%, #000 35%, transparent 100%);
+    mask-image: radial-gradient(ellipse 75% 60% at 50% 0%, #000 35%, transparent 100%);
+  }
+
+  /* Slow drifting violet aurora behind the hero. Only transform animates,
+     so it stays on the compositor. */
+  .hero-aurora {
+    position: absolute;
+    /* Fixed units, not % of the hero: if the hero's height changes while
+       loading, a %-based top would move and count as layout shift. */
+    inset: -14rem -20% auto;
+    height: 72rem;
+    background:
+      radial-gradient(38% 34% at 28% 32%, rgb(139 92 246 / 0.38), transparent 70%),
+      radial-gradient(30% 30% at 74% 22%, rgb(192 132 252 / 0.26), transparent 70%),
+      radial-gradient(40% 36% at 62% 72%, rgb(168 85 247 / 0.2), transparent 70%);
+    will-change: transform;
+    animation: aurora 22s ease-in-out infinite alternate;
+  }
+
+  /* Below-the-fold sections: let the browser skip their layout and paint
+     until they get close to the viewport. */
+  .defer-render {
+    content-visibility: auto;
+    contain-intrinsic-height: auto 900px;
+  }
+
+  /* The hero automation panel has a fixed height (34rem), so reserve exactly
+     that while it's off screen (below the fold on phones). Height only: an
+     intrinsic width would widen the hero grid. */
+  .defer-render-flow {
+    content-visibility: auto;
+    contain-intrinsic-height: auto 34rem;
+  }
+
+  /* Scroll reveal: hidden until <RevealObserver> marks it as revealed. */
+  [data-reveal] {
+    transition:
+      opacity 0.7s var(--ease-out-expo),
+      transform 0.7s var(--ease-out-expo);
+  }
+
+  [data-reveal]:not([data-revealed]) {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+
+  /* Entrance for chat bubbles in the hero phone. */
+  .chat-in {
+    animation: chat-in 0.38s var(--ease-out-expo) both;
+  }
+
+  .typing-dot {
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 9999px;
+    background: currentColor;
+    animation: typing 1.2s ease-in-out infinite;
+  }
+
+  .typing-dot:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+
+  .typing-dot:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+
+  .pulse-dot {
+    position: relative;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background: #4ade80;
+  }
+
+  .pulse-dot::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: inherit;
+    animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+}
+
+@keyframes aurora {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate3d(4%, -3%, 0) rotate(8deg) scale(1.08);
+  }
+  100% {
+    transform: translate3d(-4%, 3%, 0) rotate(-6deg) scale(1.03);
+  }
+}
+
+@keyframes chat-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0) scale(0.98);
+  }
+}
+
+@keyframes typing {
+  0%,
+  60%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes ping {
+  75%,
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  [data-reveal]:not([data-revealed]) {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero-aurora,
+  .typing-dot,
+  .pulse-dot::after {
+    animation: none !important;
+  }
+}

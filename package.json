@@ -12,7 +12,9 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "dev:web": "npm run dev -w apps/web",
-    "build:web": "npm run build -w apps/web"
+    "build:web": "npm run build -w apps/web",
+    "dev:agency": "npm run dev -w apps/agency",
+    "build:agency": "npm run build -w apps/agency"
   },
   "dependencies": {
     "lucide-react": "^0.344.0",
