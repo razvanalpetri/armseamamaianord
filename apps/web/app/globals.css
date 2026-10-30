@@ -615,6 +615,15 @@
     }
   }
 
+  /* Monthly / yearly prices: both are rendered, <BillingSwitch> sets
+     data-billing on a wrapper and only the matching one shows. !important
+     because these elements also carry display utilities (flex), which sit
+     in a later layer. */
+  [data-billing="monthly"] .when-yearly,
+  [data-billing="yearly"] .when-monthly {
+    display: none !important;
+  }
+
   /* Scroll reveal: hidden until <RevealObserver> marks it as revealed. */
   [data-reveal] {
     transition:

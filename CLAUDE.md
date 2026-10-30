@@ -48,7 +48,13 @@ npm run typecheck -w apps/web
   `lib/site.ts` (`pageMetadata`) builds titles, canonical and hreflang.
 - **No fake social proof**: no testimonials, customer logos, user counts or
   invented statistics. Leave the space out until there are real results.
-- Pricing values are placeholders marked `TBD` in the content files.
+- **Pricing**: every number lives in `apps/web/content/pricing.ts` (plan prices,
+  yearly prices, credits, limits, which features each plan lists, comparison
+  cells, credit packs, trial length). The words are in `en.ts` / `ro.ts` under
+  `pricing`, keyed by the same ids. Prices are formatted per language by
+  `lib/pricing.ts` (€97 in EN, 97 € in RO), and per-month yearly prices and pack
+  savings are computed, so change a price only in `pricing.ts`. Plan CTAs point
+  to `#waitlist` until Stripe checkout exists.
 - Brand: dark only, violet. Colour tokens are CSS variables in `@theme`
   (`--color-bg`, `--color-primary`, …). Fonts: Space Grotesk (headings) +
   Inter (body) via `next/font`, with `latin-ext` for Romanian diacritics.
@@ -82,5 +88,8 @@ npm run typecheck -w apps/web
   created_at; RLS on, insert only via the service role), then set
   `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY`. Until then the form shows
   "The waitlist isn't connected yet".
-- [ ] Replace the `TBD` prices, the `[contact email]` placeholders and the
-  placeholder Privacy/Terms text before Meta app review.
+- [x] **Pricing section**: Starter / Growth / Scale, monthly and yearly
+  billing, credit packs, comparison table, pricing FAQ (EN + RO).
+- [ ] Stripe checkout for the plan CTAs (they link to the waitlist for now).
+- [ ] Replace the `[contact email]` placeholders and the placeholder
+  Privacy/Terms text before Meta app review.

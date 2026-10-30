@@ -5,8 +5,17 @@ import { useId, useState } from "react";
 
 type Item = { q: string; a: string };
 
-export function FaqAccordion({ items }: { items: Item[] }) {
-  const [open, setOpen] = useState<number | null>(0);
+type Props = {
+  items: Item[];
+  /** Heading level of each question, so the accordion nests under its section heading. */
+  headingLevel?: 3 | 4;
+  /** Index of the item open on load, or null for all closed. */
+  defaultOpen?: number | null;
+};
+
+export function FaqAccordion({ items, headingLevel = 3, defaultOpen = 0 }: Props) {
+  const [open, setOpen] = useState<number | null>(defaultOpen);
+  const Heading = headingLevel === 4 ? "h4" : "h3";
   const baseId = useId();
 
   return (
@@ -18,7 +27,7 @@ export function FaqAccordion({ items }: { items: Item[] }) {
 
         return (
           <div key={item.q}>
-            <h3>
+            <Heading>
               <button
                 id={buttonId}
                 type="button"
@@ -36,7 +45,7 @@ export function FaqAccordion({ items }: { items: Item[] }) {
                   <Plus className="size-4" aria-hidden="true" />
                 </span>
               </button>
-            </h3>
+            </Heading>
             <div
               id={panelId}
               role="region"

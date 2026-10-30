@@ -208,57 +208,137 @@ export const ro: Dictionary = {
   pricing: {
     eyebrow: "Prețuri",
     title: "Planuri simple, care cresc odată cu tine.",
-    subtitle:
-      "Înscrierea pe lista de așteptare e gratuită și nu te obligă la nimic. Alegi un plan la lansare.",
-    recommended: "Recomandat",
-    cta: "Intră pe lista de așteptare",
-    note: "Prețurile finale vor fi anunțate la lansare.",
-    // TBD: toate prețurile de mai jos sunt provizorii. Înlocuiește "TBD" cu
-    // prețul real (de exemplu "€49") înainte de lansare. Și limitele sunt provizorii.
-    tiers: [
-      {
+    subtitle: "Plătești lunar sau primești 2 luni gratuit cu plata anuală.",
+    billing: {
+      label: "Perioada de facturare",
+      monthly: "Lunar",
+      yearly: "Anual",
+      yearlyBadge: "2 luni gratuit",
+    },
+    perMonth: "/lună",
+    perYear: "/an",
+    billedMonthly: "Facturat lunar",
+    billedYearly: "{price}/lună, facturat anual",
+    mostPopular: "Cel mai ales",
+    cta: "Încearcă {days} zile gratuit",
+    comingSoon: "În curând",
+    // {days}, {replies} și {cancelDay} vin din content/pricing.ts.
+    trial: "Fiecare plan începe cu {days} zile gratuit: {replies} în perioada de probă, card necesar, anulezi oricând înainte de ziua {cancelDay}.",
+    vatNote: "Prețurile nu includ TVA.",
+    creditsNote: "1 credit = 1 răspuns AI trimis unui lead. Creditele planului se resetează în fiecare lună și nu se reportează.",
+    replyCount: { one: "{n} răspuns AI", few: "{n} răspunsuri AI", other: "{n} de răspunsuri AI" },
+    plans: {
+      starter: {
         name: "Starter",
-        price: "TBD", // TBD: provizoriu, setează prețul real
-        period: "/ lună",
-        description: "Pentru coachi independenți și afaceri mici care încearcă primul setter AI.",
-        highlighted: false,
-        features: [
-          "1 setter AI", // TBD: limită provizorie
-          "1 canal", // TBD: limită provizorie
-          "Inbox unificat",
-          "Calificare și pipeline",
-          "Preluare umană",
-        ],
+        description: "Pentru fondatori independenți și afaceri mici care își iau primul setter AI.",
       },
-      {
-        name: "Pro",
-        price: "TBD", // TBD: provizoriu, setează prețul real
-        period: "/ lună",
-        description: "Pentru echipe în creștere, care vând în mesaje.",
-        highlighted: true,
-        features: [
-          "Tot ce include Starter",
-          "3 setteri AI", // TBD: limită provizorie
-          "WhatsApp, Instagram și Telegram",
-          "Răspunsuri în mai multe limbi",
-          "Panou de statistici",
-        ],
+      growth: {
+        name: "Growth",
+        description: "Pentru afacerile care vând în fiecare zi prin mesaje.",
       },
-      {
-        name: "Agency",
-        price: "TBD", // TBD: provizoriu, setează prețul real
-        period: "/ lună",
-        description: "Pentru agențiile care gestionează setteri pentru mai mulți clienți.",
-        highlighted: false,
-        features: [
-          "Tot ce include Pro",
-          "Mai multe workspace-uri pentru clienți", // TBD: limită provizorie
-          "Roluri și permisiuni pentru echipă",
-          "Statistici pe fiecare client",
-          "Suport prioritar",
-        ],
+      scale: {
+        name: "Scale",
+        description: "Pentru echipe și afaceri cu volum mare.",
       },
-    ],
+    },
+    features: {
+      replies: { one: "{n} răspuns AI / lună", few: "{n} răspunsuri AI / lună", other: "{n} de răspunsuri AI / lună" },
+      setters: { one: "{n} setter AI", few: "{n} setteri AI", other: "{n} de setteri AI" },
+      settersUnlimited: "Setteri AI nelimitați",
+      channelOne: "1 canal (WhatsApp, Instagram sau Telegram)",
+      channelsAllNamed: "Toate canalele: WhatsApp, Instagram, Telegram",
+      channelsAll: "Toate canalele",
+      users: {
+        one: "{n} utilizator în dashboard",
+        few: "{n} utilizatori în dashboard",
+        other: "{n} de utilizatori în dashboard",
+      },
+      leadScore: "Scor AI și rezumat AI pentru fiecare lead",
+      takeover: "Inbox cu preluare umană",
+      pipeline: "Pipeline de lead-uri (tabel + board)",
+      basicStats: "Statistici de bază",
+      emailSupport: "Suport pe email",
+      everythingIn: "Tot ce include {plan}, plus:",
+      followUps: "Follow-up automat (niciun lead nu se răcește)",
+      netSales: "Urmărirea vânzărilor nete: vezi cât aduc mesajele tale",
+      fullAnalytics: "Statistici complete + raport lunar de rezultate",
+      calendar: "Programări în Google Calendar",
+      prioritySupport: "Suport prioritar",
+      voiceNotes: "Mesaje vocale cu vocea ta, doar cu acord înregistrat",
+      onboarding: "Onboarding făcut împreună: îți antrenăm setterul alături de tine",
+      whatsappSupport: "Suport direct pe WhatsApp",
+    },
+    packs: {
+      title: "Ai nevoie de mai multe răspunsuri? Reîncarci oricând.",
+      subtitle: "Dacă rămâi fără credite înainte de finalul lunii, cumperi un pachet extra dintr-un clic. Setterul tău nu se oprește.",
+      credits: { one: "{n} credit", few: "{n} credite", other: "{n} de credite" },
+      save: "Economisești {pct}%",
+      note: "Creditele extra se folosesc după cele lunare și rămân valabile {months} luni. Disponibile pe orice plan.",
+    },
+    compare: {
+      title: "Compară planurile",
+      show: "Vezi comparația completă",
+      hide: "Ascunde comparația",
+      featureColumn: "Funcționalitate",
+      included: "Inclus",
+      notIncluded: "Nu e inclus",
+      rows: {
+        replies: "Răspunsuri AI / lună",
+        setters: "Setteri AI",
+        channels: "Canale",
+        users: "Utilizatori în dashboard",
+        leadScore: "Scor și rezumat AI pentru lead-uri",
+        takeover: "Preluare umană",
+        followUps: "Follow-up automat",
+        netSales: "Urmărirea vânzărilor nete",
+        analytics: "Statistici",
+        calendar: "Programări în Google Calendar",
+        voiceNotes: "Mesaje vocale cu acord",
+        onboarding: "Onboarding",
+        support: "Suport",
+      },
+      values: {
+        unlimited: "Nelimitat",
+        oneChannel: "1 din 3",
+        allChannels: "Toate cele 3",
+        basic: "De bază",
+        full: "Complete + raport lunar",
+        doneWithYou: "Făcut împreună",
+        email: "Email",
+        priority: "Prioritar",
+        whatsapp: "WhatsApp direct",
+      },
+    },
+    // Răspunsurile pot folosi {days}, {replies} și {cancelDay} din content/pricing.ts.
+    faq: {
+      title: "Întrebări despre prețuri",
+      items: [
+        {
+          q: "Ce este un credit?",
+          a: "Un credit = un răspuns AI trimis unui lead. Citirea mesajelor, scorurile și rezumatele sunt gratuite.",
+        },
+        {
+          q: "Ce se întâmplă dacă rămân fără credite?",
+          a: "Setterul oprește răspunsurile AI noi și primești o alertă. Cumperi un pachet extra sau treci pe un plan mai mare, iar el continuă imediat. Poți oricând să răspunzi manual din inbox.",
+        },
+        {
+          q: "Pot schimba planul oricând?",
+          a: "Da. Trecerea pe un plan mai mare se aplică imediat, iar trecerea pe unul mai mic de la următoarea dată de facturare.",
+        },
+        {
+          q: "Există o perioadă gratuită?",
+          a: "Da, {days} zile gratuit, cu {replies}. Ai nevoie de card, dar dacă anulezi oricând înainte de ziua {cancelDay}, nu plătești nimic.",
+        },
+        {
+          q: "Luați comision din vânzările mele?",
+          a: "Nu. Plătești planul și atât.",
+        },
+        {
+          q: "Datele mele sunt în siguranță?",
+          a: "Conversațiile sunt stocate criptat în UE (Frankfurt). Mesajele sunt procesate de furnizorul nostru de AI doar ca să scrie răspunsurile și nu sunt folosite niciodată la antrenarea modelelor AI.",
+        },
+      ],
+    },
   },
 
   faq: {
@@ -296,7 +376,7 @@ export const ro: Dictionary = {
       },
       {
         q: "Când pot începe și cât va costa?",
-        a: "Cei de pe lista de așteptare primesc acces primii, iar noi îți scriem când îți vine rândul. Prețurile vor fi anunțate înainte de lansare. Înscrierea e gratuită și nu te obligă la nimic.",
+        a: "Cei de pe lista de așteptare primesc acces primii, iar noi îți scriem când îți vine rândul. Fiecare plan începe cu o perioadă gratuită, iar toate planurile și prețurile le găsești mai sus, la secțiunea Prețuri. Înscrierea e gratuită și nu te obligă la nimic.",
       },
     ],
   },

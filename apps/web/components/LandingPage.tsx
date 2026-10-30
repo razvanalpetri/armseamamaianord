@@ -22,7 +22,7 @@ export function LandingPage({ lang }: { lang: Locale }) {
         <HowItWorks t={t.howItWorks} />
         <Channels t={t.channels} />
         <Features t={t.features} />
-        <Pricing t={t.pricing} />
+        <Pricing lang={lang} t={t.pricing} />
         <Faq t={t.faq} />
         <FinalCta lang={lang} t={t.waitlist} />
       </main>

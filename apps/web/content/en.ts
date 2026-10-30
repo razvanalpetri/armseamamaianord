@@ -209,57 +209,133 @@ export const en = {
   pricing: {
     eyebrow: "Pricing",
     title: "Simple plans that grow with you.",
-    subtitle:
-      "Joining the waitlist is free and doesn't commit you to anything. You'll pick a plan when we launch.",
-    recommended: "Recommended",
-    cta: "Join the waitlist",
-    note: "Final pricing will be announced at launch.",
-    // TBD: every price below is a placeholder. Replace "TBD" with the real
-    // price (for example "€49") before launch. Plan limits are placeholders too.
-    tiers: [
-      {
+    subtitle: "Pay monthly, or get 2 months free with yearly billing.",
+    billing: {
+      label: "Billing period",
+      monthly: "Monthly",
+      yearly: "Yearly",
+      yearlyBadge: "2 months free",
+    },
+    perMonth: "/month",
+    perYear: "/year",
+    billedMonthly: "Billed monthly",
+    billedYearly: "{price}/mo billed yearly",
+    mostPopular: "Most popular",
+    cta: "Start free trial",
+    comingSoon: "Coming soon",
+    // {days}, {replies} and {cancelDay} come from content/pricing.ts.
+    trial: "Every plan starts with a {days}-day free trial: {replies} during the trial, card required, cancel anytime before day {cancelDay}.",
+    vatNote: "Prices exclude VAT.",
+    creditsNote: "1 credit = 1 AI reply sent to a lead. Plan credits reset every month and don't roll over.",
+    replyCount: { one: "{n} AI reply", few: "{n} AI replies", other: "{n} AI replies" },
+    plans: {
+      starter: {
         name: "Starter",
-        price: "TBD", // TBD: placeholder, set real price
-        period: "/ month",
-        description: "For solo coaches and small businesses trying their first AI setter.",
-        highlighted: false,
-        features: [
-          "1 AI setter", // TBD: placeholder limit
-          "1 channel", // TBD: placeholder limit
-          "Unified inbox",
-          "Lead qualification & pipeline",
-          "Human takeover",
-        ],
+        description: "For solo founders and small businesses getting their first AI setter.",
       },
-      {
-        name: "Pro",
-        price: "TBD", // TBD: placeholder, set real price
-        period: "/ month",
-        description: "For growing teams whose sales happen in the DMs.",
-        highlighted: true,
-        features: [
-          "Everything in Starter",
-          "3 AI setters", // TBD: placeholder limit
-          "WhatsApp, Instagram & Telegram",
-          "Multi-language replies",
-          "Analytics dashboard",
-        ],
+      growth: {
+        name: "Growth",
+        description: "For businesses that sell in DMs every day.",
       },
-      {
-        name: "Agency",
-        price: "TBD", // TBD: placeholder, set real price
-        period: "/ month",
-        description: "For agencies running setters for several clients.",
-        highlighted: false,
-        features: [
-          "Everything in Pro",
-          "Multiple client workspaces", // TBD: placeholder limit
-          "Team roles & permissions",
-          "Per-client analytics",
-          "Priority support",
-        ],
+      scale: {
+        name: "Scale",
+        description: "For teams and high-volume businesses.",
       },
-    ],
+    },
+    features: {
+      replies: { one: "{n} AI reply / month", few: "{n} AI replies / month", other: "{n} AI replies / month" },
+      setters: { one: "{n} AI setter", few: "{n} AI setters", other: "{n} AI setters" },
+      settersUnlimited: "Unlimited AI setters",
+      channelOne: "1 channel (WhatsApp, Instagram or Telegram)",
+      channelsAllNamed: "All channels: WhatsApp, Instagram, Telegram",
+      channelsAll: "All channels",
+      users: { one: "{n} dashboard user", few: "{n} dashboard users", other: "{n} dashboard users" },
+      leadScore: "AI lead score + AI summary for every lead",
+      takeover: "Inbox with human takeover",
+      pipeline: "Lead pipeline (table + board)",
+      basicStats: "Basic stats",
+      emailSupport: "Email support",
+      everythingIn: "Everything in {plan}, plus:",
+      followUps: "Automatic follow-ups (no lead goes cold)",
+      netSales: "Net sales tracking: see what your DMs earn",
+      fullAnalytics: "Full analytics + monthly results report",
+      calendar: "Google Calendar booking",
+      prioritySupport: "Priority support",
+      voiceNotes: "Voice notes in your own voice, only with recorded consent",
+      onboarding: "Done-with-you onboarding: we train your setter with you",
+      whatsappSupport: "Direct WhatsApp support",
+    },
+    packs: {
+      title: "Need more replies? Top up anytime.",
+      subtitle: "If you run out before the month ends, buy an extra pack in one click. Your setter never stops.",
+      credits: { one: "{n} credit", few: "{n} credits", other: "{n} credits" },
+      save: "Save {pct}%",
+      note: "Extra credits are used after your monthly credits and stay valid for {months} months. Available on every plan.",
+    },
+    compare: {
+      title: "Compare plans",
+      show: "Show full comparison",
+      hide: "Hide full comparison",
+      featureColumn: "Feature",
+      included: "Included",
+      notIncluded: "Not included",
+      rows: {
+        replies: "AI replies / month",
+        setters: "AI setters",
+        channels: "Channels",
+        users: "Dashboard users",
+        leadScore: "AI lead score & summary",
+        takeover: "Human takeover",
+        followUps: "Automatic follow-ups",
+        netSales: "Net sales tracking",
+        analytics: "Analytics",
+        calendar: "Google Calendar booking",
+        voiceNotes: "Voice notes with consent",
+        onboarding: "Onboarding",
+        support: "Support",
+      },
+      values: {
+        unlimited: "Unlimited",
+        oneChannel: "1 of 3",
+        allChannels: "All 3",
+        basic: "Basic",
+        full: "Full + monthly report",
+        doneWithYou: "Done-with-you",
+        email: "Email",
+        priority: "Priority",
+        whatsapp: "Direct WhatsApp",
+      },
+    },
+    // Answers may use {days}, {replies} and {cancelDay} from content/pricing.ts.
+    faq: {
+      title: "Pricing FAQ",
+      items: [
+        {
+          q: "What is a credit?",
+          a: "One credit = one AI reply sent to a lead. Reading messages, scoring and summaries are free.",
+        },
+        {
+          q: "What happens if I run out of credits?",
+          a: "Your setter pauses new AI replies and you get an alert. Buy an extra pack or upgrade, and it continues instantly. You can always reply manually from the inbox.",
+        },
+        {
+          q: "Can I change plans anytime?",
+          a: "Yes. Upgrades apply instantly; downgrades apply at the next billing date.",
+        },
+        {
+          q: "Is there a free trial?",
+          a: "Yes, {days} days with {replies}. Card required, cancel anytime before day {cancelDay} and you pay nothing.",
+        },
+        {
+          q: "Do you take a commission on my sales?",
+          a: "No. You pay the plan, nothing else.",
+        },
+        {
+          q: "Is my data safe?",
+          a: "Conversations are stored encrypted in the EU (Frankfurt). Messages are processed by our AI provider only to write replies and are never used to train AI models.",
+        },
+      ],
+    },
   },
 
   faq: {
@@ -297,7 +373,7 @@ export const en = {
       },
       {
         q: "When can I start, and what will it cost?",
-        a: "Waitlist members get access first, and we'll email you when your spot opens. Pricing will be announced before launch. Joining the waitlist is free and doesn't commit you to anything.",
+        a: "Waitlist members get access first, and we'll email you when your spot opens. Every plan starts with a free trial, and you'll find all plans and prices in the Pricing section above. Joining the waitlist is free and doesn't commit you to anything.",
       },
     ],
   },
