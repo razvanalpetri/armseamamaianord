@@ -83,8 +83,19 @@ le-a dat agenția: Razvan Alpetri (Broker Imobiliar) și Badila Bianca (Agent Im
 
 - Proprietăți logice peste tot (`padding-inline`, `padding-block`).
 - Pe telefon logo-ul vine primul, apoi titlul. Pe desktop, text stânga, logo dreapta.
+- Structura urmează pagina „Vinde cu Novaria” (noiembrie 2026): hero, diagnostic,
+  servicii, marketing, pași, portofoliu, echipă, întrebări, contact. Identitatea rămâne
+  a noastră: fără etichetele mici deasupra secțiunilor pe care le are modelul, fără
+  carduri identice, numerotare romană.
 - Pagina vinde un singur serviciu, vânzarea, iar cifra lui e afișul secțiunii: „3%”
   mare, auriu, lângă ce include vânzarea. Fără grilă de servicii și fără prețuri în lei.
+- Rândul de patru din hero e un șir cu rigle verticale, nu patru carduri; pe telefon
+  devine 2 × 2.
+- Diagnosticul are trei coloane cu riglă aurie sus și cifre romane, ca pașii; răspunsul
+  nostru începe cu „Noi”, scos în auriu deschis.
+- Exemplul din Marketing și Portofoliul folosesc doar fotografiile vilei din Valu lui
+  Traian, singura proprietate cu fotografii primite de la agenție. În locul
+  statisticilor din model stă echipa: nu avem cifre confirmate.
 - „Cum lucrăm” este o scară care urcă spre dreapta, ca etajele din emblemă.
 - Bara fixă de apel există doar sub 760 px și apare după 60% din primul ecran.
 
@@ -107,6 +118,8 @@ frază. Butoanele de serviciu sunt la persoana I („Vreau să vând”), neutre
 
 - Zero overflow orizontal la 360, 390, 820, 1280 și 1440 px.
 - Toate resursele răspund 200, consola e curată, cele patru fețe de font se încarcă.
-- 9 linkuri WhatsApp cu mesaj precompletat; formularul compune mesajul și deschide
+- Linkurile WhatsApp au mesaj precompletat; formularul compune mesajul și deschide
   WhatsApp într-o filă nouă, pagina rămâne deschisă.
+- Meniul (5 linkuri) încape pe un rând de la 980 px; galeria se deschide, avansează
+  și se închide cu Esc.
 - Ancorele din meniu aterizează sub header (84 px de sus).

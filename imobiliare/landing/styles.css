@@ -274,26 +274,29 @@ a { color: inherit; text-decoration: none; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-block-start: clamp(22px, 3vw, 34px); }
 @media (max-width: 480px) { .hero-cta .btn { flex: 1 1 100%; } }
 
-.tariff {
-  list-style: none; padding: 0;
-  margin-block: clamp(26px, 4vw, 44px) 0;
-  display: grid; grid-template-columns: auto; justify-content: start;
+/* patru lucruri pe scurt, pe un rând sub titlu și logo */
+.values {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
   border-block-start: 1px solid var(--line);
 }
-.tariff li {
+.values li {
   display: flex; flex-direction: column; gap: 4px;
-  padding-block: 14px; padding-inline: 0 16px;
+  padding-block: 16px; padding-inline: 0 14px;
   border-block-end: 1px solid var(--line);
 }
-.tariff span { font-size: .8rem; letter-spacing: .03em; color: var(--dim); }
-.tariff b {
+.values li:nth-child(even) { padding-inline-start: 16px; border-inline-start: 1px solid var(--line); }
+.values b {
   font-family: var(--serif); font-weight: 600;
-  font-size: 1.2rem; line-height: 1.1; letter-spacing: .02em;
+  font-size: clamp(1.05rem, .98rem + .4vw, 1.3rem); line-height: 1.2; letter-spacing: .02em;
   color: var(--gold);
 }
-@media (min-width: 600px) {
-  .tariff li { padding-inline: 0 clamp(18px, 2.4vw, 32px); border-block-end: 0; }
-  .tariff li + li { padding-inline-start: clamp(18px, 2.4vw, 32px); border-inline-start: 1px solid var(--line); }
+.values span { font-size: .84rem; line-height: 1.45; color: var(--muted); }
+@media (min-width: 960px) {
+  .values { grid-column: 1 / -1; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .values li { padding-inline: clamp(18px, 2.2vw, 30px); border-block-end: 0; }
+  .values li:first-child { padding-inline-start: 0; }
+  .values li + li { border-inline-start: 1px solid var(--line); }
 }
 
 /* ---------- bannerul: logo-ul, în două straturi ----------
@@ -388,9 +391,7 @@ a { color: inherit; text-decoration: none; }
   font-size: clamp(1.25rem, 1.12rem + .5vw, 1.5rem);
   line-height: 1.25; letter-spacing: .03em;
 }
-.deal-price { margin-block: 6px 12px; color: var(--gold-hi); }
-.deal-price b { font-variation-settings: 'wdth' 100, 'wght' 620; }
-.deal-body p:not(.deal-price) { margin-block: 0 16px; color: var(--muted); max-width: 52ch; }
+.deal-body p { margin-block: 0 16px; color: var(--muted); max-width: 52ch; }
 @media (max-width: 520px) {
   .deal { grid-template-columns: 1fr; gap: 10px; }
 }
@@ -414,6 +415,69 @@ a { color: inherit; text-decoration: none; }
 }
 @media (max-width: 520px) { .deal-solo .btn { width: 100%; } }
 
+.deal-solo .deal-body h3 + p { margin-block-start: 12px; }
+
+/* ---------- diagnosticul: trei greșeli, fiecare cu răspunsul nostru ---------- */
+.diag { border-block-start: 1px solid var(--line); }
+.diag-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 30px; }
+.diag-list li { padding-block-start: 20px; border-block-start: 1px solid var(--line-gold); }
+.diag-n {
+  display: block; margin-block-end: 14px;
+  font-family: var(--serif); font-weight: 600;
+  font-size: 2rem; line-height: 1; color: var(--gold);
+}
+.diag-list h3 {
+  margin: 0 0 10px;
+  font-family: var(--serif); font-weight: 600;
+  font-size: clamp(1.15rem, 1.08rem + .35vw, 1.35rem); line-height: 1.3; letter-spacing: .03em;
+}
+.diag-list p { margin: 0; color: var(--muted); max-width: 40ch; }
+.diag-list p b { color: var(--gold-hi); font-variation-settings: 'wdth' 100, 'wght' 620; }
+@media (min-width: 860px) {
+  .diag-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(28px, 4vw, 56px); }
+}
+
+/* ---------- marketing inclus: lista în stânga, o prezentare reală în dreapta ---------- */
+.mk { border-block-start: 1px solid var(--line); }   /* „Cum vindem” de dedesubt are deja fundalul ridicat */
+.mk-in { display: grid; gap: clamp(40px, 5vw, 80px); }
+@media (min-width: 960px) { .mk-in { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); align-items: center; } }
+.mk-list { list-style: none; margin: clamp(24px, 3vw, 34px) 0 0; padding: 0; border-block-start: 1px solid var(--line-gold); }
+.mk-list li {
+  display: grid; gap: 4px 24px;
+  padding-block: clamp(14px, 1.8vw, 18px);
+  border-block-end: 1px solid var(--line);
+  color: var(--muted);
+}
+.mk-list b { color: var(--gold); font-variation-settings: 'wdth' 106, 'wght' 620; letter-spacing: .03em; }
+@media (min-width: 600px) { .mk-list li { grid-template-columns: 9.5em minmax(0, 1fr); align-items: baseline; } }
+.mk-close { margin: clamp(20px, 2.6vw, 28px) 0 0; color: var(--ivory); max-width: 52ch; }
+
+.case {
+  display: grid;
+  background: var(--ink-2);
+  border: 1px solid var(--line-gold);
+  transition: border-color .3s ease;
+}
+.case:hover { border-color: var(--gold); }
+.case-img { position: relative; display: block; overflow: hidden; aspect-ratio: 4 / 3; }
+.case-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(.2, .7, .2, 1); }
+.case:hover .case-img img { transform: scale(1.03); }
+.case-tag {
+  position: absolute; inset-block-start: 14px; inset-inline-start: 14px;
+  padding-block: 6px; padding-inline: 10px;
+  background: oklch(13.5% .005 80 / .82);
+  border: 1px solid var(--line-gold); border-radius: 2px;
+  font-size: .78rem; letter-spacing: .04em; color: var(--gold-hi);
+}
+.case-body { display: grid; gap: 6px; padding: clamp(20px, 2.6vw, 28px); }
+.case-body b {
+  font-family: var(--serif); font-weight: 600;
+  font-size: clamp(1.2rem, 1.1rem + .5vw, 1.5rem); line-height: 1.25; letter-spacing: .02em;
+}
+.case-meta { color: var(--muted); font-variant-numeric: tabular-nums; }
+.case .lnk { justify-self: start; margin-block-start: 10px; }
+.case:hover .lnk { border-color: var(--gold); gap: .75em; }
+
 /* ---------- proces, trepte care urcă ---------- */
 .proc { background: var(--ink-2); border-block: 1px solid var(--line); }
 .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 34px; }
@@ -436,6 +500,97 @@ a { color: inherit; text-decoration: none; }
   .steps li:nth-child(2) { margin-block-start: 100px; }
   .steps li:nth-child(3) { margin-block-start: 50px; }
 }
+
+/* ---------- fotografii: una mare, patru mici ---------- */
+.gallery { border-block-start: 1px solid var(--line); }
+.photos {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: 8px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.photos li { aspect-ratio: 4 / 3; }
+.photos li:first-child { grid-column: 1 / -1; }
+@media (min-width: 860px) {
+  .photos { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+  .photos li:first-child { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
+}
+.photos a {
+  display: block; height: 100%; overflow: hidden;
+  background: var(--ink-2);
+  border: 1px solid var(--line);
+  cursor: zoom-in;
+  transition: border-color .3s ease;
+}
+.photos a:hover { border-color: var(--line-gold); }
+.photos img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 1.2s cubic-bezier(.2, .7, .2, 1);
+}
+.photos a:hover img { transform: scale(1.03); }
+
+/* fotografia pe tot ecranul */
+.lb {
+  width: 100vw; height: 100dvh; max-width: none; max-height: none;
+  margin: 0; padding: 0; border: 0;
+  background: oklch(10% .004 80 / .97);
+  color: var(--ivory);
+  overscroll-behavior: contain;
+}
+.lb[open] { display: grid; place-items: center; }
+.lb::backdrop { background: oklch(10% .004 80 / .9); }
+.lb-img {
+  max-width: min(94vw, 1600px); max-height: calc(100dvh - 150px);
+  width: auto; height: auto;
+  object-fit: contain;
+  border: 1px solid var(--line-gold);
+  touch-action: pan-y;
+  user-select: none; -webkit-user-drag: none;
+}
+.lb-count {
+  position: absolute; inset-block-start: calc(22px + env(safe-area-inset-top)); inset-inline-start: var(--gut);
+  margin: 0; font-size: .92rem; letter-spacing: .06em; color: var(--muted);
+}
+.lb-count .num { color: var(--gold-hi); font-variation-settings: 'wdth' 106, 'wght' 600; }
+.lb-btn {
+  position: absolute;
+  display: grid; place-items: center;
+  width: 50px; height: 50px; padding: 0;
+  border: 1px solid var(--line-gold); border-radius: 50%;
+  background: oklch(13.5% .005 80 / .8); color: var(--gold-hi);
+  cursor: pointer;
+  transition: border-color .25s ease, background-color .25s ease;
+}
+.lb-btn:hover { border-color: var(--gold); background: var(--ink-3); }
+.lb-btn .ico { width: 22px; height: 22px; }
+.lb-close { inset-block-start: calc(10px + env(safe-area-inset-top)); inset-inline-end: var(--gut); }
+.lb-prev, .lb-next { inset-block-start: 50%; translate: 0 -50%; }
+.lb-prev { inset-inline-start: var(--gut); }
+.lb-next { inset-inline-end: var(--gut); }
+.lb-prev .ico { rotate: 180deg; }
+@media (max-width: 759px) {          /* pe telefon, săgețile coboară sub fotografie */
+  .lb-prev, .lb-next { inset-block: auto calc(22px + env(safe-area-inset-bottom)); translate: none; }
+  .lb-prev { inset-inline-start: calc(50% - 62px); }
+  .lb-next { inset-inline-end: calc(50% - 62px); }
+}
+body:has(.lb[open]) { overflow: hidden; }
+
+/* ---------- întrebări ---------- */
+.faq { border-block-start: 1px solid var(--line); }
+.faq-in { display: grid; gap: clamp(24px, 4vw, 60px); }
+@media (min-width: 940px) { .faq-in { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); align-items: start; } }
+.faq-list { border-block-start: 1px solid var(--line-gold); }
+.faq-list details { border-block-end: 1px solid var(--line); }
+.faq-list summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 18px;
+  padding-block: clamp(18px, 2.4vw, 24px);
+  cursor: pointer; list-style: none;
+  font-family: var(--serif); font-weight: 600;
+  font-size: clamp(1.05rem, 1rem + .3vw, 1.22rem); letter-spacing: .02em;
+}
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary .ico { color: var(--gold); transition: transform .3s ease; }
+.faq-list details[open] summary .ico { transform: rotate(45deg); }
+.faq-list details p { margin: 0 0 clamp(18px, 2.4vw, 24px); color: var(--muted); max-width: 60ch; }
 
 /* ---------- echipa ---------- */
 .team-grid {
