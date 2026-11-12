@@ -7,36 +7,59 @@ sau sună.
 
 ## Datele vilei
 
-Sursa de adevăr pentru orice text de pe pagină, exact cum le-a dat agenția:
+Sursa de adevăr pentru orice text de pe pagină (date primite în noiembrie 2026):
 
 | câmp | valoare |
 |---|---|
-| preț | 242.000 €, TVA inclus (200.000 € + TVA) |
-| regim de înălțime | P+1 |
-| structură | beton armat, zidărie din BCA |
-| suprafață utilă | 125 mp |
-| teren | 427 mp |
-| compartimentare | 3 dormitoare, 1 living, 1 bucătărie, 2 băi |
-| utilități | toate utilitățile |
-| parcare | loc de parcare în curte |
-| locație | Valu lui Traian, partea dreaptă, în spatele Penny, cartier nou de vile, liniștit, la 15 minute de Constanța |
+| preț | 242.000 € cu TVA inclus (200.000 € + TVA 21%) |
+| construcție | P+1, nouă, finalizată în 2026; beton armat, zidărie BCA |
+| camere | 4: living + 3 dormitoare; 2 băi; bucătărie separată |
+| suprafață utilă | 118,8 mp (parter 60 + etaj 58,8); 126,4 mp cu casa scării; 141,8 mp cu terase și balcoane |
+| teren | 427 mp, împrejmuit cu gard și poartă, loc de parcare în curte |
+| parter | living 34, bucătărie 15,6, baie 4, hol 6,4, terasă la intrare 5,7 mp |
+| etaj | dormitoare 18,1 / 15,5 / 11,9, baie 7,1, hol 6,2, două balcoane de câte 2,3, terasă 5,1 mp |
+| la cheie | izolație EPS 80 de 10 cm, PVC cu trei rânduri de sticlă, încălzire în pardoseală, centrală pe gaz, parchet, gresie, faianță, uși, sanitare; fără mobilier și electrocasnice |
+| dezvoltator | Copola Estate, firmă de familie, construiește în zona Constanței din 2006; peste 10 vile construite și vândute; 9 de același tip vândute în același cartier; ultima din cele trei ale proiectului, primele două vândute în cinci luni; fără comision de agenție |
+| contact | Răzvan Alpetri, 0725 367 954 |
+| locație | Valu lui Traian, partea dreaptă, în spatele Penny, cartier nou de vile, la aproximativ 15 minute de Constanța |
 
-Pe pagină nu apar alte cifre: fără an de construcție, finisaje, orientare sau
-distanțe inventate. Dacă se schimbă prețul, el apare în `index.html` (hero, fișa
-tehnică, secțiunea Vizionare, footer, meta), în `app.js` (mesajul de WhatsApp) și
-în `media/og-image.jpg`.
+Dacă se schimbă prețul: `index.html` (hero, fișa tehnică, cazurile de plată,
+calculatorul, întrebările și JSON-LD, footer, meta), `app.js` (`PRET`, mesajul de
+WhatsApp) și `media/og-image.jpg`. Rata din hero („de la aproximativ 1.168 €”) e
+rezultatul calculatorului la valorile implicite; se schimbă împreună cu prețul.
 
 ## Structura paginii
 
-1. **Hero**: titlul „Vilă P+1 în Valu lui Traian”, rezumatul, butonul de vizionare
-   și fișa de preț (242.000 €, suprafețele, camerele, telefonul).
-2. **Fotografii**: cinci fotografii de interior, una mare și patru mici; fiecare se
-   deschide pe tot ecranul, cu săgeți, glisare pe telefon și Esc.
-3. **Spațiile și construcția**: compartimentarea în cifre și fișa tehnică completă.
-4. **Locația**: textul, schema Constanța → Valu lui Traian (15 minute) și un link
-   spre zona de lângă Penny pe Google Maps.
-5. **Vizionare** (secțiunea aurie): o întrebare opțională, „Când ați vrea să vedeți
-   vila?”, apoi butonul de WhatsApp.
+1. **Hero**: „Direct de la dezvoltator”, titlul, rezumatul, butonul de vizionare și
+   fișa de preț: „ultima dintre cele trei vile”, 242.000 €, rata orientativă (link
+   la calculator), suprafețele, telefonul.
+2. **Fotografii**, cu nota că mobilierul e de prezentare.
+3. **Ce primiți la cheie**: construcție și izolație, încălzire, finisaje, curte.
+4. **Spațiile și construcția**: camerele în cifre, fișa tehnică și tabelul
+   „Compartimentare” pe parter și etaj.
+5. **Planurile vilei**: `media/plan-parter.png` și `media/plan-etaj.png`, decupate
+   din planșa primită; la apăsare se deschide planșa întreagă.
+6. **Locația**: textul, schema drumului și harta Google încorporată (iframe lazy).
+7. **O cumpărați de la cei care au construit-o**: Copola Estate, cifrele, persoana
+   de contact și „Cum decurge cumpărarea” în 4 pași.
+8. **Cât costă și cum o puteți plăti**: persoană fizică, firmă, credit și
+   calculatorul de rată.
+9. **Întrebări frecvente**, cu același text în JSON-LD (FAQPage).
+10. **Vizionare**: formularul Netlify Forms și linkurile directe.
+
+## Formularul (Netlify Forms)
+
+Formularul `vizionare` e detectat de Netlify la publicare (`data-netlify="true"`).
+Cererile apar în Netlify, la site → Forms. Notificarea pe email se setează acolo
+(Forms → Form notifications). Confirmarea apare doar dacă Netlify a răspuns cu
+succes; altfel apare butonul de WhatsApp cu datele din formular.
+
+## Măsurare
+
+Lipiți Google tag sau Google Tag Manager în `<head>`, unde e comentariul. `app.js`
+trimite în `dataLayer` și prin `gtag()` evenimentele `click_whatsapp`, `click_call`
+și `lead_form` (cu `cand` și `plata`). În Google Ads, `lead_form` și
+`click_whatsapp` se pot marca drept conversii.
 
 ## Fotografiile
 
@@ -58,27 +81,14 @@ cinci: una mare și patru mici.
 
 ## Harta
 
-Linkul „Vedeți zona pe hartă” caută „Penny Valu lui Traian” pe Google Maps, adică
-zona, nu casa. Pentru un pin exact, înlocuiți linkul cu cel copiat din Google Maps
-(„Distribuiți” → „Copiați linkul”).
+Harta încorporată și linkul „Deschideți zona în Google Maps” caută „Penny Valu lui
+Traian”, adică zona, nu casa. Pentru un pin exact, înlocuiți ambele cu linkurile
+copiate din Google Maps („Distribuiți” → „Încorporați o hartă” / „Copiați linkul”).
 
 ## Mesajul de WhatsApp
 
-Numărul este pe `<body data-wa="40725367954">`. Butoanele de vizionare trimit:
-
-```
-Bună ziua! Mă interesează vila P+1 din Valu lui Traian (242.000 €, TVA inclus).
-Aș dori să programez o vizionare.
-Prefer: în weekend.
-```
-
-Ultimul rând apare doar dacă vizitatorul a ales o variantă în secțiunea Vizionare.
-
-## Urmărirea conversiilor
-
-Lipiți codul Meta Pixel sau Google Analytics în `<head>`, unde este comentariul
-pregătit. La fiecare apăsare pe WhatsApp pagina trimite `Contact` (Meta) și
-`whatsapp_click` (Google).
+Toate butoanele de WhatsApp trimit: „Bună ziua! Am văzut vila din Valu lui Traian
+(242.000 €) și aș dori să programez o vizionare.”
 
 ## Pornire locală
 
@@ -94,7 +104,7 @@ Folderul `vila-valu-lui-traian` se urcă exact cum este (Netlify Drop, Vercel,
 Cloudflare Pages). Nu are pas de build și nu are dependențe.
 
 Acum e publicată împreună cu site-ul agenției, la
-https://alpetrirealestate.netlify.app/vila-valu-lui-traian/. `og:image`, `og:url` și
+https://alpetrirealestate.ro/vila-valu-lui-traian/. `og:image`, `og:url` și
 `canonical` din `index.html` folosesc această adresă completă, altfel
 previzualizarea nu apare în WhatsApp și Facebook. La mutarea pe alt domeniu sau
 într-un site separat, se schimbă aici.
@@ -104,7 +114,7 @@ previzualizarea nu apare în WhatsApp și Facebook. La mutarea pe alt domeniu sa
 ```
 index.html      pagina
 styles.css      tot stilul; blocurile comune sunt identice cu ../landing și ../properties-season
-app.js          linkuri WhatsApp, alegerea zilei, fotografiile pe tot ecranul, evenimente de conversie, header, bara de apel
+app.js          track(), WhatsApp, calculatorul de rată, formularul, fotografii și planuri pe tot ecranul, animații, header, bara de apel
 DESIGN.md       deciziile de design
 fonts/          Cinzel și Archivo, self-hosted, latin + latin-ext
 media/
@@ -112,6 +122,7 @@ media/
   emblem-sm.webp  emblema pentru header
   lockup.webp     logo-ul întreg, în footer
   foto-1…5-800.webp, foto-1…5-1600.webp   fotografiile vilei
+  plan-parter.png, plan-etaj.png          planurile, decupate din planșa Copola Estate
   og-image.jpg    previzualizarea linkului: logo, preț, datele vilei, telefon
   favicon-32.png, apple-touch-icon.png
 ```

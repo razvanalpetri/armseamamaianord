@@ -66,8 +66,21 @@ pe pagină (hero, secțiunea aurie, bara de pe telefon) trimit același mesaj.
 - Zero overflow orizontal la 360, 390, 820, 1280 și 1440 px.
 - Toate resursele răspund 200, consola e curată, cele patru fețe de font se încarcă,
   `ă â î ș ț` randate în ambele familii.
-- 3 linkuri WhatsApp cu mesaj precompletat; alegerea zilei intră în mesaj și se
-  scoate la a doua apăsare.
+- Linkurile WhatsApp au același mesaj precompletat; formularul arată confirmarea
+  doar după răspunsul reușit al Netlify, altfel butonul de WhatsApp cu datele lui.
+- Calculatorul dă 1.168 €/lună la 15%, 30 de ani, 5,50%; verificat și la alte valori.
 - Galeria: deschidere, înainte, înapoi, trecerea de la ultima la prima, Esc și
   butonul de închidere, pe desktop și pe telefon.
 - Ancorele din meniu aterizează sub header (84 px de sus).
+
+## Pagina pentru Google Ads (noiembrie 2026)
+
+- Secțiuni noi în același stil, fără a reface pagina: La cheie, Compartimentare,
+  Planuri, Dezvoltator cu pașii cumpărării, Preț și calculator, Întrebări, formular.
+- Mișcare: intrarea hero-ului în trepte, un reflex pe fișa de preț și pe butonul
+  principal, punct care pulsează lângă „ultima vilă”, liniuța de progres sus,
+  apariția pe rând a grupurilor, cifrele dezvoltatorului care urcă, linia pașilor
+  care se trasează, punctul care face drumul Constanța → vilă, rata care se
+  schimbă lin la slidere. Toate se opresc la prefers-reduced-motion.
+- Pașii cumpărării folosesc cifre arabe (1–4) în cercuri, în Archivo; restul
+  numerotării de pe site rămâne romană.
