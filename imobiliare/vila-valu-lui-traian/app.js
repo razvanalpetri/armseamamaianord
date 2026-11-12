@@ -146,7 +146,6 @@ if (lb?.showModal) {
     img.src = set[cur].href;
     img.alt = set[cur].querySelector('img').alt;
     count.textContent = cur + 1;
-    lb.scrollTop = 0;
     new Image().src = set[(cur + 1) % set.length].href;   // următoarea, din timp
   };
   for (const group of ['foto', 'plan']) {
@@ -155,7 +154,6 @@ if (lb?.showModal) {
       e.preventDefault();
       set = items;
       total.textContent = items.length;
-      lb.classList.toggle('is-sheet', group === 'plan');
       show(n);
       lb.showModal();
     }));

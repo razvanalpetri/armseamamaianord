@@ -14,7 +14,7 @@ Sursa de adevăr pentru orice text de pe pagină (date primite în noiembrie 202
 | preț | 242.000 € cu TVA inclus (200.000 € + TVA 21%) |
 | construcție | P+1, nouă, finalizată în 2026; beton armat, zidărie BCA |
 | camere | 4: living + 3 dormitoare; 2 băi; bucătărie separată |
-| suprafață utilă | 118,8 mp (parter 60 + etaj 58,8); 126,4 mp cu casa scării; 141,8 mp cu terase și balcoane |
+| suprafață | 125 mp utili, 160 mp construiți (doar aceste două cifre, fără detalii pe niveluri sau casa scării) |
 | teren | 427 mp, împrejmuit cu gard și poartă, loc de parcare în curte |
 | parter | living 34, bucătărie 15,6, baie 4, hol 6,4, terasă la intrare 5,7 mp |
 | etaj | dormitoare 18,1 / 15,5 / 11,9, baie 7,1, hol 6,2, două balcoane de câte 2,3, terasă 5,1 mp |
@@ -37,8 +37,8 @@ rezultatul calculatorului la valorile implicite; se schimbă împreună cu preț
 3. **Ce primiți la cheie**: construcție și izolație, încălzire, finisaje, curte.
 4. **Spațiile și construcția**: camerele în cifre, fișa tehnică și tabelul
    „Compartimentare” pe parter și etaj.
-5. **Planurile vilei**: `media/plan-parter.png` și `media/plan-etaj.png`, decupate
-   din planșa primită; la apăsare se deschide planșa întreagă.
+5. **Planurile vilei**: `media/plan-parter.png` și `media/plan-etaj.png`, doar desenul
+   din planșa primită (fără totaluri și tabele); la apăsare se deschide mare.
 6. **Locația**: textul, schema drumului și harta Google încorporată (iframe lazy).
 7. **O cumpărați de la cei care au construit-o**: Copola Estate, cifrele, persoana
    de contact și „Cum decurge cumpărarea” în 4 pași.

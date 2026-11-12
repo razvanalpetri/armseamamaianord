@@ -501,11 +501,6 @@ a { color: inherit; text-decoration: none; }
   .lb-prev { inset-inline-start: calc(50% - 62px); }
   .lb-next { inset-inline-end: calc(50% - 62px); }
 }
-/* planurile: planșa e înaltă, deci se vede la lățimea ei și se derulează */
-.lb.is-sheet { overflow-y: auto; }
-.lb.is-sheet[open] { display: block; padding-block: 78px 96px; padding-inline: var(--gut); }
-.lb.is-sheet .lb-img { display: block; margin-inline: auto; width: min(100%, 949px); max-width: none; max-height: none; }
-.lb.is-sheet :is(.lb-btn, .lb-count) { position: fixed; }
 body:has(.lb[open]) { overflow: hidden; }
 
 /* ---------- ce primiți la cheie: patru grupuri pe rigle aurii ---------- */
@@ -595,7 +590,7 @@ body:has(.lb[open]) { overflow: hidden; }
 .floor td { text-align: end; white-space: nowrap; color: var(--gold-hi); }
 .floor .out :is(th, td) { color: var(--muted); font-variation-settings: 'wdth' 100, 'wght' 400; }
 
-/* ---------- planurile: miniatura arată desenul, planșa întreagă se deschide mare ---------- */
+/* ---------- planurile: desenul, care se deschide mare ---------- */
 .plan-grid { display: grid; gap: clamp(16px, 2.4vw, 28px); max-width: 980px; }
 @media (min-width: 560px) { .plan-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .plan {
@@ -605,7 +600,7 @@ body:has(.lb[open]) { overflow: hidden; }
   cursor: zoom-in;
 }
 .plan:hover { border-color: var(--gold); }
-.plan-img { display: block; overflow: hidden; aspect-ratio: 949 / 1300; background: #fcfcf8; }
+.plan-img { display: block; overflow: hidden; background: #fcfcf8; }
 .plan-img img {
   width: 100%; height: auto;
   transform-origin: 50% 35%;
