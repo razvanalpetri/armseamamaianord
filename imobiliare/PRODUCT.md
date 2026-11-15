@@ -1,4 +1,16 @@
-# Alpetri Real Estate
+# Alpetri Capital
+
+> Actualizare: brandul este acum **Alpetri Capital**, cu două servicii:
+> 1. **Intermediere imobiliară completă** pentru proprietari (vânzare: comision 3%;
+>    închiriere: comision o chirie lunară).
+> 2. **Consultanță juridică pentru cumpărători** care au găsit deja o proprietate și vor
+>    să evite țepele: carte funciară, sarcini, litigii, identitatea vânzătorului,
+>    autorizații, dezvoltator, antecontract, recomandare scrisă.
+>
+> Eroul video (blocul care crește) este citit acum ca metaforă a tranzacției:
+> Analiză, Verificare, Negociere, Semnătură. Restul documentului de mai jos rămâne
+> valabil ca ton și interdicții.
+
 
 ## Ce este
 

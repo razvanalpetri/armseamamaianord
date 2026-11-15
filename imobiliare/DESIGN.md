@@ -1,4 +1,4 @@
-# DESIGN.md, Alpetri Real Estate
+# DESIGN.md, Alpetri Capital
 
 Documentul ăsta se verifică înainte de fiecare livrare. Dacă build-ul contrazice ceva de
 aici, build-ul greșește.

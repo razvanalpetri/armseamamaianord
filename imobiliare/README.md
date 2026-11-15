@@ -1,4 +1,7 @@
-# Alpetri Real Estate
+# Alpetri Capital
+
+Intermediere imobiliară completă (comision 3% la vânzare, o chirie la închiriere)
+și consultanță juridică pentru cumpărători care vor să evite țepele imobiliare.
 
 Site cu erou video 3D legat de scroll, construit cu skill-ul `site-3d-scroll`.
 Trăiește separat de site-ul ARM Sea Mamaia Nord din `/src`, care rămâne neatins.
@@ -65,11 +68,13 @@ Datele de mai jos sunt inventate ca substituent și trebuie înlocuite:
 
 | unde | ce |
 |---|---|
-| `index.html`, `0722 000 000` | telefonul real (apare în 4 locuri, plus `tel:`) |
-| `index.html`, `contact@alpetri.ro` | emailul real |
+| `index.html`, `0722 000 000` | telefonul real (apare în mai multe locuri, plus `tel:`) |
+| `index.html` + `app.js`, `contact@alpetricapital.ro` | emailul real (și destinatarul formularului de callback) |
+| `index.html`, tariful consultanței juridice | acum: „tarif fix, comunicat după prima discuție” |
+| `app.js`, formularul de callback | deschide un email precompletat; de legat la Formspree / Netlify Forms / CRM |
 | `index.html`, `Strada Exemplu 12, Constanța` | adresa reală |
 | `index.html`, secțiunea Portofoliu | cele 5 proprietăți, prețuri, stadii |
-| `index.html`, blocul `dl.field` | cele 4 cifre despre agenție |
+| `index.html`, blocul `dl.field` | „24 ore” răspuns și „12 puncte” verificate, de confirmat |
 | `index.html`, programul | orele reale |
 
 Orașul a fost presupus Constanța, din contextul repo-ului. Corectați dacă e altul.
