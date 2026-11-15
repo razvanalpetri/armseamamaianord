@@ -33,7 +33,11 @@ rezultatul calculatorului la valorile implicite; se schimbă împreună cu preț
 1. **Hero**: „Direct de la dezvoltator”, titlul, rezumatul, butonul de vizionare și
    fișa de preț: „ultima dintre cele trei vile”, 242.000 €, rata orientativă (link
    la calculator), suprafețele, telefonul.
-2. **Fotografii**, cu nota că mobilierul e de prezentare.
+2. **Turul video**: videoul de YouTube `0K0otjg-x_s`, cu coperta locală
+   (`media/video-poster*.webp`). Playerul (youtube-nocookie) se încarcă doar la
+   apăsare și trimite evenimentul `play_video`. Pentru alt video, schimbați
+   `data-yt` și linkul din `#vsl`, apoi coperta.
+3. **Fotografii**, cu nota că mobilierul e de prezentare.
 3. **Ce primiți la cheie**: construcție și izolație, încălzire, finisaje, curte.
 4. **Spațiile și construcția**: camerele în cifre, fișa tehnică și tabelul
    „Compartimentare” pe parter și etaj.

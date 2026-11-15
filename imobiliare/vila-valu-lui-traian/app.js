@@ -8,7 +8,7 @@ const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 /* ---------------- măsurare ----------------
    Trimite evenimentul în dataLayer (pentru Google Tag Manager) și prin gtag(),
    dacă Google tag a fost lipit în <head>. Fără ele, doar umple dataLayer.
-   Evenimente: click_whatsapp, click_call, lead_form. */
+   Evenimente: click_whatsapp, click_call, lead_form, play_video. */
 function track(name, params = {}) {
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({ event: name, ...params });
@@ -28,6 +28,22 @@ const WA = document.body.dataset.wa;
 const WA_MSG = 'Bună ziua! Am văzut vila din Valu lui Traian (242.000 €) și aș dori să programez o vizionare.';
 const waLink = text => `https://wa.me/${WA}?text=${encodeURIComponent(text)}`;
 document.querySelectorAll('.wa-visit').forEach(a => { a.href = waLink(WA_MSG); });
+
+/* ---------------- turul video ----------------
+   Playerul YouTube se încarcă doar la apăsare: pagina rămâne rapidă și nu
+   trimite nimic către YouTube până nu pornește videoul. */
+const vsl = document.getElementById('vsl');
+vsl?.querySelector('.vsl-play').addEventListener('click', e => {
+  e.preventDefault();
+  const f = document.createElement('iframe');
+  f.src = `https://www.youtube-nocookie.com/embed/${vsl.dataset.yt}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+  f.title = 'Turul video al vilei P+1 din Valu lui Traian';
+  f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+  f.allowFullscreen = true;
+  vsl.append(f);
+  vsl.classList.add('is-playing');
+  track('play_video', { video: 'tur-vila' });
+});
 
 /* ---------------- calculatorul de rată ----------------
    rată = C·r / (1 − (1+r)^−n), cu C = preț − avans, r = dobânda/12/100, n = ani·12.

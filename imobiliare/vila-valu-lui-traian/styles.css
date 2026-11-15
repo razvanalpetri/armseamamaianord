@@ -430,6 +430,78 @@ a { color: inherit; text-decoration: none; }
 }
 .photos-note, .floors-note { margin: clamp(14px, 2vw, 20px) 0 0; font-size: .92rem; color: var(--dim); }
 
+/* ---------- turul video: cadru 16:9 cu colțuri de vizor, playerul vine la apăsare ---------- */
+.vsl-sec { border-block-start: 1px solid var(--line); }
+.vsl {
+  position: relative; overflow: hidden; isolation: isolate;
+  aspect-ratio: 16 / 9;
+  background: var(--ink-2);
+  border: 1px solid var(--line-gold);
+  box-shadow: 0 50px 110px -60px oklch(62% .1 76 / .7);
+}
+.vsl-poster {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  transition: transform 1.4s cubic-bezier(.2, .7, .2, 1), filter .6s ease;
+}
+.vsl::after {                     /* umbră ușoară, ca butonul să se vadă pe orice cadru */
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: radial-gradient(60% 70% at 50% 50%, oklch(10% .004 80 / .38), transparent 75%);
+  transition: opacity .4s ease;
+}
+.vsl-ticks {
+  position: absolute; inset: 16px; z-index: 2; pointer-events: none; opacity: .85;
+  --t: linear-gradient(var(--gold), var(--gold));
+  background:
+    var(--t) left top / 26px 1px no-repeat, var(--t) left top / 1px 26px no-repeat,
+    var(--t) right top / 26px 1px no-repeat, var(--t) right top / 1px 26px no-repeat,
+    var(--t) left bottom / 26px 1px no-repeat, var(--t) left bottom / 1px 26px no-repeat,
+    var(--t) right bottom / 26px 1px no-repeat, var(--t) right bottom / 1px 26px no-repeat;
+}
+.vsl-play {
+  position: absolute; inset: 0; z-index: 3;
+  display: grid; place-content: center; justify-items: center; gap: 16px;
+  color: var(--ivory);
+}
+.vsl-btn {
+  position: relative;
+  display: grid; place-items: center;
+  width: clamp(68px, 9vw, 104px); aspect-ratio: 1; border-radius: 50%;
+  color: var(--on-gold);
+  background: linear-gradient(180deg, var(--gold-hi), var(--gold) 55%, var(--gold-lo));
+  box-shadow: 0 0 0 10px oklch(80% .105 83 / .16), 0 20px 46px -12px oklch(70% .12 78 / .85);
+  transition: transform .35s cubic-bezier(.2, .7, .2, 1), box-shadow .35s ease;
+}
+.vsl-btn .ico { width: 40%; height: 40%; margin-inline-start: 7%; }
+.vsl-cap {
+  padding-block: 6px; padding-inline: 14px;
+  background: oklch(13.5% .005 80 / .7);
+  border: 1px solid var(--line-gold); border-radius: 2px;
+  font-size: .9rem; letter-spacing: .05em; font-variation-settings: 'wdth' 106, 'wght' 600;
+  color: var(--gold-hi);
+}
+.vsl-play:hover .vsl-btn { transform: scale(1.07); box-shadow: 0 0 0 16px oklch(80% .105 83 / .2), 0 24px 56px -12px oklch(74% .13 80 / .95); }
+.vsl:hover .vsl-poster { transform: scale(1.025); }
+.vsl iframe { position: absolute; inset: 0; z-index: 4; width: 100%; height: 100%; border: 0; background: #000; }
+.vsl.is-playing :is(.vsl-poster, .vsl-ticks, .vsl-play), .vsl.is-playing::after { display: none; }
+@media (max-width: 520px) { .vsl-cap { display: none; } .vsl-ticks { inset: 10px; } }
+@media (prefers-reduced-motion: no-preference) {
+  .vsl-btn::before {              /* un inel care pulsează în jurul butonului */
+    content: ""; position: absolute; inset: 0; border-radius: 50%;
+    border: 1px solid var(--gold-hi);
+    animation: vsl-ring 2.6s ease-out infinite;
+  }
+  .js .vsl.reveal .vsl-poster { transform: scale(1.06); }
+  .js .vsl.reveal.in .vsl-poster { transform: none; }
+}
+@keyframes vsl-ring { from { transform: scale(1); opacity: .8; } to { transform: scale(1.7); opacity: 0; } }
+
+.vsl-after {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 28px;
+  margin-block-start: clamp(20px, 2.6vw, 28px);
+}
+.vsl-after p { margin: 0; color: var(--muted); max-width: 52ch; }
+@media (max-width: 520px) { .vsl-after .btn { width: 100%; } }
+
 /* ---------- fotografii: una mare, patru mici ---------- */
 .gallery { border-block-start: 1px solid var(--line); }
 .photos {

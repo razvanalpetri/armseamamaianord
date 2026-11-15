@@ -41,6 +41,7 @@
   <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M20 6 9 17l-5-5"/></symbol>
   <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></g></symbol>
   <symbol id="i-close" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></symbol>
   <symbol id="i-plus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
   <symbol id="i-zoom" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.9-4.9M10.5 8v5M8 10.5h5"/></g></symbol>
   <symbol id="i-layers" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 4.5-9 4.5-9-4.5z"/><path d="m3 12 9 4.5 9-4.5M3 16.5 12 21l9-4.5"/></g></symbol>
@@ -58,6 +59,7 @@
       <span class="brand-txt"><b>Alpetri</b><small>Real Estate</small></span>
     </a>
     <nav class="nav" aria-label="Secțiuni">
+      <a href="#video">Video</a>
       <a href="#galerie">Fotografii</a>
       <a href="#la-cheie">La cheie</a>
       <a href="#planuri">Planuri</a>
@@ -87,8 +89,8 @@
       <div class="hero-cta">
         <a class="btn btn-gold btn-live wa-visit" href="https://wa.me/40725367954" target="_blank" rel="noopener">
           <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Programați o vizionare</a>
-        <a class="btn btn-line" href="#galerie">Fotografii și detalii
-          <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-line" href="#video">
+          <svg class="ico" aria-hidden="true"><use href="#i-play"/></svg>Vedeți turul video</a>
       </div>
     </div>
 
@@ -109,6 +111,35 @@
       <a class="price-call" href="tel:+40725367954">
         <svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Sunați: 0725.367.954</a>
     </aside>
+  </div>
+</section>
+
+<!-- ============ TURUL VIDEO ============
+     Coperta e locală; playerul YouTube (youtube-nocookie) se încarcă doar la apăsare.
+     Fără JavaScript, butonul e un link care deschide videoul pe YouTube. -->
+<section class="sec vsl-sec" id="video">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2 class="h-sec">Turul vilei, în video</h2>
+      <p class="lede">Răzvan Alpetri vă prezintă vila, cameră cu cameră.</p>
+    </div>
+    <div class="vsl reveal" id="vsl" data-yt="0K0otjg-x_s">
+      <img class="vsl-poster" src="media/video-poster.webp"
+           srcset="media/video-poster-640.webp 640w, media/video-poster.webp 1280w"
+           sizes="(min-width: 1240px) 1128px, 100vw" width="1280" height="720"
+           alt="Răzvan Alpetri în holul vilei, la începutul turului video" loading="lazy" decoding="async">
+      <span class="vsl-ticks" aria-hidden="true"></span>
+      <a class="vsl-play" href="https://www.youtube.com/watch?v=0K0otjg-x_s" target="_blank" rel="noopener"
+         aria-label="Porniți turul video al vilei">
+        <span class="vsl-btn" aria-hidden="true"><svg class="ico"><use href="#i-play"/></svg></span>
+        <span class="vsl-cap">Porniți turul video</span>
+      </a>
+    </div>
+    <div class="vsl-after reveal">
+      <p>V-a plăcut ce ați văzut? Programați o vizionare și vedeți vila pe viu.</p>
+      <a class="btn btn-gold wa-visit" href="https://wa.me/40725367954" target="_blank" rel="noopener">
+        <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Programați o vizionare</a>
+    </div>
   </div>
 </section>
 
@@ -563,6 +594,7 @@
       <p>Direct de la dezvoltator, fără comision de agenție.</p>
     </div>
     <nav class="ftr-col" aria-label="Pagină">
+      <a href="#video">Turul video</a>
       <a href="#galerie">Fotografii</a>
       <a href="#la-cheie">Ce primiți la cheie</a>
       <a href="#planuri">Planurile vilei</a>
