@@ -1,7 +1,7 @@
 # Vilă P+1 în Valu lui Traian
 
 Pagina de prezentare a unei singure proprietăți, pe identitatea Alpetri Real Estate
-(negru mat și auriu, ca landing-ul din `../landing` și campania din
+(negru mat și auriu, ca fosta pagină a agenției și campania din
 `../properties-season`). Scopul ei: vizitatorul programează o vizionare pe WhatsApp
 sau sună.
 
@@ -104,20 +104,20 @@ Apoi http://localhost:8844
 
 ## Publicare
 
-Folderul `vila-valu-lui-traian` se urcă exact cum este (Netlify Drop, Vercel,
-Cloudflare Pages). Nu are pas de build și nu are dependențe.
+Din noiembrie 2026 site-ul conține doar pagina vilei; pagina agenției a fost ștearsă.
+Arhiva pentru Netlify are folderul `vila-valu-lui-traian/` și fișierul `_redirects`,
+care trimite adresa principală a site-ului (`/`) spre `/vila-valu-lui-traian/`.
+Adresa vilei rămâne aceeași, deci linkurile din Google Ads nu se schimbă.
 
-Acum e publicată împreună cu site-ul agenției, la
-https://alpetrirealestate.ro/vila-valu-lui-traian/. `og:image`, `og:url` și
-`canonical` din `index.html` folosesc această adresă completă, altfel
-previzualizarea nu apare în WhatsApp și Facebook. La mutarea pe alt domeniu sau
-într-un site separat, se schimbă aici.
+`og:image`, `og:url` și `canonical` folosesc
+https://alpetrirealestate.ro/vila-valu-lui-traian/. La mutarea pe alt domeniu, se
+schimbă în `index.html`.
 
 ## Structură
 
 ```
 index.html      pagina
-styles.css      tot stilul; blocurile comune sunt identice cu ../landing și ../properties-season
+styles.css      tot stilul; blocurile comune sunt identice cu ../properties-season
 app.js          track(), WhatsApp, calculatorul de rată, formularul, fotografii și planuri pe tot ecranul, animații, header, bara de apel
 DESIGN.md       deciziile de design
 fonts/          Cinzel și Archivo, self-hosted, latin + latin-ext

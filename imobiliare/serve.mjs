@@ -8,8 +8,8 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-// Folderul servit: `web` (site-ul cu scroll 3D) implicit, sau `landing`:
-//   node imobiliare/serve.mjs landing
+// Folderul servit: `web` (site-ul cu scroll 3D) implicit, sau alt folder:
+//   node imobiliare/serve.mjs vila-valu-lui-traian
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), process.argv[2] || 'web');
 const PORT = Number(process.env.PORT) || 8844;
 

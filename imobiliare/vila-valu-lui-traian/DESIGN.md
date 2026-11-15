@@ -1,7 +1,8 @@
 # DESIGN.md, pagina vilei din Valu lui Traian
 
 Se verifică înainte de fiecare livrare. Identitatea, paleta, tipografia, tonul și
-interdicțiile sunt cele din [`../landing/DESIGN.md`](../landing/DESIGN.md); aici
+interdicțiile sunt cele ale fostei pagini a agenției (`imobiliare/landing/DESIGN.md`,
+șters în noiembrie 2026, rămas în istoricul git); aici
 sunt doar deciziile proprii acestei pagini.
 
 ## O singură proprietate, deci prețul e afișul
