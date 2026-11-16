@@ -85,3 +85,18 @@ pe pagină (hero, secțiunea aurie, bara de pe telefon) trimit același mesaj.
   schimbă lin la slidere. Toate se opresc la prefers-reduced-motion.
 - Pașii cumpărării folosesc cifre arabe (1–4) în cercuri, în Archivo; restul
   numerotării de pe site rămâne romană.
+
+## Tema Liquid Glass (noiembrie 2026)
+
+Aplicată la cererea agenției, după `alpetri-liquid-glass.css` (ALPETRI CAPITAL), ca
+strat la sfârșitul `styles.css`, peste stilul existent:
+
+- fundal #050506 cu lumini fixe, difuze (auriu sus, albastru stânga, bronz dreapta)
+  și un grain fin (`.ag-bg`, primul element din body);
+- panouri de sticlă (blur, margine luminoasă, reflex lent) pe fișa de preț,
+  calculator, formular, planuri, grupurile „la cheie”, cazurile de plată, întrebări;
+- butoane pastilă: auriu metalic pentru acțiuni, sticlă pentru cele secundare;
+- text: Inter, self-hosted (variabil, latin + latin-ext); titluri argintii, accente
+  și prețuri în auriu metalic animat. Cinzel rămâne doar la „Alpetri” din header,
+  ca în logo. Regula veche „fără text cu gradient” nu se mai aplică acestei pagini;
+- secțiunea Vizionare devine întunecată, cu lumină aurie, în locul fundalului auriu.

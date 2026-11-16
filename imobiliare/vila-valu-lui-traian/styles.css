@@ -1,6 +1,6 @@
 /* Vilă P+1 în Valu lui Traian, pagina proprietății
    Aceeași identitate ca fosta pagină a agenției Alpetri Real Estate (negru mat, auriu metalic,
-   Cinzel + Archivo). Fonturile, tokenii, butoanele, headerul, CTA-ul auriu
+   Cinzel pentru logo; din noiembrie 2026 textul e în Inter, vezi tema de la final). Fonturile, tokenii, butoanele, headerul, CTA-ul auriu
    și footerul sunt preluate identic din fosta pagină a agenției și din ../properties-season; restul
    e specific paginii. Mișcarea (apariții, calculator, schema drumului) e la sfârșit
    de fiecare bloc și respectă prefers-reduced-motion. Deciziile sunt în DESIGN.md din acest folder. */
@@ -24,28 +24,6 @@
   font-weight: 400 900;
   font-display: swap;
   src: url('fonts/cinzel-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
-    U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: 'Archivo';
-  font-style: normal;
-  font-weight: 100 900;
-  font-stretch: 62% 125%;
-  font-display: swap;
-  src: url('fonts/archivo-latinext.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
-    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
-    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face {
-  font-family: 'Archivo';
-  font-style: normal;
-  font-weight: 100 900;
-  font-stretch: 62% 125%;
-  font-display: swap;
-  src: url('fonts/archivo-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
     U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
     U+2212, U+2215, U+FEFF, U+FFFD;
@@ -1181,4 +1159,240 @@ html:not(.js) .calc-nojs { display: block; }
   .js .reveal, .js .stagger > * { opacity: 1; transform: none; transition: none; }
   .js .flow.stagger li::after { transform: none; transition: none; }
   .calc-bar span { transition: none; }
+}
+
+/* ============================================================
+   TEMA LIQUID GLASS (noiembrie 2026)
+   Preluată din alpetri-liquid-glass.css (ALPETRI CAPITAL): negru adânc, lumini
+   difuze aurii și albastre, panouri de sticlă, auriu metalic, Inter.
+   E pusă ca strat peste stilul de mai sus, ca să poată fi scoasă dintr-o bucată.
+   ============================================================ */
+/* Inter, self-hosted (variabil, 200–700): latin + latin-ext, cu ă â î ș ț */
+@font-face {
+  font-family: 'Inter'; font-style: normal; font-weight: 200 700; font-display: swap;
+  src: url('fonts/inter-latinext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Inter'; font-style: normal; font-weight: 200 700; font-display: swap;
+  src: url('fonts/inter-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308,
+    U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+:root {
+  --ink:   #050506;
+  --ink-2: rgba(255, 255, 255, .045);
+  --ink-3: rgba(255, 255, 255, .1);
+  --line:      rgba(255, 255, 255, .09);
+  --line-gold: rgba(216, 191, 138, .32);
+  --gold-lo: #9b7a42;
+  --gold:    #d8bf8a;
+  --gold-hi: #f3e2b8;
+  --ivory:   #f5f5f7;
+  --muted:   #a1a1a6;
+  --dim:     #76767c;
+  --on-gold: #1a1308;
+  --gold-metal: linear-gradient(120deg, #8a6a35 0%, #e9d3a1 22%, #fff4d6 38%, #c9a462 55%, #f3e2b8 72%, #9b7a42 100%);
+  --silver: linear-gradient(180deg, #ffffff 0%, #e8e8ed 45%, #9a9aa2 100%);
+  --display: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  --sans:    "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  --serif:   var(--display);          /* titlurile trec de la Cinzel la fontul temei */
+  --r-xl: 40px; --r-lg: 30px; --r-md: 22px; --r-sm: 14px;
+  color-scheme: dark;
+}
+body {
+  background: var(--ink);
+  font-family: var(--sans);
+  letter-spacing: -.011em;
+  -webkit-font-smoothing: antialiased;
+}
+main, .ftr { position: relative; z-index: 1; }
+
+/* luminile de fundal, fixe, sub tot conținutul */
+.ag-bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.ag-bg i { position: absolute; border-radius: 50%; filter: blur(120px); }
+.ag-bg .g1 { width: 760px; height: 520px; left: 50%; top: -260px; transform: translateX(-50%);
+  background: radial-gradient(closest-side, rgba(233, 207, 150, .55), rgba(233, 207, 150, 0)); filter: blur(40px); }
+.ag-bg .g2 { width: 520px; height: 520px; left: -200px; top: 35%; background: #1c2c55; opacity: .55; }
+.ag-bg .g3 { width: 560px; height: 560px; right: -220px; top: 60%; background: #5b4520; opacity: .45; }
+.ag-bg .grain { position: absolute; inset: 0; opacity: .05; filter: none; border-radius: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, .8) 1px, transparent 1px); background-size: 3px 3px; }
+
+/* ---------- titluri: argintiu, auriu metalic pe accente ---------- */
+.h-display, .h-sec, .h-sub, .kit-g h3, .cases h3, .flow h4, .calc h3, .faq-list summary,
+.route-stop b, .plan-cap b, .person-card b, .lead-done h3, .floor caption, .price-card .price {
+  font-family: var(--display); letter-spacing: -.03em;
+}
+.h-display, .h-sec { font-weight: 600; line-height: 1.08; }
+.h-display, .h-sec, .h-sub {
+  background: var(--silver); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.h-display em, .gold-text, .price, .calc-rate output, .calc-rate {
+  background: var(--gold-metal); background-size: 200% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.calc-rate small { -webkit-text-fill-color: var(--muted); }
+@media (prefers-reduced-motion: no-preference) {
+  .h-display em, .price, .calc-rate { animation: ag-shine 6s linear infinite; }
+}
+@keyframes ag-shine { to { background-position: 200% 0; } }
+.hero .h-display { max-width: 15ch; }
+.d { font: inherit; letter-spacing: inherit; }      /* în Inter, 1 se citește corect */
+.kicker, .final-kicker {
+  font-family: var(--sans); font-weight: 600; font-size: .78rem; letter-spacing: .24em; text-transform: uppercase;
+}
+.kit-g h3, .cases h3, .flow h4, .plan-cap b, .floor caption, .person-card b, .route-stop b { font-weight: 600; }
+.brand-txt b { font-family: 'Cinzel', Georgia, serif; letter-spacing: .14em; }   /* ca în logo */
+
+/* ---------- panouri de sticlă ---------- */
+.price-card, .calc, .lead, .lead-done, .person-card, .plan, .route, .kit-g, .cases li, .faq-list {
+  position: relative; isolation: isolate; overflow: hidden;
+  border: 0; border-radius: var(--r-lg);
+  background: linear-gradient(160deg, rgba(255, 255, 255, .13) 0%, rgba(255, 255, 255, .04) 45%, rgba(255, 255, 255, .07) 100%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%); backdrop-filter: blur(30px) saturate(180%);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .35) inset, 0 -1px 0 rgba(255, 255, 255, .06) inset,
+              0 40px 80px -20px rgba(0, 0, 0, .7), 0 0 0 .5px rgba(255, 255, 255, .08);
+}
+:is(.price-card, .calc, .lead, .lead-done, .person-card, .plan, .route, .kit-g, .cases li, .faq-list)::before {
+  content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  border-radius: inherit; padding: 1px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, .75), rgba(255, 255, 255, .08) 30%, rgba(255, 255, 255, 0) 55%, rgba(233, 207, 150, .45) 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+}
+:is(.price-card, .calc, .lead, .person-card, .route)::after {
+  content: ""; position: absolute; left: -60%; top: -120%; width: 60%; height: 300%; z-index: 1; pointer-events: none;
+  inset-block-end: auto; inset-inline-end: auto; aspect-ratio: auto; opacity: 1;
+  background: linear-gradient(100deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, .10), rgba(255, 255, 255, 0));
+  transform: rotate(18deg); animation: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  :is(.price-card, .calc, .lead, .person-card, .route)::after { animation: ag-sheen 9s ease-in-out infinite; }
+  .calc::after { animation-delay: 3s; }
+  .lead::after { animation-delay: 5s; }
+}
+@keyframes ag-sheen { 0%, 60% { left: -60%; } 100% { left: 130%; } }
+:is(.price-card, .calc, .lead, .lead-done, .person-card, .plan, .route, .kit-g, .cases li, .faq-list) > * { position: relative; z-index: 3; }
+.route-line { position: relative; }
+
+.price-card { padding: clamp(26px, 3.2vw, 38px); }
+.last { border-color: var(--line); }
+.specs, .specs div { border-color: var(--line); }
+.kit-g, .cases li { padding: clamp(22px, 2.6vw, 30px); }
+.kit { gap: 14px; }
+.cases { gap: 14px; }
+.kit-g h3 .ico { border-color: rgba(255, 255, 255, .18); background: rgba(255, 255, 255, .06); }
+.faq-list { padding-inline: clamp(18px, 2.6vw, 32px); border-block-start: 0; }
+.faq-list details:last-child { border-block-end: 0; }
+.calc { box-shadow: 0 1px 0 rgba(255, 255, 255, .35) inset, 0 50px 100px -30px rgba(0, 0, 0, .8), 0 0 0 .5px rgba(255, 255, 255, .08); }
+.calc-out { background: rgba(0, 0, 0, .22); border-color: var(--line); }
+.route { padding: clamp(28px, 4vw, 44px); }
+.route-dot { background: var(--ink); }
+.person-card { padding: clamp(20px, 2.6vw, 28px); }
+.plan { cursor: zoom-in; }
+.plan-img { border-radius: var(--r-md) var(--r-md) 0 0; margin: 8px 8px 0; }
+.plan-cap { border-color: var(--line); }
+
+/* secțiunile nu mai au fundal plin: luminile se văd prin ele */
+.details, .dev { background: transparent; border-color: var(--line); }
+.gallery, .vsl-sec, .location, .faq, .ftr { border-color: var(--line); }
+
+/* colțuri rotunjite la imagini, video, hartă */
+.photos a { border-radius: var(--r-md); border-color: rgba(255, 255, 255, .1); }
+.vsl, .map { border-radius: var(--r-lg); border-color: rgba(255, 255, 255, .14); }
+.vsl-ticks { display: none; }
+.vsl-cap { border-radius: 999px; border-color: rgba(255, 255, 255, .22); background: rgba(10, 10, 12, .45);
+  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); color: #fff; }
+.vsl-btn { background: var(--gold-metal); background-size: 200% 100%; color: #1a1308; }
+.lb-img { border-radius: var(--r-md); border-color: rgba(255, 255, 255, .14); }
+.lb-btn { background: rgba(255, 255, 255, .08); border-color: rgba(255, 255, 255, .22);
+  -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px); color: #fff; }
+
+/* ---------- butoane: pastile, auriu metalic și sticlă ---------- */
+.btn { border-radius: 999px; font-family: var(--sans); font-variation-settings: normal; font-weight: 500;
+  letter-spacing: -.01em; font-size: 1rem; }
+.btn-gold, .btn-ink, .dock-wa {
+  color: #1a1308; background: var(--gold-metal); background-size: 200% 100%;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .7) inset, 0 10px 30px -6px rgba(216, 191, 138, .55);
+  transition: transform .25s ease, box-shadow .25s ease, background-position .45s ease;
+}
+:is(.btn-gold, .btn-ink):hover { background-position: 100% 0; transform: translateY(-1px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .7) inset, 0 14px 40px -6px rgba(216, 191, 138, .75); }
+.btn-line, .btn-line-ink, .price-call {
+  color: #fff; border: 0; border-radius: 999px; background: rgba(255, 255, 255, .08);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .22) inset, 0 1px 0 rgba(255, 255, 255, .35) inset;
+  -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+}
+:is(.btn-line, .btn-line-ink, .price-call):hover { background: rgba(255, 255, 255, .14); color: #fff; }
+.price-call { font-variation-settings: normal; font-weight: 500; }
+.hdr-call { border: 0; border-radius: 999px; color: #fff; background: rgba(255, 255, 255, .08);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .2) inset; font-variation-settings: normal; font-weight: 500; }
+.hdr-call:hover { background: rgba(255, 255, 255, .14); }
+.price-rate, .lnk { color: var(--gold-hi); }
+
+/* ---------- header, bara de jos și progresul ---------- */
+.hdr.solid {
+  background: rgba(5, 5, 6, .55); border-color: rgba(255, 255, 255, .08);
+  -webkit-backdrop-filter: blur(24px) saturate(180%); backdrop-filter: blur(24px) saturate(180%);
+}
+.nav a { font-family: var(--sans); letter-spacing: -.01em; }
+.progress { background: var(--gold-metal); }
+@media (max-width: 760px) {
+  .dock {
+    background: rgba(5, 5, 6, .6); border-color: rgba(255, 255, 255, .1);
+    -webkit-backdrop-filter: blur(24px) saturate(180%); backdrop-filter: blur(24px) saturate(180%);
+    padding: 8px 10px calc(8px + env(safe-area-inset-bottom)); gap: 8px;
+  }
+  .dock a { min-height: 50px; border-radius: 999px; font-variation-settings: normal; font-weight: 600; }
+  .dock-call { color: #fff; background: rgba(255, 255, 255, .08); box-shadow: 0 0 0 1px rgba(255, 255, 255, .2) inset; }
+  body { padding-block-end: calc(66px + env(safe-area-inset-bottom)); }
+}
+
+/* ---------- cifre și liste ---------- */
+.rooms b, .figs dd, .specs dd, .calc-dl dd, .field output, .floor td { font-family: var(--display); font-variation-settings: normal; }
+.rooms b, .figs dd { font-weight: 300; letter-spacing: -.04em;
+  background: var(--gold-metal); background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; }
+.specs dd { font-weight: 500; letter-spacing: -.02em; }
+.calc-rate { font-family: var(--display); font-variation-settings: normal; font-weight: 600; letter-spacing: -.04em; }
+.flow-n { background: rgba(255, 255, 255, .06); border-color: var(--line-gold); font-variation-settings: normal; font-weight: 500;
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+
+/* ---------- vizionare: secțiune întunecată, cu lumină aurie, în locul celei aurii ---------- */
+.final {
+  color: var(--ivory);
+  background:
+    radial-gradient(60% 70% at 15% 10%, rgba(233, 207, 150, .22), transparent 70%),
+    radial-gradient(50% 60% at 95% 100%, rgba(91, 69, 32, .45), transparent 70%),
+    transparent;
+  border-block-start: 1px solid var(--line);
+}
+.final::after { mix-blend-mode: normal; opacity: .05; }
+.final .h-sec { color: transparent; }
+.final-lede, .lead-privacy, .final-direct p, .lead-status { color: var(--muted); }
+.final :focus-visible { outline-color: var(--gold); }
+.lead { padding: clamp(22px, 3vw, 36px); }
+.lead-row label, .chips legend { color: var(--ivory); font-variation-settings: normal; font-weight: 500; letter-spacing: 0; }
+.lead-row input {
+  min-height: 52px; padding: 12px 16px; border: 0; border-radius: var(--r-sm);
+  background: rgba(255, 255, 255, .06); color: var(--ivory);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .16) inset;
+}
+.lead-row input:hover { box-shadow: 0 0 0 1px rgba(255, 255, 255, .28) inset; }
+.lead-row input:focus-visible { outline: 0; background: rgba(255, 255, 255, .08); box-shadow: 0 0 0 1.5px var(--gold) inset; }
+.chips span {
+  border: 0; border-radius: 999px; color: var(--ivory); background: rgba(255, 255, 255, .06);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .16) inset; font-variation-settings: normal; font-weight: 500;
+}
+.chips label:hover span { box-shadow: 0 0 0 1px rgba(255, 255, 255, .35) inset; }
+.chips input:checked + span { color: #1a1308; background: var(--gold-metal); box-shadow: 0 6px 20px -6px rgba(216, 191, 138, .6); }
+.chips input:focus-visible + span { outline: 2px solid var(--gold); }
+.lead-fail { border: 0; border-radius: var(--r-md); background: rgba(216, 191, 138, .1); box-shadow: 0 0 0 1px var(--line-gold) inset; }
+.lead-fail p { color: var(--ivory); font-variation-settings: normal; font-weight: 500; }
+.lead-done { color: var(--ivory); }
+.lead-done h3 { color: var(--gold-hi); }
+
+:focus-visible { outline-color: var(--gold); }
+@media (prefers-reduced-motion: reduce) {
+  :is(.price-card, .calc, .lead, .person-card, .route)::after { animation: none; }
 }
