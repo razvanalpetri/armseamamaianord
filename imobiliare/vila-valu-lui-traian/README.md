@@ -19,7 +19,7 @@ Sursa de adevăr pentru orice text de pe pagină (date primite în noiembrie 202
 | parter | living 34, bucătărie 15,6, baie 4, hol 6,4, terasă la intrare 5,7 mp |
 | etaj | dormitoare 18,1 / 15,5 / 11,9, baie 7,1, hol 6,2, două balcoane de câte 2,3, terasă 5,1 mp |
 | la cheie | izolație EPS 80 de 10 cm, PVC cu trei rânduri de sticlă, încălzire în pardoseală, centrală pe gaz, parchet, gresie, faianță, uși, sanitare; fără mobilier și electrocasnice |
-| dezvoltator | Copola Estate, firmă de familie, construiește în zona Constanței din 2006; peste 10 vile construite și vândute; 9 de același tip vândute în același cartier; ultima din cele trei ale proiectului, primele două vândute în cinci luni; fără comision de agenție |
+| dezvoltator | Copola Estate, firmă de familie, construiește în zona Constanței din 2006; zeci de vile construite și vândute; 9 de același tip vândute în același cartier; ultima din cele trei ale proiectului, primele două vândute în cinci luni; fără comision de agenție |
 | contact | Răzvan Alpetri, 0725 367 954 |
 | locație | Valu lui Traian, partea dreaptă, în spatele Penny, cartier nou de vile, la aproximativ 15 minute de Constanța |
 
