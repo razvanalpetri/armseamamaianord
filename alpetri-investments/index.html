@@ -116,11 +116,12 @@ h2{font-size:clamp(36px,5.4vw,64px);margin:18px 0 18px}
 .hero-note span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold)}
 
 .lockup{padding:34px 30px 30px;border-radius:var(--r-xl);text-align:center}
-.lockup-top{display:flex;align-items:center;justify-content:center;gap:4px;margin-bottom:26px}
-.lk-face{width:132px;height:132px;border-radius:50%;object-fit:cover;object-position:50% 30%;border:2px solid var(--gold);box-shadow:0 0 0 6px rgba(217,178,95,.12),0 20px 40px -10px rgba(0,0,0,.8)}
-.lk-x{font-family:var(--serif);font-size:44px;color:var(--gold-2);margin:0 8px;z-index:2;text-shadow:0 0 20px rgba(243,217,143,.5)}
-.lk-emb{width:132px;height:132px;border-radius:50%;background:radial-gradient(circle at 50% 35%,#1b1b1d,#050505);border:2px solid var(--gold);display:grid;place-items:center;box-shadow:0 0 0 6px rgba(217,178,95,.12),0 20px 40px -10px rgba(0,0,0,.8)}
-.lk-emb img{width:72px}
+.lockup-top{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:26px}
+.lk-card{min-width:0;border-radius:18px;overflow:hidden;border:1.5px solid var(--gold);background:#000;box-shadow:0 0 0 5px rgba(217,178,95,.1),0 20px 40px -10px rgba(0,0,0,.8)}
+.lk-card img{display:block;width:100%;height:auto}
+.lk-photo{flex:1}.lk-logo{flex:1.288}
+.lk-x{flex:none;font-family:var(--serif);font-size:40px;color:var(--gold-2);margin:0 2px;text-shadow:0 0 20px rgba(243,217,143,.5)}
+
 .lockup h3{font-family:var(--serif);font-weight:600;font-size:40px;letter-spacing:.04em;line-height:1}
 .lockup .sub{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-top:10px}
 .lockup .rule{height:1px;margin:24px 0 18px;background:linear-gradient(90deg,transparent,rgba(217,178,95,.6),transparent)}
@@ -172,7 +173,7 @@ h2{font-size:clamp(36px,5.4vw,64px);margin:18px 0 18px}
 /* ---------- about ---------- */
 .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
 .frame{position:relative;padding:14px;border-radius:40px;transform:rotate(-1.5deg)}
-.frame img{border-radius:28px;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 25%}
+.frame img{border-radius:28px;width:100%;height:auto}
 .frame .badge{position:absolute;left:-22px;bottom:40px;padding:14px 18px;border-radius:20px;display:flex;align-items:center;gap:12px;transform:rotate(1.5deg)}
 .frame .badge img{width:30px;aspect-ratio:auto;border-radius:0}
 .frame .badge b{display:block;font-size:14px}
@@ -197,9 +198,9 @@ h2{font-size:clamp(36px,5.4vw,64px);margin:18px 0 18px}
 
 /* ---------- collab ---------- */
 .collab{padding:70px 50px;border-radius:44px;display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:center}
-.collab .mark{display:flex;align-items:center}
-.collab .mark .lk-face,.collab .mark .lk-emb{width:150px;height:150px}
-.collab .mark .lk-emb img{width:84px}
+.collab .mark{display:flex;align-items:center;gap:8px}
+.collab .mark{width:440px}
+
 .collab h2{font-size:clamp(32px,4.4vw,52px)}
 .collab .names{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px}
 .chip{padding:10px 16px;border-radius:999px;font-size:14px;font-weight:500}
@@ -236,7 +237,7 @@ footer{padding:40px 0 60px;border-top:1px solid rgba(255,255,255,.07)}
   .bento{grid-template-columns:repeat(2,1fr)}
   .steps{grid-template-columns:repeat(2,1fr)}
   .collab{grid-template-columns:1fr;text-align:center;padding:50px 28px}
-  .collab .mark{justify-content:center}
+  .collab .mark{justify-content:center;margin:0 auto;max-width:100%}
   .collab .names{justify-content:center}
   .frame{max-width:440px;margin:0 auto}
 }
@@ -258,10 +259,8 @@ footer{padding:40px 0 60px;border-top:1px solid rgba(255,255,255,.07)}
   .tile.feature,.tile.wide{grid-column:auto;grid-row:auto}
   .tile.feature{padding:30px 24px}
   .pillars{grid-template-columns:1fr}
-  .lk-face,.lk-emb{width:104px;height:104px}
-  .lk-emb img{width:58px}
-  .collab .mark .lk-face,.collab .mark .lk-emb{width:110px;height:110px}
-  .collab .mark .lk-emb img{width:62px}
+
+  .collab .mark{width:100%}
   .frame .badge{left:8px;bottom:18px}
   .hero-ctas .btn{flex:1 1 100%}
   .final{padding:100px 0}
@@ -313,9 +312,9 @@ footer{padding:40px 0 60px;border-top:1px solid rgba(255,255,255,.07)}
 
     <div class="lockup glass reveal" style="transition-delay:.15s">
       <div class="lockup-top">
-        <img class="lk-face" src="img/razvan-face.jpg" alt="Razvan Alpetri">
+        <span class="lk-card lk-photo"><img src="img/razvan-full.jpg" alt="Razvan Alpetri"></span>
         <span class="lk-x">×</span>
-        <span class="lk-emb"><img src="img/emblem.png" alt="Emblema Alpetri Real Estate"></span>
+        <span class="lk-card lk-logo"><img src="img/logo-full.jpg" alt="Logo Alpetri Real Estate"></span>
       </div>
       <h3 class="gold-text">ALPETRI</h3>
       <div class="sub">Investments</div>
@@ -448,7 +447,7 @@ footer{padding:40px 0 60px;border-top:1px solid rgba(255,255,255,.07)}
   <div class="wrap about-grid">
     <div class="frame glass reveal">
       <span class="corner c1"></span><span class="corner c2"></span>
-      <img src="img/razvan.jpg" alt="Razvan Alpetri, dezvoltator imobiliar">
+      <img src="img/razvan-full.jpg" alt="Razvan Alpetri, dezvoltator imobiliar">
       <div class="badge glass">
         <img src="img/emblem.png" alt="">
         <div><b>Razvan Alpetri</b><span>Dezvoltator imobiliar</span></div>
@@ -490,9 +489,9 @@ footer{padding:40px 0 60px;border-top:1px solid rgba(255,255,255,.07)}
   <div class="wrap">
     <div class="collab glass reveal">
       <div class="mark">
-        <img class="lk-face" src="img/razvan-face.jpg" alt="Razvan Alpetri">
+        <span class="lk-card lk-photo"><img src="img/razvan-full.jpg" alt="Razvan Alpetri"></span>
         <span class="lk-x">×</span>
-        <span class="lk-emb"><img src="img/emblem.png" alt="Alpetri Real Estate"></span>
+        <span class="lk-card lk-logo"><img src="img/logo-full.jpg" alt="Logo Alpetri Real Estate"></span>
       </div>
       <div>
         <span class="eyebrow">O colaborare</span>
